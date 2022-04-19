@@ -1,0 +1,188 @@
+%% LaTeX2e class for student theses
+%% sections/introduction.tex
+%% 
+%% Karlsruhe Institute of Technology
+%% Institute of Information Security and Dependability (KASTEL)
+%%
+%% Template by
+%% Dr.-Ing. Erik Burger
+%% burger@kit.edu
+%%
+%% Adaption by
+%% Annika Vielsack
+%% vielsack@kit.edu
+%%
+%% Version 1.0, 2021-07-03
+
+\chapter{Introduction}
+\label{ch:Introduction}
+
+%% -------------------
+%% | Example content |
+%% -------------------
+
+This is the thesis template of the \emph{Application-oriented Formal Verification}
+research group at the Institute of Information Security and Dependability (KASTEL) at KIT. It was adapted
+from the thesis template of the SDQ research group.
+Hence, for more information on the formatting of theses, you can still refer to
+\url{https://sdqweb.ipd.kit.edu/wiki/Ausarbeitungshinweise} as well as your advisor.
+
+
+In the following, we present some general recommendations.
+These are non-binding, however, and should be harmonized with your advisor.
+
+% \section{Content}
+% \label{sec:content}
+% 
+% \begin{itemize}
+% \item The typical thesis has (at the very least) three parts:
+% the introduction, the main part, and the conclusion.
+
+  
+% \item Following points is mandatory for a thesis:
+%   \begin{itemize}
+%   \item The \textbf{introduction} containing the motivation, problem definition,
+%     and your contribution.
+% 
+%     At the end of the introduction, every computer scientist reader should know,
+%     which problem have you solved, how do you solve it, and why this is an
+%     important contribution.
+%        
+%   \item The \textbf{preliminary work} consists the foundations on which your
+%     thesis built on. 
+% 
+%   \item In contrast, \textbf{related work} contains foreign publications which
+%     are in competition to your approach. This section can either be a chapter,
+%     or be a section in the introduction.
+% 
+%     
+%   \item The \textbf{conclusion} should summarize your work, especially what is
+%     learned from the evaluation, and should point to possible future work.
+% 
+%     
+%   \item The \texttt{abstract} is a half-page summary of your work. This abstract
+%     is used in various places, e.g. announcing your thesis talk. Therefore, it
+%     should be standalone understandable.
+% 
+%     
+%   \end{itemize}
+% FIXME: Where is the above from? This should be discussed!
+% \end{itemize}
+
+\section{Style and Typography}
+
+It is advisable to choose and stick to a specific style guide for your thesis' language.
+Especially for the English language, there are some commonly agreed style guides.
+At times, the recommendations of one guide contradict the ones from another.
+Therefore, be consistent in your choice!
+The following two style guides are the most common ones:
+\begin{itemize}
+\item \emph{New Oxford Style Manual} for British English
+\item \emph{The Chicago Manual of Style} for US-American English
+\end{itemize}
+
+If you are also interested in (some of the) choices considering the typography, you may
+consult \emph{The Elements of Typographic Style} which comes with a plethora of explanations,
+many of them already baked into \TeX{} and \LaTeX{}.
+
+\subsection{Sections}
+\begin{itemize}
+\item Avoid single sections. If you have, e.g., a section ``1.1'' then you should also
+  have at least a section ``1.2''.
+\item Avoid having too small chapters or sections. Rather use \verb+\paragraph+
+  to divide text into smaller chunks.
+\end{itemize}
+
+\subsection{Spacing and Indentation}
+For separating parts of text in \LaTeX, please use two line breaks. They will then
+be set with correct indentation. Do \emph{not} use:
+\begin{itemize}
+  \itemsep0em
+\item \texttt{\textbackslash\textbackslash}
+\item \texttt{\textbackslash parskip}
+\item \texttt{\textbackslash vskip}
+\end{itemize}
+or other commands to manually insert spaces, since they break the layout of this template.
+
+\subsection{Bibliography and References}
+
+The bibliography in this template is already configured. This template is based
+on \texttt{biblatex} and \texttt{biber}, which is preferred over the outdated
+\hologo{BibTeX} software. Biber is a bibliography processor, and thus reads both
+the \texttt{aux-} and \texttt{bib-}files to produce the bibliography. Biber should
+come with your \LaTeX distribution. Please adjust your build environment if
+necessary (see
+\url{https://sdqweb.ipd.kit.edu/wiki/BibTeX-Literaturlisten#biblatex.2Fbiber})
+
+For referencing literature in your bibliography, you should use the following
+commands:
+\begin{itemize}
+\item \verb+\citet{KeYBook2016}+: \citet{KeYBook2016}\\[.5ex]%
+Use this when you want to explicitly talk about a publication within a sentence.
+This is especially sensible for publications that are of high relevance for your thesis.
+\item \verb+\citep{KeYBook2016}+: \citep{KeYBook2016}\\[.5ex]%
+Use this for (implicit) references to indicate that what you wrote is based on the cited reference.
+The command can also be used for multiple references within one citation, separated by a comma (directly inside the command).
+\end{itemize}
+
+\subsection{Floats (Figures, Tables, ...)}
+\begin{itemize}
+\item Do not inline float environments such as tables, figures, listings,
+algorithms etc.
+Floats are elements that are automatically placed and optimized when compiling
+the document.
+\item Avoid using the options \texttt{H} or \texttt{h} for positioning floats.
+\item A reference: The KIT logo is displayed in \autoref{fig:kitlogo}. (Use
+  \verb+\autoref{label}+ for easy referencing.)
+\item \textbf{For tables:} The \texttt{booktabs} package offers nicely typeset
+  tables, as in \autoref{tab:atable}.
+\item \texttt{For algorithms:} Algorithms can be nicely set by a variety
+  of packages, e.g., \texttt{algorithm2e}, \texttt{algorithmicx}, etc.
+\item \texttt{For source code:} The \texttt{lstlistings} or \texttt{minted}
+package offer nicely typeset and colored listings for your source code.
+\end{itemize}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=4cm]{logos/kitlogo_en_cmyk}
+  \caption{KIT logo}
+  \label{fig:kitlogo}
+\end{figure}
+
+\begin{table}
+  \centering
+  \begin{tabular}{r l}
+    \toprule
+    abc & def \\
+    ghi & jkl \\
+    \midrule
+    123 & 456 \\
+    789 & 0AB \\
+    \bottomrule
+  \end{tabular}
+  \caption{A table}
+  \label{tab:atable}
+\end{table}
+
+\subsection{Example: Mathematics}
+One of the nice things about the Linux Libertine font is that it comes with
+a math mode package.
+\begin{displaymath}
+  f(x)=\Omega(g(x))\ (x\rightarrow\infty)\;\Leftrightarrow\;
+  \limsup_{x \to \infty} \left|\frac{f(x)}{g(x)}\right|> 0
+\end{displaymath}
+
+For \emph{definitions}, \emph{theorems}, \emph{proofs}, etc., please use
+the respective environments.
+
+\begin{theorem}[Pythagoras's theorem]
+  In a right-angled triangle, the following holds:
+  \begin{align*}
+    a^{2}+b^{2}=c^{2}\enspace.
+  \end{align*}
+
+\end{theorem}
+
+%% --------------------
+%% | /Example content |
+%% --------------------

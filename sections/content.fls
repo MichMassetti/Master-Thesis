@@ -1,0 +1,10 @@
+PWD /home/mich/Desktop/thesis-blockchain/abschlussarbeiten-master/sections
+INPUT /usr/local/texlive/2021/texmf.cnf
+INPUT /usr/local/texlive/2021/texmf-dist/web2c/texmf.cnf
+INPUT /usr/local/texlive/2021/texmf-var/web2c/pdftex/pdflatex.fmt
+INPUT /home/mich/Desktop/thesis-blockchain/abschlussarbeiten-master/sections/content.tex
+OUTPUT content.log
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/omscmr.fd
+INPUT /usr/local/texlive/2021/texmf-dist/tex/latex/base/omscmr.fd
