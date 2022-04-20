@@ -113,6 +113,138 @@ Another exapmle is
 \section{Real world Exploits}
 \label{sec:SmartContracts:Exploits}
 Real-wolrd exploits that have happend in the recent years.
+
+\subsection{DeFi platform bZX: \$8M hack from one misplaced line of code}
+\label{sec:Exploits:bZX}
+
+\citet{bZxProtocol} explains how this protocl works. 
+Anyone can use bZx to create apps that allow lenders, borrowers, and traders to interact with Ethereum based 
+decentralised finance protocol.
+It is a community-run project,moreover all major protocol changes requiring a community vote. 
+
+Protocols can be deleveloped by bZx procol, an example is Fulcrum. 
+It is a powerful DeFi platform for tokenized lending and margin trading. 
+iTokens (margin loans) represent the earn holders interest on borrowed funds and pTokens (tokenized margin positions) allow your margin positions to be composable.
+
+Unfortunately, it suffered a couple of attacks in February 2020.
+The developrs explained the attackers could drain different currences,219,199.66 LINK, 4,502.70 Ether (ETH), 1,756,351.27 Tether (USDT), 
+1,412,048.48 USD Coin (USDC) and 667,988.62 Dai (DAI): a total of \$8 millin in value. 
+The arrack depends on a bug based on an incorrect sequence of operations.
+
+The object of the attack was the contract named LoanTokenLogicStandard.
+It implements the logic behind the protocol, for managing the borrows, loans and all the functionalities.
+Every ERC20 token has a transferFrom() function, which has the aim to transfer the tokens.
+Calling this function allowed the attacker to create and transfer an iToken to hitself: his balance could be artificially increased.
+The duplicated tokens were then redeemed for their underlying collateral, 
+with the hackers now “owning” a much higher percentage of the pool, so the attacker could withdraw the tokens.
+
+The snipped code \ref{lst:internalTransferFrom} shows the vulnerable function. 
+The attacker called the function with the same amount of \_from and \_to. 
+Since both addresses refer to the same one, line 27 decreases the balance of the address, but then line 31 increases the same balance. 
+The problem relies on the estimating of the amount: it is the sum of the sent token and 
+a variable (line 23), which stored the value of the balance before the transacion.
+
+\begin{lstlisting} [language={C++},caption={Vulnerable function in LoanTokenLogicStandard contract.}, label={lst:internalTransferFrom}]
+contract LoanTokenLogicStandard is AdvancedToken, GasTokenUser {
+    using SafeMath for uint256;
+    using SignedSafeMath for int256;
+
+    modifier settlesInterest() {
+        _settleInterest();
+        _;
+    }
+    ... 
+    function _internalTransferFrom(
+        address _from,
+        address _to,
+        uint256 _value,
+        uint256 _allowanceAmount)
+        internal
+        returns (bool)
+    {
+        if (_allowanceAmount != uint256(-1)) {
+            allowed[_from][msg.sender] = _allowanceAmount.sub(_value, "14");
+        }
+        //Vulnerable lines 
+        uint256 _balancesFrom = balances[_from];
+        uint256 _balancesTo = balances[_to];
+
+        require(_to != address(0), "15");
+
+        uint256 _balancesFromNew = _balancesFrom
+            .sub(_value, "16");
+        balances[_from] = _balancesFromNew;
+
+        uint256 _balancesToNew = _balancesTo
+            .add(_value);
+        balances[_to] = _balancesToNew;
+
+        // handle checkpoint update
+        uint256 _currentPrice = tokenPrice();
+
+        _updateCheckpoints(
+            _from,
+            _balancesFrom,
+            _balancesFromNew,
+            _currentPrice
+        );
+        _updateCheckpoints(
+            _to,
+            _balancesTo,
+            _balancesToNew,
+            _currentPrice
+        );
+
+        emit Transfer(_from, _to, _value);
+        return true;
+    }
+    ... 
+\end{lstlisting}
+
+The developers corrected the bug in few days. 
+It was enough switching some line of code, in order to avoid the operations of sum and subtraction operate on the same balance. 
+The code \ref{lst:CorrectinternalTransferFrom} presents some differences. The operations regarding the receiver's balance are computed (lines 13-15), then those which deal with the sender's one (16-20).
+\begin{lstlisting} [language={C++},caption={Corrected bug in LoanTokenLogicStandard contract.}, label={lst:CorrectinternalTransferFrom}]
+    function _internalTransferFrom(
+        address _from,
+        address _to,
+        uint256 _value,
+        uint256 _allowanceAmount)
+        internal
+        returns (bool)
+    {
+        if (_allowanceAmount != uint256(-1)) {
+            allowed[_from][msg.sender] = _allowanceAmount.sub(_value, "14");
+        }
+        require(_to != address(0), "15");
+        uint256 _balancesFrom = balances[_from];
+        uint256 _balancesFromNew = _balancesFrom
+            .sub(_value, "16");
+        balances[_from] = _balancesFromNew;
+        uint256 _balancesTo = balances[_to];
+        uint256 _balancesToNew = _balancesTo
+            .add(_value);
+        balances[_to] = _balancesToNew;
+        // handle checkpoint update
+        uint256 _currentPrice = tokenPrice();
+        _updateCheckpoints(
+            _from,
+            _balancesFrom,
+            _balancesFromNew,
+            _currentPrice
+        );
+        _updateCheckpoints(
+            _to,
+            _balancesTo,
+            _balancesToNew,
+            _currentPrice
+        );
+        emit Transfer(_from, _to, _value);
+        return true;
+    }   
+\end{lstlisting}
+
+
 \subsection{XSURGE on BSC Chain}
 \label{sec:Exploits:XSURGE}
 

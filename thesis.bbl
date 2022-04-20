@@ -107,6 +107,17 @@
       \field{title}{Solidity Vulnerability: Denial of Service (DoS)}
       \field{year}{2022}
     \endentry
+    \entry{bZxProtocol}{misc}{}
+      \field{sortinit}{b}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{ https://docs.bzx.network/}}
+      \field{note}{Accessed: 2022-04-20}
+      \field{title}{bZx Documentation}
+      \field{year}{2020}
+    \endentry
     \entry{Slither}{inproceedings}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=ecc2ade2644763eec7905959277afe35}{%
