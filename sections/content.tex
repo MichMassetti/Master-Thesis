@@ -346,6 +346,87 @@ The following are the modifications suggested by the Beosin technical team for t
     \item Instead of using "call. value," use transfer or send to transfer. 
 \end{itemize}
 
+\subsection{CBDAO: an example of rug pull}
+\label{sec:Exploits:CBDAO}
+Developers should watch out for possible attacks. They should audit and test their contract to find possible vulnerabilities and apply patches.
+In the decentralized finance context, even the investors should worry about malicious developers, who convince the investors to invest and then steal their investments.
+These class of fraud are basically  type of exit scam and decentralized finance (DeFi) exploit, it is classified with the name of rug pull.
+
+
+\citet{RugPullDef} defines rug pull as a  type of crypto scam that occurs when a team pumps their project's token before disappearing with the funds, 
+leaving their investors with a valueless asset. 
+Fraudulent developers create a new crypto token, 
+pump up the price and then pull as much value out of them as possible before abandoning them as their price drops to zero.
+
+An example of this type of fraud is the one presented in the article \citet{CBDAO}.
+It seems the malicious developers could steal around 1 million dollar in ethereum (ETH). 
+
+The project main token was \$BREE. For attracting ealry investors, they associeted to it a presale token, named \$SBREE. 
+The ones who bought that, could swap their amount of presale token in \$BREE once the token was published, having an advantage.
+Unfortubatly, one of the admin wallets exploited a backdoor in the SBREE token contract, minted 50,000 SBREE. After that, the attacker soled that amount in BREE token and sold it on the market.
+That pushed down the price of BREE at the expense of other holders. The 50,000 BREE was sold for under 200 ETH.
+
+Following the operation of the \href{https://etherscan.io/address/0x85c90f369676789d3234ecf07adb5262df1bcf15#tokentxns}{malicious developer}, it is possible to understand how the fraud occured.
+\href{https://etherscan.io/tx/0x3bf7b06d6737e6d222234acc58dea634c7ff75e6cc447bece6cc264f2e1db9d2}{This transacion}, achieved by etherscan, shows the attacker called the mint function and could generate 
+50.000 SBREE. After that, it called the \href{https://etherscan.io/address/0x60c3094a586b02cb416ec4df31119d4513ff0dde#code}{BreePurchase} 
+contract for swapping the token in BREE and then swap those in ETH on Uniswap.
+
+The backdoor relies on the malicious management of access control. The admin, with the function grantRole, allow another wallet to be the Minter, so it called the function mint.
+\begin{lstlisting} [language=C++, caption={Backdoor inside the contract}, label={lst:SBREE}]
+    
+    ... 
+    function _grantRole(bytes32 role, address account) private {
+        if (_roles[role].members.add(account)) {
+            emit RoleGranted(role, account, _msgSender());
+        }
+    }
+    ... 
+
+
+    contract Roles is AccessControl {
+
+    bytes32 public constant MINTER_ROLE = keccak256("MINTER");
+    bytes32 public constant OPERATOR_ROLE = keccak256("OPERATOR");
+
+    constructor () public {
+        _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
+        _setupRole(MINTER_ROLE, _msgSender());
+        _setupRole(OPERATOR_ROLE, _msgSender());
+    }
+
+    modifier onlyMinter() {
+        require(hasRole(MINTER_ROLE, _msgSender()), "Roles: caller does not have the MINTER role");
+        _;
+    }
+
+    modifier onlyOperator() {
+        require(hasRole(OPERATOR_ROLE, _msgSender()), "Roles: caller does not have the OPERATOR role");
+        _;
+    }
+}
+
+//the contract inherit Roles contetract
+    ... 
+    modifier onlyMinter() {
+        require(hasRole(MINTER_ROLE, _msgSender()), "Roles: caller does not have the MINTER role");
+        _;
+    }
+    ... 
+    function _mint(address account, uint256 amount) internal virtual {
+        require(account != address(0), "ERC20: mint to the zero address");
+
+        _beforeTokenTransfer(address(0), account, amount);
+
+        _totalSupply = _totalSupply.add(amount);
+        _balances[account] = _balances[account].add(amount);
+        emit Transfer(address(0), account, amount);
+    }
+    ... 
+
+
+\end{lstlisting} 
+    
+
 \chapter{Analysis Tools}
 \label{ch:Tools}
 In this chapter I describe the tools and their capabilities, how they perform the Analysis.
