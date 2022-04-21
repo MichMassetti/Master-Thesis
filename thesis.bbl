@@ -357,6 +357,32 @@
       \field{title}{Formal Specification and Verification of Solidity Contracts with Events}
       \field{year}{2020}
     \endentry
+    \entry{CBDAO}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6bfa3061417809d89ee046ac51ebe999}{%
+           family={JEFF},
+           familyi={J\bibinitperiod},
+           given={Green},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6bfa3061417809d89ee046ac51ebe999}
+      \strng{fullhash}{6bfa3061417809d89ee046ac51ebe999}
+      \strng{bibnamehash}{6bfa3061417809d89ee046ac51ebe999}
+      \strng{authorbibnamehash}{6bfa3061417809d89ee046ac51ebe999}
+      \strng{authornamehash}{6bfa3061417809d89ee046ac51ebe999}
+      \strng{authorfullhash}{6bfa3061417809d89ee046ac51ebe999}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://cointelegraph.com/explained/crypto-rug-pulls-what-is-a-rug-pull-in-crypto-and-6-ways-to-spot-it}}
+      \field{note}{Accessed: 2022-04-21}
+      \field{title}{CBDAO Exitscammed: Moving Forward as a Community}
+      \field{year}{2020}
+    \endentry
     \entry{Mythril}{inproceedings}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=3222aca09221290bc59d19e8af4e453d}{%
@@ -392,6 +418,32 @@
       \verb{url}
       \verb https://github.com/muellerberndt/smashing-smart-contracts/blob/master/smashing-smart-contracts-1of1.pdf
       \endverb
+    \endentry
+    \entry{RugPullDef}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c6fe4cdb2115d3dfce417c0255dc1ad2}{%
+           family={Puggioni},
+           familyi={P\bibinitperiod},
+           given={Valerio},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \strng{fullhash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \strng{bibnamehash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \strng{authorbibnamehash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \strng{authornamehash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \strng{authorfullhash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://cointelegraph.com/explained/crypto-rug-pulls-what-is-a-rug-pull-in-crypto-and-6-ways-to-spot-it}}
+      \field{note}{Accessed: 2022-04-21}
+      \field{title}{Crypto rug pulls: What is a rug pull in crypto and 6 ways to spot it}
+      \field{year}{2022}
     \endentry
     \entry{SlitherGitHub}{misc}{}
       \list{publisher}{1}{%

@@ -17,35 +17,36 @@
 \contentsline {section}{\numberline {3.2}Real world Exploits}{8}{section.3.2}%
 \contentsline {subsection}{\numberline {3.2.1}DeFi platform bZX: \$8M hack from one misplaced line of code}{8}{subsection.3.2.1}%
 \contentsline {subsection}{\numberline {3.2.2}XSURGE on BSC Chain}{10}{subsection.3.2.2}%
-\contentsline {chapter}{\numberline {4}Analysis Tools}{13}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Typologies of Tools}{13}{section.4.1}%
-\contentsline {section}{\numberline {4.2}Tools for analysing properties specified by user}{13}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Celestial}{13}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}SmartPulse}{13}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}VeriSol}{13}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Echidna}{13}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Solc-Verify}{15}{subsection.4.2.5}%
-\contentsline {section}{\numberline {4.3}Tools without specification}{16}{section.4.3}%
-\contentsline {subsection}{\numberline {4.3.1}SmartTest}{16}{subsection.4.3.1}%
-\contentsline {subsection}{\numberline {4.3.2}Slither}{17}{subsection.4.3.2}%
-\contentsline {subsection}{\numberline {4.3.3}Mythril}{17}{subsection.4.3.3}%
-\contentsline {subsection}{\numberline {4.3.4}Maian}{18}{subsection.4.3.4}%
-\contentsline {subsection}{\numberline {4.3.5}Securify}{18}{subsection.4.3.5}%
-\contentsline {subsection}{\numberline {4.3.6}ContractLarva}{18}{subsection.4.3.6}%
-\contentsline {chapter}{\numberline {5}First Content Chapter}{19}{chapter.5}%
-\contentsline {section}{\numberline {5.1}First Section}{19}{section.5.1}%
-\contentsline {subsection}{\numberline {5.1.1}A Subsection}{19}{subsection.5.1.1}%
-\contentsline {subsubsection}{\numberline {5.1.1.1}A Subsubsection}{19}{subsubsection.5.1.1.1}%
-\contentsline {section}{\numberline {5.2}Second Section}{19}{section.5.2}%
-\contentsline {chapter}{\numberline {6}Second Content Chapter}{21}{chapter.6}%
-\contentsline {section}{\numberline {6.1}First Section}{21}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Second Section}{21}{section.6.2}%
-\contentsline {chapter}{\numberline {7}Evaluation}{23}{chapter.7}%
-\contentsline {section}{\numberline {7.1}First Section}{23}{section.7.1}%
-\contentsline {section}{\numberline {7.2}Second Section}{23}{section.7.2}%
-\contentsline {section}{\numberline {7.3}Third Section}{23}{section.7.3}%
-\contentsline {chapter}{\numberline {8}Conclusion}{25}{chapter.8}%
-\contentsline {chapter}{\nonumberline Bibliography}{27}{chapter*.6}%
-\contentsline {chapter}{\numberline {A}Appendix}{29}{appendix.A}%
-\contentsline {section}{\numberline {A.1}First Appendix Section}{29}{section.A.1}%
+\contentsline {subsection}{\numberline {3.2.3}CBDAO: an example of rug pull}{12}{subsection.3.2.3}%
+\contentsline {chapter}{\numberline {4}Analysis Tools}{15}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Typologies of Tools}{15}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Tools for analysing properties specified by user}{15}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Celestial}{15}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}SmartPulse}{15}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}VeriSol}{15}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Echidna}{15}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Solc-Verify}{17}{subsection.4.2.5}%
+\contentsline {section}{\numberline {4.3}Tools without specification}{18}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}SmartTest}{18}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Slither}{19}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Mythril}{19}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Maian}{20}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Securify}{20}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}ContractLarva}{20}{subsection.4.3.6}%
+\contentsline {chapter}{\numberline {5}First Content Chapter}{21}{chapter.5}%
+\contentsline {section}{\numberline {5.1}First Section}{21}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}A Subsection}{21}{subsection.5.1.1}%
+\contentsline {subsubsection}{\numberline {5.1.1.1}A Subsubsection}{21}{subsubsection.5.1.1.1}%
+\contentsline {section}{\numberline {5.2}Second Section}{21}{section.5.2}%
+\contentsline {chapter}{\numberline {6}Second Content Chapter}{23}{chapter.6}%
+\contentsline {section}{\numberline {6.1}First Section}{23}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Second Section}{23}{section.6.2}%
+\contentsline {chapter}{\numberline {7}Evaluation}{25}{chapter.7}%
+\contentsline {section}{\numberline {7.1}First Section}{25}{section.7.1}%
+\contentsline {section}{\numberline {7.2}Second Section}{25}{section.7.2}%
+\contentsline {section}{\numberline {7.3}Third Section}{25}{section.7.3}%
+\contentsline {chapter}{\numberline {8}Conclusion}{27}{chapter.8}%
+\contentsline {chapter}{\nonumberline Bibliography}{29}{chapter*.6}%
+\contentsline {chapter}{\numberline {A}Appendix}{31}{appendix.A}%
+\contentsline {section}{\numberline {A.1}First Appendix Section}{31}{section.A.1}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
