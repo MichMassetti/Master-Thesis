@@ -1,0 +1,47 @@
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\nonumberline List of Figures}{xi}{chapter*.4}%
+\contentsline {chapter}{\nonumberline List of Tables}{xiii}{chapter*.5}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Style and Typography}{1}{section.1.1}%
+\contentsline {subsection}{\numberline {1.1.1}Sections}{1}{subsection.1.1.1}%
+\contentsline {subsection}{\numberline {1.1.2}Spacing and Indentation}{1}{subsection.1.1.2}%
+\contentsline {subsection}{\numberline {1.1.3}Bibliography and References}{2}{subsection.1.1.3}%
+\contentsline {subsection}{\numberline {1.1.4}Floats (Figures, Tables, ...)}{2}{subsection.1.1.4}%
+\contentsline {subsection}{\numberline {1.1.5}Example: Mathematics}{3}{subsection.1.1.5}%
+\contentsline {chapter}{\numberline {2}Preliminary Knowledge}{5}{chapter.2}%
+\contentsline {chapter}{\numberline {3}Vulnerabilities and Real-world exploits in Solidity Smart Contracts}{7}{chapter.3}%
+\contentsline {section}{\numberline {3.1}Most common Vulnerabilities}{7}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Race Codition}{7}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}Denial Of Services}{8}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Real world Exploits}{9}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}DeFi platform bZX: \$8M hack from one misplaced line of code}{9}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}XSURGE on BSC Chain}{11}{subsection.3.2.2}%
+\contentsline {subsection}{\numberline {3.2.3}CBDAO: an example of rug pull}{13}{subsection.3.2.3}%
+\contentsline {chapter}{\numberline {4}Analysis Tools}{17}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Typologies of Tools}{17}{section.4.1}%
+\contentsline {section}{\numberline {4.2}Tools for analysing properties specified by user}{17}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Celestial}{17}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}SmartPulse}{17}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}VeriSol}{17}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Echidna}{17}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Solc-Verify}{19}{subsection.4.2.5}%
+\contentsline {section}{\numberline {4.3}Tools without specification}{20}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}VeriSmart}{20}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}SmartTest}{20}{subsection.4.3.2}%
+\contentsline {subsection}{\numberline {4.3.3}Slither}{21}{subsection.4.3.3}%
+\contentsline {subsection}{\numberline {4.3.4}Mythril}{22}{subsection.4.3.4}%
+\contentsline {subsection}{\numberline {4.3.5}Maian}{23}{subsection.4.3.5}%
+\contentsline {subsection}{\numberline {4.3.6}Securify}{23}{subsection.4.3.6}%
+\contentsline {subsection}{\numberline {4.3.7}ContractLarva}{23}{subsection.4.3.7}%
+\contentsline {chapter}{\numberline {5}Results of testing}{25}{chapter.5}%
+\contentsline {chapter}{\numberline {6}Evaluation}{27}{chapter.6}%
+\contentsline {section}{\numberline {6.1}First Section}{27}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Second Section}{27}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Third Section}{27}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Conclusion}{29}{chapter.7}%
+\contentsline {chapter}{\nonumberline Bibliography}{31}{chapter*.6}%
+\contentsline {chapter}{\numberline {A}Appendix}{33}{appendix.A}%
+\contentsline {section}{\numberline {A.1}First Appendix Section}{33}{section.A.1}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

@@ -2363,4 +2363,65 @@
     <bcf:citekey order="16">SmarTest</bcf:citekey>
     <bcf:citekey order="17">Slither</bcf:citekey>
     <bcf:citekey order="18">SlitherGitHub</bcf:citekey>
-    <bcf:
+    <bcf:citekey order="19">Mythril</bcf:citekey>
+    <bcf:citekey order="20">SWCRegistry</bcf:citekey>
+    <bcf:citekey order="21">KeYBook2016</bcf:citekey>
+    <bcf:citekey order="22">RaceConditionDef</bcf:citekey>
+    <bcf:citekey order="23">NotSoSmartContracts</bcf:citekey>
+    <bcf:citekey order="24">CloudFareDos</bcf:citekey>
+    <bcf:citekey order="25">Dos1</bcf:citekey>
+    <bcf:citekey order="26">bZxProtocol</bcf:citekey>
+    <bcf:citekey order="27">XSurgeWeb</bcf:citekey>
+    <bcf:citekey order="28">XSurgeBNB</bcf:citekey>
+    <bcf:citekey order="29">RugPullDef</bcf:citekey>
+    <bcf:citekey order="30">CBDAO</bcf:citekey>
+    <bcf:citekey order="31">Echidna</bcf:citekey>
+    <bcf:citekey order="32">SolcVerify</bcf:citekey>
+    <bcf:citekey order="33">SolcVerify_2</bcf:citekey>
+    <bcf:citekey order="34">SolcVerify_3</bcf:citekey>
+    <bcf:citekey order="35">SmarTest</bcf:citekey>
+    <bcf:citekey order="36">Slither</bcf:citekey>
+    <bcf:citekey order="37">SlitherGitHub</bcf:citekey>
+    <bcf:citekey order="38">Mythril</bcf:citekey>
+    <bcf:citekey order="39">SWCRegistry</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="nyt">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">presort</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">translator</bcf:sortitem>
+      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="6">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">volume</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="nyt/global//global/global"
+                type="entry"
+                sortingtemplatename="nyt"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>
