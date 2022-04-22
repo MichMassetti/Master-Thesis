@@ -118,6 +118,32 @@
       \field{title}{bZx Documentation}
       \field{year}{2020}
     \endentry
+    \entry{NotSoSmartContracts}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=48ca59df6537c7fd7682289e0bb5beba}{%
+           family={Crytic},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {GitHub}%
+      }
+      \strng{namehash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{fullhash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{bibnamehash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{authorbibnamehash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{authornamehash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{authorfullhash}{48ca59df6537c7fd7682289e0bb5beba}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\ url {https://github.com/crytic/not-so-smart-contracts}}
+      \field{journaltitle}{GitHub repository}
+      \field{title}{(Not So) Smart Contracts}
+      \field{year}{2020}
+    \endentry
     \entry{Slither}{inproceedings}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=ecc2ade2644763eec7905959277afe35}{%
@@ -445,6 +471,20 @@
       \field{title}{Crypto rug pulls: What is a rug pull in crypto and 6 ways to spot it}
       \field{year}{2022}
     \endentry
+    \entry{RaceConditionDef}{misc}{}
+      \list{publisher}{1}{%
+        {Microsoft}%
+      }
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.microsoft.com/en-us/troubleshoot/developer/visualstudio/visual-basic/language-compilers/race-conditions-deadlocks}}
+      \field{note}{Accessed: 2022-04-22}
+      \field{title}{Race conditions and deadlocks}
+      \field{year}{2020}
+    \endentry
     \entry{SlitherGitHub}{misc}{}
       \list{publisher}{1}{%
         {GitHub}%
@@ -470,7 +510,7 @@
       \field{title}{SmartContractSecurity. SWC Registry}
       \field{year}{2020}
     \endentry
-    \entry{SmartTest}{inproceedings}{}
+    \entry{SmarTest}{inproceedings}{}
       \name{author}{3}{}{%
         {{un=0,uniquepart=base,hash=b149d93c4930b2ac0efe128880d160ee}{%
            family={So},

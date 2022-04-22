@@ -2347,77 +2347,20 @@
   <bcf:section number="0">
     <bcf:citekey order="1">KeYBook2016</bcf:citekey>
     <bcf:citekey order="2">KeYBook2016</bcf:citekey>
-    <bcf:citekey order="3">CloudFareDos</bcf:citekey>
-    <bcf:citekey order="4">Dos1</bcf:citekey>
-    <bcf:citekey order="5">bZxProtocol</bcf:citekey>
-    <bcf:citekey order="6">XSurgeWeb</bcf:citekey>
-    <bcf:citekey order="7">XSurgeBNB</bcf:citekey>
-    <bcf:citekey order="8">RugPullDef</bcf:citekey>
-    <bcf:citekey order="9">CBDAO</bcf:citekey>
-    <bcf:citekey order="10">Echidna</bcf:citekey>
-    <bcf:citekey order="11">SolcVerify</bcf:citekey>
-    <bcf:citekey order="12">SolcVerify_2</bcf:citekey>
-    <bcf:citekey order="13">SolcVerify_3</bcf:citekey>
-    <bcf:citekey order="14">SmartTest</bcf:citekey>
-    <bcf:citekey order="15">Slither</bcf:citekey>
-    <bcf:citekey order="16">SlitherGitHub</bcf:citekey>
-    <bcf:citekey order="17">Mythril</bcf:citekey>
-    <bcf:citekey order="18">SWCRegistry</bcf:citekey>
-    <bcf:citekey order="19">KeYBook2016</bcf:citekey>
-    <bcf:citekey order="20">CloudFareDos</bcf:citekey>
-    <bcf:citekey order="21">Dos1</bcf:citekey>
-    <bcf:citekey order="22">bZxProtocol</bcf:citekey>
-    <bcf:citekey order="23">XSurgeWeb</bcf:citekey>
-    <bcf:citekey order="24">XSurgeBNB</bcf:citekey>
-    <bcf:citekey order="25">RugPullDef</bcf:citekey>
-    <bcf:citekey order="26">CBDAO</bcf:citekey>
-    <bcf:citekey order="27">Echidna</bcf:citekey>
-    <bcf:citekey order="28">SolcVerify</bcf:citekey>
-    <bcf:citekey order="29">SolcVerify_2</bcf:citekey>
-    <bcf:citekey order="30">SolcVerify_3</bcf:citekey>
-    <bcf:citekey order="31">SmartTest</bcf:citekey>
-    <bcf:citekey order="32">Slither</bcf:citekey>
-    <bcf:citekey order="33">SlitherGitHub</bcf:citekey>
-    <bcf:citekey order="34">Mythril</bcf:citekey>
-    <bcf:citekey order="35">SWCRegistry</bcf:citekey>
-  </bcf:section>
-  <!-- SORTING TEMPLATES -->
-  <bcf:sortingtemplate name="nyt">
-    <bcf:sort order="1">
-      <bcf:sortitem order="1">presort</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="2" final="1">
-      <bcf:sortitem order="1">sortkey</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="3">
-      <bcf:sortitem order="1">sortname</bcf:sortitem>
-      <bcf:sortitem order="2">author</bcf:sortitem>
-      <bcf:sortitem order="3">editor</bcf:sortitem>
-      <bcf:sortitem order="4">translator</bcf:sortitem>
-      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="6">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="4">
-      <bcf:sortitem order="1">sortyear</bcf:sortitem>
-      <bcf:sortitem order="2">year</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="5">
-      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
-      <bcf:sortitem order="2">title</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="6">
-      <bcf:sortitem order="1">volume</bcf:sortitem>
-      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
-    </bcf:sort>
-  </bcf:sortingtemplate>
-  <!-- DATALISTS -->
-  <bcf:datalist section="0"
-                name="nyt/global//global/global"
-                type="entry"
-                sortingtemplatename="nyt"
-                sortingnamekeytemplatename="global"
-                labelprefix=""
-                uniquenametemplatename="global"
-                labelalphanametemplatename="global">
-  </bcf:datalist>
-</bcf:controlfile>
+    <bcf:citekey order="3">RaceConditionDef</bcf:citekey>
+    <bcf:citekey order="4">NotSoSmartContracts</bcf:citekey>
+    <bcf:citekey order="5">CloudFareDos</bcf:citekey>
+    <bcf:citekey order="6">Dos1</bcf:citekey>
+    <bcf:citekey order="7">bZxProtocol</bcf:citekey>
+    <bcf:citekey order="8">XSurgeWeb</bcf:citekey>
+    <bcf:citekey order="9">XSurgeBNB</bcf:citekey>
+    <bcf:citekey order="10">RugPullDef</bcf:citekey>
+    <bcf:citekey order="11">CBDAO</bcf:citekey>
+    <bcf:citekey order="12">Echidna</bcf:citekey>
+    <bcf:citekey order="13">SolcVerify</bcf:citekey>
+    <bcf:citekey order="14">SolcVerify_2</bcf:citekey>
+    <bcf:citekey order="15">SolcVerify_3</bcf:citekey>
+    <bcf:citekey order="16">SmarTest</bcf:citekey>
+    <bcf:citekey order="17">Slither</bcf:citekey>
+    <bcf:citekey order="18">SlitherGitHub</bcf:citekey>
+    <bcf:

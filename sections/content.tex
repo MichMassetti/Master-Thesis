@@ -57,8 +57,52 @@
 \chapter{Vulnerabilities and Real-world exploits in Solidity Smart Contracts}
 \label{ch:SmartContracts}
 
+Presentation of what effected the smart contrats in the recent year.
+I devided in 2 classes, the real wolrd exploits and Most common vulnerabilities.
+The latter refers to the vulnerabilities that I found in more often in papers that I read and I selected because I think they are the 
+most rappresentative and the most common used by the attackers.
+
+
+
 \section{Most common Vulnerabilities}
 \label{sec:SmartContracts:Vulnerabilities}
+
+As introduction, I cite some papers that I read dealing with this topic. I select the following vulnerabilities, because I think they represent a risk still today.
+
+\subsection{Race Codition}
+\label{sec:Vulnerabilities:RaceCondition}
+Race condition represents in computer science one of the most common vulnerabilities.
+\citet{RaceConditionDef} identifies this as an even,  which occurs when two threads access a shared variable at the same time.
+A case is illustruted when two threads read the value of a shared variable. After computing operations on that, they update the shared variable. The change applied by the last thread will be preserved and the other one will be lost.
+In a Solidity context an analogous situation can happen. This can be exploited by attackers, for withrowing a higher amount of token or manipulating the price of it.
+
+\citetitle{NotSoSmartContracts} is a repository that contains examples of common Ethereum smart contract vulnerabilities.
+Vulnerable smart contracts and explanations are coupled and presented. I considered the smart contract \href{https://github.com/crytic/not-so-smart-contracts/blob/master/race_condition/RaceCondition.sol}{RaceCodition.sol} for showing a case of this class of vulnerability.
+The vulnerability relies on the shared variable price, which is updated by the function changePrice (\ref{lst:RaceCodition} line 15) and used by the function buy (\ref{lst:RaceCodition} line 2).
+\begin{lstlisting} [language={C++},caption={Cross-function RaceCondition vulnerable functions.}, label={lst:RaceCodition}]
+
+    function buy(uint new_price) payable
+        public
+    {
+        require(msg.value >= price);
+
+        // we assume that the RaceCondition contract
+        // has enough allowance
+        token.transferFrom(msg.sender, owner, price);
+
+        price = new_price;
+        owner = msg.sender;
+    }
+
+    function changePrice(uint new_price){
+        require(msg.sender == owner);
+        price = new_price; 
+    }    
+\end{lstlisting}
+
+When a user tries to buy tokens, the owner can call the function for changing the price of the token, consequently the attacked user will spend more than he expected.
+ 
+
 \subsection{Denial Of Services}
 \label{sec:Vulnerabilities:DOS}
 The article \citet{CloudFareDos} of CloudFare, proposes a definition of denial-of-service (DoS) attack. It is a type of cyber attack in 
@@ -105,10 +149,6 @@ When the vulnerable tries to refund the attacker one, it will always revert beca
     }
     
 \end{lstlisting}
-
-Another exapmle is 
-
-
 
 \section{Real world Exploits}
 \label{sec:SmartContracts:Exploits}
@@ -581,10 +621,13 @@ The currently available annotations are listed below.
 \section{Tools without specification}
 \label{sec:Tools:WithoutSpecification}
 
+\subsection{VeriSmart}
+\label{sec:WithoutSpecification:VeriSmart}
+
 \subsection{SmartTest}
 \label{sec:WithoutSpecification:SmartTest}
 
-SmartTest is a safety analayzer for Ethereum smart contracts develeoped by \citet{SmartTest}. 
+SmartTest is a safety analayzer for Ethereum smart contracts develeoped by \citet{SmarTest}. 
 It adopts a symbolic execution technique for effectively detecting vulnerable transaction sequences. 
 The main challenge of the project involves the tool to find transaction sequences,
 revealing the vulnerabilities of the analysed smart contract. Therefore, bugs are discoved as the cause of the interaction of multiple transactions.
@@ -596,13 +639,55 @@ Symbolic execution is guided by statistical language models, so it can prioritiz
 This statregy involves firstly to run unguided symbolic
 execution on existing vulnerable contracts, then to learn a probablity distribution over vulnerable transaction sequences.
 
-The tool is implemented as an extension of VeriSol, a verifier for Solidity Contracts.
+The tool is implemented as an extension of VeriSmart \ref{sec:WithoutSpecification:VeriSmart}.
 SmartTest is build on top of that, adding its own functionalities:
 \begin{itemize}
     \item symbolic execution with a language model.
-    \item symbolic executor for transaction sequences.
-    \item constraint solving optimization.
+    \item Symbolic executor for transaction sequences.
+    \item Constraint solving optimization.
 \end{itemize}
+The installation of VeriSmart is necessary for running the tool. After that, the command \ref{lst:SmarTestRun} is run for using VeriSmart in SmarTest mode.
+\begin{lstlisting} [caption={SmarTest Command.}, label={lst:SmarTestRun}]
+    ./main.native -input examples/leak_unsafe.sol -mode exploit -exploit_timeout 10
+\end{lstlisting}
+
+The report \ref{lst:SmarTestReport} shows an example of output of SmarTest, which provides the sequence of funtions for exploiting the found bug.
+\begin{lstlisting} [caption={SmarTest Example Report.}, label={lst:SmarTestReport}]
+    [5] [IO] line 39, (balance[_to] + _value) : disproven, 14.528264s
+    1: Example
+       {}
+       {msg.sender: #x0000000000000000000000000000000000010000,
+        msg.value: 0}
+    2: approve
+       {_spender: #x0000200000000000000000000000000000000000,
+        _value: 44365792925664701906080996193724747326645573793336555789802397725137091694592}
+       {msg.sender: #x0000000000000000001000000000000000000000,
+        msg.value: 0}
+    3: mintToken
+       {_target: #x0000000000000000001000000000000000000000,
+        _amount: 87371285831589357636669861644764241805818792173739087408632338890371299803136}
+       {msg.sender: #x0000000000000000000000000000000000010000,
+        msg.value: 0}
+    4: transferFrom
+       {_from: #x0000000000000000001000000000000000000000,
+        _to: #x0000000000000000001000000000000000000000,
+        _value: 44365787749354941813158155617657849918564739183862151684054205258595743830016}
+       {msg.sender: #x0000200000000000000000000000000000000000,
+        msg.value: 0}
+
+\end{lstlisting}
+
+The detection of  the following six types of security-critical vulnerabilities are supported by the tool: integer over/underflow, 
+assertion violation, division-by-zero, 
+ERC20 standard violation, Ether-leaking vulnerability (e.g., 
+unauthorized access to transfer), and suicidal vulnerability 
+(e.g., unauthorized access to selfdestruct).
+In the paper, the authors  focus on just those, without considering vulnerabilities that require analysis of
+the interaction of multiple contracts to demonstrate the flaws 
+(e.g., reentrancy).
+
+
+
 
 
 \subsection{Slither}
@@ -681,58 +766,5 @@ function transferArray(address[] tos, uint256[] values) public returns (bool) {
 \label{sec:WithoutSpecification:ContractLarva}
 contractLarva is a runtime verification tool for Solidity contracts. 
 
-\chapter{First Content Chapter}
-\label{ch:FirstContent}
-
-%% -------------------
-%% | Example content |
-%% -------------------
-The content chapters of your thesis should of course be renamed. How many
-chapters you need to write depends on your thesis and cannot be said in general.
-
-Check out the examples theses in the SDQWiki:
-
-\url{https://sdqweb.ipd.kit.edu/wiki/Hinweise_zu_Abschlussarbeiten#Beispiele_3}
-
-Of course, you can split this .tex file into several files if you prefer. 
-
-
-\section{First Section}
-\label{sec:FirstContent:FirstSection}
-
-\dots
-
-\subsection{A Subsection}
-\label{sec:FirstContent:FirstSubSection}
-
-\dots
-
-\subsubsection{A Subsubsection}
-
-\section{Second Section}
-\label{sec:FirstContent:SecondSection}
-
-\dots
-
-
-\chapter{Second Content Chapter}
-\label{ch:SecondContent}
-
-\dots
-
-\section{First Section}
-\label{sec:SecondContent:FirstSection}
-
-\dots
-
-\section{Second Section}
-\label{sec:SecondContent:SecondSection}
-
-\dots
-
-Add additional content chapters if required by adding new .tex files in the
-\code{sections/} directory and adding an appropriate 
-\code{\textbackslash input} statement in \code{thesis.tex}. 
-%% ---------------------
-%% | / Example content |
-%% ---------------------
+\chapter{Results of testing}
+\label{ch:Results}
