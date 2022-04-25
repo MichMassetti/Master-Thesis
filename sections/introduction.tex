@@ -14,8 +14,8 @@
 %%
 %% Version 1.0, 2021-07-03
 
-\chapter{Introduction}
-\label{ch:Introduction}
+\chapter{Introduction Template}
+\label{ch:IntroductionTemplate}
 
 %% -------------------
 %% | Example content |
@@ -186,3 +186,61 @@ the respective environments.
 %% --------------------
 %% | /Example content |
 %% --------------------
+
+\chapter{Introduction}
+\label{ch:Introduction}
+
+
+\section{Motivation}
+\label{sec:Introduction:Motivation}
+
+Blockchain represents one of the most popular trends in finance and computer science, 
+during the last few years the number of investments has been growing exponentially. 
+According \href{https://www.coingecko.com/}{CoinGeko}, the crypto market's value is standing around \$2 trillion.
+
+Bitcoin can be considered the “father” of this technology. \citet{Bitcoin} depicted that in his paper, and in the early 2009,
+it was effectively launched and the cryptocurrency Bitcoin was introduced. 
+\href{https://www.coingecko.com/}{CoinGeko} states the value of Bitcoin around \$38,553.70 and its market capitalization more than  \$700 billions.
+
+Many blockchain systems have been born with new capabilities, 
+which have allowed them to fit many different use cases. The first, which allowed developers to 
+code on top of itself, was Ethereum.
+\citet{Ethereum} published its whitepaper in 2014, and in 2015 it was deployed.
+The revolutionary aspect of Ethereum is the introduction of Smart Contract.
+These are programs running on blockchain systems and give the developers the opportunity to interact directly 
+with this new technology. 
+The development of innovative and prominent applications is a consequence of their development, such as NFT marketplaces, music royalty tracking, supply chain and logistics monitoring, voting mechanism, 
+cross-border payments, and many others.  
+
+Interest in such a market has grown even among malicious attackers. 
+Attacks such as the “Parity Wallet Hack” and the “Decentralized Autonomous Organization Attack” cost millions of dollars simply because of 
+naive bugs in the smart contract code. Blockchain and smart contract technologies have multiple aims, but unfortunately, new applications 
+based on them still contain bugs and multiple vulnerabilities, which cause 
+several issues for the end-users. Most of the use of this technology relates to finance or certifications, therefore integrity, 
+authentication and authorisation in transactions are mandatory. The research field behind blockchain technology is growing, as well as the one concerning 
+its security and accordingly, many analysis tools were developed. 
+These incorporate various strategies for performing the analyses, concerning the technical aspects of smart contracts, 
+so these would work differently according to the object of the analysis. 
+
+The topic that will be addressed in this thesis work is the analysis of smart contract security properties with the usage of tools. 
+It involves the understanding of smart contracts properties and the comparison between different tools, 
+providing insight regarding their behaviours in different contexts.
+
+
+\section{Research Goals}
+\label{sec:Introduction:ResearchGoals}
+\paragraph{Research Question:} 
+How do state-of-the-art analysis tools for Ethereum/Solidity perform (on different classes of properties/bugs)?
+
+This thesis focuses on a dozen analytic tools, which we choose based on the type of analysis, trying to have a range of different typologies. 
+We will test them on vulnerable smart contracts and figure out which properties are violated during real-world exploits. 
+Furthermore, we are going to compare the tools, based on their performance, in particular, the criteria for the evaluation can cover the completeness of the analysis, the amount of found vulnerabilities and the number of false positive and negative. 
+The execution time is crucial too, we want to understand how long it takes for finding a vulnerability. The time for the configuration and the report interpretability are parameters for defining how much a tool is user friendly. 
+
+For answering the research question, we will give an answer to sub questions such as: 
+\begin{itemize}
+  \item How does a tool perform the analysis? 
+  \item Which properties are relevant for smart contract security?
+  \item Which ones have been violated in real-world exploits? 
+  \item Which tools detect which class of vulnerabilities? 
+\end{itemize}

@@ -13,10 +13,6 @@
 %% vielsack@kit.edu
 %%
 %% Version 1.0, 2021-07-03
-
-\chapter{Preliminary Knowledge}
-\label{ch:Backgroud}
-
 \definecolor{codegreen}{rgb}{0,0.6,0}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
 \definecolor{codepurple}{rgb}{0.58,0,0.82}
@@ -42,15 +38,24 @@
 }
 
 \lstset{style=mystyle}
+\chapter{Preliminary Knowledge}
+\label{ch:Backgroud}
+
+\section{History}
+\label{sec:Backgroud:History}
 
 
+\section{Bitcoin}
+\label{sec:Backgroud:Bitcoin}
 
+\section{Ethereum}
+\label{sec:Backgroud:Ethereum}
 
+\section{Smart Contract}
+\label{sec:Backgroud:SmartContracts}
 
-
-
-
-
+\section{Security Analysis}
+\label{sec:Backgroud:SecurityAnalysis}
 
 
 
@@ -78,8 +83,8 @@ In a Solidity context an analogous situation can happen. This can be exploited b
 
 \citetitle{NotSoSmartContracts} is a repository that contains examples of common Ethereum smart contract vulnerabilities.
 Vulnerable smart contracts and explanations are coupled and presented. I considered the smart contract \href{https://github.com/crytic/not-so-smart-contracts/blob/master/race_condition/RaceCondition.sol}{RaceCodition.sol} for showing a case of this class of vulnerability.
-The vulnerability relies on the shared variable price, which is updated by the function changePrice (\ref{lst:RaceCodition} line 15) and used by the function buy (\ref{lst:RaceCodition} line 2).
-\begin{lstlisting} [language={C++},caption={Cross-function RaceCondition vulnerable functions.}, label={lst:RaceCodition}]
+The vulnerability relies on the shared variable price, which is updated by the function changePrice (\autoref{lst:RaceCodition} line 15) and used by the function buy (\autoref{lst:RaceCodition} line 2).
+\begin{lstlisting} [language={Solidity},caption={Cross-function RaceCondition vulnerable functions.}, label={lst:RaceCodition}]
 
     function buy(uint new_price) payable
         public
@@ -121,7 +126,7 @@ The vulnerability relies on line 12 (\refname{lst:DosContract1}): the require co
 An attacker can exploit this vulnerability, creating a smart contract which cannot receive ether. Then it intacts with the vulnerable contract, becoming the leader.
 When the vulnerable tries to refund the attacker one, it will always revert because it cannot receive ether and no one could become the new leader.
 
-\begin{lstlisting} [language={C++},caption={Dos Vulnerable Contract.}, label={lst:DosContract1}]
+\begin{lstlisting} [language={Solidity},caption={Dos Vulnerable Contract.}, label={lst:DosContract1}]
     pragma solidity ^0.8.0;
 
     /**
@@ -178,13 +183,13 @@ Calling this function allowed the attacker to create and transfer an iToken to h
 The duplicated tokens were then redeemed for their underlying collateral, 
 with the hackers now “owning” a much higher percentage of the pool, so the attacker could withdraw the tokens.
 
-The snipped code \ref{lst:internalTransferFrom} shows the vulnerable function. 
+The snipped code \autoref{lst:internalTransferFrom} shows the vulnerable function. 
 The attacker called the function with the same amount of \_from and \_to. 
 Since both addresses refer to the same one, line 27 decreases the balance of the address, but then line 31 increases the same balance. 
 The problem relies on the estimating of the amount: it is the sum of the sent token and 
 a variable (line 23), which stored the value of the balance before the transacion.
 
-\begin{lstlisting} [language={C++},caption={Vulnerable function in LoanTokenLogicStandard contract.}, label={lst:internalTransferFrom}]
+\begin{lstlisting} [language={Solidity},caption={Vulnerable function in LoanTokenLogicStandard contract.}, label={lst:internalTransferFrom}]
 contract LoanTokenLogicStandard is AdvancedToken, GasTokenUser {
     using SafeMath for uint256;
     using SignedSafeMath for int256;
@@ -243,8 +248,8 @@ contract LoanTokenLogicStandard is AdvancedToken, GasTokenUser {
 
 The developers corrected the bug in few days. 
 It was enough switching some line of code, in order to avoid the operations of sum and subtraction operate on the same balance. 
-The code \ref{lst:CorrectinternalTransferFrom} presents some differences. The operations regarding the receiver's balance are computed (lines 13-15), then those which deal with the sender's one (16-20).
-\begin{lstlisting} [language={C++},caption={Corrected bug in LoanTokenLogicStandard contract.}, label={lst:CorrectinternalTransferFrom}]
+The code \autoref{lst:CorrectinternalTransferFrom} presents some differences. The operations regarding the receiver's balance are computed (lines 13-15), then those which deal with the sender's one (16-20).
+\begin{lstlisting} [language={Solidity},caption={Corrected bug in LoanTokenLogicStandard contract.}, label={lst:CorrectinternalTransferFrom}]
     function _internalTransferFrom(
         address _from,
         address _to,
@@ -315,7 +320,7 @@ The attack is mabe by 4 main steps:
     vulnerability to purchase SURGE again.
 \end{enumerate}
 
-\begin{lstlisting} [language={C++},caption={Sell function of Surge (SURGE) token.}, label={lst:SellSURGE}]
+\begin{lstlisting} [language={Solidity},caption={Sell function of Surge (SURGE) token.}, label={lst:SellSURGE}]
     function sell(uint256 tokenAmount) public nonReentrant returns (bool) {
         
         address seller = msg.sender;
@@ -351,7 +356,7 @@ has not been updated, because the attack contract spends all of the BNB balance 
 As a result, the price of token falls, allowing the attacker to purchase additional SURGE. 
 
 
-\begin{lstlisting} [language={C++},caption={Purchase function of Surge (SURGE) token.}, label={lst:SellPurchase}]
+\begin{lstlisting} [language={Solidity},caption={Purchase function of Surge (SURGE) token.}, label={lst:SellPurchase}]
     function purchase(address buyer, uint256 bnbAmount) internal returns (bool) {
         // make sure we don't buy more than the bnb in this contract
         require(bnbAmount <= address(this).balance, 'purchase not included in balance');
@@ -412,7 +417,7 @@ Following the operation of the \href{https://etherscan.io/address/0x85c90f369676
 contract for swapping the token in BREE and then swap those in ETH on Uniswap.
 
 The backdoor relies on the malicious management of access control. The admin, with the function grantRole, allow another wallet to be the Minter, so it called the function mint.
-\begin{lstlisting} [language=C++, caption={Backdoor inside the contract}, label={lst:SBREE}]
+\begin{lstlisting} [language=Solidity, caption={Backdoor inside the contract}, label={lst:SBREE}]
     
     ... 
     function _grantRole(bytes32 role, address account) private {
@@ -503,9 +508,9 @@ ties:
     \item gas use estimation.
 \end{itemize}
 
-Figure \ref{fig:echdina_architecture} depicts the Echidna architecture as a two-step process: pre-processing and fuzzing.
+Figure \autoref{fig:echdina_architecture} depicts the Echidna architecture as a two-step process: pre-processing and fuzzing.
 The tool starts with a collection of contracts that have been supplied, as well as attributes that have been integrated into one of the contracts.
-Echidna uses Slither , smart contract static analysis framework presenet in \ref{sec:WithoutSpecification:Slither}, to build and analyse the contracts in order to find relevant constants and functions that directly handle Ether (ETH).
+Echidna uses Slither , smart contract static analysis framework presenet in \autoref{sec:WithoutSpecification:Slither}, to build and analyse the contracts in order to find relevant constants and functions that directly handle Ether (ETH).
 The fuzzing effort begins in the second stage. 
 Using the application binary interface (ABI) given by the contract, significant constants stated in the contract, 
 and any previously gathered sets of transactions from the corpus, this iterative procedure creates random transactions. 
@@ -518,9 +523,9 @@ When a property violation is detected, a counterexample is created to indicate t
     \label{fig:echdina_architecture}
 \end{figure}
 
-The code \ref{lst:EchidnaCode} provides an example of invariant in Echdina context. The Solidity contract contains a vulnerability a the backdoor function. The output of the terminal is presented in Listing \ref{lst:EchidnaResult}: the attacker. For breaking the property, can call in order the tunctions airdrops() and backdoor()
+The code \autoref{lst:EchidnaCode} provides an example of invariant in Echdina context. The Solidity contract contains a vulnerability a the backdoor function. The output of the terminal is presented in Listing \autoref{lst:EchidnaResult}: the attacker. For breaking the property, can call in order the tunctions airdrops() and backdoor()
 
-\begin{lstlisting} [language=C++, caption={Solidity smart contract implementing a vulnerable Token and an Echidna invariant function.}, label={lst:EchidnaCode}]
+\begin{lstlisting} [language=Solidity, caption={Solidity smart contract implementing a vulnerable Token and an Echidna invariant function.}, label={lst:EchidnaCode}]
 contract Token{
     mapping(address => uint) public balances;
     function airdrop() public{
@@ -575,11 +580,11 @@ encode the function body while assuming the preconditions, and then check if pos
 hold. In this process, function calls are replaced by their specification and loops by their
 invariants (modularity). Finally, the results are back-annotated to the Solidity source.
 
-\ref{lst:SimpleBank} present an example of annotation, which states that the contract will ensure
+\autoref{lst:SimpleBank} present an example of annotation, which states that the contract will ensure
 that the sum of individual balances is equal to the total balance in the bank.
 
 
-\begin{lstlisting} [language=C++, caption={An example Solidity smart contract implementing a simple bank with SolcVerify annotations.}, label={lst:SimpleBank}]
+\begin{lstlisting} [language=Solidity, caption={An example Solidity smart contract implementing a simple bank with SolcVerify annotations.}, label={lst:SimpleBank}]
 pragma solidity >=0.7.0;
 
 /**
@@ -639,19 +644,19 @@ Symbolic execution is guided by statistical language models, so it can prioritiz
 This statregy involves firstly to run unguided symbolic
 execution on existing vulnerable contracts, then to learn a probablity distribution over vulnerable transaction sequences.
 
-The tool is implemented as an extension of VeriSmart \ref{sec:WithoutSpecification:VeriSmart}.
+The tool is implemented as an extension of VeriSmart \autoref{sec:WithoutSpecification:VeriSmart}.
 SmartTest is build on top of that, adding its own functionalities:
 \begin{itemize}
     \item symbolic execution with a language model.
     \item Symbolic executor for transaction sequences.
     \item Constraint solving optimization.
 \end{itemize}
-The installation of VeriSmart is necessary for running the tool. After that, the command \ref{lst:SmarTestRun} is run for using VeriSmart in SmarTest mode.
+The installation of VeriSmart is necessary for running the tool. After that, the command \autoref{lst:SmarTestRun} is run for using VeriSmart in SmarTest mode.
 \begin{lstlisting} [caption={SmarTest Command.}, label={lst:SmarTestRun}]
     ./main.native -input examples/leak_unsafe.sol -mode exploit -exploit_timeout 10
 \end{lstlisting}
 
-The report \ref{lst:SmarTestReport} shows an example of output of SmarTest, which provides the sequence of funtions for exploiting the found bug.
+The report \autoref{lst:SmarTestReport} shows an example of output of SmarTest, which provides the sequence of funtions for exploiting the found bug.
 \begin{lstlisting} [caption={SmarTest Example Report.}, label={lst:SmarTestReport}]
     [5] [IO] line 39, (balance[_to] + _value) : disproven, 14.528264s
     1: Example
@@ -727,7 +732,7 @@ prune the search space and to look for values that allow exploiting
 vulnerabilities in the smart contract.
 It is targeted at finding common vulnerabilities, 
 and is not able to discover issues in the business logic of an application. \citet{SWCRegistry}'s taxonomy of vulnerabilities is used by Mythril for classify them. 
-Listig \ref{lst:MythrilOutput} illustrates an example of output of Mythril analysis. 
+Listig \autoref{lst:MythrilOutput} illustrates an example of output of Mythril analysis. 
 At the secocond line, there is the reference to the vulnerability classified by SWC Registry with the ID of 110 (Assert Violation).
 
 
