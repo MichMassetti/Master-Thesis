@@ -59,22 +59,16 @@
 
 
 
-\chapter{Vulnerabilities and Real-world exploits in Solidity Smart Contracts}
-\label{ch:SmartContracts}
+\chapter{Most Common Vulnerabilities}
+\label{ch:Vulnerabilities}
 
 Presentation of what effected the smart contrats in the recent year.
-I devided in 2 classes, the real wolrd exploits and Most common vulnerabilities.
-The latter refers to the vulnerabilities that I found in more often in papers that I read and I selected because I think they are the 
+The vulnerabilities that I found more often in papers that I read and I selected because I think they are the 
 most rappresentative and the most common used by the attackers.
-
-
-
-\section{Most common Vulnerabilities}
-\label{sec:SmartContracts:Vulnerabilities}
 
 As introduction, I cite some papers that I read dealing with this topic. I select the following vulnerabilities, because I think they represent a risk still today.
 
-\subsection{Race Codition}
+\section{Race Codition}
 \label{sec:Vulnerabilities:RaceCondition}
 Race condition represents in computer science one of the most common vulnerabilities.
 \citet{RaceConditionDef} identifies this as an even,  which occurs when two threads access a shared variable at the same time.
@@ -108,7 +102,7 @@ The vulnerability relies on the shared variable price, which is updated by the f
 When a user tries to buy tokens, the owner can call the function for changing the price of the token, consequently the attacked user will spend more than he expected.
  
 
-\subsection{Denial Of Services}
+\section{Denial Of Services}
 \label{sec:Vulnerabilities:DOS}
 The article \citet{CloudFareDos} of CloudFare, proposes a definition of denial-of-service (DoS) attack. It is a type of cyber attack in 
 which an attacker aims to render a computer or a informatic service (logical or phisical) unavailable to its intended users by interrupting the 
@@ -155,11 +149,11 @@ When the vulnerable tries to refund the attacker one, it will always revert beca
     
 \end{lstlisting}
 
-\section{Real world Exploits}
-\label{sec:SmartContracts:Exploits}
+\chapter{Real world Exploits}
+\label{ch:Exploits}
 Real-wolrd exploits that have happend in the recent years.
 
-\subsection{DeFi platform bZX: \$8M hack from one misplaced line of code}
+\section{DeFi platform bZX: \$8M hack from one misplaced line of code}
 \label{sec:Exploits:bZX}
 
 \citet{bZxProtocol} explains how this protocl works. 
@@ -290,7 +284,7 @@ The code \autoref{lst:CorrectinternalTransferFrom} presents some differences. Th
 \end{lstlisting}
 
 
-\subsection{XSURGE on BSC Chain}
+\section{XSURGE on BSC Chain}
 \label{sec:Exploits:XSURGE}
 
 The \citet{XSurgeWeb}'s whitepaper provides a presentation of the ecosystem.
@@ -391,7 +385,7 @@ The following are the modifications suggested by the Beosin technical team for t
     \item Instead of using "call. value," use transfer or send to transfer. 
 \end{itemize}
 
-\subsection{CBDAO: an example of rug pull}
+\section{CBDAO: an example of rug pull}
 \label{sec:Exploits:CBDAO}
 Developers should watch out for possible attacks. They should audit and test their contract to find possible vulnerabilities and apply patches.
 In the decentralized finance context, even the investors should worry about malicious developers, who convince the investors to invest and then steal their investments.
@@ -482,7 +476,10 @@ I explain the different types of analysis exsting in general, as Symbolic execut
 
 \section{Tools for analysing properties specified by user}
 \label{sec:Tools:Specification}
-Description of tools, I would say like an overview of their papaer 
+Description of Different types of tool, like a taxonomy.
+
+Description of tools that we are going to use. 
+I would say like an overview of their papaer.
 
 \subsection{Celestial}
 \label{sec:Specification:Celestial}
