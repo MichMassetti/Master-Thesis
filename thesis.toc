@@ -15,6 +15,7 @@
 \contentsline {section}{\numberline {2.2}Research Goals}{6}{section.2.2}%
 \contentsline {paragraph}{\nonumberline Research Question:}{6}{paragraph*.6}%
 \contentsline {section}{\numberline {2.3}Research Approach}{6}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Releted Works}{6}{section.2.4}%
 \contentsline {chapter}{\numberline {3}Preliminary Knowledge}{7}{chapter.3}%
 \contentsline {section}{\numberline {3.1}History}{7}{section.3.1}%
 \contentsline {section}{\numberline {3.2}Bitcoin}{7}{section.3.2}%
@@ -25,32 +26,37 @@
 \contentsline {section}{\numberline {4.1}Race Codition}{9}{section.4.1}%
 \contentsline {section}{\numberline {4.2}Denial Of Services}{10}{section.4.2}%
 \contentsline {chapter}{\numberline {5}Real world Exploits}{13}{chapter.5}%
-\contentsline {section}{\numberline {5.1}DeFi platform bZX: \$8M hack from one misplaced line of code}{13}{section.5.1}%
-\contentsline {section}{\numberline {5.2}XSURGE on BSC Chain}{15}{section.5.2}%
-\contentsline {section}{\numberline {5.3}CBDAO: an example of rug pull}{17}{section.5.3}%
-\contentsline {chapter}{\numberline {6}Analysis Tools}{21}{chapter.6}%
-\contentsline {section}{\numberline {6.1}Typologies of Tools}{21}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Tools for analysing properties specified by user}{21}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Celestial}{21}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}SmartPulse}{21}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}VeriSol}{21}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Echidna}{21}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}Solc-Verify}{23}{subsection.6.2.5}%
-\contentsline {section}{\numberline {6.3}Tools without specification}{24}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}VeriSmart}{24}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}SmartTest}{24}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Slither}{25}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Mythril}{26}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}Maian}{27}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}Securify}{27}{subsection.6.3.6}%
-\contentsline {subsection}{\numberline {6.3.7}ContractLarva}{27}{subsection.6.3.7}%
-\contentsline {chapter}{\numberline {7}Results of testing}{29}{chapter.7}%
-\contentsline {chapter}{\numberline {8}Evaluation}{31}{chapter.8}%
-\contentsline {section}{\numberline {8.1}First Section}{31}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Second Section}{31}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Third Section}{31}{section.8.3}%
-\contentsline {chapter}{\numberline {9}Conclusion}{33}{chapter.9}%
-\contentsline {chapter}{\nonumberline Bibliography}{35}{chapter*.7}%
-\contentsline {chapter}{\numberline {A}Appendix}{37}{appendix.A}%
-\contentsline {section}{\numberline {A.1}First Appendix Section}{37}{section.A.1}%
+\contentsline {section}{\numberline {5.1}Cover Protocol:Infinite Minting Exploit Nets Attacker \$4.4M}{13}{section.5.1}%
+\contentsline {subsection}{\numberline {5.1.1}Cover Protocol}{13}{subsection.5.1.1}%
+\contentsline {subsection}{\numberline {5.1.2}The exlpoit}{13}{subsection.5.1.2}%
+\contentsline {paragraph}{\nonumberline Memory}{13}{paragraph*.8}%
+\contentsline {paragraph}{\nonumberline Storage}{13}{paragraph*.10}%
+\contentsline {section}{\numberline {5.2}DeFi platform bZX: \$8M hack from one misplaced line of code}{15}{section.5.2}%
+\contentsline {section}{\numberline {5.3}XSURGE on BSC Chain}{17}{section.5.3}%
+\contentsline {section}{\numberline {5.4}CBDAO: an example of rug pull}{19}{section.5.4}%
+\contentsline {chapter}{\numberline {6}Analysis Tools}{23}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Typologies of Tools}{23}{section.6.1}%
+\contentsline {section}{\numberline {6.2}Tools for analysing properties specified by user}{23}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Celestial}{23}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}SmartPulse}{23}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}VeriSol}{23}{subsection.6.2.3}%
+\contentsline {subsection}{\numberline {6.2.4}Echidna}{23}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Solc-Verify}{25}{subsection.6.2.5}%
+\contentsline {section}{\numberline {6.3}Tools without specification}{26}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}VeriSmart}{26}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}SmartTest}{26}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Slither}{27}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Mythril}{28}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Maian}{29}{subsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.3.6}Securify}{29}{subsection.6.3.6}%
+\contentsline {subsection}{\numberline {6.3.7}ContractLarva}{29}{subsection.6.3.7}%
+\contentsline {chapter}{\numberline {7}Results of testing}{31}{chapter.7}%
+\contentsline {chapter}{\numberline {8}Evaluation}{33}{chapter.8}%
+\contentsline {section}{\numberline {8.1}First Section}{33}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Second Section}{33}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Third Section}{33}{section.8.3}%
+\contentsline {chapter}{\numberline {9}Conclusion}{35}{chapter.9}%
+\contentsline {chapter}{\nonumberline Bibliography}{37}{chapter*.11}%
+\contentsline {chapter}{\numberline {A}Appendix}{39}{appendix.A}%
+\contentsline {section}{\numberline {A.1}First Appendix Section}{39}{section.A.1}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

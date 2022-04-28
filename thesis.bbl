@@ -511,6 +511,39 @@
       \verb https://bitcoin.org/bitcoin.pdf
       \endverb
     \endentry
+    \entry{CoverProtocolPostMortem}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c16a18e438a049ef1777f1471273a6ce}{%
+           family={Protocol},
+           familyi={P\bibinitperiod},
+           given={Cover},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://coverprotocol.medium.com}%
+      }
+      \strng{namehash}{c16a18e438a049ef1777f1471273a6ce}
+      \strng{fullhash}{c16a18e438a049ef1777f1471273a6ce}
+      \strng{bibnamehash}{c16a18e438a049ef1777f1471273a6ce}
+      \strng{authorbibnamehash}{c16a18e438a049ef1777f1471273a6ce}
+      \strng{authornamehash}{c16a18e438a049ef1777f1471273a6ce}
+      \strng{authorfullhash}{c16a18e438a049ef1777f1471273a6ce}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{12/28 Post-Mortem}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://coverprotocol.medium.com/12-28-post-mortem-34c5f9f718d4
+      \endverb
+      \verb{url}
+      \verb https://coverprotocol.medium.com/12-28-post-mortem-34c5f9f718d4
+      \endverb
+    \endentry
     \entry{RugPullDef}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=c6fe4cdb2115d3dfce417c0255dc1ad2}{%
@@ -550,6 +583,39 @@
       \field{note}{Accessed: 2022-04-22}
       \field{title}{Race conditions and deadlocks}
       \field{year}{2020}
+    \endentry
+    \entry{CoverProtocol}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=919acaaee919d6b831ef54fdd46dc1ed}{%
+           family={Sawinyh},
+           familyi={S\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://defiprime.com}%
+      }
+      \strng{namehash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \strng{fullhash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \strng{bibnamehash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \strng{authorbibnamehash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \strng{authornamehash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \strng{authorfullhash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Cover Protocol - Decentralized Insurance Marketplace}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://defiprime.com/cover-protocol
+      \endverb
+      \verb{url}
+      \verb https://defiprime.com/cover-protocol
+      \endverb
     \endentry
     \entry{SlitherGitHub}{misc}{}
       \list{publisher}{1}{%

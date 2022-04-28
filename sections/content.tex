@@ -153,6 +153,103 @@ When the vulnerable tries to refund the attacker one, it will always revert beca
 \label{ch:Exploits}
 Real-wolrd exploits that have happend in the recent years.
 
+
+\section{Cover Protocol:Infinite Minting Exploit Nets Attacker \$4.4M }
+\label{sec:Exploits:CoverProtocol}
+On the 28th of December 2020, an exploit was abused on Cover Protocol's shield mining contract. 
+The article shows the attackers could steal from project around \$ 4 million. 
+The target of the attack was the smart contract \href{https://github.com/CoverProtocol/cover-token-mining/blob/main/contracts/Blacksmith.sol}{Blacksmith.sol}, its bug had the result to mint more rewards to the miner. 
+
+\subsection{Cover Protocol}
+\label{sec:CoverProtocol:Presentation}
+
+\citet{CoverProtocol} interviewed Alan, the co-founder of the Cover Protocl. In his article he answers some question about his project, regarding its functionality and road map. 
+It was an active protocol on the Ethereum blockchain; the developer deployed version 2,  because of the attack. 
+Cover Protocol is a peer-to-peer coverage marketplace that utilizes ERC-20 fungible tokens to allow permissionless and non-KYC coverage. 
+It can be described as a coverage provider.
+The attack affected the rewards contract, consequently, the token's one even.  
+The exploit can be classified under the name of "infinite mint".
+
+\subsection{The exlpoit}
+\label{sec:CoverProtocol:Exploit}
+The develports's team reported \citep{CoverProtocolPostMortem} the technical analysis of the exploit the day after.
+The contract containing the vulnerability is Blacksmith.sol. The core protocol was not affected, 
+but the minting contract and the \$COVER token became unusable.
+Firstly, the attackers created a new balancer liquidity pool for the target contract. The next step was to deposit token in it and execute the exploit, 
+withdrawing funds from the contract thanks to a miscalculation of the rewards.
+The bug relies on the misuse of two keywords in solidity: storage and memory. 
+
+\paragraph{Memory} This keyword within Solidity allocates memory for a specific variable. 
+In this instance, that variable is scoped to a specific function. 
+The memory is cleared once the function has executed.
+
+\paragraph{Storage} On the other hand this keyword within Solidity allows variables to act as a pointer into the storage of data in mappings or data structures. 
+Storage data is persistent between function calls and transactions. 
+
+The previous has a similar behave to the Random Access Memory (RAM) on a computing device, the latter stores into the persistent memory.
+
+The vulnerable function is the deposit one.
+\begin{lstlisting} [language={Solidity},caption={Deposit function.}, label={lst:coverdeposit}]
+    function deposit(address _lpToken, uint256 _amount) external override {
+        require(block.timestamp >= START_TIME , "Blacksmith: not started");
+        require(_amount > 0, "Blacksmith: amount is 0");
+        Pool memory pool = pools[_lpToken];
+        require(pool.lastUpdatedAt > 0, "Blacksmith: pool does not exists");
+        require(IERC20(_lpToken).balanceOf(msg.sender) >= _amount, "Blacksmith: insufficient balance");
+        updatePool(_lpToken);
+
+        Miner storage miner = miners[_lpToken][msg.sender];
+        BonusToken memory bonusToken = bonusTokens[_lpToken];
+        _claimCoverRewards(pool, miner);
+        _claimBonus(bonusToken, miner);
+
+        miner.amount = miner.amount.add(_amount);
+        // update writeoff to match current acc rewards/bonus per token
+        miner.rewardWriteoff = miner.amount.mul(pool.accRewardsPerToken).div(CAL_MULTIPLIER);
+        miner.bonusWriteoff = miner.amount.mul(bonusToken.accBonusPerToken).div(CAL_MULTIPLIER);
+
+        IERC20(_lpToken).safeTransferFrom(msg.sender, address(this), _amount);
+        emit Deposit(msg.sender, _lpToken, _amount);
+  }
+\end{lstlisting}
+At line 4 of \autoref{lst:coverdeposit}, the state of the pool is stored in a variable with the keyword memory. 
+The function update \autoref{lst:coverupdate} is called, which updates the state of the pool. However, the variable pool, 
+existing within the function, remains identical. 
+\begin{lstlisting} [language={Solidity},caption={Update function.}, label={lst:coverupdate}]
+    function deposit(address _lpToken, uint256 _amount) external override {
+        require(block.timestamp >= START_TIME , "Blacksmith: not started");
+        require(_amount > 0, "Blacksmith: amount is 0");
+        Pool memory pool = pools[_lpToken];
+        require(pool.lastUpdatedAt > 0, "Blacksmith: pool does not exists");
+        require(IERC20(_lpToken).balanceOf(msg.sender) >= _amount, "Blacksmith: insufficient balance");
+        updatePool(_lpToken);
+
+        Miner storage miner = miners[_lpToken][msg.sender];
+        BonusToken memory bonusToken = bonusTokens[_lpToken];
+        _claimCoverRewards(pool, miner);
+        _claimBonus(bonusToken, miner);
+
+        miner.amount = miner.amount.add(_amount);
+        // update writeoff to match current acc rewards/bonus per token
+        miner.rewardWriteoff = miner.amount.mul(pool.accRewardsPerToken).div(CAL_MULTIPLIER);
+        miner.bonusWriteoff = miner.amount.mul(bonusToken.accBonusPerToken).div(CAL_MULTIPLIER);
+
+        IERC20(_lpToken).safeTransferFrom(msg.sender, address(this), _amount);
+        emit Deposit(msg.sender, _lpToken, _amount);
+  }
+\end{lstlisting}
+
+Then, deposit function at line 16 \autoref{lst:coverdeposit} estimates the reward per token updating the value of miner.rewardWriteoff, 
+but it uses the wronge value of the parameter of pool.accRewardsPerToken.
+
+Following the vulnerabilty, anyone can obtain an insane amount of minted tokens when they execute the claimRewards(address \_lpToken) function. 
+This function, which is used to grab their rewards, ends up calling \_claimCoverRewards(Pool memory pool, Miner memory miner) which references the miner.rewardWriteoff. 
+As that variable is much smaller than the actual pool.accRewardsPerToken, the contract results in minting an abundance of tokens.
+
+
+
+
+
 \section{DeFi platform bZX: \$8M hack from one misplaced line of code}
 \label{sec:Exploits:bZX}
 
