@@ -416,6 +416,39 @@
       \field{title}{Formal Specification and Verification of Solidity Contracts with Events}
       \field{year}{2020}
     \endentry
+    \entry{AkuDreams}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=804c6482dfc218ba8423ce835767c433}{%
+           family={Hassan},
+           familyi={H\bibinitperiod},
+           given={Saeed},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://bitcoinist.com/}%
+      }
+      \strng{namehash}{804c6482dfc218ba8423ce835767c433}
+      \strng{fullhash}{804c6482dfc218ba8423ce835767c433}
+      \strng{bibnamehash}{804c6482dfc218ba8423ce835767c433}
+      \strng{authorbibnamehash}{804c6482dfc218ba8423ce835767c433}
+      \strng{authornamehash}{804c6482dfc218ba8423ce835767c433}
+      \strng{authorfullhash}{804c6482dfc218ba8423ce835767c433}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{NFT Project Aku Dreams Loses $34 Million To Smart Contract Flaw}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://bitcoinist.com/nft-project-aku-dreams-loses-34-million-to-smart-contract-flaw/
+      \endverb
+      \verb{url}
+      \verb https://bitcoinist.com/nft-project-aku-dreams-loses-34-million-to-smart-contract-flaw/
+      \endverb
+    \endentry
     \entry{CBDAO}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=6bfa3061417809d89ee046ac51ebe999}{%

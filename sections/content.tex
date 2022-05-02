@@ -153,6 +153,123 @@ When the vulnerable tries to refund the attacker one, it will always revert beca
 \label{ch:Exploits}
 Real-wolrd exploits that have happend in the recent years.
 
+\section{\$34 Million stacks NFT Project Aku Dreams Smart Contract}
+\label{sec:Exploits:AkuDreams}
+\href{https://www.business2community.com/nft-news/nft-market-size-how-to-track-02467120}{Business2community} estimates the value of NFT market around \$100 billion.
+Nowadays, the word NFT is one of the most researched ones on Google and the other search engine.
+NFT's marketplaces manage the transaction behind these valuable markets. 
+They are made by a frontend part, but even by a backend one which relies on the blockchain. 
+Akutars, a highly anticipated Ethereum-based NFT project developed by Aku Dreams, is an example of how a bug can have catastrophic consequences in this sector. 
+\subsection{Akutarts NFT project}
+\label{sec:AkuDreams:Akutars}
+\citet{AkuDreams} reports Akutarts locked up \$34 million due to the faulty code of the smart contract.
+The launch contained 15,000  NFTs and was based on the Dutch auction. This strategy involves a descending price auction where an item begins at a set maximum price. 
+The price is gradually lowered over a fixed time until a bid is placed that guarantees the bidder the purchase of the item at the current price. 
+Anyone who paid the higher amount would get a refund.
+Unfortunately, the launch was corrupted, since the errors in the codes made the project open to exploits. 
+An attacker could blocke the withdrawals and refunds while attempting to highlight the vulnerabilities within the project.
+\subsection{The exploit}
+\label{sec:AkuDreams:AkutarsExploit}
+
+
+\begin{lstlisting} [language={Solidity},caption={Function for refunding the users.}, label={lst:AkuDreamsProcessRefunds}]
+    function processRefunds() external {
+      require(block.timestamp > expiresAt, "Auction still in progress");
+      uint256 _refundProgress = refundProgress;
+      uint256 _bidIndex = bidIndex;
+      require(_refundProgress < _bidIndex, "Refunds already processed");
+      
+      uint256 gasUsed;
+      uint256 gasLeft = gasleft();
+      uint256 price = getPrice();
+      
+      for (uint256 i=_refundProgress; gasUsed < 5000000 && i < _bidIndex; i++) {
+          bids memory bidData = allBids[i];
+          if (bidData.finalProcess == 0) {
+            uint256 refund = (bidData.price - price) * bidData.bidsPlaced;
+            uint256 passes = mintPassOwner[bidData.bidder];
+            if (passes > 0) {
+                refund += mintPassDiscount * (bidData.bidsPlaced < passes ? bidData.bidsPlaced : passes);
+            }
+            allBids[i].finalProcess = 1;
+            if (refund > 0) {
+                (bool sent, ) = bidData.bidder.call{value: refund}("");
+                require(sent, "Failed to refund bidder");
+            }
+          }
+          
+          gasUsed += gasLeft - gasleft();
+          gasLeft = gasleft();
+          _refundProgress++;
+      }
+
+      refundProgress = _refundProgress;
+    }
+\end{lstlisting}
+-------------------------------
+\begin{lstlisting} [language={Solidity},caption={Function for claiming the funds for the developers.}, label={lst:AkuDreamsClaim}]
+    function claimProjectFunds() external onlyOwner {
+        require(block.timestamp > expiresAt, "Auction still in progress");
+        require(refundProgress >= totalBids, "Refunds not yet processed");
+        require(akuNFTs.airdropProgress() >= totalBids, "Airdrop not complete");
+
+        (bool sent, ) = project.call{value: address(this).balance}("");
+        require(sent, "Failed to withdraw");        
+    }
+\end{lstlisting}
+---------------------------
+\begin{lstlisting} [language={Solidity},caption={Function for users'bid}, label={lst:AkuDreamsBid}]
+    function _bid(uint8 amount, uint256 value) internal {
+        require(block.timestamp > startAt, "Auction not started yet");
+        require(block.timestamp < expiresAt, "Auction expired");
+        uint80 price = getPrice();
+        uint256 totalPrice = price * amount;
+        if (value < totalPrice) {
+            revert("Bid not high enough");
+        }
+        
+        uint256 myBidIndex = personalBids[msg.sender];
+        bids memory myBids;
+        uint256 refund;
+
+        if (myBidIndex > 0) {
+            myBids = allBids[myBidIndex];
+            refund = myBids.bidsPlaced * (myBids.price - price);
+        }
+        uint256 _totalBids = totalBids + amount;
+        myBids.bidsPlaced += amount;
+
+        if (myBids.bidsPlaced > maxBids) {
+            revert("Bidding limits exceeded");
+        }
+
+        if(_totalBids > totalForAuction) {
+            revert("Auction Full");
+        } else if (_totalBids == totalForAuction) {
+            expiresAt = block.timestamp; //Auction filled
+        }
+
+        myBids.price = price;
+
+        if (myBidIndex > 0) {
+            allBids[myBidIndex] = myBids;
+        } else {
+            myBids.bidder = msg.sender;
+            personalBids[msg.sender] = bidIndex;
+            allBids[bidIndex] = myBids;
+            bidIndex++;
+        }
+        
+        totalBids = _totalBids;
+        totalBidValue += totalPrice;
+
+        refund += value - totalPrice;
+        if (refund > 0) {
+            (bool sent, ) = msg.sender.call{value: refund}("");
+            require(sent, "Failed to refund bidder");
+        }
+    }
+\end{lstlisting}
 
 \section{Cover Protocol:Infinite Minting Exploit Nets Attacker \$4.4M }
 \label{sec:Exploits:CoverProtocol}
