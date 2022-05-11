@@ -227,6 +227,39 @@
       \verb https://doi.org/10.1109%2Fwetseb.2019.00008
       \endverb
     \endentry
+    \entry{UraniumPM}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=679e98376e6f49d8f2dc56c4b8fba638}{%
+           family={Finance},
+           familyi={F\bibinitperiod},
+           given={Uranium},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://uraniumfinance.medium.com}%
+      }
+      \strng{namehash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \strng{fullhash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \strng{bibnamehash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \strng{authorbibnamehash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \strng{authornamehash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \strng{authorfullhash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Uranium : post-mortem, v2, compensations}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://uraniumfinance.medium.com/uranium-post-mortem-v2-compensations-aac4b0706d7d
+      \endverb
+      \verb{url}
+      \verb https://uraniumfinance.medium.com/uranium-post-mortem-v2-compensations-aac4b0706d7d
+      \endverb
+    \endentry
     \entry{Echidna}{inproceedings}{}
       \name{author}{5}{}{%
         {{un=0,uniquepart=base,hash=b3a8378ac059607babf9689a21d1450d}{%
@@ -416,39 +449,6 @@
       \field{title}{Formal Specification and Verification of Solidity Contracts with Events}
       \field{year}{2020}
     \endentry
-    \entry{AkuDreams}{misc}{}
-      \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=804c6482dfc218ba8423ce835767c433}{%
-           family={Hassan},
-           familyi={H\bibinitperiod},
-           given={Saeed},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-      }
-      \list{publisher}{1}{%
-        {https://bitcoinist.com/}%
-      }
-      \strng{namehash}{804c6482dfc218ba8423ce835767c433}
-      \strng{fullhash}{804c6482dfc218ba8423ce835767c433}
-      \strng{bibnamehash}{804c6482dfc218ba8423ce835767c433}
-      \strng{authorbibnamehash}{804c6482dfc218ba8423ce835767c433}
-      \strng{authornamehash}{804c6482dfc218ba8423ce835767c433}
-      \strng{authorfullhash}{804c6482dfc218ba8423ce835767c433}
-      \field{sortinit}{H}
-      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{NFT Project Aku Dreams Loses $34 Million To Smart Contract Flaw}
-      \field{year}{2022}
-      \verb{urlraw}
-      \verb https://bitcoinist.com/nft-project-aku-dreams-loses-34-million-to-smart-contract-flaw/
-      \endverb
-      \verb{url}
-      \verb https://bitcoinist.com/nft-project-aku-dreams-loses-34-million-to-smart-contract-flaw/
-      \endverb
-    \endentry
     \entry{CBDAO}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=6bfa3061417809d89ee046ac51ebe999}{%
@@ -474,6 +474,39 @@
       \field{note}{Accessed: 2022-04-21}
       \field{title}{CBDAO Exitscammed: Moving Forward as a Community}
       \field{year}{2020}
+    \endentry
+    \entry{BurgerSwap}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6ba046d6176753653db0e69f9e3f1f99}{%
+           family={Leiba},
+           familyi={L\bibinitperiod},
+           given={Oded},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://zengo.com}%
+      }
+      \strng{namehash}{6ba046d6176753653db0e69f9e3f1f99}
+      \strng{fullhash}{6ba046d6176753653db0e69f9e3f1f99}
+      \strng{bibnamehash}{6ba046d6176753653db0e69f9e3f1f99}
+      \strng{authorbibnamehash}{6ba046d6176753653db0e69f9e3f1f99}
+      \strng{authornamehash}{6ba046d6176753653db0e69f9e3f1f99}
+      \strng{authorfullhash}{6ba046d6176753653db0e69f9e3f1f99}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Reentering the Reentrancy Bug: Disclosing BurgerSwap's Vulnerability}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://zengo.com/burgerswap-vulnerability/
+      \endverb
+      \verb{url}
+      \verb https://zengo.com/burgerswap-vulnerability/
+      \endverb
     \endentry
     \entry{Mythril}{inproceedings}{}
       \name{author}{1}{}{%
@@ -723,6 +756,39 @@
       \endverb
       \verb{url}
       \verb https://www.usenix.org/conference/usenixsecurity21/presentation/so
+      \endverb
+    \endentry
+    \entry{UraniumTech}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=55dd7b96129603888aeb3c5fbe2cebe2}{%
+           family={team},
+           familyi={t\bibinitperiod},
+           given={Certik},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Shentu Foundation}%
+      }
+      \strng{namehash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \strng{fullhash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \strng{bibnamehash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \strng{authorbibnamehash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \strng{authornamehash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \strng{authorfullhash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \field{sortinit}{t}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Uranium Finance Exploit Analysis}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://medium.com/shentu-foundation/uranium-finance-exploit-analysis-d135055d6a6a
+      \endverb
+      \verb{url}
+      \verb https://medium.com/shentu-foundation/uranium-finance-exploit-analysis-d135055d6a6a
       \endverb
     \endentry
     \entry{CloudFareDos}{misc}{}

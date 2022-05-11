@@ -54,6 +54,7 @@
 \section{Smart Contract}
 \label{sec:Backgroud:SmartContracts}
 
+
 \section{Security Analysis}
 \label{sec:Backgroud:SecurityAnalysis}
 
@@ -74,7 +75,7 @@ Race condition represents in computer science one of the most common vulnerabili
 \citet{RaceConditionDef} identifies this as an even,  which occurs when two threads access a shared variable at the same time.
 A case is illustruted when two threads read the value of a shared variable. After computing operations on that, they update the shared variable. The change applied by the last thread will be preserved and the other one will be lost.
 In a Solidity context an analogous situation can happen. This can be exploited by attackers, for withrowing a higher amount of token or manipulating the price of it.
-
+\autoref{lst:EchidnaCode}
 \citetitle{NotSoSmartContracts} is a repository that contains examples of common Ethereum smart contract vulnerabilities.
 Vulnerable smart contracts and explanations are coupled and presented. I considered the smart contract \href{https://github.com/crytic/not-so-smart-contracts/blob/master/race_condition/RaceCondition.sol}{RaceCodition.sol} for showing a case of this class of vulnerability.
 The vulnerability relies on the shared variable price, which is updated by the function changePrice (\autoref{lst:RaceCodition} line 15) and used by the function buy (\autoref{lst:RaceCodition} line 2).
@@ -103,7 +104,7 @@ When a user tries to buy tokens, the owner can call the function for changing th
  
 
 \section{Denial Of Services}
-\label{sec:Vulnerabilities:DOS}
+
 The article \citet{CloudFareDos} of CloudFare, proposes a definition of denial-of-service (DoS) attack. It is a type of cyber attack in 
 which an attacker aims to render a computer or a informatic service (logical or phisical) unavailable to its intended users by interrupting the 
 device's normal functioning. 
@@ -153,6 +154,7 @@ When the vulnerable tries to refund the attacker one, it will always revert beca
 \label{ch:Exploits}
 Real-wolrd exploits that have happend in the recent years.
 
+%Dos Attack, problem in implementation, locked funds in the contract
 \section{\$34 Million stacks NFT Project Aku Dreams Smart Contract}
 \label{sec:Exploits:AkuDreams}
 \href{https://www.business2community.com/nft-news/nft-market-size-how-to-track-02467120}{Business2community} estimates the value of NFT market around \$100 billion.
@@ -162,7 +164,7 @@ They are made by a frontend part, but even by a backend one which relies on the 
 Akutars, a highly anticipated Ethereum-based NFT project developed by Aku Dreams, is an example of how a bug can have catastrophic consequences in this sector. 
 \subsection{Akutarts NFT project}
 \label{sec:AkuDreams:Akutars}
-\citet{AkuDreams} reports Akutarts locked up \$34 million due to the faulty code of the smart contract.
+ reports Akutarts locked up \$34 million due to the faulty code of the smart contract.
 The launch contained 15,000  NFTs and was based on the Dutch auction. This strategy involves a descending price auction where an item begins at a set maximum price. 
 The price is gradually lowered over a fixed time until a bid is placed that guarantees the bidder the purchase of the item at the current price. 
 Anyone who paid the higher amount would get a refund.
@@ -271,6 +273,7 @@ An attacker could blocke the withdrawals and refunds while attempting to highlig
     }
 \end{lstlisting}
 
+%Bug in the code, storage and memory solidity kew word 
 \section{Cover Protocol:Infinite Minting Exploit Nets Attacker \$4.4M }
 \label{sec:Exploits:CoverProtocol}
 On the 28th of December 2020, an exploit was abused on Cover Protocol's shield mining contract. 
@@ -366,7 +369,7 @@ As that variable is much smaller than the actual pool.accRewardsPerToken, the co
 
 
 
-
+%bug in the code 
 \section{DeFi platform bZX: \$8M hack from one misplaced line of code}
 \label{sec:Exploits:bZX}
 
@@ -497,8 +500,8 @@ The code \autoref{lst:CorrectinternalTransferFrom} presents some differences. Th
     }   
 \end{lstlisting}
 
-
-\section{XSURGE on BSC Chain}
+% Reentrancy 
+\section{XSURGE on BSC Chain}   
 \label{sec:Exploits:XSURGE}
 
 The \citet{XSurgeWeb}'s whitepaper provides a presentation of the ecosystem.
@@ -598,7 +601,7 @@ The following are the modifications suggested by the Beosin technical team for t
     \item any transfer operation should be place after the state changes to avoid reentry assaults.
     \item Instead of using "call. value," use transfer or send to transfer. 
 \end{itemize}
-
+%not so sure to consider this one 
 \section{CBDAO: an example of rug pull}
 \label{sec:Exploits:CBDAO}
 Developers should watch out for possible attacks. They should audit and test their contract to find possible vulnerabilities and apply patches.
@@ -679,6 +682,317 @@ The backdoor relies on the malicious management of access control. The admin, wi
 
 \end{lstlisting} 
     
+\section{Spartan protocol, flash loan, amplification problem }   
+\label{sec:Exploits:Spartan}
+
+\section{Uranium Finance: \$1.3M of rewards drawn}   
+\label{sec:Exploits:Uranium}
+Uranium Finance is a Automated Marker Maker (AMM) runnning on the BinanceSmartChain.
+The article presented by \citet{UraniumPM}, deals wiht the exploit which occured on the 
+8th April 2021. The attacker could grab the contents of the RADS pool and all of the RADS/sRADS rewards 
+and sell them for \$1.3M worth of BUSD and BNB.
+
+The team of developer could identify the exploiter, because some transaction of the attacker wallet, could be 
+correleted with a Binance wallet. The criminal got in touch with the developers. After some negotiation, 
+the exploiter refund the team of \$1M in ETH.
+
+\subsection{The exploit}
+\label{sec:Uranium:Exploit}
+The article written by \citeauthor{UraniumTech}, gets more in deep into the technical details involved in this exploit.
+The target of it was the contract \href{https://bscscan.com/address/0xd5aac41d315c1d382dcf1c39d4ed9b37c224edf2#code}{MasterUranium}, specifically the part regarding the rewarding of the user.
+The list of transactions involving the malicious wallet shows the attacker could draw a huge amount of rewards 
+by calling 3 functions multiple times:
+\begin{enumerate}
+    \item deposit(\_pid, \_amount); 
+    \item emergencyWithdraw(\_pid); 
+    \item withdraw(\_pid, \_amount).
+\end{enumerate}
+
+
+\paragraph{Deposit} The two most relevant variables to the exploit are user.amountWithBonus and user.rewardDebt, for the attack purpose, they need to be greater than 0.
+Therefor this function is called with  with the \_amount input argument larger than “0”. 
+the “\_bonusAmount” is calculated with:
+
+\_bonusAmount=\_amount.mul(userBonus(\_pid, \_user).add(10000)).div(10000).
+
+The user.amountWithBonus increases by adding  the \_bonusAmount. 
+The user.rewardDebt is calculated by the end of the function, with
+user.rewardDebt = user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12).
+When the function returns, the  both variables are greater than 0.
+
+\begin{lstlisting} [language=Solidity, caption={Deposit Function}, label={lst:UraniumDeposit}]
+    function deposit(uint256 _pid, uint256 _amount) external validatePool(_pid) {
+        address _user = msg.sender;
+        PoolInfo storage pool = poolInfo[_pid];
+        UserInfo storage user = userInfo[_pid][_user];
+        updatePool(_pid);
+        if (user.amount > 0) {
+            uint256 pending = user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12).sub(user.rewardDebt);
+            if(pending > 0) {
+                if(pool.isSRadsRewards){
+                    safeSRadsTransfer(_user, pending);
+                }
+                else{
+                    safeRadsTransfer(_user, pending);
+                }
+            }
+        }
+        if (_amount > 0) {
+            pool.lpToken.safeTransferFrom(address(_user), address(this), _amount);
+            if (address(pool.lpToken) == address(rads)) {
+                uint256 transferTax = _amount.mul(2).div(100);
+                _amount = _amount.sub(transferTax);
+            }
+            if (pool.depositFeeBP > 0) {
+                uint256 depositFee = _amount.mul(pool.depositFeeBP).div(10000);
+                pool.lpToken.safeTransfer(feeAddress, depositFee);
+                user.amount = user.amount.add(_amount).sub(depositFee);
+                uint256 _bonusAmount = _amount.sub(depositFee).mul(userBonus(_pid, _user).add(10000)).div(10000);
+                user.amountWithBonus = user.amountWithBonus.add(_bonusAmount);
+                pool.lpSupply = pool.lpSupply.add(_bonusAmount);
+            } else {
+                user.amount = user.amount.add(_amount);
+                uint256 _bonusAmount = _amount.mul(userBonus(_pid, _user).add(10000)).div(10000);
+                user.amountWithBonus = user.amountWithBonus.add(_bonusAmount);
+                pool.lpSupply = pool.lpSupply.add(_bonusAmount);
+            }
+        }
+        user.rewardDebt = user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12);
+        emit Deposit(_user, _pid, _amount);
+    }
+
+    // Withdraw LP tokens from MasterUranium.
+
+
+
+
+\end{lstlisting} 
+
+\subparagraph{EmergencyWithdraw} 
+The next step is the withdrawal of the funds. 
+This function has the purpose of getting the deposited token back and setting user.amount equal to and user.rewardDebt equal to 0.
+The fundamental variable user.amountWithBonus is still larger than 0. It is exploited during the last step.
+
+\begin{lstlisting} [language=Solidity, caption={Deposit Function}, label={lst:UraniumEMW}]
+    // Withdraw without caring about rewards. EMERGENCY ONLY.
+    function emergencyWithdraw(uint256 _pid) external {
+        PoolInfo storage pool = poolInfo[_pid];
+        UserInfo storage user = userInfo[_pid][msg.sender];
+        pool.lpToken.safeTransfer(address(msg.sender), user.amount);
+        emit EmergencyWithdraw(msg.sender, _pid, user.amount);
+        user.amount = 0;
+        user.rewardDebt = 0;
+    }
+    
+\end{lstlisting} 
+
+\subparagraph{Withdraw} In the last step, the attacker call this function with \_amount equal to 0.
+Line 5 is respected and then pending variable is estimeted.
+Since the user.rewardDebt equal to 0, the equation becomes
+pending = user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12).
+Both pool.accRadsPerShare and user.amountWithBonus are positve number, so the product pending larger than 0 as well.
+Since the statement at line 10 is not respected, the code can't adjust the user.amountWithBonus variable to indicate the user claims the reward.
+
+\begin{lstlisting} [language=Solidity, caption={Deposit Function}, label={lst:UraniumW}]
+    function withdraw(uint256 _pid, uint256 _amount) external validatePool(_pid) {
+        PoolInfo storage pool = poolInfo[_pid];
+        UserInfo storage user = userInfo[_pid][msg.sender];
+        require(user.amount >= _amount, "withdraw: not good");
+
+        updatePool(_pid);
+        uint256 pending = user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12).sub(user.rewardDebt);
+        if(pending > 0) {
+            if(pool.isSRadsRewards){
+                safeSRadsTransfer(msg.sender, pending);
+            }
+            else{
+                safeRadsTransfer(msg.sender, pending);
+            }
+        }
+        if(_amount > 0) {
+            user.amount = user.amount.sub(_amount);
+            uint256 _bonusAmount = _amount.mul(userBonus(_pid, msg.sender).add(10000)).div(10000);
+            user.amountWithBonus = user.amountWithBonus.sub(_bonusAmount);
+            pool.lpToken.safeTransfer(address(msg.sender), _amount);
+            pool.lpSupply = pool.lpSupply.sub(_bonusAmount);
+        }
+        user.rewardDebt = user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12);
+        emit Withdraw(msg.sender, _pid, _amount);
+    }
+
+\end{lstlisting} 
+
+The user.amountWithBonus increases every time the attacker starts from the step 1. 
+This enables the attacker to drains more and more tokens in the process. 
+Checking the transcation on \href{https://bscscan.com/txs?a=0x36ad9ee78bfb730955993d2aa77ecccf95e3313e&p=3}{BSCscan}, it is shown how many times the attacker 
+replicated this methodology. 
+
+\section{Reentering the Reentrancy Bug: Disclosing BurgerSwap's Vulnerability}   
+\label{sec:Exploits:BurgerSwap}
+\href{https://burgerswap.org/trade/swap}{BurgerSwap} is an automated Marker Maker service on Binance Smart Chain (BSC). 
+At time of the disclosure of the vulnerability, there was areound \$13K worth of Ether at immediate risk.
+The vulnerability was discovered by href{https://zengo.com}{ZenGo} team and it was presentend by \citet{BurgerSwap}.
+
+\subsection{BurgerSwap}
+\label{sec:BurgerSwap:brige}
+BurgerSwap is a Binance Smart Chain fork of Uniswap, Automated Marker Maker (AMM) service operating on Ethereum. 
+Tranding and listing Specialized BEP-20 tokens among standard swapping options are available on this platform. 
+To mint such tokens, users can use 
+BurgerSwap's “bridge” contract on Ethereum. 
+\href{https://etherscan.io/address/0xaf5dcebba2f8bec8729117336b2fe8b4e0d99b0b#code}{Ethereum-BSC “bridge” contract on Ethereum} was the main target of the attack.
+
+\subparagraph{Brige} is a combination of 2 smart contracts deeployed on different chains. 
+It allows cross-chain transfers of value. Ether deposited into the contract on 
+the main net will provide a balance denominated in ERC-20 tokens on the sidechain. 
+While ERC-20 tokens deposited back into the contract on the sidechain can free up Ether on main net.
+One example could be locking Ether, which is converted via the contract to WETH 
+(Wrapped Ether, an ERC-20 token pegged to Ether), and then the same wallet locking ETH can be credited with bWETH on BSC.
+
+\subsection{The vulnerability}
+\label{sec:BurgerSwap:Vulnerability}
+
+The issue deals with the fucntion withdrawFromBSC, \autoref{lst:BurgerSwap}. 
+First of all, it checks some conditions and then it proceedes to transfer the amount to the mseeage sender. 
+The order of the actions is:
+\begin{enumerate}
+    \item It verifies executeMap[\_paybackId] is false;
+    \item It checks \_signature is a valid signature on \_paybackId, \_token, msg.sender, and \_amount.
+    \item It calls TransferHelper.safeTransferETH(msg.sender, \_amount).
+    \item It sets executeMap[\_paybackId] to true.
+\end{enumerate}
+
+The issue is the interaction with the sender's address (step 3) happens before the internal effect (step 4): reentrancy is feasible.
+
+\begin{lstlisting} [language=Solidity, caption={BugerSwap Bridge Contract}, label={lst:BurgerSwap}]
+library TransferHelper {
+    function safeApprove(address token, address to, uint value) internal {
+        // bytes4(keccak256(bytes('approve(address,uint256)')));
+        (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0x095ea7b3, to, value));
+        require(success && (data.length == 0 || abi.decode(data, (bool))), 'TransferHelper: APPROVE_FAILED');
+    }
+
+    function safeTransfer(address token, address to, uint value) internal {
+        // bytes4(keccak256(bytes('transfer(address,uint256)')));
+        (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0xa9059cbb, to, value));
+        require(success && (data.length == 0 || abi.decode(data, (bool))), 'TransferHelper: TRANSFER_FAILED');
+    }
+
+    function safeTransferFrom(address token, address from, address to, uint value) internal {
+        // bytes4(keccak256(bytes('transferFrom(address,address,uint256)')));
+        (bool success, bytes memory data) = token.call(abi.encodeWithSelector(0x23b872dd, from, to, value));
+        require(success && (data.length == 0 || abi.decode(data, (bool))), 'TransferHelper: TRANSFER_FROM_FAILED');
+    }
+
+    function safeTransferETH(address to, uint value) internal {
+        (bool success,) = to.call{value:value}(new bytes(0));
+        require(success, 'TransferHelper: ETH_TRANSFER_FAILED');
+    }
+}
+
+contract ETHBurgerTransit {
+    ... 
+    function withdrawFromBSC(bytes calldata _signature, bytes32 _paybackId, address _token, uint _amount) external payable {
+        require(executedMap[_paybackId] == false, "ALREADY_EXECUTED");
+        
+        require(_amount > 0, "NOTHING_TO_WITHDRAW");
+        require(msg.value == developFee, "INSUFFICIENT_VALUE");
+        
+        bytes32 message = keccak256(abi.encodePacked(_paybackId, _token, msg.sender, _amount));
+        require(_verify(message, _signature), "INVALID_SIGNATURE");
+        
+        if(_token == WETH) {
+            IWETH(WETH).withdraw(_amount);
+            TransferHelper.safeTransferETH(msg.sender, _amount);
+        } else {
+            TransferHelper.safeTransfer(_token, msg.sender, _amount);
+        }
+        totalFee = totalFee.add(developFee);
+        
+        executedMap[_paybackId] = true;
+        
+        emit Withdraw(_paybackId, msg.sender, _token, _amount);
+    }
+    ... 
+}
+    
+\end{lstlisting}
+Folowing the execution of the code, the bug is found in the safeTransferETH function , line 23, contained in TransferHelper library. 
+The expression to.call{value:value}(new bytes(0)) is actually a call to the sender of the message, which can be an arbitrary smart contract. 
+The malicious contract can implemnt a fallback function. By the time it receives the ether, the fallback function is 
+triggered and withdrawFromBSC is run again, but without updating executeMap[\_paybackId]. 
+Since it is not set to true, the code repeat the same sequence of operation. 
+Repeating this process within the same transaction, the attacker will drain the vulnerable contract's WETH holdings and credit.
+
+
+
+\section{Infinite minting of NFTs}   
+\label{sec:Exploits:DirtyDogs}
+Introduction
+\subsection{DirtyDogs NFT}
+The logic of contract is 
+-> presale sold like ticket
+-> end of presale, claim ticket as NFT
+-> mint until a limit 
+
+\subsection{The exploit}
+\label{sec:DirtyDogs:Exploit}
+\href{https://etherscan.io/address/0x540cc373acfacd250a4250d7b26e9800b71f0484#code}{DirtyDogs NFT contract} has a typical example of reentrancy.
+The attacker exploited the function claimDogs(), shown in \autoref{lst:DirtyDogs}.
+Firstly, the malicious wallet bought a ticket for having the right of receiving a NFT, calling the function claimDogs().
+It basically loops on the number of ticket the sender has, and it calls the function \_safeMint for creating the NFTs and sending them to 
+the caller.
+The bug stays in line 31, because totalClaimed[\_msgSender()] is updated at the end of the loop. It is the variable which 
+keeps track of the number of tickets owned by the caller.
+
+The foundamental step of the exploit was the caller of the function: a smart contract. It implemented a 
+callback function: main trigger for reentrancy attacks. 
+Within the same transaction, it gets the opportunity to execute the some code multiple times. 
+When the smart contract receives an NFT, the fallback function is triggered and the claimDogs() function is called again. 
+As result, the attacker could call again the function for mintining, but without updating the variable which counts the number of ticker per address.
+The exploit produced 45 NFTs, because the fallback has the risk of revert, 
+there is a limit of times to be called.
+
+    
+\begin{lstlisting} [language=Solidity, caption={DirtyDogs NFT contract}, label={lst:DirtyDogs}]
+contract ERC721 is Context, ERC165, IERC721, IERC721Metadata, IERC721Enumerable {
+        ... 
+    function _mint(address to, uint256 tokenId) internal virtual {
+        require(to != address(0), "ERC721: mint to the zero address");
+        require(!_exists(tokenId), "ERC721: token already minted");
+
+        _beforeTokenTransfer(address(0), to, tokenId);
+
+        _holderTokens[to].add(tokenId);
+
+        _tokenOwners.set(tokenId, to);
+
+        emit Transfer(address(0), to, tokenId);
+    }
+
+
+    ...
+}
+    
+    ... 
+contract DirtyDogs is ERC721, Ownable {
+    ...
+    function claimDogs() external {
+        uint256 numbersOfTickets = getUserClaimableTicketCount(_msgSender());
+        
+        for(uint256 i = 0; i < numbersOfTickets; i++) {
+            uint256 mintIndex = totalSupply();
+            _safeMint(_msgSender(), mintIndex);
+        }
+
+        totalClaimed[_msgSender()] = numbersOfTickets.add(totalClaimed[_msgSender()]);
+    }
+
+    function getUserClaimableTicketCount(address user) public view returns (uint256) {
+        return presaleNumOfUser[user].add(publicNumOfUser[user]).sub(totalClaimed[user]);
+    }
+    ...
+    }
+\end{lstlisting} 
 
 \chapter{Analysis Tools}
 \label{ch:Tools}
