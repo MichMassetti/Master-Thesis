@@ -682,9 +682,105 @@ The backdoor relies on the malicious management of access control. The admin, wi
 
 \end{lstlisting} 
     
-\section{Spartan protocol, flash loan, amplification problem }   
+\section{A flash loan used for amplify a bug: \$30M  drained from Spartan protocol}   
 \label{sec:Exploits:Spartan}
+Spartan Protocol is a DeFi protocol for synthetic assets running on BinanceSmartChain. 
+It inherits may capabilities of UniswapV2 protocol, adapting the code for new use cases and implementing different strategies. 
+The fee mechanism is modified to incentivize liquidity providers when liquidity is scarce. Consequently, users trading larger 
+volumes are charged more fees. Similar to UniswapV2, pairs WBNB and SPARTA token are open for users to add/remove liquidity. 
+For clarifying this, let's consider the following example. Bob is able to send (WBNB+SPARTA) into the WBNB-SPARTA pool and get Liquidity Pool (LP) tokens back, 
+redeemable for the underlying assets.
 
+This protocol was the target of an exploit at the end of May 2021.
+The presence of a bug inside the code, plus the amplification due to a flash loan, allowed the attacker to drain the liquidity.
+
+The articles \citetitle{FlashCoin} and \citetitle{FlashCloud} give a defintion flash loan.
+
+\paragraph{Flash loan} A flash loan is relatively new type of uncollateralized lending that has become popular across a 
+number of decentralized finance (DeFi) protocols based on the Ethereum network. 
+When it has been issued, the smart contract cretifies that the borrower pays back the loan before the transaction ends. 
+If this condition is not fulfilled, the transaction reverts, consequently the amount of loan is given back. 
+
+
+\subsection{The exploit}
+\label{sec:Spartan:Exploit}
+The exploit involved 2 contracts of protocol: Utils.sol and poolFactory.sol.
+The latter implements the strategy for the management of the liquidity in the pool and the former provides support functions. 
+The mistake of the developers was not to consider the updated value of underlying assets. 
+Those are stored into the variables (baseAmount, tokenAmount) and estimated with iBEP20(token).balanceOf(pool) and iBEP20(base).totalSupply().
+
+The bug in code lies in the calcLiquidityShare() function, called in RemoveLiquidity(). 
+\begin{lstlisting} [language=Solidity, caption={calcLiquidityShare function}, label={lst:calcLiquidityShare}]
+
+    function calcLiquidityShare(uint units, address token, address pool, address member) public view returns (uint share){
+        // share = amount * part/total
+        // address pool = getPool(token);
+        uint amount = iBEP20(token).balanceOf(pool);
+        uint totalSupply = iBEP20(pool).totalSupply();
+        return(amount.mul(units)).div(totalSupply);
+    }
+
+\end{lstlisting}
+
+It should get the balance of the underlying asset in the pool, in line 5, \autoref{lst:calcLiquidityShare}. 
+The amount of that which should be transferred out is calculated based on the total LP tokens supplied (line 6) 
+and the number of LP tokens to burn (units).
+The function does not consider who transfers assets into the pool. The value of underlying assets can be manipulated and increased by an exploit. 
+The real values, estimated in line 5, are different from the ones contained in the variable (baseAmount, tokenAmount).
+The removeLiquidity() calls calcLiquidityShare on TOKEN and BASE, line 4 and 5 (\autoref{lst:SpartanRLM}). 
+It fails to synchronize the balances of the underlying assets and the variables which store the amount of the assets.
+
+\begin{lstlisting} [language=Solidity, caption={Function for Removing Liquidity}, label={lst:SpartanRLM}]
+    // Remove Liquidity for a member
+    function removeLiquidityForMember(address member) public returns (uint outputBase, uint outputToken) {
+        uint units = balanceOf(member);
+        outputBase = iUTILS(_DAO().UTILS()).calcLiquidityShare(units, BASE, address(this), member);
+        outputToken = iUTILS(_DAO().UTILS()).calcLiquidityShare(units, TOKEN, address(this), member);
+        _decrementPoolBalances(outputBase, outputToken);
+        _burn(address(this), units);
+        iBEP20(BASE).transfer(member, outputBase);
+        iBEP20(TOKEN).transfer(member, outputToken);
+        emit RemoveLiquidity(member, outputBase, outputToken, units);
+        return (outputBase, outputToken);
+    }
+\end{lstlisting}
+As a consequence, the \_decrementPoolBalance(), line 6, updates the  wrong value of the variables storing the assets. 
+It does not get the update-to-date balances of BASE and TOKEN. Instead, it only decrements the reserved amounts (baseAmount, tokenAmount).
+The attacker followed these steps for draining the liquidity:
+\begin{enumerate}
+    \item Add liquidity and get LP tokens back.
+    \item Transfer some assets into the Pool contract to amplify the number of underlying assets of the LP tokens collected in step 1.
+    \item Remove liquidity and get more assets than what you added in Step 1.
+    \item Add the assets transferred into the Pool contract as liquidity and remove them immediately.
+\end{enumerate}
+
+\begin{lstlisting} [language=Solidity, caption={Function which updates decrements the assets in the pool.}, label={lst:SpartanFunc}]
+    function _decrementPoolBalances(uint _baseAmount, uint _tokenAmount) internal  {
+        uint _removedBase = iUTILS(_DAO().UTILS()).calcShare(_baseAmount, baseAmount, baseAmountPooled);
+        uint _removedToken = iUTILS(_DAO().UTILS()).calcShare(_tokenAmount, tokenAmount, tokenAmountPooled);
+        baseAmountPooled = baseAmountPooled.sub(_removedBase);
+        tokenAmountPooled = tokenAmountPooled.sub(_removedToken); 
+        baseAmount = baseAmount.sub(_baseAmount);
+        tokenAmount = tokenAmount.sub(_tokenAmount); 
+    }
+\end{lstlisting}
+A solution for this bug is shown in \autoref{lst:SpartanSync}. It updates the variables of assets at line 3, before it is estimating the 
+the amount to drain.
+\begin{lstlisting} [language=Solidity, caption={Possible corrcet calcLiquidityShare.}, label={lst:SpartanSync}]
+    function calcLiquidityShareSynch(uint units, address token, address pool, address member) public view returns (uint share){
+        // synchronize the variable
+        iPOOL(pool).sync();  
+        uint amount = iBEP20(token).balanceOf(pool);
+        uint totalSupply = iBEP20(pool).totalSupply();
+        return(amount.mul(units)).div(totalSupply);
+    }
+
+    function sync() public {
+        baseAmount = iBEP20(BASE).balanceOf(address(this));
+        tokenAmount = iBEP20(TOKEN).balanceOf(address(this));
+    }
+
+\end{lstlisting}
 \section{Uranium Finance: \$1.3M of rewards drawn}   
 \label{sec:Exploits:Uranium}
 Uranium Finance is a Automated Marker Maker (AMM) runnning on the BinanceSmartChain.
@@ -698,6 +794,8 @@ the exploiter refund the team of \$1M in ETH.
 
 \subsection{The exploit}
 \label{sec:Uranium:Exploit}
+
+
 The article written by \citeauthor{UraniumTech}, gets more in deep into the technical details involved in this exploit.
 The target of it was the contract \href{https://bscscan.com/address/0xd5aac41d315c1d382dcf1c39d4ed9b37c224edf2#code}{MasterUranium}, specifically the part regarding the rewarding of the user.
 The list of transactions involving the malicious wallet shows the attacker could draw a huge amount of rewards 

@@ -449,6 +449,39 @@
       \field{title}{Formal Specification and Verification of Solidity Contracts with Events}
       \field{year}{2020}
     \endentry
+    \entry{FlashCoin}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=19b2e28a19f3237b06f2debd9642ca9f}{%
+           family={Hertig},
+           familyi={H\bibinitperiod},
+           given={Alyssa},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://www.coindesk.com//}%
+      }
+      \strng{namehash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \strng{fullhash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \strng{bibnamehash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \strng{authorbibnamehash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \strng{authornamehash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \strng{authorfullhash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What Is a Flash Loan?}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.coindesk.com/learn/2021/02/17/what-is-a-flash-loan/
+      \endverb
+      \verb{url}
+      \verb https://www.coindesk.com/learn/2021/02/17/what-is-a-flash-loan/
+      \endverb
+    \endentry
     \entry{CBDAO}{misc}{}
       \name{author}{1}{}{%
         {{un=0,uniquepart=base,hash=6bfa3061417809d89ee046ac51ebe999}{%
@@ -789,6 +822,42 @@
       \endverb
       \verb{url}
       \verb https://medium.com/shentu-foundation/uranium-finance-exploit-analysis-d135055d6a6a
+      \endverb
+    \endentry
+    \entry{FlashCloud}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=994b7df1ffb66ce2b03e8fb14608509d}{%
+           family={Vecht},
+           familyi={V\bibinitperiod},
+           given={Dennis\bibnamedelima Van},
+           giveni={D\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0,
+           prefix={der},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://10clouds.com/}%
+      }
+      \strng{namehash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \strng{fullhash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \strng{bibnamehash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \strng{authorbibnamehash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \strng{authornamehash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \strng{authorfullhash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding Flash Loans In DeFi}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://10clouds.com/blog/defi/understanding-flash-loans-in-defi/
+      \endverb
+      \verb{url}
+      \verb https://10clouds.com/blog/defi/understanding-flash-loans-in-defi/
       \endverb
     \endentry
     \entry{CloudFareDos}{misc}{}
