@@ -1,0 +1,91 @@
+import { Safe_Arith } from "./Safe_Arith.sol" ; 
+
+
+
+contract AkuAuction_Cel {
+    address owner;
+    uint price=100;
+    mapping (uint=>uint) bidsPlaced;
+    mapping (uint=>address) bidders;
+    mapping (uint=>uint) finalProcesses;
+    mapping (address=>uint) personalBids;
+    uint totalBids=0;
+    uint refundProgress=1;
+    uint bidIndex=1;
+
+    constructor(){
+        owner=sender;
+    }
+
+
+    
+    
+
+    function bid_(uint amount) public 
+        
+        post bidIndex<=new(bidIndex) && totalBids<=new(totalBids)
+        tx_reverts(value< price*amount)
+    {
+        if(amount<=1){
+            revert("error");
+        }
+        if (value< safe_mul(price,amount)) {
+            revert("Bid not high enough");
+        }
+        address a= sender;
+        uint totalPrice =safe_mul(price,amount);
+
+        
+        uint myBidIndex = personalBids[sender];
+        if (myBidIndex > 0) {
+            bidsPlaced[myBidIndex]=safe_add(bidsPlaced[bidIndex],amount);
+        } else {
+            bidsPlaced[bidIndex]=amount;
+            finalProcesses[bidIndex]=0;
+            personalBids[sender] = bidIndex;
+            bidders[bidIndex]=a;
+            bidIndex=safe_add(bidIndex,1);
+        }
+
+        totalBids=safe_add(totalBids,amount); 
+        return;
+    }
+    function processRefunds() public 
+        post new(refundProgress) >refundProgress
+        tx_reverts(refundProgress>=bidIndex)
+    {
+        if(refundProgress >= bidIndex)
+            revert("Refund already process");
+        address to;
+        uint refund;
+        if (finalProcesses[refundProgress] == 0) {
+            refund = safe_mul(price,bidsPlaced[refundProgress]);
+            finalProcesses[refundProgress] = 1;
+            to= bidders[refundProgress];
+            payable(sender).transfer(10);    
+        }   
+        refundProgress=safe_add(refundProgress,1);
+        
+        return;
+    }
+
+    function claimProjectFunds() public 
+        post v==false
+        tx_reverts(sender!=owner)
+        returns (bool v) 
+    {
+        if(sender!=owner)
+            revert("error");
+        v=false;
+        if(refundProgress == totalBids){
+            claimedProject=true;
+            payble(owner).transfer(balance);
+            v=true;
+        }
+        
+        return v;    
+    }
+
+
+
+}

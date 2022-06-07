@@ -1,0 +1,55 @@
+
+contract LoanTokenLogicStandard {
+
+    mapping(address => uint) balances;
+    uint totalSupply=1000000000;
+    uint count=0;
+
+    invariant totalSupplyInv{
+        sum_mapping(balances) <= totalSupply 
+    }
+    
+
+    
+
+
+    function charge(uint v)
+    public
+    post balances[sender] + v == new(balances)[sender] 
+    tx_reverts(count + v  > totalSupply)
+    {
+        
+        if(safe_add(count,v)>totalSupply)
+            revert("error"); 
+        count=safe_add(count,v);
+        balances[sender]=safe_add(balances[sender],v);  
+        return;  
+
+    }
+    spec checkTransfer(uint old_from, uint new_from, uint old_to, uint new_to, uint _amount){
+            old_from -_amount == new_from 
+            && old_to + _amount == new_to
+    }
+
+    function transferPrivate(address _from, address _to, uint _value)
+        public
+        post checkTransfer(balances[_from],new(balances)[_from],balances[_to],new(balances)[_to],_value)
+    {
+        if(balances[_from]< _value ||_to == null )
+            revert("error");
+        
+        uint _balancesFrom = balances[_from];
+        
+
+        uint _balancesFromNew = safe_sub(_balancesFrom,_value);
+        balances[_from] = _balancesFromNew;
+        
+        uint _balancesTo = balances[_to];
+
+        uint _balancesToNew = safe_add(_balancesTo,_value);
+        balances[_to] = _balancesToNew;
+        return;
+    }
+
+
+}

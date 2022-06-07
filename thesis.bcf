@@ -66,7 +66,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labeldateparts</bcf:key>
-      <bcf:value>1</bcf:value>
+      <bcf:value>0</bcf:value>
     </bcf:option>
     <bcf:option type="multivalued">
       <bcf:key>labeldatespec</bcf:key>
@@ -163,7 +163,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortingtemplatename</bcf:key>
-      <bcf:value>nyt</bcf:value>
+      <bcf:value>nty</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>sortsets</bcf:key>
@@ -171,11 +171,11 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquelist</bcf:key>
-      <bcf:value>true</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquename</bcf:key>
-      <bcf:value>full</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniqueprimaryauthor</bcf:key>
@@ -300,7 +300,7 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>labeldateparts</bcf:key>
-      <bcf:value>1</bcf:value>
+      <bcf:value>0</bcf:value>
     </bcf:option>
     <bcf:option type="multivalued">
       <bcf:key>labeldatespec</bcf:key>
@@ -381,11 +381,11 @@
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquelist</bcf:key>
-      <bcf:value>true</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniquename</bcf:key>
-      <bcf:value>full</bcf:value>
+      <bcf:value>false</bcf:value>
     </bcf:option>
     <bcf:option type="singlevalued">
       <bcf:key>uniqueprimaryauthor</bcf:key>
@@ -625,8 +625,7 @@
     <bcf:option datatype="boolean">doi</bcf:option>
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
-    <bcf:option datatype="boolean">dashed</bcf:option>
-    <bcf:option datatype="boolean">mergedate</bcf:option>
+    <bcf:option datatype="boolean">subentry</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer">mincrossrefs</bcf:option>
     <bcf:option datatype="integer">minxrefs</bcf:option>
@@ -708,7 +707,7 @@
     <bcf:option datatype="boolean">doi</bcf:option>
     <bcf:option datatype="boolean">eprint</bcf:option>
     <bcf:option datatype="boolean">related</bcf:option>
-    <bcf:option datatype="boolean">mergedate</bcf:option>
+    <bcf:option datatype="boolean">subentry</bcf:option>
     <bcf:option datatype="boolean">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="xml">labelalphatemplate</bcf:option>
     <bcf:option datatype="xml">translit</bcf:option>
@@ -795,7 +794,7 @@
     <bcf:option datatype="boolean" backendout="1">doi</bcf:option>
     <bcf:option datatype="boolean" backendout="1">eprint</bcf:option>
     <bcf:option datatype="boolean" backendout="1">related</bcf:option>
-    <bcf:option datatype="boolean" backendout="1">mergedate</bcf:option>
+    <bcf:option datatype="boolean" backendout="1">subentry</bcf:option>
     <bcf:option datatype="boolean" backendout="1">bibtexcaseprotection</bcf:option>
     <bcf:option datatype="integer" backendin="maxcitenames,maxbibnames,maxsortnames">maxnames</bcf:option>
     <bcf:option datatype="integer" backendin="mincitenames,minbibnames,minsortnames">minnames</bcf:option>
@@ -2347,64 +2346,87 @@
   <bcf:section number="0">
     <bcf:citekey order="1">KeYBook2016</bcf:citekey>
     <bcf:citekey order="2">KeYBook2016</bcf:citekey>
-    <bcf:citekey order="3">Bitcoin</bcf:citekey>
-    <bcf:citekey order="4">Ethereum</bcf:citekey>
-    <bcf:citekey order="5">RaceConditionDef</bcf:citekey>
-    <bcf:citekey order="6">NotSoSmartContracts</bcf:citekey>
-    <bcf:citekey order="7">CloudFareDos</bcf:citekey>
-    <bcf:citekey order="8">Dos1</bcf:citekey>
-    <bcf:citekey order="9">CoverProtocol</bcf:citekey>
-    <bcf:citekey order="10">CoverProtocolPostMortem</bcf:citekey>
-    <bcf:citekey order="11">bZxProtocol</bcf:citekey>
-    <bcf:citekey order="12">XSurgeWeb</bcf:citekey>
-    <bcf:citekey order="13">XSurgeBNB</bcf:citekey>
-    <bcf:citekey order="14">RugPullDef</bcf:citekey>
-    <bcf:citekey order="15">CBDAO</bcf:citekey>
-    <bcf:citekey order="16">FlashCoin</bcf:citekey>
-    <bcf:citekey order="17">FlashCloud</bcf:citekey>
-    <bcf:citekey order="18">UraniumPM</bcf:citekey>
-    <bcf:citekey order="19">UraniumTech</bcf:citekey>
-    <bcf:citekey order="20">BurgerSwap</bcf:citekey>
-    <bcf:citekey order="21">Echidna</bcf:citekey>
-    <bcf:citekey order="22">SolcVerify</bcf:citekey>
-    <bcf:citekey order="23">SolcVerify_2</bcf:citekey>
-    <bcf:citekey order="24">SolcVerify_3</bcf:citekey>
-    <bcf:citekey order="25">SmarTest</bcf:citekey>
-    <bcf:citekey order="26">Slither</bcf:citekey>
-    <bcf:citekey order="27">SlitherGitHub</bcf:citekey>
-    <bcf:citekey order="28">Mythril</bcf:citekey>
-    <bcf:citekey order="29">SWCRegistry</bcf:citekey>
-    <bcf:citekey order="30">KeYBook2016</bcf:citekey>
-    <bcf:citekey order="31">Bitcoin</bcf:citekey>
-    <bcf:citekey order="32">Ethereum</bcf:citekey>
-    <bcf:citekey order="33">RaceConditionDef</bcf:citekey>
-    <bcf:citekey order="34">NotSoSmartContracts</bcf:citekey>
-    <bcf:citekey order="35">CloudFareDos</bcf:citekey>
-    <bcf:citekey order="36">Dos1</bcf:citekey>
-    <bcf:citekey order="37">CoverProtocol</bcf:citekey>
-    <bcf:citekey order="38">CoverProtocolPostMortem</bcf:citekey>
-    <bcf:citekey order="39">bZxProtocol</bcf:citekey>
-    <bcf:citekey order="40">XSurgeWeb</bcf:citekey>
-    <bcf:citekey order="41">XSurgeBNB</bcf:citekey>
-    <bcf:citekey order="42">RugPullDef</bcf:citekey>
-    <bcf:citekey order="43">CBDAO</bcf:citekey>
-    <bcf:citekey order="44">FlashCoin</bcf:citekey>
-    <bcf:citekey order="45">FlashCloud</bcf:citekey>
-    <bcf:citekey order="46">UraniumPM</bcf:citekey>
-    <bcf:citekey order="47">UraniumTech</bcf:citekey>
-    <bcf:citekey order="48">BurgerSwap</bcf:citekey>
-    <bcf:citekey order="49">Echidna</bcf:citekey>
-    <bcf:citekey order="50">SolcVerify</bcf:citekey>
-    <bcf:citekey order="51">SolcVerify_2</bcf:citekey>
-    <bcf:citekey order="52">SolcVerify_3</bcf:citekey>
-    <bcf:citekey order="53">SmarTest</bcf:citekey>
-    <bcf:citekey order="54">Slither</bcf:citekey>
-    <bcf:citekey order="55">SlitherGitHub</bcf:citekey>
-    <bcf:citekey order="56">Mythril</bcf:citekey>
-    <bcf:citekey order="57">SWCRegistry</bcf:citekey>
+    <bcf:citekey order="3">KeYBook2016</bcf:citekey>
+    <bcf:citekey order="4">Bitcoin</bcf:citekey>
+    <bcf:citekey order="5">Bitcoin</bcf:citekey>
+    <bcf:citekey order="6">Ethereum</bcf:citekey>
+    <bcf:citekey order="7">Ethereum</bcf:citekey>
+    <bcf:citekey order="8">RaceConditionDef</bcf:citekey>
+    <bcf:citekey order="9">RaceConditionDef</bcf:citekey>
+    <bcf:citekey order="10">NotSoSmartContracts</bcf:citekey>
+    <bcf:citekey order="11">CloudFareDos</bcf:citekey>
+    <bcf:citekey order="12">CloudFareDos</bcf:citekey>
+    <bcf:citekey order="13">Dos1</bcf:citekey>
+    <bcf:citekey order="14">Dos1</bcf:citekey>
+    <bcf:citekey order="15">CoverProtocol</bcf:citekey>
+    <bcf:citekey order="16">CoverProtocol</bcf:citekey>
+    <bcf:citekey order="17">CoverProtocolPostMortem</bcf:citekey>
+    <bcf:citekey order="18">bZxProtocol</bcf:citekey>
+    <bcf:citekey order="19">bZxProtocol</bcf:citekey>
+    <bcf:citekey order="20">XSurgeWeb</bcf:citekey>
+    <bcf:citekey order="21">XSurgeWeb</bcf:citekey>
+    <bcf:citekey order="22">XSurgeBNB</bcf:citekey>
+    <bcf:citekey order="23">XSurgeBNB</bcf:citekey>
+    <bcf:citekey order="24">RugPullDef</bcf:citekey>
+    <bcf:citekey order="25">RugPullDef</bcf:citekey>
+    <bcf:citekey order="26">CBDAO</bcf:citekey>
+    <bcf:citekey order="27">CBDAO</bcf:citekey>
+    <bcf:citekey order="28">FlashCoin</bcf:citekey>
+    <bcf:citekey order="29">FlashCloud</bcf:citekey>
+    <bcf:citekey order="30">UraniumPM</bcf:citekey>
+    <bcf:citekey order="31">UraniumPM</bcf:citekey>
+    <bcf:citekey order="32">UraniumTech</bcf:citekey>
+    <bcf:citekey order="33">BurgerSwap</bcf:citekey>
+    <bcf:citekey order="34">BurgerSwap</bcf:citekey>
+    <bcf:citekey order="35">Echidna</bcf:citekey>
+    <bcf:citekey order="36">Echidna</bcf:citekey>
+    <bcf:citekey order="37">SolcVerify</bcf:citekey>
+    <bcf:citekey order="38">SolcVerify</bcf:citekey>
+    <bcf:citekey order="39">SolcVerify_2</bcf:citekey>
+    <bcf:citekey order="40">SolcVerify_2</bcf:citekey>
+    <bcf:citekey order="41">SolcVerify_3</bcf:citekey>
+    <bcf:citekey order="42">SolcVerify_3</bcf:citekey>
+    <bcf:citekey order="43">SmarTest</bcf:citekey>
+    <bcf:citekey order="44">SmarTest</bcf:citekey>
+    <bcf:citekey order="45">Slither</bcf:citekey>
+    <bcf:citekey order="46">Slither</bcf:citekey>
+    <bcf:citekey order="47">SlitherGitHub</bcf:citekey>
+    <bcf:citekey order="48">SlitherGitHub</bcf:citekey>
+    <bcf:citekey order="49">Mythril</bcf:citekey>
+    <bcf:citekey order="50">Mythril</bcf:citekey>
+    <bcf:citekey order="51">SWCRegistry</bcf:citekey>
+    <bcf:citekey order="52">SWCRegistry</bcf:citekey>
+    <bcf:citekey order="53">KeYBook2016</bcf:citekey>
+    <bcf:citekey order="54">Bitcoin</bcf:citekey>
+    <bcf:citekey order="55">Ethereum</bcf:citekey>
+    <bcf:citekey order="56">RaceConditionDef</bcf:citekey>
+    <bcf:citekey order="57">NotSoSmartContracts</bcf:citekey>
+    <bcf:citekey order="58">CloudFareDos</bcf:citekey>
+    <bcf:citekey order="59">Dos1</bcf:citekey>
+    <bcf:citekey order="60">CoverProtocol</bcf:citekey>
+    <bcf:citekey order="61">CoverProtocolPostMortem</bcf:citekey>
+    <bcf:citekey order="62">bZxProtocol</bcf:citekey>
+    <bcf:citekey order="63">XSurgeWeb</bcf:citekey>
+    <bcf:citekey order="64">XSurgeBNB</bcf:citekey>
+    <bcf:citekey order="65">RugPullDef</bcf:citekey>
+    <bcf:citekey order="66">CBDAO</bcf:citekey>
+    <bcf:citekey order="67">FlashCoin</bcf:citekey>
+    <bcf:citekey order="68">FlashCloud</bcf:citekey>
+    <bcf:citekey order="69">UraniumPM</bcf:citekey>
+    <bcf:citekey order="70">UraniumTech</bcf:citekey>
+    <bcf:citekey order="71">BurgerSwap</bcf:citekey>
+    <bcf:citekey order="72">Echidna</bcf:citekey>
+    <bcf:citekey order="73">SolcVerify</bcf:citekey>
+    <bcf:citekey order="74">SolcVerify_2</bcf:citekey>
+    <bcf:citekey order="75">SolcVerify_3</bcf:citekey>
+    <bcf:citekey order="76">SmarTest</bcf:citekey>
+    <bcf:citekey order="77">Slither</bcf:citekey>
+    <bcf:citekey order="78">SlitherGitHub</bcf:citekey>
+    <bcf:citekey order="79">Mythril</bcf:citekey>
+    <bcf:citekey order="80">SWCRegistry</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
-  <bcf:sortingtemplate name="nyt">
+  <bcf:sortingtemplate name="nty">
     <bcf:sort order="1">
       <bcf:sortitem order="1">presort</bcf:sortitem>
     </bcf:sort>
@@ -2420,12 +2442,12 @@
       <bcf:sortitem order="6">title</bcf:sortitem>
     </bcf:sort>
     <bcf:sort order="4">
-      <bcf:sortitem order="1">sortyear</bcf:sortitem>
-      <bcf:sortitem order="2">year</bcf:sortitem>
-    </bcf:sort>
-    <bcf:sort order="5">
       <bcf:sortitem order="1">sorttitle</bcf:sortitem>
       <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
     </bcf:sort>
     <bcf:sort order="6">
       <bcf:sortitem order="1">volume</bcf:sortitem>
@@ -2434,9 +2456,9 @@
   </bcf:sortingtemplate>
   <!-- DATALISTS -->
   <bcf:datalist section="0"
-                name="nyt/global//global/global"
+                name="nty/global//global/global"
                 type="entry"
-                sortingtemplatename="nyt"
+                sortingtemplatename="nty"
                 sortingnamekeytemplatename="global"
                 labelprefix=""
                 uniquenametemplatename="global"

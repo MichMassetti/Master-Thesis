@@ -1,0 +1,74 @@
+import { Safe_Arith } from "./Safe_Arith.sol" ; 
+contract MasterUranium_Cel {
+    
+
+    mapping (address =>uint) amount;     // How many LP tokens the user has provided.
+    mapping (address =>uint) bonus;
+    mapping (address =>uint) rewardDebt;
+
+   
+
+    function deposit(uint _amount) public 
+    pre bonus[sender]>=rewardDebt[sender]
+    post new (amount)[sender]== amount[sender]+ _amount 
+    && new (bonus)[sender]== bonus[sender]+_amount/2 && 
+    new (rewardDebt)[sender] == bonus[sender]+_amount/2
+
+    returns( uint to_send)
+
+    {    
+        to_send=0;
+        to_send = safe_sub(bonus[sender],rewardDebt[sender]);
+        uint v = safe_div(_amount,2);
+        if (_amount>0){
+            amount[sender] = safe_add(amount[sender],(_amount));
+            bonus[sender]=safe_add(bonus[sender],v);
+        }
+
+        rewardDebt[sender]=bonus[sender];
+        return to_send;
+    }
+
+
+    function emergencyWithdraw() public 
+        pre bonus[sender]>=rewardDebt[sender]
+        tx_reverts (amount[sender]==0)
+        
+        post new (amount)[sender] == 0 && new (rewardDebt)[sender] == 0
+
+    {
+        if(amount[sender]==0)
+            revert("Nothing to withdraw");       
+        amount[sender] = 0;
+        rewardDebt[sender]=0;
+        return;
+    }
+
+    function withdraw(uint _amount) public 
+        pre bonus[sender]>=rewardDebt[sender]
+        tx_reverts(_amount> amount[sender]) 
+        post bonus[sender]>rewardDebt[sender]
+        && ( 
+            (to_send==0 ) || (to_send>0 && bonus[sender]>new(bonus)[sender])
+        )
+    returns (uint to_send)
+    {
+        if(amount[sender] >= _amount)
+            revert("error");
+        to_send=safe_sub(bonus[sender],rewardDebt[sender]);  
+       
+        uint v= _amount/2;
+        if(_amount > 0) {
+            amount[sender] = safe_sub(amount[sender], _amount);
+            bonus[sender]= safe_sub(bonus[sender],v);
+        } 
+        rewardDebt[sender] = bonus[sender];
+        return to_send;
+    }
+  
+
+    
+
+
+}
+

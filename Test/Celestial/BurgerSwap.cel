@@ -1,0 +1,64 @@
+import { Safe_Arith } from "./Safe_Arith.sol" ; 
+import {Call} from "./Call.sol" ;
+contract ETHBurgerTransit {
+    using SafeMath for uint;
+    using Call for address;
+    address  owner;
+
+    address th= address(this);
+    
+    uint  totalFee;
+    uint  developFee;
+    uint paybacks;
+    mapping (uint => bool)  executedMap;
+    mapping(address=>uint) balances;
+
+    invariant eth_balances {
+        balance >= sum_mapping(balances)
+    }
+
+    function deposit() 
+    public
+    debit
+    post new(balance)>=balance && new (balances)[sender]>= balances[sender]
+    returns (uint j)
+    
+    {
+        balances[sender]=safe_add(balances[sender],value);
+        executedMap[paybacks]=false;
+        paybacks=safe_add(paybacks,1);
+        j=paybacks-1;
+        return j;
+    }
+
+    function withdraw(uint _paybackId, uint _amount) 
+        public  
+        debit 
+        post new(balance)<=balance && new(balances)[sender]<= balances[sender] 
+        tx_reverts (executedMap[_paybackId]== true) || (_amount == 0) || (_amount > balances[sender] ) || (_amount > balance)
+    {
+        if(executedMap[_paybackId]== true)
+            revert("error");
+        if(_amount == 0) 
+            revert("error");
+        if(_amount > balances[sender])
+            revert("error");
+        if(_amount > balance)
+            revert("error");
+
+        
+        bool tokenTxStatus = sender.call_bool(abi.encodeWithSignature("transferFrom(address,address,uint)", sender, th, _amount));
+        executedMap[_paybackId] = true;
+
+        balances[sender]= balances[sender]-_amount;
+        
+                
+        
+        return;
+    }
+
+
+    
+    
+
+}
