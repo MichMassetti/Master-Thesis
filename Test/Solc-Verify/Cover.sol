@@ -122,13 +122,6 @@ contract Blacksmith {
     }
 
 
-    function _claimCoverRewards(Pool memory _pool, Miner memory miner) pure internal{
-        if (miner.amount > 0) {
-            uint256 minedSinceLastUpdate = miner.amount.mul(_pool.accRewardsPerToken).sub(miner.rewardWriteoff);
-            if (minedSinceLastUpdate > 0) {
-                //mint function 
-            }
-        }
-    }   
+    
 
 }

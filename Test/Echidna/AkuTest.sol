@@ -1,15 +1,10 @@
-pragma solidity >0.7.0;
-
-
-
-
 contract AkuAuction {
     address owner;
-    address project;
     uint256 public maxNFTs = 15000;
     uint256 y=0;
     uint256 public totalForAuction = 5495; //529 + 2527 + 6449
-
+    bool flag;
+    uint effective=1;
     struct bids {
         address bidder;
         uint256 price;
@@ -17,28 +12,21 @@ contract AkuAuction {
     }
 
     uint256 public price;
-    uint256 public fee;
-    uint256 public expiresAt;
-    mapping(address=>uint256) public mintPassOwner;
-    uint256 public constant mintPassDiscount = 0.5 ether;
+   
     mapping(address => uint256) public personalBids;
     mapping(uint256 => bids) public allBids;
+    uint256 fee;
     uint256 public bidIndex = 1;
     uint256 public totalBids;
     uint256 public refundProgress = 1;
     bool public claimedProject=false;
-    modifier onlyOwner(){
-        require(owner==msg.sender);
-        _;
-    }
-    constructor(address _project,uint256 _price,uint256 _fee)
+   
+    constructor()
     {
+        price=1000;
         owner=msg.sender;
-        price=_price;
-        fee=_fee;
-        porject=_project;
-
- 
+        flag=true;
+        fee=100;
     }
 
 
@@ -46,10 +34,8 @@ contract AkuAuction {
         revert("Please use the bid function");
     }
 
-    /// @notice postcondition __verifier_old_uint(bidIndex)<=bidIndex
-    /// @notice postcondition __verifier_old_uint(totalBids)<=totalBids
+    
     function bid_(uint8 amount)payable public {
-        require(amount>1);
         uint256 totalPrice = (price + fee)* amount;
         if (msg.value< totalPrice) {
             revert("Bid not high enough");
@@ -76,16 +62,11 @@ contract AkuAuction {
     }
 
 
-    /// @notice postcondition refundProgress ==bidIndex
+
     function processRefunds() public {
         require(refundProgress < bidIndex, "Refunds already processed");
         y=0;
-    ///@notice postcondition i<= _bidIndex 
-    ///@notice postcondition __verifier_sum_old(refundProgress)<=refundProgress
-    /// @notice modifies allBids if true 
-    /// @notice modifies bidIndex if false     
-    ///@notice postcondition bidIndex-__verifier_old_uint(refundProgress)==  y
-
+  
     
         for (uint256 i=refundProgress ; i < bidIndex; i++) {
           bids memory bidData = allBids[i];
@@ -94,10 +75,12 @@ contract AkuAuction {
             allBids[i].finalProcess = 1;
             address to= bidData.bidder;
             (bool sent, ) = to.call{value: refund}("");
+            effective++;
             require(sent, "Failed to refund bidder");
+
           }
           refundProgress++;
-        y++;
+        
         } 
         
 
@@ -105,19 +88,25 @@ contract AkuAuction {
 
     
 
-    ///@notice postcondition v==true 
-    function claimProjectFunds() external onlyOwner returns (bool v) {
-        v=false;
+    function claimProjectFunds() external returns (bool v) {
+        require(owner==msg.sender);
+        require(bidIndex==refundProgress);
+        require (bidIndex>1);
         if(refundProgress == totalBids){
-            claimedProject=true;
-            ( bool sent, ) = project.call{value: address(this).balance}("");
-            require(sent, "Failed to withdraw");    
-            v=true;
-        }
+             
+           
+        } else 
+            flag=false ;
         
-        return v;
+        return flag;
             
     }
 
+    function echidna_test_flag() view public returns (bool){
+        return flag ;
+    }
+    function echidna_test_altro() view public returns (bool){
+        return refundProgress==effective;
+    }
 
 }

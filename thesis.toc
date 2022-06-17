@@ -80,6 +80,8 @@
 \contentsline {chapter}{\numberline {7}Results of testing}{43}{chapter.7}%
 \contentsline {subsection}{\numberline {7.0.1}SolcVerify}{43}{subsection.7.0.1}%
 \contentsline {subsection}{\numberline {7.0.2}Celestial}{43}{subsection.7.0.2}%
+\contentsline {subsection}{\numberline {7.0.3}Manticore}{44}{subsection.7.0.3}%
+\contentsline {subsection}{\numberline {7.0.4}Echidna}{44}{subsection.7.0.4}%
 \contentsline {chapter}{\numberline {8}Evaluation}{45}{chapter.8}%
 \contentsline {section}{\numberline {8.1}First Section}{45}{section.8.1}%
 \contentsline {section}{\numberline {8.2}Second Section}{45}{section.8.2}%

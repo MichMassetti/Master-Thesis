@@ -169,7 +169,8 @@ The launch contained 15,000  NFTs and was based on the Dutch auction. This strat
 The price is gradually lowered over a fixed time until a bid is placed that guarantees the bidder the purchase of the item at the current price. 
 Anyone who paid the higher amount would get a refund.
 Unfortunately, the launch was corrupted, since the errors in the codes made the project open to exploits. 
-An attacker could blocke the withdrawals and refunds while attempting to highlight the vulnerabilities within the project.
+An attacker could block the withdrawals and refunds while attempting to highlight the vulnerabilities within the project.
+
 \subsection{The exploit}
 \label{sec:AkuDreams:AkutarsExploit}
 
@@ -1489,7 +1490,7 @@ Spartan: it works good
 
 bZX: about properties it worked properly, problem with internal functions 
 
-BurgerSwap & DirtyDogs & SurgeProcol: no reentrancty bc Calling external contracts are avoided.
+BurgerSwap \& DirtyDogs \& SurgeProcol: no reentrancty bc Calling external contracts are avoided.
 Contract Local Reasoning: Calling external contracts
 can lead to reentrant behavior where the external contract
 calls back into the caller, which is often difficult to reason
@@ -1505,16 +1506,27 @@ Cover Protocol: celestial doesn't recognize memory and storage keyword
 
 \subsection {Manticore}
 
-BurgerSwap & DirtyDogs & SurgeProcol: no reentrancy, bc it gives always a fake positive
+BurgerSwap \& DirtyDogs \& SurgeProcol: no reentrancy, bc it gives always a fake positive
+You can test the Reentrancy just with the tool without specification, runninng Manticore as Scanner 
 
 Spartan: worked well
 Uranium: fake positive
+
 Aku: Worked well , it sayes that the rule about claimProject is broken just if everybid is 1 
 
 \subsection {Echidna}
 Spartan: it worked correctly and it gave even the transaction oreder, tested with assertions and with test Function
 
-Aku: worked well 
+Aku: worked well , it found the correct sequence of transaction for block the contract 
 
 Uranium: it worked prorly, it gave the list of actions to do 
+
+Cover Protocol: worked good
+
+
+BZX: verified with the assertion but it woked proeprly
+
+
+
+
 
