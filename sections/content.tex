@@ -154,7 +154,16 @@ When the vulnerable tries to refund the attacker one, it will always revert beca
 \label{ch:Exploits}
 Real-wolrd exploits that have happend in the recent years.
 
-%Dos Attack, problem in implementation, locked funds in the contract
+The structure of this chapter is 
+\begin{itemize}
+    \item explanation of the protocol
+    \item the exploit 
+    \item the properties involved, which will be analysed by the tools
+\end{itemize}
+
+Brief explanation of the terminology used -> postcondition precondtion invariant
+
+
 \section{\$34 Million stacks NFT Project Aku Dreams Smart Contract}
 \label{sec:Exploits:AkuDreams}
 \href{https://www.business2community.com/nft-news/nft-market-size-how-to-track-02467120}{Business2community} estimates the value of NFT market around \$100 billion.
@@ -162,9 +171,10 @@ Nowadays, the word NFT is one of the most researched ones on Google and the othe
 NFT's marketplaces manage the transaction behind these valuable markets. 
 They are made by a frontend part, but even by a backend one which relies on the blockchain. 
 Akutars, a highly anticipated Ethereum-based NFT project developed by Aku Dreams, is an example of how a bug can have catastrophic consequences in this sector. 
+
 \subsection{Akutarts NFT project}
 \label{sec:AkuDreams:Akutars}
- reports Akutarts locked up \$34 million due to the faulty code of the smart contract.
+\cite{Aku} reports Akutarts locked up \$34 million due to the faulty code of the smart contract.
 The launch contained 15,000  NFTs and was based on the Dutch auction. This strategy involves a descending price auction where an item begins at a set maximum price. 
 The price is gradually lowered over a fixed time until a bid is placed that guarantees the bidder the purchase of the item at the current price. 
 Anyone who paid the higher amount would get a refund.
@@ -174,6 +184,19 @@ An attacker could block the withdrawals and refunds while attempting to highligh
 \subsection{The exploit}
 \label{sec:AkuDreams:AkutarsExploit}
 
+The first part of the exploit involved the function processRefunds \autoref{lst:AkuDreamsProcessRefunds}.
+
+This has the aim to refund the bid of the user who took part in the auction. 
+
+The problem relies on the for loop in line 11. 
+It loops on all over the users, who needs to be refunded, estimating the number of tokens to send. 
+Then, the amount is sent with the function call, which returns a boolean, based on the correct execution of the operation.
+This is checked with a require, line 22; so, if the operation concluded incorrectly, it would revert the transaction.
+
+The problem relies on the require in the loop. If one of the accounts could not receive the refund, the function would always reverted.
+Since looping all over the users is a sequential operation, if the transaction just reverted when it reaches an item, it would never reach all the following items. 
+
+Therefore, a malicious user just implemented a smart contract which took part in the auction and reverted any time it received tokens.
 
 \begin{lstlisting} [language={Solidity},caption={Function for refunding the users.}, label={lst:AkuDreamsProcessRefunds}]
     function processRefunds() external {
@@ -209,7 +232,14 @@ An attacker could block the withdrawals and refunds while attempting to highligh
       refundProgress = _refundProgress;
     }
 \end{lstlisting}
--------------------------------
+The second part of the exploit is characterized by a bug in the logic, which could not allow the developer team to withdraw the project funds. 
+
+The function claimProjectFunds (\autoref{lst:AkuDreamsClaim}), callable only by the owner of the contract due to the modifier onlyOwner, 
+refunds the developers just when all the users are considered refunded. 
+
+The boolean condition, contained in the require at line 3, is the heart of the problem. 
+The require compares the variable refundProgress, which takes track of the refund progress, 
+and totalBids.
 \begin{lstlisting} [language={Solidity},caption={Function for claiming the funds for the developers.}, label={lst:AkuDreamsClaim}]
     function claimProjectFunds() external onlyOwner {
         require(block.timestamp > expiresAt, "Auction still in progress");
@@ -220,7 +250,10 @@ An attacker could block the withdrawals and refunds while attempting to highligh
         require(sent, "Failed to withdraw");        
     }
 \end{lstlisting}
----------------------------
+
+The variable totalBids is increased every time a bid is placed, regardless of the user who computed it, shown in \autoref{lst:AkuDreamsBid} at line 18.
+The user can call the function \_bid, for placing a bid, with an arbitrary amount of bids, but the variable refundProgress is increased every time a user is refunded. 
+Consequently, if a user bought more than one bid, the amount of refounded users would never be greater or equal to the number of placed bids.
 \begin{lstlisting} [language={Solidity},caption={Function for users'bid}, label={lst:AkuDreamsBid}]
     function _bid(uint8 amount, uint256 value) internal {
         require(block.timestamp > startAt, "Auction not started yet");
@@ -274,15 +307,23 @@ An attacker could block the withdrawals and refunds while attempting to highligh
     }
 \end{lstlisting}
 
-\subparagraph{Properties}
-The first property is regarding processRefunds() function. It gets stuck because a malicious wallet, which can't receive 
-any token, force the require(), so the function reverts and all the previous refunds are lost. The property is a postcondition. 
-We want to verify if it's possible that the sum of refunded wallets is equal to the number of the counter which loops on the map containing the data. 
-If it's not possible, that means there is no way a wallet is not refunded while some others are.  
+\subsection{Properties}
+The smart contract involves 2 main problems: the refunding of the users who placed the bids and the claim of the developers' rewards.
 
-The other property deals with claimProjectFunds(). The function has some require(), so the property in this case is a precondtion. 
-Precondition refundProgress >= totalBids, which can't happen because of the logic of the program. 
-I can be realised just if the bids are 1.
+The first property deals with the function processRefunds. 
+It reverts every time because a malicious wallet, which can't receive 
+any tokens triggering the require. 
+We verify if the contract can always refund all the users.
+The property involves the sum of refunded wallets may be equal to the number of the counter which loops on the map containing the data. 
+It is a postcondition, so it is proven that all the users are refounded if the function does not revert, which means that the function does not 
+consider the case of error.
+
+The other property regards the function claimProjectFunds. 
+In the beginning, some requirements have to be fulfilled before the owner can obtain the rewards.
+Our focus is on the comparison between the counter of the refunded users and the total amount of bids.
+In this case, we use proof by contradiction. We check if the processRefunds variable is always less than the totalBids. 
+The property should be proofed if we consider that at least one user placed more than one bid.
+
 
 
 
@@ -297,7 +338,7 @@ The target of the attack was the smart contract \href{https://github.com/CoverPr
 \subsection{Cover Protocol}
 \label{sec:CoverProtocol:Presentation}
 
-\citet{CoverProtocol} interviewed Alan, the co-founder of the Cover Protocl. In his article he answers some question about his project, regarding its functionality and road map. 
+\citet{CoverProtocol} interviewed the co-founder of the Cover Protocl. In his article he answers some question about his project, regarding its functionality and road map. 
 It was an active protocol on the Ethereum blockchain; the developer deployed version 2,  because of the attack. 
 Cover Protocol is a peer-to-peer coverage marketplace that utilizes ERC-20 fungible tokens to allow permissionless and non-KYC coverage. 
 It can be described as a coverage provider.
@@ -323,6 +364,7 @@ Storage data is persistent between function calls and transactions.
 The previous has a similar behave to the Random Access Memory (RAM) on a computing device, the latter stores into the persistent memory.
 
 The vulnerable function is the deposit one.
+
 \begin{lstlisting} [language={Solidity},caption={Deposit function.}, label={lst:coverdeposit}]
     function deposit(address _lpToken, uint256 _amount) external override {
         require(block.timestamp >= START_TIME , "Blacksmith: not started");
@@ -347,31 +389,8 @@ The vulnerable function is the deposit one.
   }
 \end{lstlisting}
 At line 4 of \autoref{lst:coverdeposit}, the state of the pool is stored in a variable with the keyword memory. 
-The function update \autoref{lst:coverupdate} is called, which updates the state of the pool. However, the variable pool, 
-existing within the function, remains identical. 
-\begin{lstlisting} [language={Solidity},caption={Update function.}, label={lst:coverupdate}]
-    function deposit(address _lpToken, uint256 _amount) external override {
-        require(block.timestamp >= START_TIME , "Blacksmith: not started");
-        require(_amount > 0, "Blacksmith: amount is 0");
-        Pool memory pool = pools[_lpToken];
-        require(pool.lastUpdatedAt > 0, "Blacksmith: pool does not exists");
-        require(IERC20(_lpToken).balanceOf(msg.sender) >= _amount, "Blacksmith: insufficient balance");
-        updatePool(_lpToken);
-
-        Miner storage miner = miners[_lpToken][msg.sender];
-        BonusToken memory bonusToken = bonusTokens[_lpToken];
-        _claimCoverRewards(pool, miner);
-        _claimBonus(bonusToken, miner);
-
-        miner.amount = miner.amount.add(_amount);
-        // update writeoff to match current acc rewards/bonus per token
-        miner.rewardWriteoff = miner.amount.mul(pool.accRewardsPerToken).div(CAL_MULTIPLIER);
-        miner.bonusWriteoff = miner.amount.mul(bonusToken.accBonusPerToken).div(CAL_MULTIPLIER);
-
-        IERC20(_lpToken).safeTransferFrom(msg.sender, address(this), _amount);
-        emit Deposit(msg.sender, _lpToken, _amount);
-  }
-\end{lstlisting}
+The function update updates the state of the pool. 
+However, the variable pool, existing within the function, remains identical. 
 
 Then, deposit function at line 16 \autoref{lst:coverdeposit} estimates the reward per token updating the value of miner.rewardWriteoff, 
 but it uses the wronge value of the parameter of pool.accRewardsPerToken.
@@ -381,10 +400,22 @@ This function, which is used to grab their rewards, ends up calling \_claimCover
 As that variable is much smaller than the actual pool.accRewardsPerToken, the contract results in minting an abundance of tokens.
 
 \subsection{Properties}
-The problem relies on the management of the keywords storage and memory. The contract was simplified. 
-We recompute the variables after the execution of the function (postcondition) considering the global variable, for checking if the funtion checked just the variables within the function. 
-Attacker did deposit withdraw multiple times for drwaing all the liquidity. The problem is the manipulation of the reward, no need of any properties of contract, the bug isSRadsRewards 
-is within the function which updates that value.
+The heart of the problem is the wrong management of the keywords storage and memory. 
+
+The consequence of this error is a miscalculation of the reward of the miner.
+The property relies on how it is computed. It is not estimated considering the correct parameters of the pool. 
+
+The post-condition involves the estimation of the reward inside the function deposit.
+
+We compare the miner.rewardWriteoff and then we recumpute its mathematical operation with the updated parametes 
+of the pool: 
+
+miner.amount.mul(pool.accRewardsPerToken).div(CAL\_MULTIPLIER).
+
+The discriminating in the operation should be the parameter pool.accRewardsPerToken.
+
+
+ 
 
 \section{DeFi platform bZX: \$8M hack from one misplaced line of code}
 \label{sec:Exploits:bZX}
@@ -517,12 +548,14 @@ The code \autoref{lst:CorrectinternalTransferFrom} presents some differences. Th
 \end{lstlisting}
 
 \subsection{Properties}
-The contract was symplified, the functions which were not involved in the vulnerable function were tested and then deleted for 
-focusing on the specific case. The new contract implemnts the main vulnerability.
-In this case the problem is the internal function internalTransfer. The contract invariant sum of all 
-users'balances can be greater than the total supply (more token than allowed). Plus the post condition: 
-the balance of the sender at the before the function, should be lower after the function.
+The function internalTransfer is the one which contains the bug abused by the attackers. 
+We define 2 properties for defining the correct execution of the function. Both of those are broken by 
+the wrong implemntation of the function.
 
+The first one is a post-condition. It involves the correct estimation of the balance of the addresses involved in the operation, the parameters from and to.
+The balance of the sender should decrease and the one of the receiver should increase.
+
+The other one is an invariant. It states the total sum of balances should be less than the variable total supply. 
 
 \section{XSURGE on BSC Chain}   
 \label{sec:Exploits:XSURGE}
@@ -626,9 +659,16 @@ The following are the modifications suggested by the Beosin technical team for t
 \end{itemize}
 
 \subsection{Properties}
-In this case the balance of the user and the totalSupply are updated after the call, so we have reentrancy sending bnb and activating the purchase.
-So after the call of the function sell, it's impossible that the totalSupply could grow, but because of the reentranacy, the purchase function is called, 
-so more tokens are minted considering the old value of the totalSupply. So the property is the totalSupply can't grow with function sell, it must decrease.
+
+This exploit represents a typical case of reentrancy. 
+
+The attacker's strategy involves the function sell, which contains the bug, and then the function purchase. 
+After calling the first one and triggering the reentrancy, the malicious fallback implemented by the attacker uses the amount of money for buying more XSURGE tokens. 
+At the end of the selling process, the total supply should decrease the amount sold by the user.
+But since the attacker called the purchase, the variable is not updated as it was supposed to be. 
+Buying the same amount of sold tokens, the value would not change.
+
+We define the property as a postcondition, which states the variable \_totalSupply is decreased of the amount sold by the user, then tokenAmount.
 
 %not so sure to consider this one 
 \section{CBDAO: an example of rug pull}
@@ -810,10 +850,18 @@ the amount to drain.
     }
 \end{lstlisting}
 \subsection{Properties}
-We want to verify if during the vulnerable function removeLiquidityForMember() consider the right value of the underlying asset. 
-The attack involves the manipulation of the underlying assets. We introduced a function fo suporting the tasted, function testalo() which calls the function synch(). 
-If the function synch() is called at the end of the remove liquidity process, if it updates the value of the underlying assets, that means during the process, the function 
-estimated the amount of LP tokens considering a wrong value of the underlying asset. 
+The issue correlated to the logic of the program involves the removing liquidity process. 
+The attacker could amplify the number of tokens to remove.
+
+The function calcLiquidityShare is an internal function which estimates the total of underlying assets to send to the user. 
+It miscalculates the value because it considers the balance of the account, which can be simply modified by transferring tokens into the pool.
+A proposed solution implies a function, synch, which synchronises the variables baseAmount and tokenAmount, which keep track of the underlying assetes in the contract. 
+Function synch should be called in the buggy function.
+
+This one is encompassed in the definition of the property. 
+It is called at the end of the process of the removing the liquidity for a member. 
+The postcondition specifies that the function synch should not updated the two variables.
+
 
 \section{Uranium Finance: \$1.3M of rewards drawn}   
 \label{sec:Exploits:Uranium}
@@ -960,12 +1008,15 @@ Checking the transcation on \href{https://bscscan.com/txs?a=0x36ad9ee78bfb730955
 replicated this methodology. 
 
 \subsection{Properties}
-The contract were rewritten implementing just one pool and the logic of depost/withdraw. 
+The logic of the smart contract vulnerability is contained in the procedure of estimation of users' rewards.
 
-We want to check when a user does a withdraw, we want to verify that the user effectively receives the amount and the bonus. We verify that the variables, which 
-keep track of the amount of the balance and the bonus are correctly updated. 
-A support fucntion can be created for easily check this property; when an amount of bonus is sent, the amount of bonus of the user is decreased.
+The malicious sequence of functions involves the call of deposit, emergencyWithdraw and withdraw.
+Therefore, the attacker could get back the same amount of deposited tokens, but with a higher amount bonus for the reward. 
+The parameter amountWithBonus of user struct, which keeps track of the amount and the bonus, just increases even if the user receives the reward and it is withdrawing. 
 
+For the detection of the vulnerability, we specify the property as a postcondition of the function withdraw. 
+Considering the caller, who receives a reward because of the bonus, 
+the parameter of the struct amountWithBonus has to decrease. 
 
 \section{Reentering the Reentrancy Bug: Disclosing BurgerSwap's Vulnerability}   
 \label{sec:Exploits:BurgerSwap}
@@ -1064,11 +1115,18 @@ Since it is not set to true, the code repeat the same sequence of operation.
 Repeating this process within the same transaction, the attacker will drain the vulnerable contract's WETH holdings and credit.
 
 \subsection{Prorties}
-The contract implements a classical problem of reentrancy. 
-There is an access control at the beginning of the function. It could bypass with even a fork of methamask for allowing a smart contract to 
-access the vulnerable function, we focus on the vulnerability itself. The contract is simplified and a map is added for keeping track of the balances. 
-We verify that the sum of all the users is not greater then the effective balance of the contract. 
-Plus we check that the balance of the contract before and after the withdraw, it should decrease just of the parameter of the function. 
+The keyword of this exploit is reentrancy. 
+
+The smart contracts adopt an access control strategy at the beginning of the function, checking the signature of the user. 
+The attacker forked MetaMask, a crypto-wallet, for allowing a smart contract to 
+access the vulnerable function. However, it is out of our interest and we focus on the vulnerability in the code.
+
+The vulnerable function is safeTransferETH, resonsable of sending ETH to the user. This is called by the one which manages 
+the withdrawal of funds from the contract by the user. The malicous contract, 
+thanks a fallback, can call multiple times the same function and withdrawing more money than it could.
+
+With the postcondition, we check the balance of WETH (wrapped ETH) before and after the function, 
+stating the difference should be the parameter amount of the function.
 
 \section{Infinite minting of NFTs}   
 \label{sec:Exploits:DirtyDogs}
@@ -1141,17 +1199,13 @@ contract DirtyDogs is ERC721, Ownable {
 
 \subsection{Properties}
 \label{sec:DirtyDogs:Properties}
-The attack is based on a reentrancy, the attacker produces more NFTs with a less amount of ticket.
-\begin{itemize}
-    \item we want to verify that the number of tickets is the same of the number of NFTs.
-    \item verify nunmber of NFT exceeds the total supply 
-    \item claimDogs has to resepct the total number of ticket == number of claimed NFTs
-\end{itemize}
-\paragraph{SolcVerify}
-SolcVerify gave problems with the ERC721 contract, so it was adapted but the logic of DirtyDogs contract didn't change. 
-In the new version is not allowed to the owner to publish more NFTs arbitrary, just the function claimDogs calls the SafeMint 
-function, so the property is an invariant: 
-sum of all the claimed ticket in the map (value updated after the call) equal the value of effective claimed NFTs (value upated in the mint)
+The attacker could exploit the smart contract due to a vulnerability in the function claimDogs, 
+which includes even a bad implementation of the ERC721 standard. It can be classified as a case of reentrancy. 
+
+The NFTs are not directly sold, but a ticket instead is provided to the users, who would convert it. The function claimDogs 
+is in charge to verify the tickets and generate the NFTs. Because of the reentrancy, the attacker produced 45 NFTs with a single ticket.
+
+The property is a postcondition, which states that the amount of NFTs produced should be equal to the number of tickets of the user.
 
 
 \chapter{Analysis Tools}
@@ -1456,8 +1510,14 @@ function transferArray(address[] tos, uint256[] values) public returns (bool) {
 \label{sec:WithoutSpecification:ContractLarva}
 contractLarva is a runtime verification tool for Solidity contracts. 
 
-\chapter{Results of testing}
-\label{ch:Results}
+\chapter{Outcome for individual tools}
+\label{ch:Running}
+Fomal specifications, outcomes, time of running, no comparison, single description, outliers (performe very well or very baddly), 
+difficulties in the installation and running 
+
+
+Detalais regarding what I did for running the test, so for each tool I describe the setting for each scripts.
+
 
 \subsection{SolcVerify}
 Notes:
