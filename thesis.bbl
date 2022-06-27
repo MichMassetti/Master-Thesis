@@ -1,0 +1,932 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.2 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated by
+% biber as required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+
+\refsection{0}
+  \datalist[entry]{nyt/global//global/global}
+    \entry{KeYBook2016}{book}{}
+      \name{editor}{6}{}{%
+        {{un=0,uniquepart=base,hash=9aceb6b10ccb6b74d169a2127c3f068a}{%
+           family={Ahrendt},
+           familyi={A\bibinitperiod},
+           given={Wolfgang},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=0782f72312b1bdfc9d83ac8a10b8249c}{%
+           family={Beckert},
+           familyi={B\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ddfbe76ae0f6b9d1b97e0aa059b7788f}{%
+           family={Bubel},
+           familyi={B\bibinitperiod},
+           given={Richard},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=2732a304f19472289d7552b26ed2897d}{%
+           family={Hähnle},
+           familyi={H\bibinitperiod},
+           given={Reiner},
+           giveni={R\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=df061a559fe43bcebbc85a12f049c5d1}{%
+           family={Schmitt},
+           familyi={S\bibinitperiod},
+           given={Peter\bibnamedelima H.},
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=a6d6de7a7a217b83d84fb29d6ac270d2}{%
+           family={Ulbrich},
+           familyi={U\bibinitperiod},
+           given={Mattias},
+           giveni={M\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{63ee618bc5ff01ac05bf486f188967e4}
+      \strng{fullhash}{b5e4db53d6eb5169c797684c6a1f86bb}
+      \strng{bibnamehash}{63ee618bc5ff01ac05bf486f188967e4}
+      \strng{editorbibnamehash}{63ee618bc5ff01ac05bf486f188967e4}
+      \strng{editornamehash}{63ee618bc5ff01ac05bf486f188967e4}
+      \strng{editorfullhash}{b5e4db53d6eb5169c797684c6a1f86bb}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{editor}
+      \field{labeltitlesource}{title}
+      \field{series}{Lecture Notes in Computer Science}
+      \field{title}{Deductive Software Verification - The {Ke\kern-.1em Y} Book: From Theory to Practice}
+      \field{volume}{10001}
+      \field{year}{2016}
+      \verb{doi}
+      \verb 10.1007/978-3-319-49812-6
+      \endverb
+    \endentry
+    \entry{Dos1}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=5f22a8466237da0aacfc20e9f24d6f8d}{%
+           family={Arends},
+           familyi={A\bibinitperiod},
+           given={Derek},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{5f22a8466237da0aacfc20e9f24d6f8d}
+      \strng{fullhash}{5f22a8466237da0aacfc20e9f24d6f8d}
+      \strng{bibnamehash}{5f22a8466237da0aacfc20e9f24d6f8d}
+      \strng{authorbibnamehash}{5f22a8466237da0aacfc20e9f24d6f8d}
+      \strng{authornamehash}{5f22a8466237da0aacfc20e9f24d6f8d}
+      \strng{authorfullhash}{5f22a8466237da0aacfc20e9f24d6f8d}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{ https://www.derekarends.com/solidity-vulnerability-denial-of-service-dos/}}
+      \field{note}{Accessed: 2022-04-16}
+      \field{title}{Solidity Vulnerability: Denial of Service (DoS)}
+      \field{year}{2022}
+    \endentry
+    \entry{Ethereum}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=850981945102d0f671b6762173c8988a}{%
+           family={Buterin},
+           familyi={B\bibinitperiod},
+           given={Vitalik},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://ethereum.org}%
+      }
+      \strng{namehash}{850981945102d0f671b6762173c8988a}
+      \strng{fullhash}{850981945102d0f671b6762173c8988a}
+      \strng{bibnamehash}{850981945102d0f671b6762173c8988a}
+      \strng{authorbibnamehash}{850981945102d0f671b6762173c8988a}
+      \strng{authornamehash}{850981945102d0f671b6762173c8988a}
+      \strng{authorfullhash}{850981945102d0f671b6762173c8988a}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform}
+      \field{year}{2014}
+      \verb{urlraw}
+      \verb https://ethereum.org/669c9e2e2027310b6b3cdce6e1c52962/Ethereum_Whitepaper_-_Buterin_2014.pdf
+      \endverb
+      \verb{url}
+      \verb https://ethereum.org/669c9e2e2027310b6b3cdce6e1c52962/Ethereum_Whitepaper_-_Buterin_2014.pdf
+      \endverb
+    \endentry
+    \entry{bZxProtocol}{misc}{}
+      \field{sortinit}{b}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{ https://docs.bzx.network/}}
+      \field{note}{Accessed: 2022-04-20}
+      \field{title}{bZx Documentation}
+      \field{year}{2020}
+    \endentry
+    \entry{NotSoSmartContracts}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=48ca59df6537c7fd7682289e0bb5beba}{%
+           family={Crytic},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {GitHub}%
+      }
+      \strng{namehash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{fullhash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{bibnamehash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{authorbibnamehash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{authornamehash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{authorfullhash}{48ca59df6537c7fd7682289e0bb5beba}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\ url {https://github.com/crytic/not-so-smart-contracts}}
+      \field{journaltitle}{GitHub repository}
+      \field{title}{(Not So) Smart Contracts}
+      \field{year}{2020}
+    \endentry
+    \entry{Slither}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=ecc2ade2644763eec7905959277afe35}{%
+           family={Feist},
+           familyi={F\bibinitperiod},
+           given={Josselin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=b3a8378ac059607babf9689a21d1450d}{%
+           family={Grieco},
+           familyi={G\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d67052ec4bf728983bc814cf0d0a5b1c}{%
+           family={Groce},
+           familyi={G\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {IEEE}%
+      }
+      \strng{namehash}{f80bd464a186f386df37ab67a4b4dea8}
+      \strng{fullhash}{f80bd464a186f386df37ab67a4b4dea8}
+      \strng{bibnamehash}{f80bd464a186f386df37ab67a4b4dea8}
+      \strng{authorbibnamehash}{f80bd464a186f386df37ab67a4b4dea8}
+      \strng{authornamehash}{f80bd464a186f386df37ab67a4b4dea8}
+      \strng{authorfullhash}{f80bd464a186f386df37ab67a4b4dea8}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2019 {IEEE}/{ACM} 2nd International Workshop on Emerging Trends in Software Engineering for Blockchain ({WETSEB})}
+      \field{month}{5}
+      \field{title}{Slither: A Static Analysis Framework for Smart Contracts}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.1109/wetseb.2019.00008
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1109%2Fwetseb.2019.00008
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1109%2Fwetseb.2019.00008
+      \endverb
+    \endentry
+    \entry{UraniumPM}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=679e98376e6f49d8f2dc56c4b8fba638}{%
+           family={Finance},
+           familyi={F\bibinitperiod},
+           given={Uranium},
+           giveni={U\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://uraniumfinance.medium.com}%
+      }
+      \strng{namehash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \strng{fullhash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \strng{bibnamehash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \strng{authorbibnamehash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \strng{authornamehash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \strng{authorfullhash}{679e98376e6f49d8f2dc56c4b8fba638}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Uranium : post-mortem, v2, compensations}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://uraniumfinance.medium.com/uranium-post-mortem-v2-compensations-aac4b0706d7d
+      \endverb
+      \verb{url}
+      \verb https://uraniumfinance.medium.com/uranium-post-mortem-v2-compensations-aac4b0706d7d
+      \endverb
+    \endentry
+    \entry{Echidna}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{un=0,uniquepart=base,hash=b3a8378ac059607babf9689a21d1450d}{%
+           family={Grieco},
+           familyi={G\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=fe576f65138f8d2c7291eec5524e9663}{%
+           family={Song},
+           familyi={S\bibinitperiod},
+           given={Will},
+           giveni={W\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=6d64c99fba7b2ae7200b505c24cf7124}{%
+           family={Cygan},
+           familyi={C\bibinitperiod},
+           given={Artur},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=ecc2ade2644763eec7905959277afe35}{%
+           family={Feist},
+           familyi={F\bibinitperiod},
+           given={Josselin},
+           giveni={J\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d67052ec4bf728983bc814cf0d0a5b1c}{%
+           family={Groce},
+           familyi={G\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Virtual Event, USA}%
+      }
+      \list{publisher}{1}{%
+        {Association for Computing Machinery}%
+      }
+      \strng{namehash}{5e5c884e5f6912b16a4204da310d2ae2}
+      \strng{fullhash}{94fd95d407062ee3812ac5225364d1a5}
+      \strng{bibnamehash}{5e5c884e5f6912b16a4204da310d2ae2}
+      \strng{authorbibnamehash}{5e5c884e5f6912b16a4204da310d2ae2}
+      \strng{authornamehash}{5e5c884e5f6912b16a4204da310d2ae2}
+      \strng{authorfullhash}{94fd95d407062ee3812ac5225364d1a5}
+      \field{sortinit}{G}
+      \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Ethereum smart contracts---autonomous programs that run on a blockchain---often control transactions of financial and intellectual property. Because of the critical role they play, smart contracts need complete, comprehensive, and effective test generation. This paper introduces an open-source smart contract fuzzer called Echidna that makes it easy to automatically generate tests to detect violations in assertions and custom properties. Echidna is easy to install and does not require a complex configuration or deployment of contracts to a local blockchain. It offers responsive feedback, captures many property violations, and its default settings are calibrated based on experimental data. To date, Echidna has been used in more than 10 large paid security audits, and feedback from those audits has driven the features and user experience of Echidna, both in terms of practical usability (e.g., smart contract frameworks like Truffle and Embark) and test generation strategies. Echidna aims to be good at finding real bugs in smart contracts, with minimal user effort and maximal speed.}
+      \field{booktitle}{Proceedings of the 29th ACM SIGSOFT International Symposium on Software Testing and Analysis}
+      \field{isbn}{9781450380089}
+      \field{series}{ISSTA 2020}
+      \field{title}{Echidna: Effective, Usable, and Fast Fuzzing for Smart Contracts}
+      \field{year}{2020}
+      \field{pages}{557\bibrangedash 560}
+      \range{pages}{4}
+      \verb{doi}
+      \verb 10.1145/3395363.3404366
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1145/3395363.3404366
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1145/3395363.3404366
+      \endverb
+      \keyw{fuzzing,smart contracts,test generation}
+    \endentry
+    \entry{SolcVerify}{incollection}{}
+      \name{author}{2}{}{%
+        {{un=2,uniquepart=given,hash=910ebaec73f8af8dea3f6cb9dfe37a5a}{%
+           family={Hajdu},
+           familyi={H\bibinitperiod},
+           given={{Á\bibnamedelimb }kos},
+           giveni={Á\bibinitperiod},
+           givenun=2}}%
+        {{un=0,uniquepart=base,hash=3712e5b18594a81449956230f1ca0a13}{%
+           family={Jovanović},
+           familyi={J\bibinitperiod},
+           given={Dejan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \strng{fullhash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \strng{bibnamehash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \strng{authorbibnamehash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \strng{authornamehash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \strng{authorfullhash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \field{extraname}{1}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Lecture Notes in Computer Science}
+      \field{title}{solc-verify: A Modular Verifier for Solidity Smart Contracts}
+      \field{year}{2020}
+      \field{pages}{161\bibrangedash 179}
+      \range{pages}{19}
+      \verb{doi}
+      \verb 10.1007/978-3-030-41600-3_11
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007%2F978-3-030-41600-3_11
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007%2F978-3-030-41600-3_11
+      \endverb
+    \endentry
+    \entry{SolcVerify_3}{misc}{}
+      \name{author}{2}{}{%
+        {{un=2,uniquepart=given,hash=910ebaec73f8af8dea3f6cb9dfe37a5a}{%
+           family={Hajdu},
+           familyi={H\bibinitperiod},
+           given={{Á\bibnamedelimb }kos},
+           giveni={Á\bibinitperiod},
+           givenun=2}}%
+        {{un=0,uniquepart=base,hash=3712e5b18594a81449956230f1ca0a13}{%
+           family={Jovanović},
+           familyi={J\bibinitperiod},
+           given={Dejan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {GitHub}%
+      }
+      \strng{namehash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \strng{fullhash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \strng{bibnamehash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \strng{authorbibnamehash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \strng{authornamehash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \strng{authorfullhash}{e75387b3328d18d9dfe2ac5aeddae7d6}
+      \field{extraname}{2}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\ url {https://github.com/SRI-CSL/solidity/blob/0.7/SOLC-VERIFY-README.md}}
+      \field{journaltitle}{GitHub repository}
+      \field{title}{SolcVerify}
+      \field{year}{2021}
+    \endentry
+    \entry{SolcVerify_2}{unknown}{}
+      \name{author}{3}{}{%
+        {{un=2,uniquepart=given,hash=910ebaec73f8af8dea3f6cb9dfe37a5a}{%
+           family={Hajdu},
+           familyi={H\bibinitperiod},
+           given={Ákos},
+           giveni={Á\bibinitperiod},
+           givenun=2}}%
+        {{un=0,uniquepart=base,hash=3712e5b18594a81449956230f1ca0a13}{%
+           family={Jovanović},
+           familyi={J\bibinitperiod},
+           given={Dejan},
+           giveni={D\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=dac5dfcb25c147dd14a75a27291c31d0}{%
+           family={Ciocarlie},
+           familyi={C\bibinitperiod},
+           given={Gabriela},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c547af9fd8367c1759b0d6b13c7625db}
+      \strng{fullhash}{c547af9fd8367c1759b0d6b13c7625db}
+      \strng{bibnamehash}{c547af9fd8367c1759b0d6b13c7625db}
+      \strng{authorbibnamehash}{c547af9fd8367c1759b0d6b13c7625db}
+      \strng{authornamehash}{c547af9fd8367c1759b0d6b13c7625db}
+      \strng{authorfullhash}{c547af9fd8367c1759b0d6b13c7625db}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{month}{05}
+      \field{title}{Formal Specification and Verification of Solidity Contracts with Events}
+      \field{year}{2020}
+    \endentry
+    \entry{Aku}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=804c6482dfc218ba8423ce835767c433}{%
+           family={Hassan},
+           familyi={H\bibinitperiod},
+           given={Saeed},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://bitcoinist.com}%
+      }
+      \strng{namehash}{804c6482dfc218ba8423ce835767c433}
+      \strng{fullhash}{804c6482dfc218ba8423ce835767c433}
+      \strng{bibnamehash}{804c6482dfc218ba8423ce835767c433}
+      \strng{authorbibnamehash}{804c6482dfc218ba8423ce835767c433}
+      \strng{authornamehash}{804c6482dfc218ba8423ce835767c433}
+      \strng{authorfullhash}{804c6482dfc218ba8423ce835767c433}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{NFT Project Aku Dreams Loses \$34 Million To Smart Contract Flaw}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://bitcoinist.com/nft-project-aku-dreams-loses-34-million-to-smart-contract-flaw/
+      \endverb
+      \verb{url}
+      \verb https://bitcoinist.com/nft-project-aku-dreams-loses-34-million-to-smart-contract-flaw/
+      \endverb
+    \endentry
+    \entry{FlashCoin}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=19b2e28a19f3237b06f2debd9642ca9f}{%
+           family={Hertig},
+           familyi={H\bibinitperiod},
+           given={Alyssa},
+           giveni={A\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://www.coindesk.com//}%
+      }
+      \strng{namehash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \strng{fullhash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \strng{bibnamehash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \strng{authorbibnamehash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \strng{authornamehash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \strng{authorfullhash}{19b2e28a19f3237b06f2debd9642ca9f}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What Is a Flash Loan?}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.coindesk.com/learn/2021/02/17/what-is-a-flash-loan/
+      \endverb
+      \verb{url}
+      \verb https://www.coindesk.com/learn/2021/02/17/what-is-a-flash-loan/
+      \endverb
+    \endentry
+    \entry{CBDAO}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6bfa3061417809d89ee046ac51ebe999}{%
+           family={JEFF},
+           familyi={J\bibinitperiod},
+           given={Green},
+           giveni={G\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{6bfa3061417809d89ee046ac51ebe999}
+      \strng{fullhash}{6bfa3061417809d89ee046ac51ebe999}
+      \strng{bibnamehash}{6bfa3061417809d89ee046ac51ebe999}
+      \strng{authorbibnamehash}{6bfa3061417809d89ee046ac51ebe999}
+      \strng{authornamehash}{6bfa3061417809d89ee046ac51ebe999}
+      \strng{authorfullhash}{6bfa3061417809d89ee046ac51ebe999}
+      \field{sortinit}{J}
+      \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://cointelegraph.com/explained/crypto-rug-pulls-what-is-a-rug-pull-in-crypto-and-6-ways-to-spot-it}}
+      \field{note}{Accessed: 2022-04-21}
+      \field{title}{CBDAO Exitscammed: Moving Forward as a Community}
+      \field{year}{2020}
+    \endentry
+    \entry{BurgerSwap}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=6ba046d6176753653db0e69f9e3f1f99}{%
+           family={Leiba},
+           familyi={L\bibinitperiod},
+           given={Oded},
+           giveni={O\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://zengo.com}%
+      }
+      \strng{namehash}{6ba046d6176753653db0e69f9e3f1f99}
+      \strng{fullhash}{6ba046d6176753653db0e69f9e3f1f99}
+      \strng{bibnamehash}{6ba046d6176753653db0e69f9e3f1f99}
+      \strng{authorbibnamehash}{6ba046d6176753653db0e69f9e3f1f99}
+      \strng{authornamehash}{6ba046d6176753653db0e69f9e3f1f99}
+      \strng{authorfullhash}{6ba046d6176753653db0e69f9e3f1f99}
+      \field{sortinit}{L}
+      \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Reentering the Reentrancy Bug: Disclosing BurgerSwap's Vulnerability}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://zengo.com/burgerswap-vulnerability/
+      \endverb
+      \verb{url}
+      \verb https://zengo.com/burgerswap-vulnerability/
+      \endverb
+    \endentry
+    \entry{Mythril}{inproceedings}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=3222aca09221290bc59d19e8af4e453d}{%
+           family={Mueller},
+           familyi={M\bibinitperiod},
+           given={Bernhard},
+           giveni={B\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{location}{1}{%
+        {Amsterdam, Netherlands}%
+      }
+      \list{publisher}{1}{%
+        {In 9th Annual HITB Security Conference (HITBSecConf)}%
+      }
+      \strng{namehash}{3222aca09221290bc59d19e8af4e453d}
+      \strng{fullhash}{3222aca09221290bc59d19e8af4e453d}
+      \strng{bibnamehash}{3222aca09221290bc59d19e8af4e453d}
+      \strng{authorbibnamehash}{3222aca09221290bc59d19e8af4e453d}
+      \strng{authornamehash}{3222aca09221290bc59d19e8af4e453d}
+      \strng{authorfullhash}{3222aca09221290bc59d19e8af4e453d}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Smashing ethereum smart contracts for fun and real profit}
+      \field{year}{2018}
+      \verb{urlraw}
+      \verb https://github.com/muellerberndt/smashing-smart-contracts/blob/master/smashing-smart-contracts-1of1.pdf
+      \endverb
+      \verb{url}
+      \verb https://github.com/muellerberndt/smashing-smart-contracts/blob/master/smashing-smart-contracts-1of1.pdf
+      \endverb
+    \endentry
+    \entry{Bitcoin}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=1977190f018b398e43ede3de043de8ea}{%
+           family={Nakamoto},
+           familyi={N\bibinitperiod},
+           given={Satoshi},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {bitcoin.org}%
+      }
+      \strng{namehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{fullhash}{1977190f018b398e43ede3de043de8ea}
+      \strng{bibnamehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authorbibnamehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authornamehash}{1977190f018b398e43ede3de043de8ea}
+      \strng{authorfullhash}{1977190f018b398e43ede3de043de8ea}
+      \field{sortinit}{N}
+      \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
+      \field{year}{2008}
+      \verb{urlraw}
+      \verb https://bitcoin.org/bitcoin.pdf
+      \endverb
+      \verb{url}
+      \verb https://bitcoin.org/bitcoin.pdf
+      \endverb
+    \endentry
+    \entry{CoverProtocolPostMortem}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c16a18e438a049ef1777f1471273a6ce}{%
+           family={Protocol},
+           familyi={P\bibinitperiod},
+           given={Cover},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://coverprotocol.medium.com}%
+      }
+      \strng{namehash}{c16a18e438a049ef1777f1471273a6ce}
+      \strng{fullhash}{c16a18e438a049ef1777f1471273a6ce}
+      \strng{bibnamehash}{c16a18e438a049ef1777f1471273a6ce}
+      \strng{authorbibnamehash}{c16a18e438a049ef1777f1471273a6ce}
+      \strng{authornamehash}{c16a18e438a049ef1777f1471273a6ce}
+      \strng{authorfullhash}{c16a18e438a049ef1777f1471273a6ce}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{12/28 Post-Mortem}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://coverprotocol.medium.com/12-28-post-mortem-34c5f9f718d4
+      \endverb
+      \verb{url}
+      \verb https://coverprotocol.medium.com/12-28-post-mortem-34c5f9f718d4
+      \endverb
+    \endentry
+    \entry{RugPullDef}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=c6fe4cdb2115d3dfce417c0255dc1ad2}{%
+           family={Puggioni},
+           familyi={P\bibinitperiod},
+           given={Valerio},
+           giveni={V\bibinitperiod},
+           givenun=0}}%
+      }
+      \strng{namehash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \strng{fullhash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \strng{bibnamehash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \strng{authorbibnamehash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \strng{authornamehash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \strng{authorfullhash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
+      \field{sortinit}{P}
+      \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://cointelegraph.com/explained/crypto-rug-pulls-what-is-a-rug-pull-in-crypto-and-6-ways-to-spot-it}}
+      \field{note}{Accessed: 2022-04-21}
+      \field{title}{Crypto rug pulls: What is a rug pull in crypto and 6 ways to spot it}
+      \field{year}{2022}
+    \endentry
+    \entry{RaceConditionDef}{misc}{}
+      \list{publisher}{1}{%
+        {Microsoft}%
+      }
+      \field{sortinit}{R}
+      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://docs.microsoft.com/en-us/troubleshoot/developer/visualstudio/visual-basic/language-compilers/race-conditions-deadlocks}}
+      \field{note}{Accessed: 2022-04-22}
+      \field{title}{Race conditions and deadlocks}
+      \field{year}{2020}
+    \endentry
+    \entry{CoverProtocol}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=919acaaee919d6b831ef54fdd46dc1ed}{%
+           family={Sawinyh},
+           familyi={S\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://defiprime.com}%
+      }
+      \strng{namehash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \strng{fullhash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \strng{bibnamehash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \strng{authorbibnamehash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \strng{authornamehash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \strng{authorfullhash}{919acaaee919d6b831ef54fdd46dc1ed}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Cover Protocol - Decentralized Insurance Marketplace}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://defiprime.com/cover-protocol
+      \endverb
+      \verb{url}
+      \verb https://defiprime.com/cover-protocol
+      \endverb
+    \endentry
+    \entry{SlitherGitHub}{misc}{}
+      \list{publisher}{1}{%
+        {GitHub}%
+      }
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{https://github.com/crytic/slither}}
+      \field{journaltitle}{GitHub repository}
+      \field{title}{Slither}
+      \field{year}{2019}
+    \endentry
+    \entry{SWCRegistry}{misc}{}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{ https://swcregistry.io/}}
+      \field{note}{Accessed: 2022-04-15}
+      \field{title}{SmartContractSecurity. SWC Registry}
+      \field{year}{2020}
+    \endentry
+    \entry{SmarTest}{inproceedings}{}
+      \name{author}{3}{}{%
+        {{un=0,uniquepart=base,hash=b149d93c4930b2ac0efe128880d160ee}{%
+           family={So},
+           familyi={S\bibinitperiod},
+           given={Sunbeom},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=3168a55acf23d90db59e93391a788325}{%
+           family={Hong},
+           familyi={H\bibinitperiod},
+           given={Seongjoon},
+           giveni={S\bibinitperiod},
+           givenun=0}}%
+        {{un=0,uniquepart=base,hash=d81824a411f5c718c38479c2b67a1b97}{%
+           family={Oh},
+           familyi={O\bibinitperiod},
+           given={Hakjoo},
+           giveni={H\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {USENIX Association}%
+      }
+      \strng{namehash}{1bf6ce17923e3483d0978cbf4f248e2c}
+      \strng{fullhash}{1bf6ce17923e3483d0978cbf4f248e2c}
+      \strng{bibnamehash}{1bf6ce17923e3483d0978cbf4f248e2c}
+      \strng{authorbibnamehash}{1bf6ce17923e3483d0978cbf4f248e2c}
+      \strng{authornamehash}{1bf6ce17923e3483d0978cbf4f248e2c}
+      \strng{authorfullhash}{1bf6ce17923e3483d0978cbf4f248e2c}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{30th USENIX Security Symposium (USENIX Security 21)}
+      \field{isbn}{978-1-939133-24-3}
+      \field{month}{8}
+      \field{title}{{SmarTest}: Effectively Hunting Vulnerable Transaction Sequences in Smart Contracts through Language {Model-Guided} Symbolic Execution}
+      \field{year}{2021}
+      \field{pages}{1361\bibrangedash 1378}
+      \range{pages}{18}
+      \verb{urlraw}
+      \verb https://www.usenix.org/conference/usenixsecurity21/presentation/so
+      \endverb
+      \verb{url}
+      \verb https://www.usenix.org/conference/usenixsecurity21/presentation/so
+      \endverb
+    \endentry
+    \entry{UraniumTech}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=55dd7b96129603888aeb3c5fbe2cebe2}{%
+           family={team},
+           familyi={t\bibinitperiod},
+           given={Certik},
+           giveni={C\bibinitperiod},
+           givenun=0}}%
+      }
+      \list{publisher}{1}{%
+        {Shentu Foundation}%
+      }
+      \strng{namehash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \strng{fullhash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \strng{bibnamehash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \strng{authorbibnamehash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \strng{authornamehash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \strng{authorfullhash}{55dd7b96129603888aeb3c5fbe2cebe2}
+      \field{sortinit}{t}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Uranium Finance Exploit Analysis}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://medium.com/shentu-foundation/uranium-finance-exploit-analysis-d135055d6a6a
+      \endverb
+      \verb{url}
+      \verb https://medium.com/shentu-foundation/uranium-finance-exploit-analysis-d135055d6a6a
+      \endverb
+    \endentry
+    \entry{FlashCloud}{misc}{}
+      \name{author}{1}{}{%
+        {{un=0,uniquepart=base,hash=994b7df1ffb66ce2b03e8fb14608509d}{%
+           family={Vecht},
+           familyi={V\bibinitperiod},
+           given={Dennis\bibnamedelima Van},
+           giveni={D\bibinitperiod\bibinitdelim V\bibinitperiod},
+           givenun=0,
+           prefix={der},
+           prefixi={d\bibinitperiod},
+           prefixun=0}}%
+      }
+      \list{publisher}{1}{%
+        {https://10clouds.com/}%
+      }
+      \strng{namehash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \strng{fullhash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \strng{bibnamehash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \strng{authorbibnamehash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \strng{authornamehash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \strng{authorfullhash}{994b7df1ffb66ce2b03e8fb14608509d}
+      \field{sortinit}{V}
+      \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Understanding Flash Loans In DeFi}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://10clouds.com/blog/defi/understanding-flash-loans-in-defi/
+      \endverb
+      \verb{url}
+      \verb https://10clouds.com/blog/defi/understanding-flash-loans-in-defi/
+      \endverb
+    \endentry
+    \entry{CloudFareDos}{misc}{}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{ https://www.cloudflare.com/it-it/learning/ddos/glossary/denial-of-service/}}
+      \field{note}{Accessed: 2022-04-15}
+      \field{title}{What is a denial-of-service attack}
+      \field{year}{2022}
+    \endentry
+    \entry{XSurgeWeb}{misc}{}
+      \field{sortinit}{x}
+      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{ https://xsurge.net/surge-assets}}
+      \field{note}{Accessed: 2022-04-15}
+      \field{title}{xSurge Assets}
+      \field{year}{2021}
+    \endentry
+    \entry{XSurgeBNB}{misc}{}
+      \field{sortinit}{X}
+      \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{ https://beosin.medium.com/a-sweet-blow-fb0a5e08657d}}
+      \field{note}{Accessed: 2022-04-15}
+      \field{title}{XSURGE on the BSC Chain was Attacked by Lightning Loans — A Full Analysis}
+      \field{year}{2021}
+    \endentry
+  \enddatalist
+\endrefsection
+\endinput
+
