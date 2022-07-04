@@ -18,45 +18,39 @@
 
 
 \refsection{0}
-  \datalist[entry]{nyt/global//global/global}
+  \datalist[entry]{nty/global//global/global}
     \entry{KeYBook2016}{book}{}
       \name{editor}{6}{}{%
-        {{un=0,uniquepart=base,hash=9aceb6b10ccb6b74d169a2127c3f068a}{%
+        {{hash=9aceb6b10ccb6b74d169a2127c3f068a}{%
            family={Ahrendt},
            familyi={A\bibinitperiod},
            given={Wolfgang},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=0782f72312b1bdfc9d83ac8a10b8249c}{%
+           giveni={W\bibinitperiod}}}%
+        {{hash=0782f72312b1bdfc9d83ac8a10b8249c}{%
            family={Beckert},
            familyi={B\bibinitperiod},
            given={Bernhard},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ddfbe76ae0f6b9d1b97e0aa059b7788f}{%
+           giveni={B\bibinitperiod}}}%
+        {{hash=ddfbe76ae0f6b9d1b97e0aa059b7788f}{%
            family={Bubel},
            familyi={B\bibinitperiod},
            given={Richard},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=2732a304f19472289d7552b26ed2897d}{%
+           giveni={R\bibinitperiod}}}%
+        {{hash=2732a304f19472289d7552b26ed2897d}{%
            family={Hähnle},
            familyi={H\bibinitperiod},
            given={Reiner},
-           giveni={R\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=df061a559fe43bcebbc85a12f049c5d1}{%
+           giveni={R\bibinitperiod}}}%
+        {{hash=df061a559fe43bcebbc85a12f049c5d1}{%
            family={Schmitt},
            familyi={S\bibinitperiod},
            given={Peter\bibnamedelima H.},
-           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=a6d6de7a7a217b83d84fb29d6ac270d2}{%
+           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
+        {{hash=a6d6de7a7a217b83d84fb29d6ac270d2}{%
            family={Ulbrich},
            familyi={U\bibinitperiod},
            given={Mattias},
-           giveni={M\bibinitperiod},
-           givenun=0}}%
+           giveni={M\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Springer}%
@@ -69,8 +63,6 @@
       \strng{editorfullhash}{b5e4db53d6eb5169c797684c6a1f86bb}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{editor}
       \field{labeltitlesource}{title}
       \field{series}{Lecture Notes in Computer Science}
@@ -83,12 +75,11 @@
     \endentry
     \entry{Dos1}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=5f22a8466237da0aacfc20e9f24d6f8d}{%
+        {{hash=5f22a8466237da0aacfc20e9f24d6f8d}{%
            family={Arends},
            familyi={A\bibinitperiod},
            given={Derek},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod}}}%
       }
       \strng{namehash}{5f22a8466237da0aacfc20e9f24d6f8d}
       \strng{fullhash}{5f22a8466237da0aacfc20e9f24d6f8d}
@@ -98,8 +89,6 @@
       \strng{authorfullhash}{5f22a8466237da0aacfc20e9f24d6f8d}
       \field{sortinit}{A}
       \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{ https://www.derekarends.com/solidity-vulnerability-denial-of-service-dos/}}
@@ -109,12 +98,11 @@
     \endentry
     \entry{Ethereum}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=850981945102d0f671b6762173c8988a}{%
+        {{hash=850981945102d0f671b6762173c8988a}{%
            family={Buterin},
            familyi={B\bibinitperiod},
            given={Vitalik},
-           giveni={V\bibinitperiod},
-           givenun=0}}%
+           giveni={V\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {https://ethereum.org}%
@@ -127,8 +115,6 @@
       \strng{authorfullhash}{850981945102d0f671b6762173c8988a}
       \field{sortinit}{B}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Ethereum: A Next-Generation Smart Contract and Decentralized Application Platform}
@@ -143,8 +129,6 @@
     \entry{bZxProtocol}{misc}{}
       \field{sortinit}{b}
       \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{ https://docs.bzx.network/}}
       \field{note}{Accessed: 2022-04-20}
@@ -153,7 +137,7 @@
     \endentry
     \entry{NotSoSmartContracts}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=48ca59df6537c7fd7682289e0bb5beba}{%
+        {{hash=48ca59df6537c7fd7682289e0bb5beba}{%
            family={Crytic},
            familyi={C\bibinitperiod}}}%
       }
@@ -168,8 +152,6 @@
       \strng{authorfullhash}{48ca59df6537c7fd7682289e0bb5beba}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\ url {https://github.com/crytic/not-so-smart-contracts}}
@@ -179,24 +161,21 @@
     \endentry
     \entry{Slither}{inproceedings}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=ecc2ade2644763eec7905959277afe35}{%
+        {{hash=ecc2ade2644763eec7905959277afe35}{%
            family={Feist},
            familyi={F\bibinitperiod},
            given={Josselin},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=b3a8378ac059607babf9689a21d1450d}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=b3a8378ac059607babf9689a21d1450d}{%
            family={Grieco},
            familyi={G\bibinitperiod},
            given={Gustavo},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d67052ec4bf728983bc814cf0d0a5b1c}{%
+           giveni={G\bibinitperiod}}}%
+        {{hash=d67052ec4bf728983bc814cf0d0a5b1c}{%
            family={Groce},
            familyi={G\bibinitperiod},
            given={Alex},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {IEEE}%
@@ -209,8 +188,6 @@
       \strng{authorfullhash}{f80bd464a186f386df37ab67a4b4dea8}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{2019 {IEEE}/{ACM} 2nd International Workshop on Emerging Trends in Software Engineering for Blockchain ({WETSEB})}
@@ -229,12 +206,11 @@
     \endentry
     \entry{UraniumPM}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=679e98376e6f49d8f2dc56c4b8fba638}{%
+        {{hash=679e98376e6f49d8f2dc56c4b8fba638}{%
            family={Finance},
            familyi={F\bibinitperiod},
            given={Uranium},
-           giveni={U\bibinitperiod},
-           givenun=0}}%
+           giveni={U\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {https://uraniumfinance.medium.com}%
@@ -247,8 +223,6 @@
       \strng{authorfullhash}{679e98376e6f49d8f2dc56c4b8fba638}
       \field{sortinit}{F}
       \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Uranium : post-mortem, v2, compensations}
@@ -262,36 +236,31 @@
     \endentry
     \entry{Echidna}{inproceedings}{}
       \name{author}{5}{}{%
-        {{un=0,uniquepart=base,hash=b3a8378ac059607babf9689a21d1450d}{%
+        {{hash=b3a8378ac059607babf9689a21d1450d}{%
            family={Grieco},
            familyi={G\bibinitperiod},
            given={Gustavo},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=fe576f65138f8d2c7291eec5524e9663}{%
+           giveni={G\bibinitperiod}}}%
+        {{hash=fe576f65138f8d2c7291eec5524e9663}{%
            family={Song},
            familyi={S\bibinitperiod},
            given={Will},
-           giveni={W\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=6d64c99fba7b2ae7200b505c24cf7124}{%
+           giveni={W\bibinitperiod}}}%
+        {{hash=6d64c99fba7b2ae7200b505c24cf7124}{%
            family={Cygan},
            familyi={C\bibinitperiod},
            given={Artur},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=ecc2ade2644763eec7905959277afe35}{%
+           giveni={A\bibinitperiod}}}%
+        {{hash=ecc2ade2644763eec7905959277afe35}{%
            family={Feist},
            familyi={F\bibinitperiod},
            given={Josselin},
-           giveni={J\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d67052ec4bf728983bc814cf0d0a5b1c}{%
+           giveni={J\bibinitperiod}}}%
+        {{hash=d67052ec4bf728983bc814cf0d0a5b1c}{%
            family={Groce},
            familyi={G\bibinitperiod},
            given={Alex},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
       \list{location}{1}{%
         {Virtual Event, USA}%
@@ -307,8 +276,6 @@
       \strng{authorfullhash}{94fd95d407062ee3812ac5225364d1a5}
       \field{sortinit}{G}
       \field{sortinithash}{32d67eca0634bf53703493fb1090a2e8}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{abstract}{Ethereum smart contracts---autonomous programs that run on a blockchain---often control transactions of financial and intellectual property. Because of the critical role they play, smart contracts need complete, comprehensive, and effective test generation. This paper introduces an open-source smart contract fuzzer called Echidna that makes it easy to automatically generate tests to detect violations in assertions and custom properties. Echidna is easy to install and does not require a complex configuration or deployment of contracts to a local blockchain. It offers responsive feedback, captures many property violations, and its default settings are calibrated based on experimental data. To date, Echidna has been used in more than 10 large paid security audits, and feedback from those audits has driven the features and user experience of Echidna, both in terms of practical usability (e.g., smart contract frameworks like Truffle and Embark) and test generation strategies. Echidna aims to be good at finding real bugs in smart contracts, with minimal user effort and maximal speed.}
@@ -332,18 +299,16 @@
     \endentry
     \entry{SolcVerify}{incollection}{}
       \name{author}{2}{}{%
-        {{un=2,uniquepart=given,hash=910ebaec73f8af8dea3f6cb9dfe37a5a}{%
+        {{hash=910ebaec73f8af8dea3f6cb9dfe37a5a}{%
            family={Hajdu},
            familyi={H\bibinitperiod},
            given={{Á\bibnamedelimb }kos},
-           giveni={Á\bibinitperiod},
-           givenun=2}}%
-        {{un=0,uniquepart=base,hash=3712e5b18594a81449956230f1ca0a13}{%
+           giveni={Á\bibinitperiod}}}%
+        {{hash=3712e5b18594a81449956230f1ca0a13}{%
            family={Jovanović},
            familyi={J\bibinitperiod},
            given={Dejan},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Springer International Publishing}%
@@ -357,8 +322,6 @@
       \field{extraname}{1}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Lecture Notes in Computer Science}
@@ -378,18 +341,16 @@
     \endentry
     \entry{SolcVerify_3}{misc}{}
       \name{author}{2}{}{%
-        {{un=2,uniquepart=given,hash=910ebaec73f8af8dea3f6cb9dfe37a5a}{%
+        {{hash=910ebaec73f8af8dea3f6cb9dfe37a5a}{%
            family={Hajdu},
            familyi={H\bibinitperiod},
            given={{Á\bibnamedelimb }kos},
-           giveni={Á\bibinitperiod},
-           givenun=2}}%
-        {{un=0,uniquepart=base,hash=3712e5b18594a81449956230f1ca0a13}{%
+           giveni={Á\bibinitperiod}}}%
+        {{hash=3712e5b18594a81449956230f1ca0a13}{%
            family={Jovanović},
            familyi={J\bibinitperiod},
            given={Dejan},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
+           giveni={D\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {GitHub}%
@@ -403,8 +364,6 @@
       \field{extraname}{2}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\ url {https://github.com/SRI-CSL/solidity/blob/0.7/SOLC-VERIFY-README.md}}
@@ -414,24 +373,21 @@
     \endentry
     \entry{SolcVerify_2}{unknown}{}
       \name{author}{3}{}{%
-        {{un=2,uniquepart=given,hash=910ebaec73f8af8dea3f6cb9dfe37a5a}{%
+        {{hash=910ebaec73f8af8dea3f6cb9dfe37a5a}{%
            family={Hajdu},
            familyi={H\bibinitperiod},
            given={Ákos},
-           giveni={Á\bibinitperiod},
-           givenun=2}}%
-        {{un=0,uniquepart=base,hash=3712e5b18594a81449956230f1ca0a13}{%
+           giveni={Á\bibinitperiod}}}%
+        {{hash=3712e5b18594a81449956230f1ca0a13}{%
            family={Jovanović},
            familyi={J\bibinitperiod},
            given={Dejan},
-           giveni={D\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=dac5dfcb25c147dd14a75a27291c31d0}{%
+           giveni={D\bibinitperiod}}}%
+        {{hash=dac5dfcb25c147dd14a75a27291c31d0}{%
            family={Ciocarlie},
            familyi={C\bibinitperiod},
            given={Gabriela},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
+           giveni={G\bibinitperiod}}}%
       }
       \strng{namehash}{c547af9fd8367c1759b0d6b13c7625db}
       \strng{fullhash}{c547af9fd8367c1759b0d6b13c7625db}
@@ -441,8 +397,6 @@
       \strng{authorfullhash}{c547af9fd8367c1759b0d6b13c7625db}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{month}{05}
@@ -451,12 +405,11 @@
     \endentry
     \entry{Aku}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=804c6482dfc218ba8423ce835767c433}{%
+        {{hash=804c6482dfc218ba8423ce835767c433}{%
            family={Hassan},
            familyi={H\bibinitperiod},
            given={Saeed},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
+           giveni={S\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {https://bitcoinist.com}%
@@ -469,8 +422,6 @@
       \strng{authorfullhash}{804c6482dfc218ba8423ce835767c433}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{NFT Project Aku Dreams Loses \$34 Million To Smart Contract Flaw}
@@ -484,12 +435,11 @@
     \endentry
     \entry{FlashCoin}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=19b2e28a19f3237b06f2debd9642ca9f}{%
+        {{hash=19b2e28a19f3237b06f2debd9642ca9f}{%
            family={Hertig},
            familyi={H\bibinitperiod},
            given={Alyssa},
-           giveni={A\bibinitperiod},
-           givenun=0}}%
+           giveni={A\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {https://www.coindesk.com//}%
@@ -502,8 +452,6 @@
       \strng{authorfullhash}{19b2e28a19f3237b06f2debd9642ca9f}
       \field{sortinit}{H}
       \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{What Is a Flash Loan?}
@@ -517,12 +465,11 @@
     \endentry
     \entry{CBDAO}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=6bfa3061417809d89ee046ac51ebe999}{%
+        {{hash=6bfa3061417809d89ee046ac51ebe999}{%
            family={JEFF},
            familyi={J\bibinitperiod},
            given={Green},
-           giveni={G\bibinitperiod},
-           givenun=0}}%
+           giveni={G\bibinitperiod}}}%
       }
       \strng{namehash}{6bfa3061417809d89ee046ac51ebe999}
       \strng{fullhash}{6bfa3061417809d89ee046ac51ebe999}
@@ -532,8 +479,6 @@
       \strng{authorfullhash}{6bfa3061417809d89ee046ac51ebe999}
       \field{sortinit}{J}
       \field{sortinithash}{b2f54a9081ace9966a7cb9413811edb4}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://cointelegraph.com/explained/crypto-rug-pulls-what-is-a-rug-pull-in-crypto-and-6-ways-to-spot-it}}
@@ -543,12 +488,11 @@
     \endentry
     \entry{BurgerSwap}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=6ba046d6176753653db0e69f9e3f1f99}{%
+        {{hash=6ba046d6176753653db0e69f9e3f1f99}{%
            family={Leiba},
            familyi={L\bibinitperiod},
            given={Oded},
-           giveni={O\bibinitperiod},
-           givenun=0}}%
+           giveni={O\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {https://zengo.com}%
@@ -561,8 +505,6 @@
       \strng{authorfullhash}{6ba046d6176753653db0e69f9e3f1f99}
       \field{sortinit}{L}
       \field{sortinithash}{7c47d417cecb1f4bd38d1825c427a61a}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Reentering the Reentrancy Bug: Disclosing BurgerSwap's Vulnerability}
@@ -576,12 +518,11 @@
     \endentry
     \entry{Mythril}{inproceedings}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=3222aca09221290bc59d19e8af4e453d}{%
+        {{hash=3222aca09221290bc59d19e8af4e453d}{%
            family={Mueller},
            familyi={M\bibinitperiod},
            given={Bernhard},
-           giveni={B\bibinitperiod},
-           givenun=0}}%
+           giveni={B\bibinitperiod}}}%
       }
       \list{location}{1}{%
         {Amsterdam, Netherlands}%
@@ -597,8 +538,6 @@
       \strng{authorfullhash}{3222aca09221290bc59d19e8af4e453d}
       \field{sortinit}{M}
       \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Smashing ethereum smart contracts for fun and real profit}
@@ -612,12 +551,11 @@
     \endentry
     \entry{Bitcoin}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=1977190f018b398e43ede3de043de8ea}{%
+        {{hash=1977190f018b398e43ede3de043de8ea}{%
            family={Nakamoto},
            familyi={N\bibinitperiod},
            given={Satoshi},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
+           giveni={S\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {bitcoin.org}%
@@ -630,8 +568,6 @@
       \strng{authorfullhash}{1977190f018b398e43ede3de043de8ea}
       \field{sortinit}{N}
       \field{sortinithash}{22369a73d5f88983a108b63f07f37084}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Bitcoin: A Peer-to-Peer Electronic Cash System}
@@ -645,12 +581,11 @@
     \endentry
     \entry{CoverProtocolPostMortem}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c16a18e438a049ef1777f1471273a6ce}{%
+        {{hash=c16a18e438a049ef1777f1471273a6ce}{%
            family={Protocol},
            familyi={P\bibinitperiod},
            given={Cover},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
+           giveni={C\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {https://coverprotocol.medium.com}%
@@ -663,8 +598,6 @@
       \strng{authorfullhash}{c16a18e438a049ef1777f1471273a6ce}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{12/28 Post-Mortem}
@@ -678,12 +611,11 @@
     \endentry
     \entry{RugPullDef}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=c6fe4cdb2115d3dfce417c0255dc1ad2}{%
+        {{hash=c6fe4cdb2115d3dfce417c0255dc1ad2}{%
            family={Puggioni},
            familyi={P\bibinitperiod},
            given={Valerio},
-           giveni={V\bibinitperiod},
-           givenun=0}}%
+           giveni={V\bibinitperiod}}}%
       }
       \strng{namehash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
       \strng{fullhash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
@@ -693,8 +625,6 @@
       \strng{authorfullhash}{c6fe4cdb2115d3dfce417c0255dc1ad2}
       \field{sortinit}{P}
       \field{sortinithash}{ff3bcf24f47321b42cb156c2cc8a8422}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://cointelegraph.com/explained/crypto-rug-pulls-what-is-a-rug-pull-in-crypto-and-6-ways-to-spot-it}}
@@ -708,8 +638,6 @@
       }
       \field{sortinit}{R}
       \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://docs.microsoft.com/en-us/troubleshoot/developer/visualstudio/visual-basic/language-compilers/race-conditions-deadlocks}}
       \field{note}{Accessed: 2022-04-22}
@@ -718,12 +646,11 @@
     \endentry
     \entry{CoverProtocol}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=919acaaee919d6b831ef54fdd46dc1ed}{%
+        {{hash=919acaaee919d6b831ef54fdd46dc1ed}{%
            family={Sawinyh},
            familyi={S\bibinitperiod},
            given={Nick},
-           giveni={N\bibinitperiod},
-           givenun=0}}%
+           giveni={N\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {https://defiprime.com}%
@@ -736,8 +663,6 @@
       \strng{authorfullhash}{919acaaee919d6b831ef54fdd46dc1ed}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Cover Protocol - Decentralized Insurance Marketplace}
@@ -755,8 +680,6 @@
       }
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{https://github.com/crytic/slither}}
       \field{journaltitle}{GitHub repository}
@@ -766,8 +689,6 @@
     \entry{SWCRegistry}{misc}{}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{ https://swcregistry.io/}}
       \field{note}{Accessed: 2022-04-15}
@@ -776,24 +697,21 @@
     \endentry
     \entry{SmarTest}{inproceedings}{}
       \name{author}{3}{}{%
-        {{un=0,uniquepart=base,hash=b149d93c4930b2ac0efe128880d160ee}{%
+        {{hash=b149d93c4930b2ac0efe128880d160ee}{%
            family={So},
            familyi={S\bibinitperiod},
            given={Sunbeom},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=3168a55acf23d90db59e93391a788325}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=3168a55acf23d90db59e93391a788325}{%
            family={Hong},
            familyi={H\bibinitperiod},
            given={Seongjoon},
-           giveni={S\bibinitperiod},
-           givenun=0}}%
-        {{un=0,uniquepart=base,hash=d81824a411f5c718c38479c2b67a1b97}{%
+           giveni={S\bibinitperiod}}}%
+        {{hash=d81824a411f5c718c38479c2b67a1b97}{%
            family={Oh},
            familyi={O\bibinitperiod},
            given={Hakjoo},
-           giveni={H\bibinitperiod},
-           givenun=0}}%
+           giveni={H\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {USENIX Association}%
@@ -806,8 +724,6 @@
       \strng{authorfullhash}{1bf6ce17923e3483d0978cbf4f248e2c}
       \field{sortinit}{S}
       \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{30th USENIX Security Symposium (USENIX Security 21)}
@@ -826,12 +742,11 @@
     \endentry
     \entry{UraniumTech}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=55dd7b96129603888aeb3c5fbe2cebe2}{%
+        {{hash=55dd7b96129603888aeb3c5fbe2cebe2}{%
            family={team},
            familyi={t\bibinitperiod},
            given={Certik},
-           giveni={C\bibinitperiod},
-           givenun=0}}%
+           giveni={C\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {Shentu Foundation}%
@@ -844,8 +759,6 @@
       \strng{authorfullhash}{55dd7b96129603888aeb3c5fbe2cebe2}
       \field{sortinit}{t}
       \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Uranium Finance Exploit Analysis}
@@ -859,15 +772,13 @@
     \endentry
     \entry{FlashCloud}{misc}{}
       \name{author}{1}{}{%
-        {{un=0,uniquepart=base,hash=994b7df1ffb66ce2b03e8fb14608509d}{%
+        {{hash=994b7df1ffb66ce2b03e8fb14608509d}{%
            family={Vecht},
            familyi={V\bibinitperiod},
            given={Dennis\bibnamedelima Van},
            giveni={D\bibinitperiod\bibinitdelim V\bibinitperiod},
-           givenun=0,
            prefix={der},
-           prefixi={d\bibinitperiod},
-           prefixun=0}}%
+           prefixi={d\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
         {https://10clouds.com/}%
@@ -880,8 +791,6 @@
       \strng{authorfullhash}{994b7df1ffb66ce2b03e8fb14608509d}
       \field{sortinit}{V}
       \field{sortinithash}{afb52128e5b4dc4b843768c0113d673b}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{Understanding Flash Loans In DeFi}
@@ -896,8 +805,6 @@
     \entry{CloudFareDos}{misc}{}
       \field{sortinit}{W}
       \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{ https://www.cloudflare.com/it-it/learning/ddos/glossary/denial-of-service/}}
       \field{note}{Accessed: 2022-04-15}
@@ -907,8 +814,6 @@
     \entry{XSurgeWeb}{misc}{}
       \field{sortinit}{x}
       \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{ https://xsurge.net/surge-assets}}
       \field{note}{Accessed: 2022-04-15}
@@ -918,8 +823,6 @@
     \entry{XSurgeBNB}{misc}{}
       \field{sortinit}{X}
       \field{sortinithash}{1965c258adceecf23ce3d67b05113442}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
       \field{labeltitlesource}{title}
       \field{howpublished}{\url{ https://beosin.medium.com/a-sweet-blow-fb0a5e08657d}}
       \field{note}{Accessed: 2022-04-15}

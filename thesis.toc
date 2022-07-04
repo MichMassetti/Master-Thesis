@@ -62,36 +62,35 @@
 \contentsline {subsection}{\numberline {5.9.3}Properties}{35}{subsection.5.9.3}%
 \contentsline {chapter}{\numberline {6}Analysis Tools}{37}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Typologies of Tools}{37}{section.6.1}%
-\contentsline {section}{\numberline {6.2}Tools for analysing properties specified by user}{37}{section.6.2}%
-\contentsline {subsection}{\numberline {6.2.1}Celestial}{37}{subsection.6.2.1}%
-\contentsline {subsection}{\numberline {6.2.2}SmartPulse}{37}{subsection.6.2.2}%
-\contentsline {subsection}{\numberline {6.2.3}VeriSol}{37}{subsection.6.2.3}%
-\contentsline {subsection}{\numberline {6.2.4}Echidna}{37}{subsection.6.2.4}%
-\contentsline {subsection}{\numberline {6.2.5}Solc-Verify}{39}{subsection.6.2.5}%
-\contentsline {section}{\numberline {6.3}Tools without specification}{40}{section.6.3}%
-\contentsline {subsection}{\numberline {6.3.1}VeriSmart}{40}{subsection.6.3.1}%
-\contentsline {subsection}{\numberline {6.3.2}SmartTest}{40}{subsection.6.3.2}%
-\contentsline {subsection}{\numberline {6.3.3}Slither}{41}{subsection.6.3.3}%
-\contentsline {subsection}{\numberline {6.3.4}Mythril}{42}{subsection.6.3.4}%
-\contentsline {subsection}{\numberline {6.3.5}Maian}{43}{subsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.3.6}Securify}{43}{subsection.6.3.6}%
-\contentsline {subsection}{\numberline {6.3.7}ContractLarva}{43}{subsection.6.3.7}%
-\contentsline {chapter}{\numberline {7}Outcome for individual tools}{45}{chapter.7}%
-\contentsline {subsection}{\numberline {7.0.1}SolcVerify}{45}{subsection.7.0.1}%
-\contentsline {subsection}{\numberline {7.0.2}Celestial}{45}{subsection.7.0.2}%
-\contentsline {subsection}{\numberline {7.0.3}Manticore}{46}{subsection.7.0.3}%
-\contentsline {subsection}{\numberline {7.0.4}Echidna}{46}{subsection.7.0.4}%
-\contentsline {subsection}{\numberline {7.0.5}Manticore}{46}{subsection.7.0.5}%
-\contentsline {subsection}{\numberline {7.0.6}Certora}{46}{subsection.7.0.6}%
-\contentsline {subsection}{\numberline {7.0.7}Tool without Specifiction}{46}{subsection.7.0.7}%
-\contentsline {chapter}{\numberline {8}Evaluation}{49}{chapter.8}%
-\contentsline {section}{\numberline {8.1}Tools With vs Without Specification}{49}{section.8.1}%
-\contentsline {section}{\numberline {8.2}Grammar Checking vs Symbolic Execution}{49}{section.8.2}%
-\contentsline {section}{\numberline {8.3}Properties Braking vs Property Prooving}{49}{section.8.3}%
-\contentsline {section}{\numberline {8.4}Manticore vs Echidna: same Grammar different operations}{49}{section.8.4}%
-\contentsline {section}{\numberline {8.5}SolcVerify vs Celestial: Formal Verification}{49}{section.8.5}%
-\contentsline {chapter}{\numberline {9}Conclusion}{51}{chapter.9}%
-\contentsline {chapter}{\nonumberline Bibliography}{53}{chapter*.21}%
-\contentsline {chapter}{\numberline {A}Appendix}{55}{appendix.A}%
-\contentsline {section}{\numberline {A.1}First Appendix Section}{55}{section.A.1}%
+\contentsline {section}{\numberline {6.2}Tools with Specification}{37}{section.6.2}%
+\contentsline {subsection}{\numberline {6.2.1}Manticore}{37}{subsection.6.2.1}%
+\contentsline {subsection}{\numberline {6.2.2}Certora}{37}{subsection.6.2.2}%
+\contentsline {subsection}{\numberline {6.2.3}Celestial}{37}{subsection.6.2.3}%
+\contentsline {paragraph}{\nonumberline Limitations}{38}{paragraph*.22}%
+\contentsline {subsection}{\numberline {6.2.4}Echidna}{39}{subsection.6.2.4}%
+\contentsline {subsection}{\numberline {6.2.5}Solc-Verify}{40}{subsection.6.2.5}%
+\contentsline {section}{\numberline {6.3}Tools without specification}{42}{section.6.3}%
+\contentsline {subsection}{\numberline {6.3.1}SmartTest}{42}{subsection.6.3.1}%
+\contentsline {subsection}{\numberline {6.3.2}Slither}{43}{subsection.6.3.2}%
+\contentsline {subsection}{\numberline {6.3.3}Mythril}{44}{subsection.6.3.3}%
+\contentsline {subsection}{\numberline {6.3.4}Oyente}{45}{subsection.6.3.4}%
+\contentsline {subsection}{\numberline {6.3.5}Maian}{45}{subsection.6.3.5}%
+\contentsline {chapter}{\numberline {7}Outcome for individual tools}{47}{chapter.7}%
+\contentsline {subsection}{\numberline {7.0.1}SolcVerify}{47}{subsection.7.0.1}%
+\contentsline {subsection}{\numberline {7.0.2}Celestial}{47}{subsection.7.0.2}%
+\contentsline {subsection}{\numberline {7.0.3}Manticore}{48}{subsection.7.0.3}%
+\contentsline {subsection}{\numberline {7.0.4}Echidna}{48}{subsection.7.0.4}%
+\contentsline {subsection}{\numberline {7.0.5}Manticore}{48}{subsection.7.0.5}%
+\contentsline {subsection}{\numberline {7.0.6}Certora}{48}{subsection.7.0.6}%
+\contentsline {subsection}{\numberline {7.0.7}Tool without Specifiction}{48}{subsection.7.0.7}%
+\contentsline {chapter}{\numberline {8}Evaluation}{51}{chapter.8}%
+\contentsline {section}{\numberline {8.1}Tools With vs Without Specification}{51}{section.8.1}%
+\contentsline {section}{\numberline {8.2}Grammar Checking vs Symbolic Execution}{51}{section.8.2}%
+\contentsline {section}{\numberline {8.3}Properties Braking vs Property Prooving}{51}{section.8.3}%
+\contentsline {section}{\numberline {8.4}Manticore vs Echidna: same Grammar different operations}{51}{section.8.4}%
+\contentsline {section}{\numberline {8.5}SolcVerify vs Celestial: Formal Verification}{51}{section.8.5}%
+\contentsline {chapter}{\numberline {9}Conclusion}{53}{chapter.9}%
+\contentsline {chapter}{\nonumberline Bibliography}{55}{chapter*.23}%
+\contentsline {chapter}{\numberline {A}Appendix}{59}{appendix.A}%
+\contentsline {section}{\numberline {A.1}First Appendix Section}{59}{section.A.1}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

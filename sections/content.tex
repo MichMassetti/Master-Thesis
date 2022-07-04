@@ -1216,23 +1216,88 @@ In this chapter I describe the tools and their capabilities, how they perform th
 \label{sec:Tools:Typologies}
 I explain the different types of analysis exsting in general, as Symbolic execution, formal specification, scanner, Symbolic execution.
 
-\section{Tools for analysing properties specified by user}
+\section{Tools with Specification}
 \label{sec:Tools:Specification}
 Description of Different types of tool, like a taxonomy.
 
 Description of tools that we are going to use. 
 I would say like an overview of their papaer.
 
+\subsection{Manticore}
+\label{sec:Specification:Manticore}
+
+
+\subsection{Certora}
+\label{sec:Specification:Certora}
+
 \subsection{Celestial}
 \label{sec:Specification:Celestial}
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{logos/CelestialArchitecture.png}
+    \caption{Celestial Architecture}
+    \label{fig:celestial_architecture}
+\end{figure}
 
+This subsection is adddressed to introduce Celestial, 
+an analysis tool for Solidity Ethereum-based smart contracs developed by the reasearch team of Microsoft India.
+\autoref{fig:celestial_architecture} shows the its architecture. 
 
-\subsection{SmartPulse}
-\label{sec:Specification:SmartPulse}
+The developes provide functional requirements for formally veryfing their specifications. The input file is labeld 
+It gives programmers the ability to create functional requirements for their contracts. 
+The input file is labelled as ".cel", it is the solidity file, with the added specification expressed in notes. 
+When the grammar is checked, the contract and the specifications are translated in F* for having the verified verdict. 
 
-\subsection{VeriSol}
-\label{sec:Specification:VeriSol}
+\autoref*{lst:CelestialCode} shows an example of input file. The invariants are expressed in a sort of functions. 
+At the beginning of a function, the specification can be expressed, regarding precondition, postcondition and so on. 
+One of these can involve the keyword modifies, which specifies the variable that can be modified in the function, or tx\_reverts, 
+which states the possible condition that a function can revert. 
+The Solidity implementation of the function is kept.
+\begin{lstlisting} [language=Solidity, caption={Celestial example specifications}, label={lst:CelestialCode}]
+    contract SimpleMarketplace {
+        // contract fields
+        invariant balanceAndSellerCredits {
+            balance >= totalCredits &&
+            totalCredits == sum_mapping ( sellerCredits )
+        }
+        //function 
+        function buy ( address itemId ) public
+            modifies [ sellerCredits , totalCredits , itemsToSell ,
+            log ]
+            tx_reverts !( itemId in itemsToSell ) || value != itemsToSell [ itemId ].price
+            || value + totalCredits > uint_max
+            post (!( itemId in itemsToSell ) && sellerCredits [ seller ] == old ( sellerCredits ) [seller = > sellerCredits [ seller ] + value ]
+            && log == ( eItemSold , sender , itemId ) :: old ( log ) )
+         { // implementation of the buy function }
+    }
+\end{lstlisting}
 
+F* is a fully dependent type system proof helper and programs verification. 
+The authors gave the same reasons for involving F* for the formal proof in a blockchain context.
+First, it offers SMT-based automation, which is sufficient for the completely automated verification of real-world smart contracts. 
+Second, F* enables the developers to work in a customised state and exception effect mimicking the blockchain semantics since it supports user-defined effects. 
+Finally, even though we only use its first-order subset with quantifiers and arithmetic, F* permits expressive higher-order specifications.
+
+Celestial process involves 2 steps: the translation of the specification and the verification of F* start. 
+The first one involves a python script, on the other hand the second one entails the intrallation of F* engine. 
+The output covers the response of the verification and a generated solidity file, which represents the smart contract without the specifications notes. 
+
+\paragraph{Limitations} 
+The authors explained their tool implementation focused on the Solidity constructs used in their case studies, therefore it does not cover some Solidity cases. 
+
+Delegatecall, embedded assembly
+It does not take into account syntactic elements like inheritance, abstract contracts, tuple types, delegatecall and  embedded assembly
+
+Most of these only offer syntactic sugar, which CELESTIAL's future iterations should find simple to support.
+Arrays and structs cannot presently be passed as parameters to functions in our implementation. 
+
+Loops are allowed in the smart contracts, however the tool does not suppert loops invariants.
+When external contracts are called, reentrant behaviour can result, in which the external contract contacts the caller back.
+Reasoning about reentrant actions is frequently counterintuitive.
+Celestial forbids these actions, this property is called "external callback freedom" (ECF). It states that every callback execution 
+in a contract is equivalent to some activity without reentrancy.
+So Celestial assumes that there is no callback during the external call.
+Programmers can use the tool to create and support the specifications of their own contracts without making any assumptions about the behaviour of external contracts. 
 
 \subsection{Echidna}
 \label{sec:Specification:Echidna}
@@ -1242,7 +1307,7 @@ Rather than relying on a fixed set of pre-defined bug oracles to detect vulnerab
 during fuzzing campaigns, Echidna supports three types of proper-
 ties: 
 \begin{itemize}
-    \item user-defined properties (for property-based testing;
+    \item user-defined properties (for property-based testing);
     \item assertion checking;
     \item gas use estimation.
 \end{itemize}
@@ -1282,6 +1347,11 @@ contract Token{
     }
 }
 \end{lstlisting}
+
+The tool can be even used to test assertions. 
+The aim is equivalent of the invariant testing methodology, 
+but in this case properties are expressed using the Solidity annotation of assertion.
+
 \begin{lstlisting} [caption={Tool's result after the execution of the precious code.}, label={lst:EchidnaResult}]
     $ echidna-test testtoken.sol --contract TestToken
     ...
@@ -1293,9 +1363,6 @@ contract Token{
     ...
 \end{lstlisting}
 
-The tool can be even used to test assertions. 
-The aim is equivalent of the invariant testing methodology, 
-but in this case properties are expressed using the Solidity annotation of assertion.
 
 \subsection{Solc-Verify}
 \label{sec:Specification:Solc-Verify}
@@ -1346,9 +1413,6 @@ contract SimpleBank {
 }
 \end{lstlisting}
 
-
-
-
 \citet{SolcVerify_3} on GitHub repository, present the specification annotations. Those must be included in special documentation comments (/// or /** */) and must start with the special doctag @notice. 
 They must be side-effect free Solidity expressions (with some verifier specific extensions) and can refer to variables within the scope of the annotated element. Functions cannot be called in the annotations, except for getters.
 The currently available annotations are listed below. 
@@ -1364,9 +1428,6 @@ The currently available annotations are listed below.
 
 \section{Tools without specification}
 \label{sec:Tools:WithoutSpecification}
-
-\subsection{VeriSmart}
-\label{sec:WithoutSpecification:VeriSmart}
 
 \subsection{SmartTest}
 \label{sec:WithoutSpecification:SmartTest}
@@ -1500,15 +1561,11 @@ function transferArray(address[] tos, uint256[] values) public returns (bool) {
 
 \end{lstlisting}
 
+\subsection{Oyente}
+\label{sec:WithoutSpecification:Oyente}
+
 \subsection{Maian}
 \label{sec:WithoutSpecification:Maian}
-
-\subsection{Securify}
-\label{sec:WithoutSpecification:Securify}
-
-\subsection{ContractLarva}
-\label{sec:WithoutSpecification:ContractLarva}
-contractLarva is a runtime verification tool for Solidity contracts. 
 
 \chapter{Outcome for individual tools}
 \label{ch:Running}
