@@ -19,83 +19,6 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
-    \entry{KeYBook2016}{book}{}
-      \name{editor}{6}{}{%
-        {{hash=9aceb6b10ccb6b74d169a2127c3f068a}{%
-           family={Ahrendt},
-           familyi={A\bibinitperiod},
-           given={Wolfgang},
-           giveni={W\bibinitperiod}}}%
-        {{hash=0782f72312b1bdfc9d83ac8a10b8249c}{%
-           family={Beckert},
-           familyi={B\bibinitperiod},
-           given={Bernhard},
-           giveni={B\bibinitperiod}}}%
-        {{hash=ddfbe76ae0f6b9d1b97e0aa059b7788f}{%
-           family={Bubel},
-           familyi={B\bibinitperiod},
-           given={Richard},
-           giveni={R\bibinitperiod}}}%
-        {{hash=2732a304f19472289d7552b26ed2897d}{%
-           family={Hähnle},
-           familyi={H\bibinitperiod},
-           given={Reiner},
-           giveni={R\bibinitperiod}}}%
-        {{hash=df061a559fe43bcebbc85a12f049c5d1}{%
-           family={Schmitt},
-           familyi={S\bibinitperiod},
-           given={Peter\bibnamedelima H.},
-           giveni={P\bibinitperiod\bibinitdelim H\bibinitperiod}}}%
-        {{hash=a6d6de7a7a217b83d84fb29d6ac270d2}{%
-           family={Ulbrich},
-           familyi={U\bibinitperiod},
-           given={Mattias},
-           giveni={M\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Springer}%
-      }
-      \strng{namehash}{63ee618bc5ff01ac05bf486f188967e4}
-      \strng{fullhash}{b5e4db53d6eb5169c797684c6a1f86bb}
-      \strng{bibnamehash}{63ee618bc5ff01ac05bf486f188967e4}
-      \strng{editorbibnamehash}{63ee618bc5ff01ac05bf486f188967e4}
-      \strng{editornamehash}{63ee618bc5ff01ac05bf486f188967e4}
-      \strng{editorfullhash}{b5e4db53d6eb5169c797684c6a1f86bb}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{labelnamesource}{editor}
-      \field{labeltitlesource}{title}
-      \field{series}{Lecture Notes in Computer Science}
-      \field{title}{Deductive Software Verification - The {Ke\kern-.1em Y} Book: From Theory to Practice}
-      \field{volume}{10001}
-      \field{year}{2016}
-      \verb{doi}
-      \verb 10.1007/978-3-319-49812-6
-      \endverb
-    \endentry
-    \entry{Dos1}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=5f22a8466237da0aacfc20e9f24d6f8d}{%
-           family={Arends},
-           familyi={A\bibinitperiod},
-           given={Derek},
-           giveni={D\bibinitperiod}}}%
-      }
-      \strng{namehash}{5f22a8466237da0aacfc20e9f24d6f8d}
-      \strng{fullhash}{5f22a8466237da0aacfc20e9f24d6f8d}
-      \strng{bibnamehash}{5f22a8466237da0aacfc20e9f24d6f8d}
-      \strng{authorbibnamehash}{5f22a8466237da0aacfc20e9f24d6f8d}
-      \strng{authornamehash}{5f22a8466237da0aacfc20e9f24d6f8d}
-      \strng{authorfullhash}{5f22a8466237da0aacfc20e9f24d6f8d}
-      \field{sortinit}{A}
-      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{ https://www.derekarends.com/solidity-vulnerability-denial-of-service-dos/}}
-      \field{note}{Accessed: 2022-04-16}
-      \field{title}{Solidity Vulnerability: Denial of Service (DoS)}
-      \field{year}{2022}
-    \endentry
     \entry{Ethereum}{misc}{}
       \name{author}{1}{}{%
         {{hash=850981945102d0f671b6762173c8988a}{%
@@ -135,29 +58,33 @@
       \field{title}{bZx Documentation}
       \field{year}{2020}
     \endentry
-    \entry{NotSoSmartContracts}{misc}{}
+    \entry{CertoraDocumentation}{misc}{}
       \name{author}{1}{}{%
-        {{hash=48ca59df6537c7fd7682289e0bb5beba}{%
-           family={Crytic},
+        {{hash=5e0de3d91d58578577795f205b919a95}{%
+           family={Certora},
            familyi={C\bibinitperiod}}}%
       }
       \list{publisher}{1}{%
-        {GitHub}%
+        {https://certora.atlassian.net/}%
       }
-      \strng{namehash}{48ca59df6537c7fd7682289e0bb5beba}
-      \strng{fullhash}{48ca59df6537c7fd7682289e0bb5beba}
-      \strng{bibnamehash}{48ca59df6537c7fd7682289e0bb5beba}
-      \strng{authorbibnamehash}{48ca59df6537c7fd7682289e0bb5beba}
-      \strng{authornamehash}{48ca59df6537c7fd7682289e0bb5beba}
-      \strng{authorfullhash}{48ca59df6537c7fd7682289e0bb5beba}
+      \strng{namehash}{5e0de3d91d58578577795f205b919a95}
+      \strng{fullhash}{5e0de3d91d58578577795f205b919a95}
+      \strng{bibnamehash}{5e0de3d91d58578577795f205b919a95}
+      \strng{authorbibnamehash}{5e0de3d91d58578577795f205b919a95}
+      \strng{authornamehash}{5e0de3d91d58578577795f205b919a95}
+      \strng{authorfullhash}{5e0de3d91d58578577795f205b919a95}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\ url {https://github.com/crytic/not-so-smart-contracts}}
-      \field{journaltitle}{GitHub repository}
-      \field{title}{(Not So) Smart Contracts}
-      \field{year}{2020}
+      \field{title}{Certora Documentation}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://docs.certora.com/en/latest/index.html
+      \endverb
+      \verb{url}
+      \verb https://docs.certora.com/en/latest/index.html
+      \endverb
     \endentry
     \entry{Slither}{inproceedings}{}
       \name{author}{3}{}{%
@@ -516,6 +443,75 @@
       \verb https://zengo.com/burgerswap-vulnerability/
       \endverb
     \endentry
+    \entry{ManticorePaper}{misc}{}
+      \name{author}{8}{}{%
+        {{hash=968ab4d446924dcf92e1c6cace953d42}{%
+           family={Mossberg},
+           familyi={M\bibinitperiod},
+           given={Mark},
+           giveni={M\bibinitperiod}}}%
+        {{hash=ed705e20c553884896c3e493f968f81c}{%
+           family={Manzano},
+           familyi={M\bibinitperiod},
+           given={Felipe},
+           giveni={F\bibinitperiod}}}%
+        {{hash=ed9b937db412c0d5e42730770fd0d7cb}{%
+           family={Hennenfent},
+           familyi={H\bibinitperiod},
+           given={Eric},
+           giveni={E\bibinitperiod}}}%
+        {{hash=d67052ec4bf728983bc814cf0d0a5b1c}{%
+           family={Groce},
+           familyi={G\bibinitperiod},
+           given={Alex},
+           giveni={A\bibinitperiod}}}%
+        {{hash=b3a8378ac059607babf9689a21d1450d}{%
+           family={Grieco},
+           familyi={G\bibinitperiod},
+           given={Gustavo},
+           giveni={G\bibinitperiod}}}%
+        {{hash=ecc2ade2644763eec7905959277afe35}{%
+           family={Feist},
+           familyi={F\bibinitperiod},
+           given={Josselin},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b90f57c9b3a0f2a8d794d32a484c890f}{%
+           family={Brunson},
+           familyi={B\bibinitperiod},
+           given={Trent},
+           giveni={T\bibinitperiod}}}%
+        {{hash=a5bcb256971487e88c9c80eccc2e444c}{%
+           family={Dinaburg},
+           familyi={D\bibinitperiod},
+           given={Artem},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{f2e33f0d7eeaeeb54a04166ba2d2edaf}
+      \strng{fullhash}{2ea354486055e129ba5fa2becd7fd64b}
+      \strng{bibnamehash}{f2e33f0d7eeaeeb54a04166ba2d2edaf}
+      \strng{authorbibnamehash}{f2e33f0d7eeaeeb54a04166ba2d2edaf}
+      \strng{authornamehash}{f2e33f0d7eeaeeb54a04166ba2d2edaf}
+      \strng{authorfullhash}{2ea354486055e129ba5fa2becd7fd64b}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Manticore: A User-Friendly Symbolic Execution Framework for Binaries and Smart Contracts}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.48550/ARXIV.1907.03890
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1907.03890
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1907.03890
+      \endverb
+      \keyw{Software Engineering (cs.SE),Cryptography and Security (cs.CR),FOS: Computer and information sciences,FOS: Computer and information sciences}
+    \endentry
     \entry{Mythril}{inproceedings}{}
       \name{author}{1}{}{%
         {{hash=3222aca09221290bc59d19e8af4e453d}{%
@@ -631,18 +627,6 @@
       \field{note}{Accessed: 2022-04-21}
       \field{title}{Crypto rug pulls: What is a rug pull in crypto and 6 ways to spot it}
       \field{year}{2022}
-    \endentry
-    \entry{RaceConditionDef}{misc}{}
-      \list{publisher}{1}{%
-        {Microsoft}%
-      }
-      \field{sortinit}{R}
-      \field{sortinithash}{5e1c39a9d46ffb6bebd8f801023a9486}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{https://docs.microsoft.com/en-us/troubleshoot/developer/visualstudio/visual-basic/language-compilers/race-conditions-deadlocks}}
-      \field{note}{Accessed: 2022-04-22}
-      \field{title}{Race conditions and deadlocks}
-      \field{year}{2020}
     \endentry
     \entry{CoverProtocol}{misc}{}
       \name{author}{1}{}{%
@@ -801,15 +785,6 @@
       \verb{url}
       \verb https://10clouds.com/blog/defi/understanding-flash-loans-in-defi/
       \endverb
-    \endentry
-    \entry{CloudFareDos}{misc}{}
-      \field{sortinit}{W}
-      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
-      \field{labeltitlesource}{title}
-      \field{howpublished}{\url{ https://www.cloudflare.com/it-it/learning/ddos/glossary/denial-of-service/}}
-      \field{note}{Accessed: 2022-04-15}
-      \field{title}{What is a denial-of-service attack}
-      \field{year}{2022}
     \endentry
     \entry{XSurgeWeb}{misc}{}
       \field{sortinit}{x}

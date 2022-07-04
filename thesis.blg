@@ -1,17 +1,17 @@
 [0] Config.pm:307> INFO - This is Biber 2.17
 [0] Config.pm:310> INFO - Logfile is 'thesis.blg'
-[72] biber:340> INFO - === Mo Jul  4, 2022, 11:59:52
-[86] Biber.pm:418> INFO - Reading 'thesis.bcf'
-[157] Biber.pm:972> INFO - Found 29 citekeys in bib section 0
-[171] Biber.pm:4383> INFO - Processing section 0
-[181] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
-[183] bibtex.pm:1713> INFO - LaTeX decoding ...
-[219] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
-[393] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[393] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[393] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
-[393] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
-[419] bbl.pm:654> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[433] bbl.pm:757> INFO - Output to thesis.bbl
-[433] Biber.pm:130> WARN - legacy month field 'may' in entry 'Slither' is not an integer - this will probably not sort properly.
-[433] Biber.pm:132> INFO - WARNINGS: 1
+[66] biber:340> INFO - === Mo Jul  4, 2022, 15:40:55
+[79] Biber.pm:418> INFO - Reading 'thesis.bcf'
+[156] Biber.pm:972> INFO - Found 26 citekeys in bib section 0
+[172] Biber.pm:4383> INFO - Processing section 0
+[182] Biber.pm:4574> INFO - Looking for bibtex file 'thesis.bib' for section 0
+[184] bibtex.pm:1713> INFO - LaTeX decoding ...
+[216] bibtex.pm:1518> INFO - Found BibTeX data source 'thesis.bib'
+[394] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[394] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[394] Biber.pm:4203> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[394] Biber.pm:4209> INFO - No sort tailoring available for locale 'en-US'
+[417] bbl.pm:654> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[429] bbl.pm:757> INFO - Output to thesis.bbl
+[429] Biber.pm:130> WARN - legacy month field 'may' in entry 'Slither' is not an integer - this will probably not sort properly.
+[429] Biber.pm:132> INFO - WARNINGS: 1
