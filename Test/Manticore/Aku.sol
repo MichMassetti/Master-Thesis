@@ -101,6 +101,4 @@ contract AkuAuction {
     function crytic_test_flag() view public returns (bool){
         return flag;
     }
-    
-
 }

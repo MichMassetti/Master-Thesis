@@ -724,6 +724,60 @@
       \verb https://www.usenix.org/conference/usenixsecurity21/presentation/so
       \endverb
     \endentry
+    \entry{VeriSmart}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=b149d93c4930b2ac0efe128880d160ee}{%
+           family={So},
+           familyi={S\bibinitperiod},
+           given={Sunbeom},
+           giveni={S\bibinitperiod}}}%
+        {{hash=6da251778de266378d5f68144db07c7f}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Myungho},
+           giveni={M\bibinitperiod}}}%
+        {{hash=942e0f07e4d53b11a395c8b304c8beb8}{%
+           family={Park},
+           familyi={P\bibinitperiod},
+           given={Jisu},
+           giveni={J\bibinitperiod}}}%
+        {{hash=db98f4ea261b325afca9be7822672ccd}{%
+           family={Lee},
+           familyi={L\bibinitperiod},
+           given={Heejo},
+           giveni={H\bibinitperiod}}}%
+        {{hash=d81824a411f5c718c38479c2b67a1b97}{%
+           family={Oh},
+           familyi={O\bibinitperiod},
+           given={Hakjoo},
+           giveni={H\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{609795c6bb861e19e8b411f526607688}
+      \strng{fullhash}{bb692640dd249f1e21f2844309c174e6}
+      \strng{bibnamehash}{609795c6bb861e19e8b411f526607688}
+      \strng{authorbibnamehash}{609795c6bb861e19e8b411f526607688}
+      \strng{authornamehash}{609795c6bb861e19e8b411f526607688}
+      \strng{authorfullhash}{bb692640dd249f1e21f2844309c174e6}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{VeriSmart: A Highly Precise Safety Verifier for Ethereum Smart Contracts}
+      \field{year}{2019}
+      \verb{doi}
+      \verb 10.48550/ARXIV.1908.11227
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/1908.11227
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/1908.11227
+      \endverb
+      \keyw{Programming Languages (cs.PL),Cryptography and Security (cs.CR),FOS: Computer and information sciences,FOS: Computer and information sciences}
+    \endentry
     \entry{UraniumTech}{misc}{}
       \name{author}{1}{}{%
         {{hash=55dd7b96129603888aeb3c5fbe2cebe2}{%

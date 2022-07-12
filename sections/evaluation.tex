@@ -19,14 +19,116 @@
 
 In this chapter I present the evaluation of the tools and what we obtained from the runnning of the tests.
 
+\begin{table*}
+    \footnotesize
+    \caption{Results}
 
-\section{Tools With vs Without Specification}
+    \label{tab:Results}
+    \begin{tabular}{ccccl}
+    \toprule
+     Tools  &  Constructive output & Avg time (in seconds) & Avg lines of code for test \\
+      \midrule
+        Manticore & List of functions, warning for reentrancy  & 248  &  16 \\
+        SmartTest & List of Functions, Warnings  &  &    \\
+        Celestial & List of unproved tests & 115  &  85  \\
+        Echidna & List of functions  & 98  &  21 \\
+        Certora & List of functions   & 145  &  60  \\ 
+        SolcVerify & List of unrproved tests  & 9  &  19  \\
+        Mythril & List of functions,Warnings  & 220  &  --  \\ 
+        Slither& Warnings & 5  &  --  \\ 
+        
+    \bottomrule
+    \end{tabular}
+\end{table*}
 
-\section{Grammar Checking vs Symbolic Execution}
+\begin{table*}
+    
+    \caption{Results 2;   
+    \checkmark: Found vulenrablity, \xmark: False Positive, FN: False Negative, --: Discarded }
+    \label{tab:Attacks}
+    \begin{tabular}{ccccccccl}
+    \toprule
+     Tools  & Aku & Cover & XSURGE & Spartan & Uranium & bZX &  BurgerSwap & DirtyDogs\\
+      \midrule
+      Manticore & \xmark & \xmark & \checkmark & \checkmark & \xmark & \checkmark & \checkmark & \checkmark\\
+      SmartTest &  &  &  &  & & \xmark & \xmark & \xmark  \\
+      Celestial & \checkmark & -- & \checkmark & \checkmark & \checkmark & \xmark & \xmark & \xmark  \\
+      Echidna  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \xmark & \xmark & \xmark \\
+      Certora & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \xmark & \xmark & \xmark \\ 
+      SolcVerify & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark  & \checkmark \\
+      Slither & FN & \checkmark & \checkmark & \checkmark \\ 
+      Mythril  & FN & FN & \xmark &\xmark & \xmark & \checkmark & \checkmark & \checkmark\\
+    \bottomrule
+    \end{tabular}
+\end{table*}
 
-\section{Properties Braking vs Property Prooving}
+\begin{table*}
+    
+    \caption{Weaknesses/Limitations}
+    \label{tab:Limitations}
+    \begin{tabular}{cl}
+    \toprule
+        Tools  &  Limitiations \\
+        \midrule
+        Manticore & Reentrancy is not dectected by properties property based execution, very slow \\
+        SmartTest & Reentrancy is not dectected  \\
+        Celestial & External calls are not considered, keywords storage and memory are not recognized  \\
+        Echidna &  Reentrancy is not dectected\\
+        Certora & Reentrancy is not dectected\\ 
+        SolcVerify &  \\
+        Mythril & Just flat contracts are allowed   \\ 
+        Slither & Great amount of False negative, due to the fact the scan is based on the grammar \\ 
+    \bottomrule
+    \end{tabular}
+\end{table*}
 
-\section{Manticore vs Echidna: same Grammar different operations}
+\begin{table*}
+    \caption{Strenghts}
+    \label{tab:Strenghts}
+    \begin{tabular}{cl}
+    \toprule
+        Tools  &  Strenghts \\
+        \midrule
+        Manticore & One of the mode cover the properties breaking and the scanner one covers the reentrancy\\
+        SmartTest &  \\
+        Celestial & Possibility to use different version of F*  \\
+        Echidna &  Possibility to run in multiple modes with different grammar (tests or assertions breaking)\\
+        Certora & Implements the library of Openzeppelin, SAS no installation needed \\ 
+        SolcVerify & Intuitive specification language based on Annotations\\
+        Mythril & It deos not need specification, but still provide list of functions for breaking detected vulnerability  \\ 
+        Slither & Easiest installation, fastest tool that we used \\ 
+    \bottomrule
+    \end{tabular}
+\end{table*}
 
+\begin{table*}
+    
+    \caption{User Expirience}
+    \label{tab:UX}
+    \begin{tabular}{cl}
+    \toprule
+        Tools  &  User Expirience \\
+        \midrule
+        Manticore & Possibility to run in 2 modes, properties check and scanner  \\
+        SmartTest &  \\
+        Celestial & Articulated specification language, running in 2 steps, required multiple dependences \\
+        Echidna & Possibility to run in multple modes, but not scanner \\
+        Certora & SAS (nothing needed to be installed) \\ 
+        SolcVerify & Brief installation, intuitive specification language \\
+        Mythril  \\ 
+        Slither \\   
+    \bottomrule
+    \end{tabular}
+\end{table*}
 
-\section{SolcVerify vs Celestial: Formal Verification}
+\section{Outcomes of the Analyses}
+Descriptions of the tables.
+Put here the other chapter.
+
+\section{Limitations and Strenghts}
+Description of the 2 tables 
+
+\section{Specificications for the analysis}
+Reentrancy most of the time is not detected with specifications. 
+Specifications tools useful for defining properties and verifying those.
+

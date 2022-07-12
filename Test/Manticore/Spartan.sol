@@ -1,23 +1,19 @@
 library SafeMath {
-    /// @notice postcondition c==a+b
     function add(uint256 a, uint256 b) internal pure returns ( uint256 c) {
         c = a + b;
         require(c >= a, "SafeMath: addition overflow");
         return c;
     }
-    /// @notice postcondition c==a-b
     function sub(uint256 a, uint256 b) internal pure returns (uint256 c) {
         require(b <= a);
         c = a - b;
         return c;
     }
-    /// @notice postcondition c==a/b
     function div(uint256 a, uint256 b) internal pure returns (uint256 c) {
         require(b > 0);
         c = a / b;
         return c;
     }
-    /// @notice postcondition c==a*b
     function mul(uint256 a, uint256 b) internal pure returns (uint256 c) {
         if (a == 0) {
             return 0;

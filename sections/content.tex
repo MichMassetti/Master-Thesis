@@ -41,11 +41,7 @@
 \chapter{Preliminary Knowledge}
 \label{ch:Backgroud}
 
-\section{History}
-\label{sec:Backgroud:History}
-
-
-\section{Bitcoin}
+\section{Blockchain}
 \label{sec:Backgroud:Bitcoin}
 
 \section{Ethereum}
@@ -57,6 +53,12 @@
 
 \section{Security Analysis}
 \label{sec:Backgroud:SecurityAnalysis}
+\begin{itemize}
+    \item Fuzzing
+    \item Symbolic Execution 
+    \item Formal Verification 
+    \item 
+\end{itemize}
 
 \chapter{Real world Exploits}
 \label{ch:Exploits}
@@ -64,12 +66,11 @@ Real-wolrd exploits that have happend in the recent years.
 
 The structure of this chapter is 
 \begin{itemize}
-    \item explanation of the protocol
-    \item the exploit 
-    \item the properties involved, which will be analysed by the tools
+    \item explanation of the protocol;
+    \item the exploit;
+    \item the properties involved, which will be analysed by the tools.
 \end{itemize}
 
-Brief explanation of the terminology used -> postcondition precondtion invariant
 
 
 \section{\$34 Million stacks NFT Project Aku Dreams Smart Contract}
@@ -1118,18 +1119,75 @@ The property is a postcondition, which states that the amount of NFTs produced s
 
 \chapter{Analysis Tools}
 \label{ch:Tools}
-In this chapter I describe the tools and their capabilities, how they perform the Analysis.
+argument for the choice of tools.
+Chosen tools because more cited in the papers, the one with recent updates and manteind, open source, one representative closed source tool 
+Overview of the tools and decision for the classification
+In previous knowledge I provide the definition of Symbolic execution Fuzzing Formal Verification and so on.
+\section{Tools with multiple mood running}
+We considere the tools with the possibility to rub as a scanner without specifying any specification, 
+but even with provided ones by the user.
 
-\section{Typologies of Tools}
-\label{sec:Tools:Typologies}
-I explain the different types of analysis exsting in general, as Symbolic execution, formal specification, scanner, Symbolic execution.
+\subsection{SmartTest}
+\label{sec:WithoutSpecification:SmartTest}
 
-\section{Tools with Specification}
-\label{sec:Tools:Specification}
-Description of Different types of tool, like a taxonomy.
+SmartTest is a safety analayzer for Ethereum smart contracts develeoped by \citet{SmarTest}. 
+It adopts a symbolic execution technique for effectively detecting vulnerable transaction sequences. 
+The main challenge of the project involves the tool to find transaction sequences,
+revealing the vulnerabilities of the analysed smart contract. Therefore, bugs are discoved as the cause of the interaction of multiple transactions.
+The purpose of SmartTest is to automatically deliver vulnerable transaction sequences, 
+which demostrate the weaknesses of the smart contract.
+The main idea is to build a statistical model using known vulnerable transaction sequences and use it to direct symbolic execution toward 
+more successfully detecting unknown vulnerabilities. 
+Symbolic execution is guided by statistical language models, so it can prioritize transacion sequences which are likely to reveal vulenrablities.
+This statregy involves firstly to run unguided symbolic
+execution on existing vulnerable contracts, then to learn a probablity distribution over vulnerable transaction sequences.
 
-Description of tools that we are going to use. 
-I would say like an overview of their papaer.
+The tool is implemented as an extension of VeriSmart (\citet{VeriSmart}).
+SmartTest is build on top of that, adding its own functionalities:
+\begin{itemize}
+    \item symbolic execution with a language model.
+    \item Symbolic executor for transaction sequences.
+    \item Constraint solving optimization.
+\end{itemize}
+The installation of VeriSmart is necessary for running the tool. After that, the command \autoref{lst:SmarTestRun} is run for using VeriSmart in SmarTest mode.
+\begin{lstlisting} [caption={SmarTest Command.}, label={lst:SmarTestRun}]
+    ./main.native -input examples/leak_unsafe.sol -mode exploit -exploit_timeout 10
+\end{lstlisting}
+
+The report \autoref{lst:SmarTestReport} shows an example of output of SmarTest, which provides the sequence of funtions for exploiting the found bug.
+\begin{lstlisting} [caption={SmarTest Example Report.}, label={lst:SmarTestReport}]
+    [5] [IO] line 39, (balance[_to] + _value) : disproven, 14.528264s
+    1: Example
+       {}
+       {msg.sender: #x0000000000000000000000000000000000010000,
+        msg.value: 0}
+    2: approve
+       {_spender: #x0000200000000000000000000000000000000000,
+        _value: 44365792925664701906080996193724747326645573793336555789802397725137091694592}
+       {msg.sender: #x0000000000000000001000000000000000000000,
+        msg.value: 0}
+    3: mintToken
+       {_target: #x0000000000000000001000000000000000000000,
+        _amount: 87371285831589357636669861644764241805818792173739087408632338890371299803136}
+       {msg.sender: #x0000000000000000000000000000000000010000,
+        msg.value: 0}
+    4: transferFrom
+       {_from: #x0000000000000000001000000000000000000000,
+        _to: #x0000000000000000001000000000000000000000,
+        _value: 44365787749354941813158155617657849918564739183862151684054205258595743830016}
+       {msg.sender: #x0000200000000000000000000000000000000000,
+        msg.value: 0}
+
+\end{lstlisting}
+
+The detection of  the following six types of security-critical vulnerabilities are supported by the tool: integer over/underflow, 
+assertion violation, division-by-zero, 
+ERC20 standard violation, Ether-leaking vulnerability (e.g., 
+unauthorized access to transfer), and suicidal vulnerability 
+(e.g., unauthorized access to selfdestruct).
+In the paper, the authors  focus on just those, without considering vulnerabilities that require analysis of
+the interaction of multiple contracts to demonstrate the flaws 
+(e.g., reentrancy).
 
 \subsection{Manticore}
 \label{sec:Specification:Manticore}
@@ -1154,6 +1212,15 @@ These are employed to produce the programme inputs necessary for the correspondi
     \caption{Manticore Architecture}
     \label{fig:manticore_architecture}
 \end{figure}
+
+\section{Tools with Specifications}
+
+\label{sec:Tools:Specification}
+Description of Different types of tool, like a taxonomy.
+
+Description of tools that we are going to use. 
+I would say like an overview of their papaer.
+
 
 \subsection{Certora Prover}
 \label{sec:Specification:Certora}
@@ -1400,71 +1467,15 @@ The currently available annotations are listed below.
 
 \section{Tools without specification}
 \label{sec:Tools:WithoutSpecification}
+We introduce the second main category of our taxonomy: tools without Specifications.
 
-\subsection{SmartTest}
-\label{sec:WithoutSpecification:SmartTest}
+These do not need any specifications and they based their analyses on preselected strategies. They can be considered "plug \& play", 
+indeed they work with code (or even bytecode) of the smart contracts, without the developer should code anything for letting them run. 
+Most of the tools that we found during the literary research propose just a warning, depicting the vulnerable lines of code and classifying 
+the vulnerability following their taxonomy or open-source ones.
 
-SmartTest is a safety analayzer for Ethereum smart contracts develeoped by \citet{SmarTest}. 
-It adopts a symbolic execution technique for effectively detecting vulnerable transaction sequences. 
-The main challenge of the project involves the tool to find transaction sequences,
-revealing the vulnerabilities of the analysed smart contract. Therefore, bugs are discoved as the cause of the interaction of multiple transactions.
-The purpose of SmartTest is to automatically deliver vulnerable transaction sequences, 
-which demostrate the weaknesses of the smart contract.
-The main idea is to build a statistical model using known vulnerable transaction sequences and use it to direct symbolic execution toward 
-more successfully detecting unknown vulnerabilities. 
-Symbolic execution is guided by statistical language models, so it can prioritize transacion sequences which are likely to reveal vulenrablities.
-This statregy involves firstly to run unguided symbolic
-execution on existing vulnerable contracts, then to learn a probablity distribution over vulnerable transaction sequences.
-
-The tool is implemented as an extension of VeriSmart \autoref{sec:WithoutSpecification:VeriSmart}.
-SmartTest is build on top of that, adding its own functionalities:
-\begin{itemize}
-    \item symbolic execution with a language model.
-    \item Symbolic executor for transaction sequences.
-    \item Constraint solving optimization.
-\end{itemize}
-The installation of VeriSmart is necessary for running the tool. After that, the command \autoref{lst:SmarTestRun} is run for using VeriSmart in SmarTest mode.
-\begin{lstlisting} [caption={SmarTest Command.}, label={lst:SmarTestRun}]
-    ./main.native -input examples/leak_unsafe.sol -mode exploit -exploit_timeout 10
-\end{lstlisting}
-
-The report \autoref{lst:SmarTestReport} shows an example of output of SmarTest, which provides the sequence of funtions for exploiting the found bug.
-\begin{lstlisting} [caption={SmarTest Example Report.}, label={lst:SmarTestReport}]
-    [5] [IO] line 39, (balance[_to] + _value) : disproven, 14.528264s
-    1: Example
-       {}
-       {msg.sender: #x0000000000000000000000000000000000010000,
-        msg.value: 0}
-    2: approve
-       {_spender: #x0000200000000000000000000000000000000000,
-        _value: 44365792925664701906080996193724747326645573793336555789802397725137091694592}
-       {msg.sender: #x0000000000000000001000000000000000000000,
-        msg.value: 0}
-    3: mintToken
-       {_target: #x0000000000000000001000000000000000000000,
-        _amount: 87371285831589357636669861644764241805818792173739087408632338890371299803136}
-       {msg.sender: #x0000000000000000000000000000000000010000,
-        msg.value: 0}
-    4: transferFrom
-       {_from: #x0000000000000000001000000000000000000000,
-        _to: #x0000000000000000001000000000000000000000,
-        _value: 44365787749354941813158155617657849918564739183862151684054205258595743830016}
-       {msg.sender: #x0000200000000000000000000000000000000000,
-        msg.value: 0}
-
-\end{lstlisting}
-
-The detection of  the following six types of security-critical vulnerabilities are supported by the tool: integer over/underflow, 
-assertion violation, division-by-zero, 
-ERC20 standard violation, Ether-leaking vulnerability (e.g., 
-unauthorized access to transfer), and suicidal vulnerability 
-(e.g., unauthorized access to selfdestruct).
-In the paper, the authors  focus on just those, without considering vulnerabilities that require analysis of
-the interaction of multiple contracts to demonstrate the flaws 
-(e.g., reentrancy).
-
-
-
+The tool Manticore \autoref{sec:Specification:Manticore} has been described in the other section because it is allowed to use in multiple modes. 
+For our purpose, we adopted it in both ways, for the detection of vulnerabilities involving malicious external calls.
 
 
 \subsection{Slither}
@@ -1539,6 +1550,9 @@ function transferArray(address[] tos, uint256[] values) public returns (bool) {
 \subsection{Maian}
 \label{sec:WithoutSpecification:Maian}
 
+
+\section{Discarded tools}
+
 \chapter{Outcome for individual tools}
 \label{ch:Running}
 Fomal specifications, outcomes, time of running, no comparison, single description, outliers (performe very well or very baddly), 
@@ -1547,6 +1561,18 @@ difficulties in the installation and running
 
 Detalais regarding what I did for running the test, so for each tool I describe the setting for each scripts.
 
+\subsection{Slither}
+AKU: it detects the presence of arbitrary call but it doesn't detect that can get stucked 
+Correct detection of all the reentrancy 
+Cover: warning about the comparison based on blocktimestamp 
+
+it has no capability for guess the other vulenrabilities 
+
+\subsection{Mythril}
+
+AkU: nada 
+Correct detection of all the reentrancy 
+Cover: warning about the comparison based on blocktimestamp 
 
 \subsection{SolcVerify}
 Notes:
@@ -1603,6 +1629,7 @@ Uranium: fake positive
 
 Aku: Worked well , it sayes that the rule about claimProject is broken just if everybid is 1 
 
+Cover: doesn't work 
 \subsection {Echidna}
 Spartan: it worked correctly and it gave even the transaction oreder, tested with assertions and with test Function
 
