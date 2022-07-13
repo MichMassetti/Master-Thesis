@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.25)  12 JUL 2022 12:52
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.25)  13 JUL 2022 18:12
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1524,7 +1524,7 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 ]
 chapter 4.
 [29]
-<logos/ManticoreArchitecture.pdf, id=973, 685.56125pt x 314.17375pt>
+<logos/ManticoreArchitecture.pdf, id=987, 685.56125pt x 314.17375pt>
 File: logos/ManticoreArchitecture.pdf Graphic file (type pdf)
 <use logos/ManticoreArchitecture.pdf>
 Package pdftex.def Info: logos/ManticoreArchitecture.pdf  used on input line 1211.
@@ -1533,13 +1533,13 @@ Package pdftex.def Info: logos/ManticoreArchitecture.pdf  used on input line 121
 Underfull \vbox (badness 1571) has occurred while \output is active []
 
  [30] [31 <./logos/ManticoreArchitecture.pdf>]
-<logos/CelestialArchitecture.png, id=1020, 636.9396pt x 286.671pt>
+<logos/CelestialArchitecture.png, id=1034, 636.9396pt x 286.671pt>
 File: logos/CelestialArchitecture.png Graphic file (type png)
 <use logos/CelestialArchitecture.png>
 Package pdftex.def Info: logos/CelestialArchitecture.png  used on input line 1274.
 (pdftex.def)             Requested size: 369.88582pt x 166.47487pt.
  [32 <./logos/CelestialArchitecture.png>] [33]
-<logos/echidna.png, id=1071, 1549.79pt x 399.4925pt>
+<logos/echidna.png, id=1085, 1549.79pt x 399.4925pt>
 File: logos/echidna.png Graphic file (type png)
 <use logos/echidna.png>
 Package pdftex.def Info: logos/echidna.png  used on input line 1362.
@@ -1573,42 +1573,37 @@ chapter 5.
 ]
 chapter 6.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 10.0pt on input line 27.
+(Font)              scaled to size 10.0pt on input line 26.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 7.3pt on input line 27.
+(Font)              scaled to size 7.3pt on input line 26.
 LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
-(Font)              scaled to size 5.5pt on input line 27.
+(Font)              scaled to size 5.5pt on input line 26.
 
-Overfull \hbox (13.72742pt too wide) in paragraph at lines 27--42
+Overfull \hbox (34.36583pt too wide) in paragraph at lines 47--61
 [][] 
  []
 
 
-Overfull \hbox (33.22583pt too wide) in paragraph at lines 49--63
+Overfull \hbox (94.72545pt too wide) in paragraph at lines 67--81
 [][] 
  []
 
 
-Overfull \hbox (52.48541pt too wide) in paragraph at lines 69--83
+Overfull \hbox (120.64546pt too wide) in paragraph at lines 86--100
 [][] 
  []
 
 
-Overfull \hbox (120.64546pt too wide) in paragraph at lines 88--102
+Overfull \hbox (59.75755pt too wide) in paragraph at lines 105--119
 [][] 
  []
 
-
-Overfull \hbox (59.75755pt too wide) in paragraph at lines 108--122
-[][] 
- []
-
-) (./sections/conclusion.tex [43] [44] [45] [46
+) (./sections/conclusion.tex [43] [44] [45] [46] [47] [48
 
 
 ]
 chapter 7.
-) [47] [48
+) [49] [50
 
 
 ]
@@ -1629,9 +1624,9 @@ Overfull \hbox (75.39688pt too wide) in paragraph at lines 143--143
 Package biblatex Warning: No driver for entry type 'unknown'.
 (biblatex)                Using fallback driver on input line 143.
 
-[49] (./sections/appendix.tex [50]
+[51] (./sections/appendix.tex [52]
 chapter A.
-) [51
+) [53
 
 
 ] (./thesis.aux)
@@ -1642,18 +1637,18 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 36091 strings out of 478276
- 688767 string characters out of 5846504
- 1972126 words of memory out of 5000000
- 52549 multiletter control sequences out of 15000+600000
+ 36107 strings out of 478276
+ 688977 string characters out of 5846504
+ 1972430 words of memory out of 5000000
+ 52556 multiletter control sequences out of 15000+600000
  684387 words of font info for 391 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  122i,20n,120p,10698b,2459s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Semibold.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on thesis.pdf (63 pages, 673378 bytes).
+Output written on thesis.pdf (65 pages, 675953 bytes).
 PDF statistics:
- 1738 PDF objects out of 2073 (max. 8388607)
- 1628 compressed objects within 17 object streams
- 854 named destinations out of 1000 (max. 500000)
- 88674 words of extra memory for PDF output out of 89155 (max. 10000000)
+ 1763 PDF objects out of 2073 (max. 8388607)
+ 1651 compressed objects within 17 object streams
+ 863 named destinations out of 1000 (max. 500000)
+ 88682 words of extra memory for PDF output out of 89155 (max. 10000000)
 

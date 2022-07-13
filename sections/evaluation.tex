@@ -22,21 +22,19 @@ In this chapter I present the evaluation of the tools and what we obtained from 
 \begin{table*}
     \footnotesize
     \caption{Results}
-
     \label{tab:Results}
     \begin{tabular}{ccccl}
     \toprule
-     Tools  &  Constructive output & Avg time (in seconds) & Avg lines of code for test \\
+     Tools  &  Avg lines of code for test &  Constructive output & Avg time (in seconds) \\
       \midrule
-        Manticore & List of functions, warning for reentrancy  & 248  &  16 \\
-        SmartTest & List of Functions, Warnings  &  &    \\
-        Celestial & List of unproved tests & 115  &  85  \\
-        Echidna & List of functions  & 98  &  21 \\
-        Certora & List of functions   & 145  &  60  \\ 
-        SolcVerify & List of unrproved tests  & 9  &  19  \\
-        Mythril & List of functions,Warnings  & 220  &  --  \\ 
-        Slither& Warnings & 5  &  --  \\ 
-        
+        Manticore & List of functions, warning for reentrancy  & 4  &  239,5 \\
+        SmartTest & List of Functions, Warnings  & 2,5 &  318  \\
+        Celestial & List of unproved tests & 21  &  4  \\
+        Echidna & List of functions  & 4  & 20,5 \\
+        Certora & List of functions   & 34 &  21  \\ 
+        SolcVerify & List of unrproved tests  &  18,5 &  10  \\
+        Mythril & List of functions,Warnings  & --  &  221  \\ 
+        Slither& Warnings & --  &  3,5  \\ 
     \bottomrule
     \end{tabular}
 \end{table*}
@@ -48,15 +46,15 @@ In this chapter I present the evaluation of the tools and what we obtained from 
     \label{tab:Attacks}
     \begin{tabular}{ccccccccl}
     \toprule
-     Tools  & Aku & Cover & XSURGE & Spartan & Uranium & bZX &  BurgerSwap & DirtyDogs\\
+     Tools  & Aku & Cover & BZX & Spartan & Uranium & XSURGE &  BurgerSwap & DirtyDogs\\
       \midrule
       Manticore & \xmark & \xmark & \checkmark & \checkmark & \xmark & \checkmark & \checkmark & \checkmark\\
-      SmartTest &  &  &  &  & & \xmark & \xmark & \xmark  \\
-      Celestial & \checkmark & -- & \checkmark & \checkmark & \checkmark & \xmark & \xmark & \xmark  \\
-      Echidna  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \xmark & \xmark & \xmark \\
-      Certora & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \xmark & \xmark & \xmark \\ 
+      SmartTest & \checkmark &   \xmark & \checkmark  & \xmark &\checkmark  & -- & -- & --  \\
+      Celestial & \checkmark & -- & \checkmark & \checkmark & \checkmark & -- & -- & --  \\
+      Echidna  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & -- & -- & -- \\
+      Certora & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & -- & -- & -- \\ 
       SolcVerify & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark  & \checkmark \\
-      Slither & FN & \checkmark & \checkmark & \checkmark \\ 
+      Slither & FN &\xmark  &\xmark & \xmark & \xmark & \checkmark & \checkmark & \checkmark \\ 
       Mythril  & FN & FN & \xmark &\xmark & \xmark & \checkmark & \checkmark & \checkmark\\
     \bottomrule
     \end{tabular}
@@ -71,11 +69,11 @@ In this chapter I present the evaluation of the tools and what we obtained from 
         Tools  &  Limitiations \\
         \midrule
         Manticore & Reentrancy is not dectected by properties property based execution, very slow \\
-        SmartTest & Reentrancy is not dectected  \\
+        SmartTest & Reentrancy is not dectected, the analyses are slow \\
         Celestial & External calls are not considered, keywords storage and memory are not recognized  \\
         Echidna &  Reentrancy is not dectected\\
         Certora & Reentrancy is not dectected\\ 
-        SolcVerify &  \\
+        SolcVerify & It just gives warning, it does not provide a list of transaction for breaking the given property\\
         Mythril & Just flat contracts are allowed   \\ 
         Slither & Great amount of False negative, due to the fact the scan is based on the grammar \\ 
     \bottomrule
@@ -83,18 +81,18 @@ In this chapter I present the evaluation of the tools and what we obtained from 
 \end{table*}
 
 \begin{table*}
-    \caption{Strenghts}
+\caption{Strenghts}
     \label{tab:Strenghts}
     \begin{tabular}{cl}
     \toprule
         Tools  &  Strenghts \\
         \midrule
         Manticore & One of the mode cover the properties breaking and the scanner one covers the reentrancy\\
-        SmartTest &  \\
+        SmartTest & It allows to set the specific vulenrability to look for  \\
         Celestial & Possibility to use different version of F*  \\
         Echidna &  Possibility to run in multiple modes with different grammar (tests or assertions breaking)\\
         Certora & Implements the library of Openzeppelin, SAS no installation needed \\ 
-        SolcVerify & Intuitive specification language based on Annotations\\
+        SolcVerify & Intuitive specification language based on Annotations, it detects reentrancy\\
         Mythril & It deos not need specification, but still provide list of functions for breaking detected vulnerability  \\ 
         Slither & Easiest installation, fastest tool that we used \\ 
     \bottomrule
@@ -102,10 +100,9 @@ In this chapter I present the evaluation of the tools and what we obtained from 
 \end{table*}
 
 \begin{table*}
-    
     \caption{User Expirience}
     \label{tab:UX}
-    \begin{tabular}{cl}
+    \begin{tabular}{ccl}
     \toprule
         Tools  &  User Expirience \\
         \midrule
@@ -114,12 +111,127 @@ In this chapter I present the evaluation of the tools and what we obtained from 
         Celestial & Articulated specification language, running in 2 steps, required multiple dependences \\
         Echidna & Possibility to run in multple modes, but not scanner \\
         Certora & SAS (nothing needed to be installed) \\ 
-        SolcVerify & Brief installation, intuitive specification language \\
-        Mythril  \\ 
-        Slither \\   
+        SolcVerify & Intuitive specification language made by annotations \\
+        Mythril  & Easy installationGood documentation and active community \\ 
+        Slither & Easy installation \\   
     \bottomrule
     \end{tabular}
 \end{table*}
+
+\begin{table*}
+    \caption{Certora results; the time is provided by the sas application}
+        \label{tab:CertoraTable}
+        \begin{tabular}{ccl}
+        \toprule
+            Attacks & Line of Code for Specifications & Time of Execution\\
+            \midrule
+            Aku & 52 & 14 \\ 
+            Cover & 31 & 21 \\ 
+            BZX & 25  & 18 \\ 
+            Spartan & 20  & 25\\ 
+            Uranium & 42 & 27  \\ 
+            XSURGE &  -- & -- \\  
+            BurgerSwap &  -- & --\\ 
+            DirtyDogs &  -- & -- \\
+        \bottomrule
+        \end{tabular}
+    \end{table*}
+\begin{table*}
+
+\caption{SolcVerify results}
+        \label{tab:SolcVerifyTable}
+        \begin{tabular}{ccl}
+        \toprule
+            Attacks & Line of Code for Specifications & Time of Execution (seconds)\\
+            \midrule
+            Aku & 9 & 4 \\ 
+            Cover & 13  & 5 \\ 
+            BZX & 17  & 9  \\ 
+            Spartan & 25 &  17 \\ 
+            Uranium  &  23 & 9 \\ 
+            XSURGE & 20 & 10 \\  
+            BurgerSwap & 11 & 10  \\ 
+            DirtyDogs &  30 &  14\\
+        \bottomrule
+        \end{tabular}
+\end{table*}
+
+\begin{table*}
+\caption{Celestial results}
+    \label{tab:CelestialTable}
+        \begin{tabular}{ccl}
+        \toprule
+            Attacks & Line of Code for Specifications & Time of Execution\\
+            \midrule
+            Aku & 22 & 4\\ 
+            Cover & --  & -- \\ 
+            BZX & 15 & 3\\ 
+            Spartan & 29 &  5\\ 
+            Uranium & 18 &  5\\ 
+            XSURGE &  -- & -- \\  
+            BurgerSwap &  -- & --\\ 
+            DirtyDogs &  -- & -- \\
+        \bottomrule
+        \end{tabular}
+    \end{table*}
+
+\begin{table*}    
+    \caption{Echidna results}
+    \label{tab:EchidnaTable}
+    \begin{tabular}{ccl}
+    \toprule
+        Attacks & Line of Code for Specifications & Time of Execution\\
+        \midrule
+        Aku & 7 & 22 \\ 
+        Cover & 5 & 7 \\ 
+        BZX & 3 & 33  \\ 
+        Spartan & 3 & 17   \\ 
+        Uranium & 3 & 24 \\ 
+        XSURGE & -- & -- \\  
+        BurgerSwap &  -- & --\\ 
+        DirtyDogs &  -- & -- \\
+    \bottomrule
+    \end{tabular}
+\end{table*}
+
+\begin{table*}
+\caption{Manticore results}
+    \label{tab:ManticoreTable}
+    \begin{tabular}{ccl}
+    \toprule
+        Attacks & Line of Code for Specifications & Time of Execution (in seconds)\\
+        \midrule
+        Aku & 6 & 235  \\ 
+        Cover & 5 & 245\\ 
+        BZX  & 4 & 228\\ 
+        Spartan & 3 & 239 \\ 
+        Uranium  & 3 & 250\\ 
+        XSURGE & -- & 208\\ 
+        BurgerSwap  &  -- & 205 \\ 
+        DirtyDogs & -- & 203 \\
+    \bottomrule
+    \end{tabular}
+\end{table*}
+
+\begin{table*}
+\caption{SmartTest results}
+    \label{tab:SmartTestTable}
+    \begin{tabular}{ccl}
+    \toprule
+        Attacks & Line of Code for Specifications & Time of Execution\\
+        \midrule
+        Aku & 3 & 320 \\ 
+        Cover & 2 & 310\\ 
+        BZX  & 4& 320 \\ 
+        Spartan &2 & 320\\ 
+        Uranium  &4 & 320 \\ 
+        XSURGE &  -- & -- \\  
+        BurgerSwap &  -- & --\\ 
+        DirtyDogs &  -- & -- \\
+    \bottomrule
+    \end{tabular}
+\end{table*}
+
 
 \section{Outcomes of the Analyses}
 Descriptions of the tables.
@@ -131,4 +243,5 @@ Description of the 2 tables
 \section{Specificications for the analysis}
 Reentrancy most of the time is not detected with specifications. 
 Specifications tools useful for defining properties and verifying those.
+
 

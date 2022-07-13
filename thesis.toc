@@ -66,21 +66,22 @@
 \contentsline {subsection}{\numberline {4.3.4}Maian}{38}{subsection.4.3.4}%
 \contentsline {section}{\numberline {4.4}Discarded tools}{38}{section.4.4}%
 \contentsline {chapter}{\numberline {5}Outcome for individual tools}{39}{chapter.5}%
-\contentsline {subsection}{\numberline {5.0.1}Slither}{39}{subsection.5.0.1}%
-\contentsline {subsection}{\numberline {5.0.2}Mythril}{39}{subsection.5.0.2}%
-\contentsline {subsection}{\numberline {5.0.3}SolcVerify}{39}{subsection.5.0.3}%
-\contentsline {subsection}{\numberline {5.0.4}Celestial}{39}{subsection.5.0.4}%
-\contentsline {subsection}{\numberline {5.0.5}Manticore}{40}{subsection.5.0.5}%
-\contentsline {subsection}{\numberline {5.0.6}Echidna}{40}{subsection.5.0.6}%
-\contentsline {subsection}{\numberline {5.0.7}Manticore}{41}{subsection.5.0.7}%
-\contentsline {subsection}{\numberline {5.0.8}Certora}{41}{subsection.5.0.8}%
-\contentsline {subsection}{\numberline {5.0.9}Tool without Specifiction}{41}{subsection.5.0.9}%
+\contentsline {subsection}{\numberline {5.0.1}SmartTest}{39}{subsection.5.0.1}%
+\contentsline {subsection}{\numberline {5.0.2}Slither}{39}{subsection.5.0.2}%
+\contentsline {subsection}{\numberline {5.0.3}Mythril}{39}{subsection.5.0.3}%
+\contentsline {subsection}{\numberline {5.0.4}SolcVerify}{39}{subsection.5.0.4}%
+\contentsline {subsection}{\numberline {5.0.5}Celestial}{40}{subsection.5.0.5}%
+\contentsline {subsection}{\numberline {5.0.6}Manticore}{40}{subsection.5.0.6}%
+\contentsline {subsection}{\numberline {5.0.7}Echidna}{41}{subsection.5.0.7}%
+\contentsline {subsection}{\numberline {5.0.8}Manticore}{41}{subsection.5.0.8}%
+\contentsline {subsection}{\numberline {5.0.9}Certora}{41}{subsection.5.0.9}%
+\contentsline {subsection}{\numberline {5.0.10}Tool without Specifiction}{41}{subsection.5.0.10}%
 \contentsline {chapter}{\numberline {6}Evaluation}{43}{chapter.6}%
 \contentsline {section}{\numberline {6.1}Outcomes of the Analyses}{43}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Limitations and Strenghts}{43}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Specificications for the analysis}{43}{section.6.3}%
-\contentsline {chapter}{\numberline {7}Conclusion}{47}{chapter.7}%
-\contentsline {chapter}{\nonumberline Bibliography}{49}{chapter*.23}%
-\contentsline {chapter}{\numberline {A}Appendix}{51}{appendix.A}%
-\contentsline {section}{\numberline {A.1}First Appendix Section}{51}{section.A.1}%
+\contentsline {chapter}{\numberline {7}Conclusion}{49}{chapter.7}%
+\contentsline {chapter}{\nonumberline Bibliography}{51}{chapter*.23}%
+\contentsline {chapter}{\numberline {A}Appendix}{53}{appendix.A}%
+\contentsline {section}{\numberline {A.1}First Appendix Section}{53}{section.A.1}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

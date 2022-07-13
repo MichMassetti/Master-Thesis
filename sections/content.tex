@@ -1560,6 +1560,11 @@ difficulties in the installation and running
 
 
 Detalais regarding what I did for running the test, so for each tool I describe the setting for each scripts.
+\subsection{SmartTest}
+In some cases it takes to long so I added a timer of 320 with the setting 
+no reentrancy by definition 
+set up in exploit mode + assertion mode 
+About Aku it gives half of the result, it states that all the user has to be refunded, but the
 
 \subsection{Slither}
 AKU: it detects the presence of arbitrary call but it doesn't detect that can get stucked 
@@ -1647,32 +1652,9 @@ BZX: verified with the assertion but it woked proeprly
 \subsection{Manticore}
 
 \subsection{Certora}
-
+The time of execution is given by the application
 \subsection{Tool without Specifiction}
-Name of the framwork for running the tools : \href{https://smartbugs.github.io/}{smartbugs}
-
-The framework implements a container which contains the correct enviroment for running the tools: 
-
-\begin{itemize}
-    \item HoneyBadger
-    \item Maian
-    \item Manticore
-    \item Mythril
-    \item Osiris
-    \item Oyente
-    \item Securify
-    \item Slither
-    \item Smartcheck
-    \item Solhint
-    \item Conkas
-\end{itemize}
-
-Withing these I would choose Maian, Manitcore Scanner, Mythril, Osiris, Oyent, Slither.
-
-We run SmartTest which is not implemented in the container.
-
-So in total 6 tools, bc Manticore is already counted.
-
-In total we have 11 tools more or less.
-
-
+Mytrhil and Slither 
+Slither super fast 
+Mythril in case i twas too slow we put a timer of 240 seconds
+A timer was add in python modifying the main caller file 
