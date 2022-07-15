@@ -62,14 +62,52 @@
 
 \chapter{Real world Exploits}
 \label{ch:Exploits}
-Real-wolrd exploits that have happend in the recent years.
 
-The structure of this chapter is 
-\begin{itemize}
-    \item explanation of the protocol;
+\begin{table*}
+    \caption{Real World Exploits}
+        \label{tab:RealWorldExploits}
+        \begin{tabular}{cc}
+        \toprule
+            Real world exploits & Detail\\
+            \midrule
+            Aku & Funds stuck in the contract\\
+            Cover & Wrong update of data\\
+            BZX & Wrong implementation of token\\
+            Spartan &  Bad estimation of rewards in a pool\\
+            Uranium & Vulenrable depost withdraw process in a pool\\
+            XSURGE &  Reentrancy in a token \\
+            BurgerSwap &  Reentrancy in an AMM \\
+            DirtyDogs &  Reentrancy in NFTs market \\
+        \bottomrule
+        \end{tabular}
+    \end{table*}
+
+In this part of thesis, we introduce the objectives of the analyses: the real world exploits. 
+
+\autoref{tab:RealWorldExploits} illustrates the attacks involve in our work, providing a brief description of those. 
+
+This thesis involves real-world exploits that have been occurred two years ago, so 2020. 
+Our choice tries to cover different aspects and the trend of the attacks. 
+Our work involves the security of smart contracts, written in solidity. 
+For having a wider overview of the topic, 
+we decided not just to provide smart contracts deployed on the Ethereum chain, 
+but even the ones deployed on other chains, specifically Avalanche and Binance Smart Chain. 
+Those are still EVM-compatible blockchains. 
+
+The picked attacks deal with significant projects, involving a great number of investments. 
+The targets of attacks are not just autonomous money makers (AMM), but they can involve the implementation of a token or NFTs.
+
+This chapter contains a subsection per each exploits. The general structure of those involves the following three main points:
+\begin{enumerate}
+    \item the explanation of the protocol;
     \item the exploit;
-    \item the properties involved, which will be analysed by the tools.
-\end{itemize}
+    \item the properties involved in the attack.
+\end{enumerate}
+The first part gives a general overview of the smart contract, 
+defining its goals and main characteristics. 
+After that, we present the exploit, illustrating the vulnerable part of the source code and the adopted strategies 
+by the attackers.
+In conclusion, the depicted properties are involved in drawing the specification of the tools.
 
 
 
@@ -1119,13 +1157,51 @@ The property is a postcondition, which states that the amount of NFTs produced s
 
 \chapter{Analysis Tools}
 \label{ch:Tools}
-argument for the choice of tools.
-Chosen tools because more cited in the papers, the one with recent updates and manteind, open source, one representative closed source tool 
-Overview of the tools and decision for the classification
-In previous knowledge I provide the definition of Symbolic execution Fuzzing Formal Verification and so on.
+\begin{table*}
+    \caption{Tools Classification}
+        \label{tab:ToolsClassification}
+        \begin{tabular}{ccc}
+        \toprule
+            Tools with Specifictation & Tools without Specifictation & Tools with Multiple Running Mode \\
+            \midrule
+            SolcVerify  & Mythril &  Manticore \\
+            Celestial & Slither &  SmartTest \\
+            Echidna & & \\
+            Certora & & \\ 
+        \bottomrule
+        \end{tabular}
+    \end{table*}
+
+This chapter is addressed to present the analysis tools involved in the experiments. 
+Each one has a deticated section, which gives a general overview of its architecture, the implemented methodologies and the limitations. 
+We collected the informations from their presenting paper or the provided github documentations.
+
+Our work deals with the practical aspect of the tools, their installation and their behave in a real world case, consequently, 
+we decided to stress this practical aspect for defining their taxonomy.
+We draw it, classifying the tools based on their running mode. \autoref{tab:ToolsClassification} depicts our calssification, involving three different subgroups:
+\begin{itemize}
+    \item tools without specifictation;
+    \item tools with specifictation;
+    \item tools with multiple running mode.
+\end{itemize}
+
+The first one covers the ones which can be run with the source code (or bytecodes) of the smart contract without any additional data. Their strategies can detect a predefined group of vulnerabilities. 
+On the other hand the second group involves the ones which require the user provides specifications for running. The specifcation can involve a rule to be broken or a property which can be prooved or unprooved. 
+In our taxnomy, the meaning of "multiple mode running" implies the tools which can be run with and without provided specifications. 
+
+The choice of these eight analysis tools is based on our literature research, which encompasses surveys and comparisons of those. 
+Another discriminant aspect of the choice is the maintenance of the tools. 
+We decided to discard the ones which have not been updated for more than two years. 
+We decided to consider just open-source tools because their architecture descriptions and documentation are available. We made an exception in Certora, which is not open source. 
+It has the premium version and the free one, we adopted the second one and the free provided documentation online. 
+
+The objectives of the analyses are smart contracts involved in real-world exploits, in most cases, the attackers forced a bug involving the logic of the software itself, 
+more than a vulnerability regarding its grammar of it. For this reason, we mostly picked tools which could even custom specifications.
+
+
 \section{Tools with multiple mood running}
-We considere the tools with the possibility to rub as a scanner without specifying any specification, 
-but even with provided ones by the user.
+In this subgroup, we consider the tools with the possibility to run as a scanner without specifying any specification, 
+but even with provided ones by the user. 
 
 \subsection{SmartTest}
 \label{sec:WithoutSpecification:SmartTest}
@@ -1214,13 +1290,11 @@ These are employed to produce the programme inputs necessary for the correspondi
 \end{figure}
 
 \section{Tools with Specifications}
-
 \label{sec:Tools:Specification}
-Description of Different types of tool, like a taxonomy.
 
-Description of tools that we are going to use. 
-I would say like an overview of their papaer.
-
+This section deals with the description of tools with specifications, so the ones which need the source file even additional informations. 
+Some of tools requires just some modifications of the source code, on the other hand in some cases the user has to provide an additional file 
+providing the specifications.
 
 \subsection{Certora Prover}
 \label{sec:Specification:Certora}
@@ -1474,9 +1548,6 @@ indeed they work with code (or even bytecode) of the smart contracts, without th
 Most of the tools that we found during the literary research propose just a warning, depicting the vulnerable lines of code and classifying 
 the vulnerability following their taxonomy or open-source ones.
 
-The tool Manticore \autoref{sec:Specification:Manticore} has been described in the other section because it is allowed to use in multiple modes. 
-For our purpose, we adopted it in both ways, for the detection of vulnerabilities involving malicious external calls.
-
 
 \subsection{Slither}
 \label{sec:WithoutSpecification:Slither}
@@ -1544,14 +1615,6 @@ function transferArray(address[] tos, uint256[] values) public returns (bool) {
 
 \end{lstlisting}
 
-\subsection{Oyente}
-\label{sec:WithoutSpecification:Oyente}
-
-\subsection{Maian}
-\label{sec:WithoutSpecification:Maian}
-
-
-\section{Discarded tools}
 
 \chapter{Outcome for individual tools}
 \label{ch:Running}
