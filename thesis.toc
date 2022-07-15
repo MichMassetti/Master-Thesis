@@ -1,0 +1,92 @@
+\babel@toc {english}{}\relax 
+\babel@toc {ngerman}{}\relax 
+\babel@toc {english}{}\relax 
+\contentsline {chapter}{\nonumberline List of Figures}{ix}{chapter*.3}%
+\contentsline {chapter}{\nonumberline List of Tables}{xi}{chapter*.4}%
+\contentsline {chapter}{\numberline {1}Introduction}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivation}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Research Goals}{2}{section.1.2}%
+\contentsline {paragraph}{\nonumberline Research Question:}{2}{paragraph*.6}%
+\contentsline {section}{\numberline {1.3}Research Approach}{2}{section.1.3}%
+\contentsline {section}{\numberline {1.4}Releted Works}{2}{section.1.4}%
+\contentsline {chapter}{\numberline {2}Preliminary Knowledge}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}Blockchain}{3}{section.2.1}%
+\contentsline {section}{\numberline {2.2}Ethereum}{3}{section.2.2}%
+\contentsline {section}{\numberline {2.3}Smart Contract}{3}{section.2.3}%
+\contentsline {section}{\numberline {2.4}Security Analysis}{3}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Real world Exploits}{5}{chapter.3}%
+\contentsline {section}{\numberline {3.1}\$34 Million stacks NFT Project Aku Dreams Smart Contract}{6}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}Akutarts NFT project}{6}{subsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.1.2}The exploit}{6}{subsection.3.1.2}%
+\contentsline {subsection}{\numberline {3.1.3}Properties}{8}{subsection.3.1.3}%
+\contentsline {section}{\numberline {3.2}Cover Protocol:Infinite Minting Exploit Nets Attacker \$4.4M}{9}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Cover Protocol}{9}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}The exlpoit}{9}{subsection.3.2.2}%
+\contentsline {paragraph}{\nonumberline Memory}{9}{paragraph*.8}%
+\contentsline {paragraph}{\nonumberline Storage}{10}{paragraph*.10}%
+\contentsline {subsection}{\numberline {3.2.3}Properties}{10}{subsection.3.2.3}%
+\contentsline {section}{\numberline {3.3}DeFi platform bZX: \$8M hack from one misplaced line of code}{11}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Properties}{13}{subsection.3.3.1}%
+\contentsline {section}{\numberline {3.4}XSURGE on BSC Chain}{14}{section.3.4}%
+\contentsline {subsection}{\numberline {3.4.1}Properties}{16}{subsection.3.4.1}%
+\contentsline {section}{\numberline {3.5}CBDAO: an example of rug pull}{16}{section.3.5}%
+\contentsline {section}{\numberline {3.6}A flash loan used for amplify a bug: \$30M drained from Spartan protocol}{18}{section.3.6}%
+\contentsline {paragraph}{\nonumberline Flash loan}{18}{paragraph*.12}%
+\contentsline {subsection}{\numberline {3.6.1}The exploit}{18}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.2}Properties}{20}{subsection.3.6.2}%
+\contentsline {section}{\numberline {3.7}Uranium Finance: \$1.3M of rewards drawn}{20}{section.3.7}%
+\contentsline {subsection}{\numberline {3.7.1}The exploit}{20}{subsection.3.7.1}%
+\contentsline {paragraph}{\nonumberline Deposit}{21}{paragraph*.14}%
+\contentsline {subparagraph}{\nonumberline EmergencyWithdraw}{22}{subparagraph*.16}%
+\contentsline {subparagraph}{\nonumberline Withdraw}{22}{subparagraph*.18}%
+\contentsline {subsection}{\numberline {3.7.2}Properties}{23}{subsection.3.7.2}%
+\contentsline {section}{\numberline {3.8}Reentering the Reentrancy Bug: Disclosing BurgerSwap's Vulnerability}{23}{section.3.8}%
+\contentsline {subsection}{\numberline {3.8.1}BurgerSwap}{23}{subsection.3.8.1}%
+\contentsline {subparagraph}{\nonumberline Brige}{24}{subparagraph*.20}%
+\contentsline {subsection}{\numberline {3.8.2}The vulnerability}{24}{subsection.3.8.2}%
+\contentsline {subsection}{\numberline {3.8.3}Prorties}{25}{subsection.3.8.3}%
+\contentsline {section}{\numberline {3.9}Infinite minting of NFTs}{26}{section.3.9}%
+\contentsline {subsection}{\numberline {3.9.1}DirtyDogs NFT}{26}{subsection.3.9.1}%
+\contentsline {subsection}{\numberline {3.9.2}The exploit}{26}{subsection.3.9.2}%
+\contentsline {subsection}{\numberline {3.9.3}Properties}{27}{subsection.3.9.3}%
+\contentsline {chapter}{\numberline {4}Analysis Tools}{29}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Tools with multiple mood running}{30}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}SmartTest}{30}{subsection.4.1.1}%
+\contentsline {subsection}{\numberline {4.1.2}Manticore}{31}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Tools with Specifications}{31}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Certora Prover}{32}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Celestial}{33}{subsection.4.2.2}%
+\contentsline {paragraph}{\nonumberline Limitations}{34}{paragraph*.22}%
+\contentsline {subsection}{\numberline {4.2.3}Echidna}{35}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Solc-Verify}{36}{subsection.4.2.4}%
+\contentsline {section}{\numberline {4.3}Tools without specification}{37}{section.4.3}%
+\contentsline {subsection}{\numberline {4.3.1}Slither}{38}{subsection.4.3.1}%
+\contentsline {subsection}{\numberline {4.3.2}Mythril}{38}{subsection.4.3.2}%
+\contentsline {chapter}{\numberline {5}Outcome for individual tools}{41}{chapter.5}%
+\contentsline {subsection}{\numberline {5.0.1}SmartTest}{41}{subsection.5.0.1}%
+\contentsline {subsection}{\numberline {5.0.2}Slither}{41}{subsection.5.0.2}%
+\contentsline {subsection}{\numberline {5.0.3}Mythril}{41}{subsection.5.0.3}%
+\contentsline {subsection}{\numberline {5.0.4}SolcVerify}{41}{subsection.5.0.4}%
+\contentsline {subsection}{\numberline {5.0.5}Celestial}{42}{subsection.5.0.5}%
+\contentsline {subsection}{\numberline {5.0.6}Manticore}{42}{subsection.5.0.6}%
+\contentsline {subsection}{\numberline {5.0.7}Echidna}{43}{subsection.5.0.7}%
+\contentsline {subsection}{\numberline {5.0.8}Manticore}{43}{subsection.5.0.8}%
+\contentsline {subsection}{\numberline {5.0.9}Certora}{43}{subsection.5.0.9}%
+\contentsline {subsection}{\numberline {5.0.10}Tool without Specifiction}{43}{subsection.5.0.10}%
+\contentsline {chapter}{\numberline {6}Evaluation}{45}{chapter.6}%
+\contentsline {section}{\numberline {6.1}Outcomes of the Analyses}{45}{section.6.1}%
+\contentsline {paragraph}{\nonumberline Manticore}{45}{paragraph*.24}%
+\contentsline {paragraph}{\nonumberline SmartTest}{45}{paragraph*.26}%
+\contentsline {paragraph}{\nonumberline Celestial}{45}{paragraph*.28}%
+\contentsline {paragraph}{\nonumberline Echidna}{45}{paragraph*.30}%
+\contentsline {paragraph}{\nonumberline Certora}{45}{paragraph*.32}%
+\contentsline {paragraph}{\nonumberline SolcVerify}{45}{paragraph*.34}%
+\contentsline {paragraph}{\nonumberline Mythril}{45}{paragraph*.36}%
+\contentsline {paragraph}{\nonumberline Slither}{45}{paragraph*.38}%
+\contentsline {section}{\numberline {6.2}Weaknesses and Strenghts}{49}{section.6.2}%
+\contentsline {section}{\numberline {6.3}Strategies}{49}{section.6.3}%
+\contentsline {chapter}{\numberline {7}Conclusion}{51}{chapter.7}%
+\contentsline {chapter}{\nonumberline Bibliography}{53}{chapter*.39}%
+\contentsline {chapter}{\numberline {A}Appendix}{55}{appendix.A}%
+\contentsline {section}{\numberline {A.1}First Appendix Section}{55}{section.A.1}%
+\providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 
