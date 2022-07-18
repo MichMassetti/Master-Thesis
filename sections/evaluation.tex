@@ -17,7 +17,6 @@
 \chapter{Evaluation}
 \label{ch:Evaluation}
 
-In this chapter I present the evaluation of the tools and what we obtained from the runnning of the tests.
 
 \begin{table*}
     \footnotesize
@@ -25,7 +24,7 @@ In this chapter I present the evaluation of the tools and what we obtained from 
     \label{tab:Results}
     \begin{tabular}{ccccl}
     \toprule
-     Tools  &  Avg lines of code for test &  Constructive output & Avg time (in seconds) \\
+     Tools  & Constructive output &  Avg lines of code for test & Avg time (in seconds) \\
       \midrule
         Manticore & List of functions, warning for reentrancy  & 4  &  239,5 \\
         SmartTest & List of Functions, Warnings  & 2,5 &  318  \\
@@ -44,7 +43,7 @@ In this chapter I present the evaluation of the tools and what we obtained from 
     \caption{Analyses Outocomes:    
     \checkmark: Found vulenrablity, \xmark: False Positive, FN: False Negative, --: Discarded }
     \label{tab:Attacks}
-    \begin{tabular}{ccccccccl}
+    \begin{tabular}{ccccccccc}
     \toprule
      Tools  & Aku & Cover & BZX & Spartan & Uranium & XSURGE &  BurgerSwap & DirtyDogs\\
       \midrule
@@ -234,7 +233,10 @@ In this chapter I present the evaluation of the tools and what we obtained from 
 
 
 \section{Outcomes of the Analyses}
+%% presenting the outcomes of single analyses, so description of the result 
+%% this subsection contains objective data, in the next one I add even my point of view
 In this section we list all the tool and we present their single 
+
 
 \paragraph{Manticore} 
 \paragraph{SmartTest}
@@ -246,11 +248,60 @@ In this section we list all the tool and we present their single
 \paragraph{Slither}
 
 \section{Weaknesses and Strenghts}
+%% What I wrote in the table 
+%% I talk even about the installation and the running phase
+
+\section{Tools with Specifications Strategies}
+%% General Overview of the strategies 
+%% Comperison within the strategies 
+%% Personal ideas on their usage, how was the language and so on 
+The considered tools cover three main strategies for security analysis: fuzzing, symbolic execution and formal verification. 
 
 
-\section{Strategies}
-Reentrancy most of the time is not detected with specifications. 
-Specifications tools useful for defining properties and verifying those.
 
-\section{}
+The following parametes deal with comparison within this subgroup we want to stess for having a deepen view of the comparison.
 
+\paragraph{Formal verification} 
+Formal verification is a very powerful security approach, intending to prove or unproved the given specification. 
+This perfectly fits with our research goals, such as the detection of bugs or vulnerabilities in our real-world cases. 
+
+We involved three different tools, implementing this approach, for our purpose. Regarding the results, it is clear that these were executed as fast as or even faster than the other ones. 
+Certora is the only one which provides a complete list of functions for breaking the rules, rather than just a warning. 
+On the other hand, SolcVerify could detect the vulnerabilities involving external call functions, indeed reentrancy. A powerful aspects of this tool is its possibility to express 
+loop invariants, the other ones do not allow it.
+Considering the grammar for expressing the specifications, SolcVerify is the one which needs the least amount of lines of code, indeed it involves a notification language; 
+I found it very intuitive and fast to write down the specifications.
+
+Celestial architecture encompasses two steps: the translation from celestial file to f* and then its verification. The python script converts the ".cel" in f*, used for the proof or unproof.
+The provided file included the smart contract's source code plus the expressed specification. These are statements placed at the beginning of a function, otherwise, it is possible to create a sort of function, 
+containing boolean formula, which is called by different specifications function with different parameters, it is useful for expressing the same specification for different purpose.  I consider it the one with more limitations, regarding solidity grammar and reentrancy, 
+because it could not detect the reentrancy vunlenaribilities and the Cover protocol attack, because the keywords "storage" and "memory" are rejected. 
+
+Certora is the only tool which is not open-source, for our purpose we adopted its free version.
+Its specification language is described by its developers' group as "rule-based". It differs from the other two tools under this aspect, because this way gives more elasticity to the user and defines more specific cases.
+The rule is composed of some function calls and it concludes with an assertion or more. The user is allowed to test a specific case, using "require" and the possibility to set up a proper environment. 
+The preconditions, in this case, are expressed using the Solidity keyword "require" in the rule.
+
+\paragraph{Different stategies, similar grammar}
+We considered two tools with similar grammar but implemented different analysis approaches: Manticore and Echidna. 
+In both of the cases, we provided functions containing a boolean formula, which the tools try to break. From the results, 
+we noticed that Echidna run faster and it worked for all the cases, but Manticore could cover the reentrancy vulnerabilities thanks to its changing architecture.
+
+
+\section{Customized and Non-specific Analyses}
+%% Stressing the important of the specification for a real world case
+%% If used in the right context, they are effective 
+The objectives of our analyses were smart contracts involved in real-world exploits. The attackers exploited a specific bug or lack of security in the logic of programs. The specifications allowed the user to express the requirements of the program. These provide a customized analysis, its accuracy is demanded by the developer as well. Our work involved smart contracts with well-known vulnerabilities, but the definition of the properties is an indispensable and complex step.
+The tools without specification implement vulnerabilities detectors, which are stated in their paper. They have well-defined limitations, but strengths as well. These detect preconfigured vulnerabilities, so a warning can be run even if we expect that indeed the number of false negatives can be relevant.
+An example is Slither, which for every comparison of block time stamp give a warning. 
+
+Our results stress the impossibility of the tools without specification for the detection of specific vulnerabilities, but they could correctly detect the reentrancy cases. 
+On the other hand, the ones with specifications had problems in the reentrancy detection. The limitations of some of these involve the external calls. 
+SolcVerify was the only tool which could provide the possibility of reentrancy detection. Echidna, as Certora, developers specified the tools  can detect the reetracy, in the case an attack is provided, 
+but we think this approch ca be useful for checking a possible attack rather than a detection of a vulnerabilityl.
+Manticore underlines this aspect, it could bridge this gap adopting 2 different runnning mode. 
+
+
+\section{Prova }
+
+\section{Prova2}

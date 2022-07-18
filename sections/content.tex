@@ -1165,7 +1165,7 @@ The property is a postcondition, which states that the amount of NFTs produced s
             Tools with Specifictation & Tools without Specifictation & Tools with Multiple Running Mode \\
             \midrule
             SolcVerify  & Mythril &  Manticore \\
-            Celestial & Slither &  SmartTest \\
+            Celestial & Slither &  SmarTest \\
             Echidna & & \\
             Certora & & \\ 
         \bottomrule
@@ -1200,17 +1200,18 @@ more than a vulnerability regarding its grammar of it. For this reason, we mostl
 
 
 \section{Tools with multiple mood running}
-In this subgroup, we consider the tools with the possibility to run as a scanner without specifying any specification, 
-but even with provided ones by the user. 
+This section has the aim to describe the tools classified as "with multiple moods running". 
+Even other tools have more moods running, but this categorization involves the tools which could take part in the other two subgroups: 
+with and without specification.
 
-\subsection{SmartTest}
-\label{sec:WithoutSpecification:SmartTest}
+\subsection{SmarTest}
+\label{sec:WithoutSpecification:SmarTest}
 
-SmartTest is a safety analayzer for Ethereum smart contracts develeoped by \citet{SmarTest}. 
+SmarTest is a safety analayzer for Ethereum smart contracts develeoped by \citet{SmarTest}. 
 It adopts a symbolic execution technique for effectively detecting vulnerable transaction sequences. 
 The main challenge of the project involves the tool to find transaction sequences,
 revealing the vulnerabilities of the analysed smart contract. Therefore, bugs are discoved as the cause of the interaction of multiple transactions.
-The purpose of SmartTest is to automatically deliver vulnerable transaction sequences, 
+The purpose of SmarTest is to automatically deliver vulnerable transaction sequences, 
 which demostrate the weaknesses of the smart contract.
 The main idea is to build a statistical model using known vulnerable transaction sequences and use it to direct symbolic execution toward 
 more successfully detecting unknown vulnerabilities. 
@@ -1219,7 +1220,7 @@ This statregy involves firstly to run unguided symbolic
 execution on existing vulnerable contracts, then to learn a probablity distribution over vulnerable transaction sequences.
 
 The tool is implemented as an extension of VeriSmart (\citet{VeriSmart}).
-SmartTest is build on top of that, adding its own functionalities:
+SmarTest is build on top of that, adding its own functionalities:
 \begin{itemize}
     \item symbolic execution with a language model.
     \item Symbolic executor for transaction sequences.
@@ -1618,12 +1619,15 @@ function transferArray(address[] tos, uint256[] values) public returns (bool) {
 
 \chapter{Outcome for individual tools}
 \label{ch:Running}
+
+This chapter is moved in the next one, I keep now bc it contains the notes
+
 Fomal specifications, outcomes, time of running, no comparison, single description, outliers (performe very well or very baddly), 
 difficulties in the installation and running 
 
 
 Detalais regarding what I did for running the test, so for each tool I describe the setting for each scripts.
-\subsection{SmartTest}
+\subsection{SmarTest}
 In some cases it takes to long so I added a timer of 320 with the setting 
 no reentrancy by definition 
 set up in exploit mode + assertion mode 
