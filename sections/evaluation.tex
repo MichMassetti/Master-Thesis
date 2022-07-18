@@ -59,44 +59,7 @@
     \end{tabular}
 \end{table*}
 
-\begin{table*}
-    
-    \caption{Weaknesses/Limitations}
-    \label{tab:Weaknesses}
-    \begin{tabular}{cl}
-    \toprule
-        Tools  &  Limitiations \\
-        \midrule
-        Manticore & Reentrancy is not dectected by properties property based execution, very slow \\
-        SmartTest & Reentrancy is not dectected, the analyses are slow \\
-        Celestial & External calls are not considered, keywords storage and memory are not recognized  \\
-        Echidna &  Reentrancy is not dectected\\
-        Certora & Reentrancy is not dectected\\ 
-        SolcVerify & It just gives warning, it does not provide a list of transaction for breaking the given property\\
-        Mythril & Just flat contracts are allowed   \\ 
-        Slither & Great amount of False negative, due to the fact the scan is based on the grammar \\ 
-    \bottomrule
-    \end{tabular}
-\end{table*}
 
-\begin{table*}
-\caption{Strenghts}
-    \label{tab:Strenghts}
-    \begin{tabular}{cl}
-    \toprule
-        Tools  &  Strenghts \\
-        \midrule
-        Manticore & One of the mode cover the properties breaking and the scanner one covers the reentrancy\\
-        SmartTest & It allows to set the specific vulenrability to look for  \\
-        Celestial & Possibility to use different version of F*  \\
-        Echidna &  Possibility to run in multiple modes with different grammar (tests or assertions breaking)\\
-        Certora & Implements the library of Openzeppelin, SAS no installation needed \\ 
-        SolcVerify & Intuitive specification language based on Annotations, it detects reentrancy\\
-        Mythril & It deos not need specification, but still provide list of functions for breaking detected vulnerability  \\ 
-        Slither & Easiest installation, fastest tool that we used \\ 
-    \bottomrule
-    \end{tabular}
-\end{table*}
 
 \begin{table*}
     \caption{User Expirience}
@@ -251,6 +214,45 @@ In this section we list all the tool and we present their single
 %% What I wrote in the table 
 %% I talk even about the installation and the running phase
 
+We present the 
+\begin{table*}
+    \caption{Weaknesses \& Drawbacks}
+    \label{tab:Weaknesses}
+    \begin{tabular}{cc}
+    \toprule
+        Tools  &  Weaknesses \& Drawbacks \\
+        \midrule
+        Manticore & Reentrancy is not dectected by properties property based execution, very slow \\
+        SmartTest & Reentrancy is not dectected, the analyses are slow \\
+        Celestial & External calls are not considered, keywords storage and memory are not recognized  \\
+        Echidna &  Reentrancy is not dectected, no assetion mode for solidity 8\\
+        Certora & Reentrancy is not dectected, not open-sources \\ 
+        SolcVerify & It just gives warning, it does not provide a list of transaction for breaking the given property\\
+        Mythril & Just flat contracts are allowed \\ 
+        Slither & Scan is based on the grammar, great amount of false negative \\ 
+    \bottomrule
+    \end{tabular}
+\end{table*}
+
+\begin{table*}
+    \caption{Strenghts}
+        \label{tab:Strenghts}
+        \begin{tabular}{cl}
+        \toprule
+            Tools  &  Strenghts \\
+            \midrule
+            Manticore & One of the mode cover the properties breaking and the scanner one covers the reentrancy\\
+            SmartTest & It allows to set the specific vulenrability to look for  \\
+            Celestial & Possibility to use different version of F*  \\
+            Echidna &  Possibility to run in multiple modes with different grammar (tests or assertions breaking)\\
+            Certora & Implements the library of Openzeppelin, SAS no installation needed \\ 
+            SolcVerify & Intuitive specification language based on Annotations, it detects reentrancy\\
+            Mythril & It deos not need specification, but still provide list of functions for breaking detected vulnerability  \\ 
+            Slither & Easiest installation, fastest tool that we used \\ 
+        \bottomrule
+        \end{tabular}
+    \end{table*}
+
 \section{Tools with Specifications Strategies}
 %% General Overview of the strategies 
 %% Comperison within the strategies 
@@ -287,21 +289,24 @@ We considered two tools with similar grammar but implemented different analysis 
 In both of the cases, we provided functions containing a boolean formula, which the tools try to break. From the results, 
 we noticed that Echidna run faster and it worked for all the cases, but Manticore could cover the reentrancy vulnerabilities thanks to its changing architecture.
 
+We encountered a common aspect between the grammar definition of the specification between the two tools Echidna and SmarTest regarding their "assertion" mode. 
+Both of those require the user to write assertions and then these try to verify it or return the list of 
+functions for breaking the rule. From our results, it is clear Echidna could obtain higher number of positive outomces and in less time rather than SmartTest.
+
+
+
 
 \section{Customized and Non-specific Analyses}
 %% Stressing the important of the specification for a real world case
 %% If used in the right context, they are effective 
 The objectives of our analyses were smart contracts involved in real-world exploits. The attackers exploited a specific bug or lack of security in the logic of programs. The specifications allowed the user to express the requirements of the program. These provide a customized analysis, its accuracy is demanded by the developer as well. Our work involved smart contracts with well-known vulnerabilities, but the definition of the properties is an indispensable and complex step.
 The tools without specification implement vulnerabilities detectors, which are stated in their paper. They have well-defined limitations, but strengths as well. These detect preconfigured vulnerabilities, so a warning can be run even if we expect that indeed the number of false negatives can be relevant.
-An example is Slither, which for every comparison of block time stamp give a warning. 
+An example is Slither, which for every comparison of block time stamp give a warning. These warnings 
 
 Our results stress the impossibility of the tools without specification for the detection of specific vulnerabilities, but they could correctly detect the reentrancy cases. 
 On the other hand, the ones with specifications had problems in the reentrancy detection. The limitations of some of these involve the external calls. 
-SolcVerify was the only tool which could provide the possibility of reentrancy detection. Echidna, as Certora, developers specified the tools  can detect the reetracy, in the case an attack is provided, 
-but we think this approch ca be useful for checking a possible attack rather than a detection of a vulnerabilityl.
-Manticore underlines this aspect, it could bridge this gap adopting 2 different runnning mode. 
+SolcVerify was the only tool which could provide the possibility of reentrancy detection. Echidna, as Certora, developers specified the tools  can detect the reentrancy, in the case an attack is provided, 
+but we think this approach can be useful for checking a possible attack rather than detection of vulnerabilities.
 
+Manticore could bridge this gap by adopting two different running modes.
 
-\section{Prova }
-
-\section{Prova2}

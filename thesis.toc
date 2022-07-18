@@ -83,13 +83,11 @@
 \contentsline {paragraph}{\nonumberline SolcVerify}{45}{paragraph*.34}%
 \contentsline {paragraph}{\nonumberline Mythril}{45}{paragraph*.36}%
 \contentsline {paragraph}{\nonumberline Slither}{45}{paragraph*.38}%
-\contentsline {section}{\numberline {6.2}Weaknesses and Strenghts}{49}{section.6.2}%
+\contentsline {section}{\numberline {6.2}Weaknesses and Strenghts}{45}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Tools with Specifications Strategies}{49}{section.6.3}%
 \contentsline {paragraph}{\nonumberline Formal verification}{49}{paragraph*.40}%
 \contentsline {paragraph}{\nonumberline Different stategies, similar grammar}{50}{paragraph*.42}%
 \contentsline {section}{\numberline {6.4}Customized and Non-specific Analyses}{50}{section.6.4}%
-\contentsline {section}{\numberline {6.5}Prova}{50}{section.6.5}%
-\contentsline {section}{\numberline {6.6}Prova2}{50}{section.6.6}%
 \contentsline {chapter}{\numberline {7}Conclusion}{51}{chapter.7}%
 \contentsline {chapter}{\nonumberline Bibliography}{53}{chapter*.43}%
 \contentsline {chapter}{\numberline {A}Appendix}{55}{appendix.A}%
