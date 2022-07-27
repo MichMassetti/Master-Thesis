@@ -20,7 +20,12 @@ We collected the outcomes of the analyses of each tool.
 In this chapter, we give a general overview of what we obtained, firstly,
 describing the result per tool, then comparing all of those.
 
+
+
 \section{Outcomes per Tool}
+
+-----> TIPS: -practical experience about running, modifies of the  code, problem with solidity version 
+
 This section encompasses the result for each tool. 
 We describe the eventual problems during the installation and running phase, moreover, we show per each tool the outcomes of each analysis having as objective a specific attack. 
 
@@ -35,18 +40,18 @@ The table \autoref*{tab:ManticoreTable} shows the outcames of the analyses per a
 \begin{table*}
     \caption{Manticore results}
         \label{tab:ManticoreTable}
-        \begin{tabular}{ccl}
+        \begin{tabular}{cccc}
         \toprule
-            Attacks & Line of Code for Specifications & Time of Execution (in seconds)\\
+            Attacks & Line of Code for Specifications & Time of Execution (in seconds) & Foud or Not Foud \\
             \midrule
-            Aku & 6 & 235  \\ 
-            Cover & 5 & 245\\ 
-            BZX  & 4 & 228\\ 
-            Spartan & 3 & 239 \\ 
-            Uranium  & 3 & 250\\ 
-            XSURGE & -- & 208\\ 
-            BurgerSwap  &  -- & 205 \\ 
-            DirtyDogs & -- & 203 \\
+            Aku & 6 & 235  &  \\ 
+            Cover & 5 & 245 & \\ 
+            BZX  & 4 & 228 & \\ 
+            Spartan & 3 & 239 & \\ 
+            Uranium  & 3 & 250& \\ 
+            XSURGE & -- & 208 & \\ 
+            BurgerSwap  &  -- & 205 &\\ 
+            DirtyDogs & -- & 203 &  \\
         \bottomrule
     \end{tabular}
 \end{table*}

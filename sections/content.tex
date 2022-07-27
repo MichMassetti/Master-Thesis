@@ -41,23 +41,27 @@
 \chapter{Preliminary Knowledge}
 \label{ch:Backgroud}
 
-\section{Blockchain}
+\section{Blockchain and Smart Contract}
 \label{sec:Backgroud:Bitcoin}
-
+one subchapt blockchain + smart cotracts
 \section{Ethereum}
 \label{sec:Backgroud:Ethereum}
+Example of blockchain for smart contracts 
+EVM compatible a bit of story 
+Solidity
 
-\section{Smart Contract}
-\label{sec:Backgroud:SmartContracts}
+\section{Decentralized Finance}
+AMM
+NFTs 
+Pool
 
 
 \section{Security Analysis}
 \label{sec:Backgroud:SecurityAnalysis}
 \begin{itemize}
     \item Fuzzing
-    \item Symbolic Execution 
-    \item Formal Verification 
-    \item 
+    \item Formal Verification (, smt, precondition, postcodition)
+    \item Symbolic Execution (it's part of formal verification, but for our point of view, it's better representig like this ganau)
 \end{itemize}
 
 \chapter{Real world Exploits}
@@ -271,14 +275,15 @@ Our focus is on the comparison between the counter of the refunded users and the
 In this case, we use proof by contradiction. We check if the processRefunds variable is always less than the totalBids. 
 The property should be proofed if we consider that at least one user placed more than one bid.
 
-\autoref{lst:AkuProps} shows in practical the expressed properties.
+NoList shows in practical the expressed properties.
+Property 1 postcondition refered to function processRefunds():
+\begin{equation}
+      \_refundProgress<=\_bidIndex
+\end{equation}
 
-\begin{lstlisting} [caption={Aku properties}, label={lst:AkuProps}]
-    Property 1 postcondition refered to function processRefunds():  _refundProgress<=_bidIndex
+Property 2 precondition referred claimProjectFunds() : refundProgress >= totalBids
 
-    Property 2 precondition referred claimProjectFunds() : refundProgress >= totalBids
 
-\end{lstlisting}
 
 
 
