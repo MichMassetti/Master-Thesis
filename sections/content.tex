@@ -258,7 +258,7 @@ Consequently, if a user bought more than one bid, the amount of refounded users 
 The smart contract involves 2 main problems: the refunding of the users who placed the bids and the claim of the developers' rewards.
 
 The first property deals with the function processRefunds. 
-It reverts every time because a malicious wallet, which can't receive 
+It reverts every time because a malicious wallet, which cannot receive 
 any tokens triggering the require. 
 We verify if the contract can always refund all the users.
 The property involves the sum of refunded wallets may be equal to the number of the counter which loops on the map containing the data. 
@@ -270,6 +270,15 @@ In the beginning, some requirements have to be fulfilled before the owner can ob
 Our focus is on the comparison between the counter of the refunded users and the total amount of bids.
 In this case, we use proof by contradiction. We check if the processRefunds variable is always less than the totalBids. 
 The property should be proofed if we consider that at least one user placed more than one bid.
+
+\autoref{lst:AkuProps} shows in practical the expressed properties.
+
+\begin{lstlisting} [caption={Aku properties}, label={lst:AkuProps}]
+    Property 1 postcondition refered to function processRefunds():  _refundProgress<=_bidIndex
+
+    Property 2 precondition referred claimProjectFunds() : refundProgress >= totalBids
+
+\end{lstlisting}
 
 
 
@@ -354,13 +363,14 @@ The property relies on how it is computed. It is not estimated considering the c
 
 The post-condition involves the estimation of the reward inside the function deposit.
 
-We compare the miner.rewardWriteoff and then we recumpute its mathematical operation with the updated parametes 
-of the pool: 
+We compare the miner.rewardWriteoff with its recumpute mathematical valu with the updated parameters, 
+as shown by \autoref{lst:CoverProps}.
 
-miner.amount.mul(pool.accRewardsPerToken).div(CAL\_MULTIPLIER).
 
-The discriminating in the operation should be the parameter pool.accRewardsPerToken.
-
+\begin{lstlisting} [caption={Cover properties}, label={lst:CoverProps}]
+    Postcondition refered to function deposit(...): 
+    miner.rewardWriteoff == miner.amount.mul(pool.accRewardsPerToken).div(CAL\_MULTIPLIER).
+\end{lstlisting}
 
  
 
@@ -504,6 +514,17 @@ The balance of the sender should decrease and the one of the receiver should inc
 
 The other one is an invariant. It states the total sum of balances should be less than the variable total supply. 
 
+\autoref{lst:BZXProps} encompasses those properties, the post-condition should be attached to all the functions involving the function \_internalTransferFrom(...), 
+since it is internal; the invariant is referred to all the contract.
+
+\begin{lstlisting} [caption={BZX properties}, label={lst:BZXProps}]
+    Postcondition: 
+    old_value_of(balances[_from])>=balances[_from]
+    && old_value_of(balances[_to])<=balances[_to]
+    
+    Invariant:  sum_of_uint(balances) <= totalSupply
+\end{lstlisting}
+
 \section{XSURGE on BSC Chain}   
 \label{sec:Exploits:XSURGE}
 
@@ -615,88 +636,15 @@ At the end of the selling process, the total supply should decrease the amount s
 But since the attacker called the purchase, the variable is not updated as it was supposed to be. 
 Buying the same amount of sold tokens, the value would not change.
 
-We define the property as a postcondition, which states the variable \_totalSupply is decreased of the amount sold by the user, then tokenAmount.
+We define the property as a postcondition,refered to the function sell(...), which states the variable \_totalSupply is decreased of the amount sold by the user, then tokenAmount.
 
-%not so sure to consider this one 
-\section{CBDAO: an example of rug pull}
-\label{sec:Exploits:CBDAO}
-Developers should watch out for possible attacks. They should audit and test their contract to find possible vulnerabilities and apply patches.
-In the decentralized finance context, even the investors should worry about malicious developers, who convince the investors to invest and then steal their investments.
-These class of fraud are basically  type of exit scam and decentralized finance (DeFi) exploit, it is classified with the name of rug pull.
-
-
-\citet{RugPullDef} defines rug pull as a  type of crypto scam that occurs when a team pumps their project's token before disappearing with the funds, 
-leaving their investors with a valueless asset. 
-Fraudulent developers create a new crypto token, 
-pump up the price and then pull as much value out of them as possible before abandoning them as their price drops to zero.
-
-An example of this type of fraud is the one presented in the article \citet{CBDAO}.
-It seems the malicious developers could steal around 1 million dollar in ethereum (ETH). 
-
-The project main token was \$BREE. For attracting ealry investors, they associeted to it a presale token, named \$SBREE. 
-The ones who bought that, could swap their amount of presale token in \$BREE once the token was published, having an advantage.
-Unfortubatly, one of the admin wallets exploited a backdoor in the SBREE token contract, minted 50,000 SBREE. After that, the attacker soled that amount in BREE token and sold it on the market.
-That pushed down the price of BREE at the expense of other holders. The 50,000 BREE was sold for under 200 ETH.
-
-Following the operation of the \href{https://etherscan.io/address/0x85c90f369676789d3234ecf07adb5262df1bcf15#tokentxns}{malicious developer}, it is possible to understand how the fraud occured.
-\href{https://etherscan.io/tx/0x3bf7b06d6737e6d222234acc58dea634c7ff75e6cc447bece6cc264f2e1db9d2}{This transacion}, achieved by etherscan, shows the attacker called the mint function and could generate 
-50.000 SBREE. After that, it called the \href{https://etherscan.io/address/0x60c3094a586b02cb416ec4df31119d4513ff0dde#code}{BreePurchase} 
-contract for swapping the token in BREE and then swap those in ETH on Uniswap.
-
-The backdoor relies on the malicious management of access control. The admin, with the function grantRole, allow another wallet to be the Minter, so it called the function mint.
-\begin{lstlisting} [language=Solidity, caption={Backdoor inside the contract}, label={lst:SBREE}]
-    
-    ... 
-    function _grantRole(bytes32 role, address account) private {
-        if (_roles[role].members.add(account)) {
-            emit RoleGranted(role, account, _msgSender());
-        }
-    }
-    ... 
-
-
-    contract Roles is AccessControl {
-
-    bytes32 public constant MINTER_ROLE = keccak256("MINTER");
-    bytes32 public constant OPERATOR_ROLE = keccak256("OPERATOR");
-
-    constructor () public {
-        _setupRole(DEFAULT_ADMIN_ROLE, _msgSender());
-        _setupRole(MINTER_ROLE, _msgSender());
-        _setupRole(OPERATOR_ROLE, _msgSender());
-    }
-
-    modifier onlyMinter() {
-        require(hasRole(MINTER_ROLE, _msgSender()), "Roles: caller does not have the MINTER role");
-        _;
-    }
-
-    modifier onlyOperator() {
-        require(hasRole(OPERATOR_ROLE, _msgSender()), "Roles: caller does not have the OPERATOR role");
-        _;
-    }
-}
-
-//the contract inherit Roles contetract
-    ... 
-    modifier onlyMinter() {
-        require(hasRole(MINTER_ROLE, _msgSender()), "Roles: caller does not have the MINTER role");
-        _;
-    }
-    ... 
-    function _mint(address account, uint256 amount) internal virtual {
-        require(account != address(0), "ERC20: mint to the zero address");
-
-        _beforeTokenTransfer(address(0), account, amount);
-
-        _totalSupply = _totalSupply.add(amount);
-        _balances[account] = _balances[account].add(amount);
-        emit Transfer(address(0), account, amount);
-    }
-    ... 
-
-
-\end{lstlisting} 
+The properties can be even expressed like a an invariant, stating that the sum of the single balances cannot exceedes the variable \_totalSupply.
+\begin{lstlisting} [caption={XSURGE properties}, label={lst:XSURGEProps}]
+    Invariant: 
+    sum_of_uint(_balances) <= _totalSupply
+    Postcondition: 
+    _totalSupply <=old_value_of(_totalSupply)
+\end{lstlisting}
     
 \section{A flash loan used for amplify a bug: \$30M  drained from Spartan protocol}   
 \label{sec:Exploits:Spartan}
@@ -796,6 +744,7 @@ the amount to drain.
         tokenAmount = iBEP20(TOKEN).balanceOf(address(this));
     }
 \end{lstlisting}
+
 \subsection{Properties}
 The issue correlated to the logic of the program involves the removing liquidity process. 
 The attacker could amplify the number of tokens to remove.
@@ -807,7 +756,18 @@ Function synch should be called in the buggy function.
 
 This one is encompassed in the definition of the property. 
 It is called at the end of the process of the removing the liquidity for a member. 
-The postcondition specifies that the function synch should not updated the two variables.
+The postcondition specifies that the function synch should not updated the two variables. 
+Another way for checking the property would be checkig if the estimated returned value of the function calcLiquidityShare(...) uses the correct parameters, 
+as shown by \autoref{lst:SpartanProps}.
+
+\begin{lstlisting} [caption={Spartan properties}, label={lst:SpartanProps}]
+    Postcondition: 
+    no modifies baseAmount, tokenAmount
+
+    Precondition:
+    iBEP20(token).balanceOf(pool) == baseAmount 
+    || iBEP20(token).balanceOf(pool) == tokenAmount
+\end{lstlisting}
 
 
 \section{Uranium Finance: \$1.3M of rewards drawn}   
@@ -840,7 +800,9 @@ by calling 3 functions multiple times:
 Therefor this function is called with  with the \_amount input argument larger than “0”. 
 the “\_bonusAmount” is calculated with:
 
-\_bonusAmount=\_amount.mul(userBonus(\_pid, \_user).add(10000)).div(10000).
+\_bonusAmount=
+
+\_amount.mul(userBonus(\_pid, \_user).add(10000)).div(10000).
 
 The user.amountWithBonus increases by adding  the \_bonusAmount. 
 The user.rewardDebt is calculated by the end of the function, with
@@ -962,9 +924,14 @@ The malicious sequence of functions involves the call of deposit, emergencyWithd
 Therefore, the attacker could get back the same amount of deposited tokens, but with a higher amount bonus for the reward. 
 The parameter amountWithBonus of user struct, which keeps track of the amount and the bonus, just increases even if the user receives the reward and it is withdrawing. 
 
-For the detection of the vulnerability, we specify the property as a postcondition of the function withdraw. 
-Considering the caller, who receives a reward because of the bonus, 
-the parameter of the struct amountWithBonus has to decrease. 
+For the detection of the vulnerability, we specify the property as a postcondition (\autoref{lst:UraniumProps}) of the function withdraw. 
+
+
+\begin{lstlisting} [caption={Uranium properties}, label={lst:UraniumProps}]
+    Postcondition: 
+    userInfo[msg.sender].bonus-userInfo[msg.sender].rewardDebt -> userInfo[msg.sender].bonus < old_value_of(userInfo[msg.sender].bonus)
+\end{lstlisting}
+
 
 \section{Reentering the Reentrancy Bug: Disclosing BurgerSwap's Vulnerability}   
 \label{sec:Exploits:BurgerSwap}
@@ -1062,7 +1029,7 @@ triggered and withdrawFromBSC is run again, but without updating executeMap[\_pa
 Since it is not set to true, the code repeat the same sequence of operation. 
 Repeating this process within the same transaction, the attacker will drain the vulnerable contract's WETH holdings and credit.
 
-\subsection{Prorties}
+\subsection{Properties}
 The keyword of this exploit is reentrancy. 
 
 The smart contracts adopt an access control strategy at the beginning of the function, checking the signature of the user. 
@@ -1076,7 +1043,12 @@ thanks a fallback, can call multiple times the same function and withdrawing mor
 With the postcondition, we check the balance of WETH (wrapped ETH) before and after the function, 
 stating the difference should be the parameter amount of the function.
 
-\section{Infinite minting of NFTs}   
+\begin{lstlisting} [caption={BurgerSwap properties}, label={lst:BurgerSwapProps}]
+    Postcondition: 
+    old_value_of(address(this).balance) == address(this).balance - _amount
+\end{lstlisting}
+
+\section{Infinite minting of NFTs: DirtyDogs NFTs}   
 \label{sec:Exploits:DirtyDogs}
 Introduction
 \subsection{DirtyDogs NFT}
@@ -1153,8 +1125,15 @@ which includes even a bad implementation of the ERC721 standard. It can be class
 The NFTs are not directly sold, but a ticket instead is provided to the users, who would convert it. The function claimDogs 
 is in charge to verify the tickets and generate the NFTs. Because of the reentrancy, the attacker produced 45 NFTs with a single ticket.
 
-The property is a postcondition, which states that the amount of NFTs produced should be equal to the number of tickets of the user.
+The property can be expressed as a postcondition, which states that the amount of NFTs produced should be equal to the number of tickets of the user. 
 
+We implemented even a support variable called effClaimed, which is increased for every minting, and the totalClaimed instead is updated just at the end of the function. 
+\autoref{lst:DirtyDogsProps} states the post-condition, referred to the vulnerable function claimDogs(...).
+
+\begin{lstlisting} [caption={DirtyDogs properties}, label={lst:DirtyDogsProps}]
+    Postcondition: 
+    sum_of_uint(totalClaimed) <= effclaimed
+\end{lstlisting}
 
 \chapter{Analysis Tools}
 \label{ch:Tools}
