@@ -2362,4 +2362,104 @@
     <bcf:citekey order="13">XSurgeBNB</bcf:citekey>
     <bcf:citekey order="14">XSurgeBNB</bcf:citekey>
     <bcf:citekey order="15">FlashCoin</bcf:citekey>
-    <bcf:citekey order="16">Fla
+    <bcf:citekey order="16">FlashCloud</bcf:citekey>
+    <bcf:citekey order="17">UraniumPM</bcf:citekey>
+    <bcf:citekey order="18">UraniumPM</bcf:citekey>
+    <bcf:citekey order="19">UraniumTech</bcf:citekey>
+    <bcf:citekey order="20">BurgerSwap</bcf:citekey>
+    <bcf:citekey order="21">BurgerSwap</bcf:citekey>
+    <bcf:citekey order="22">SmarTest</bcf:citekey>
+    <bcf:citekey order="23">SmarTest</bcf:citekey>
+    <bcf:citekey order="24">VeriSmart</bcf:citekey>
+    <bcf:citekey order="25">VeriSmart</bcf:citekey>
+    <bcf:citekey order="26">ManticorePaper</bcf:citekey>
+    <bcf:citekey order="27">ManticorePaper</bcf:citekey>
+    <bcf:citekey order="28">CertoraDocumentation</bcf:citekey>
+    <bcf:citekey order="29">Echidna</bcf:citekey>
+    <bcf:citekey order="30">Echidna</bcf:citekey>
+    <bcf:citekey order="31">SolcVerify</bcf:citekey>
+    <bcf:citekey order="32">SolcVerify</bcf:citekey>
+    <bcf:citekey order="33">SolcVerify_2</bcf:citekey>
+    <bcf:citekey order="34">SolcVerify_2</bcf:citekey>
+    <bcf:citekey order="35">SolcVerify_3</bcf:citekey>
+    <bcf:citekey order="36">SolcVerify_3</bcf:citekey>
+    <bcf:citekey order="37">Slither</bcf:citekey>
+    <bcf:citekey order="38">Slither</bcf:citekey>
+    <bcf:citekey order="39">SlitherGitHub</bcf:citekey>
+    <bcf:citekey order="40">SlitherGitHub</bcf:citekey>
+    <bcf:citekey order="41">Mythril</bcf:citekey>
+    <bcf:citekey order="42">Mythril</bcf:citekey>
+    <bcf:citekey order="43">SWCRegistry</bcf:citekey>
+    <bcf:citekey order="44">SWCRegistry</bcf:citekey>
+    <bcf:citekey order="45">ManticoreGitHub</bcf:citekey>
+    <bcf:citekey order="46">SmarTestGitHub</bcf:citekey>
+    <bcf:citekey order="47">NET</bcf:citekey>
+    <bcf:citekey order="48">Bitcoin</bcf:citekey>
+    <bcf:citekey order="49">Ethereum</bcf:citekey>
+    <bcf:citekey order="50">Aku</bcf:citekey>
+    <bcf:citekey order="51">CoverProtocol</bcf:citekey>
+    <bcf:citekey order="52">CoverProtocolPostMortem</bcf:citekey>
+    <bcf:citekey order="53">bZxProtocol</bcf:citekey>
+    <bcf:citekey order="54">XSurgeWeb</bcf:citekey>
+    <bcf:citekey order="55">XSurgeBNB</bcf:citekey>
+    <bcf:citekey order="56">FlashCoin</bcf:citekey>
+    <bcf:citekey order="57">FlashCloud</bcf:citekey>
+    <bcf:citekey order="58">UraniumPM</bcf:citekey>
+    <bcf:citekey order="59">UraniumTech</bcf:citekey>
+    <bcf:citekey order="60">BurgerSwap</bcf:citekey>
+    <bcf:citekey order="61">SmarTest</bcf:citekey>
+    <bcf:citekey order="62">VeriSmart</bcf:citekey>
+    <bcf:citekey order="63">ManticorePaper</bcf:citekey>
+    <bcf:citekey order="64">CertoraDocumentation</bcf:citekey>
+    <bcf:citekey order="65">Echidna</bcf:citekey>
+    <bcf:citekey order="66">SolcVerify</bcf:citekey>
+    <bcf:citekey order="67">SolcVerify_2</bcf:citekey>
+    <bcf:citekey order="68">SolcVerify_3</bcf:citekey>
+    <bcf:citekey order="69">Slither</bcf:citekey>
+    <bcf:citekey order="70">SlitherGitHub</bcf:citekey>
+    <bcf:citekey order="71">Mythril</bcf:citekey>
+    <bcf:citekey order="72">SWCRegistry</bcf:citekey>
+    <bcf:citekey order="73">ManticoreGitHub</bcf:citekey>
+    <bcf:citekey order="74">SmarTestGitHub</bcf:citekey>
+    <bcf:citekey order="75">NET</bcf:citekey>
+  </bcf:section>
+  <!-- SORTING TEMPLATES -->
+  <bcf:sortingtemplate name="nty">
+    <bcf:sort order="1">
+      <bcf:sortitem order="1">presort</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="2" final="1">
+      <bcf:sortitem order="1">sortkey</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="3">
+      <bcf:sortitem order="1">sortname</bcf:sortitem>
+      <bcf:sortitem order="2">author</bcf:sortitem>
+      <bcf:sortitem order="3">editor</bcf:sortitem>
+      <bcf:sortitem order="4">translator</bcf:sortitem>
+      <bcf:sortitem order="5">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="6">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="4">
+      <bcf:sortitem order="1">sorttitle</bcf:sortitem>
+      <bcf:sortitem order="2">title</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="5">
+      <bcf:sortitem order="1">sortyear</bcf:sortitem>
+      <bcf:sortitem order="2">year</bcf:sortitem>
+    </bcf:sort>
+    <bcf:sort order="6">
+      <bcf:sortitem order="1">volume</bcf:sortitem>
+      <bcf:sortitem literal="1" order="2">0</bcf:sortitem>
+    </bcf:sort>
+  </bcf:sortingtemplate>
+  <!-- DATALISTS -->
+  <bcf:datalist section="0"
+                name="nty/global//global/global"
+                type="entry"
+                sortingtemplatename="nty"
+                sortingnamekeytemplatename="global"
+                labelprefix=""
+                uniquenametemplatename="global"
+                labelalphanametemplatename="global">
+  </bcf:datalist>
+</bcf:controlfile>

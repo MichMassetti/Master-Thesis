@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.25)  27 JUL 2022 15:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021) (preloaded format=pdflatex 2022.3.25)  27 JUL 2022 15:56
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1465,4 +1465,204 @@ chapter 3.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/b/n' aliased to
 (Font)              `T1/SourceSansPro-TLF/bold/n' on input line 122.
 LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/bold/n' will be
-(Font)              scaled to s
+(Font)              scaled to size 13.24796pt on input line 122.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/sb/n' aliased to
+(Font)              `T1/SourceSansPro-TLF/semibold/n' on input line 122.
+LaTeX Font Info:    Font shape `T1/SourceSansPro-TLF/semibold/n' will be
+(Font)              scaled to size 13.24796pt on input line 122.
+Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on input line 148.
+LaTeX Font Info:    Trying to load font information for T1+fvm on input line 148.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/bera/t1fvm.fd
+File: t1fvm.fd 2004/09/07 scalable font definitions for T1/fvm.
+)
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 9.35999pt on input line 148.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `fvm' (encoding: T1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+LaTeX Font Info:    Font shape `T1/fvm/m/n' will be
+(Font)              scaled to size 7.79999pt on input line 148.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 149.
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 6.0pt on input line 149.
+LaTeX Font Info:    Font shape `T1/fvm/b/n' will be
+(Font)              scaled to size 7.79999pt on input line 149.
+ [6] [7] [8] [9] [10] [11] [12]
+Underfull \vbox (badness 3690) has occurred while \output is active []
+
+ [13] [14]
+LaTeX Font Info:    Trying to load font information for TS1+fvm on input line 564.
+ (/usr/local/texlive/2021/texmf-dist/tex/latex/bera/ts1fvm.fd
+File: ts1fvm.fd 2004/09/07 scalable font definitions for TS1/fvm.
+)
+LaTeX Font Info:    Font shape `TS1/fvm/m/n' will be
+(Font)              scaled to size 7.79999pt on input line 564.
+Package microtype Info: Loading generic protrusion settings for font family
+(microtype)             `fvm' (encoding: TS1).
+(microtype)             For optimal results, create family-specific settings.
+(microtype)             See the microtype manual for details.
+ [15] [16] [17] [18] [19]
+Overfull \hbox (7.70157pt too wide) in paragraph at lines 807--812
+[]\T1/LinuxLibertineT-TLF/m/n/12 (-20) The user.amountWithBonus in-creases by adding the _bonusAmount. The user.rewardDebt
+ []
+
+
+Overfull \hbox (160.09653pt too wide) in paragraph at lines 807--812
+\T1/LinuxLibertineT-TLF/m/n/12 (-20) is cal-cu-lated by the end of the func-tion, with user.rewardDebt = user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12).
+ []
+
+[20]
+Overfull \hbox (15.87846pt too wide) in paragraph at lines 879--885
+\T1/LinuxLibertineT-TLF/m/n/12 (-20) the equa-tion be-comes pend-ing = user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12).
+ []
+
+[21] [22] [23]
+Underfull \vbox (badness 6876) has occurred while \output is active []
+
+ [24] [25]
+Underfull \vbox (badness 1442) has occurred while \output is active []
+
+ [26] [27] [28
+
+
+]
+chapter 4.
+
+Overfull \hbox (35.04968pt too wide) in paragraph at lines 1143--1153
+[][] 
+ []
+
+[29] [30]
+<logos/ManticoreArchitecture.pdf, id=999, 685.56125pt x 314.17375pt>
+File: logos/ManticoreArchitecture.pdf Graphic file (type pdf)
+<use logos/ManticoreArchitecture.pdf>
+Package pdftex.def Info: logos/ManticoreArchitecture.pdf  used on input line 1268.
+(pdftex.def)             Requested size: 369.88582pt x 169.51227pt.
+ [31] [32 <./logos/ManticoreArchitecture.pdf>]
+<logos/CelestialArchitecture.png, id=1047, 636.9396pt x 286.671pt>
+File: logos/CelestialArchitecture.png Graphic file (type png)
+<use logos/CelestialArchitecture.png>
+Package pdftex.def Info: logos/CelestialArchitecture.png  used on input line 1329.
+(pdftex.def)             Requested size: 369.88582pt x 166.47487pt.
+ [33 <./logos/CelestialArchitecture.png>]
+Underfull \vbox (badness 1009) has occurred while \output is active []
+
+ [34]
+<logos/echidna.png, id=1091, 1549.79pt x 399.4925pt>
+File: logos/echidna.png Graphic file (type png)
+<use logos/echidna.png>
+Package pdftex.def Info: logos/echidna.png  used on input line 1417.
+(pdftex.def)             Requested size: 284.52756pt x 73.33804pt.
+ [35 <./logos/echidna.png>]
+
+Class scrbook Warning: `\caption' outside float.
+(scrbook)              Seems you are using `\caption' outside a float.
+(scrbook)              Maybe you are using a package that uses `\@makecaption'
+(scrbook)              without setting `\@captype' before.
+(scrbook)              Because I cannot detect the caption type, I'm using
+(scrbook)              the empty one. on input line 1443.
+
+[36]
+
+Class scrbook Warning: `\caption' outside float.
+(scrbook)              Seems you are using `\caption' outside a float.
+(scrbook)              Maybe you are using a package that uses `\@makecaption'
+(scrbook)              without setting `\@captype' before.
+(scrbook)              Because I cannot detect the caption type, I'm using
+(scrbook)              the empty one. on input line 1508.
+
+[37] [38] [39] [40
+
+
+]
+chapter 5.
+[41] [42]) (./sections/evaluation.tex [43] [44
+
+
+]
+chapter 6.
+[45] [46] [47] [48]
+Overfull \hbox (34.36583pt too wide) in paragraph at lines 250--264
+[][] 
+ []
+
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 10.0pt on input line 273.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 7.3pt on input line 273.
+LaTeX Font Info:    Font shape `OT1/LinuxLibertineT-TLF/m/n' will be
+(Font)              scaled to size 5.5pt on input line 273.
+
+Overfull \hbox (94.72545pt too wide) in paragraph at lines 307--324
+[][] 
+ []
+
+[49] [50]
+Overfull \hbox (120.64546pt too wide) in paragraph at lines 329--343
+[][] 
+ []
+
+[51] [52
+
+
+]
+chapter 7.
+[53]) (./sections/conclusion.tex
+Underfull \vbox (badness 1728) has occurred while \output is active []
+
+ [54] [55] [56
+
+
+]
+chapter 8.
+) [57] [58
+
+
+]
+chapter without number
+LaTeX Font Info:    Font shape `T1/LinuxLibertineT-TLF/m/sc' will be
+(Font)              scaled to size 12.0pt on input line 143.
+
+Overfull \hbox (26.33267pt too wide) in paragraph at lines 143--143
+\T1/LinuxLibertineT-TLF/m/it/12 (-20) ca-tion Plat-form\T1/LinuxLibertineT-TLF/m/n/12 (-20) . 2014. \T1/LinuxLibertineT-TLF/m/sc/12 (-20) url\T1/LinuxLibertineT-TLF/m/n/12 (-20) : []$\T1/fvm/m/n/12 https : / / ethereum . org / 669c9e2e2027310b6b3cdce6e1c52962 /
+ []
+
+
+Overfull \hbox (57.67215pt too wide) in paragraph at lines 143--143
+[]\T1/LinuxLibertineT-TLF/m/n/12 (-20) Á kos Ha-jdu and De-jan Jo-vanovi¢. \T1/LinuxLibertineT-TLF/m/it/12 (-20) Sol-cVer-ify\T1/LinuxLibertineT-TLF/m/n/12 (-20) . https://github.com/SRI-CSL/solidity/blob/0.7/SOLC-
+ []
+
+
+Package biblatex Warning: No driver for entry type 'unknown'.
+(biblatex)                Using fallback driver on input line 143.
+
+[59] (./sections/appendix.tex [60]
+chapter A.
+) [61
+
+
+] (./thesis.aux)
+Package rerunfilecheck Info: File `thesis.out' has not changed.
+(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
+Package logreq Info: Writing requests to 'thesis.run.xml'.
+\openout1 = `thesis.run.xml'.
+
+ ) 
+Here is how much of TeX's memory you used:
+ 36149 strings out of 478276
+ 689645 string characters out of 5846504
+ 1955916 words of memory out of 5000000
+ 52564 multiletter control sequences out of 15000+600000
+ 685061 words of font info for 395 fonts, out of 8000000 for 9000
+ 1143 hyphenation exceptions out of 8191
+ 122i,20n,120p,10698b,2550s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertine/lbtn_ncsllp.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertine/lbtn_naooyc.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/sourcesanspro/a_emkxm5.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertine/lbtn_7grukw.enc}{/usr/local/texlive/2021/texmf-dist/fonts/enc/dvips/libertine/lbtn_76gpa5.enc}</usr/local/texlive/2021/texmf-dist/fonts/type1/public/libertine/LinLibertineT.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/libertine/LinLibertineTI.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Bold.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/adobe/sourcesanspro/SourceSansPro-Semibold.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/bera/fvmb8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/bera/fvmr8a.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/public/txfonts/txsya.pfb></usr/local/texlive/2021/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
+Output written on thesis.pdf (75 pages, 693473 bytes).
+PDF statistics:
+ 1845 PDF objects out of 2073 (max. 8388607)
+ 1722 compressed objects within 18 object streams
+ 891 named destinations out of 1000 (max. 500000)
+ 88682 words of extra memory for PDF output out of 89155 (max. 10000000)
+
