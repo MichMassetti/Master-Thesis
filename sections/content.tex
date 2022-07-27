@@ -844,7 +844,8 @@ the “\_bonusAmount” is calculated with:
 
 The user.amountWithBonus increases by adding  the \_bonusAmount. 
 The user.rewardDebt is calculated by the end of the function, with
-user.rewardDebt = user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12).
+user.rewardDebt = 
+user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12).
 When the function returns, the  both variables are greater than 0.
 
 \begin{lstlisting} [language=Solidity, caption={Deposit Function}, label={lst:UraniumDeposit}]

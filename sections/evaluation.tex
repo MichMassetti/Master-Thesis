@@ -16,199 +16,285 @@
 
 \chapter{Evaluation}
 \label{ch:Evaluation}
+We collected the outcomes of the analyses of each tool. 
+In this chapter, we give a general overview of what we obtained, firstly,
+describing the result per tool, then comparing all of those.
 
+\section{Outcomes per Tool}
+This section encompasses the result for each tool. 
+We describe the eventual problems during the installation and running phase, moreover, we show per each tool the outcomes of each analysis having as objective a specific attack. 
 
+\paragraph{Manticore} The provided guide on Github (\cite{ManticoreGitHub}) gives a detailed guide for Manticore installation. 
+Since it is written in python, we used a virtual environment and we counted around nine libraries for dependences. The installation involved basically one command, since it was managed by "pip", python packet manager.
+We adopted its default running mode for the attacks involving reentrancy and "Manticore-verifier" running mode for the others. 
+
+The table \autoref*{tab:ManticoreTable} shows the outcames of the analyses per attack; the symbol "--" means that in that case we did not use the 
+"Manticore-verifier" running mode, but the default one, which it does not need a specification file.
+
+\begin{center}
 \begin{table*}
-    \footnotesize
-    \caption{Results}
-    \label{tab:Results}
-    \begin{tabular}{ccccl}
-    \toprule
-     Tools  & Constructive output &  Avg lines of code for test & Avg time (in seconds) \\
-      \midrule
-        Manticore & List of functions, warning for reentrancy  & 4  &  239,5 \\
-        SmartTest & List of Functions, Warnings  & 2,5 &  318  \\
-        Celestial & List of unproved tests & 21  &  4  \\
-        Echidna & List of functions  & 4  & 20,5 \\
-        Certora & List of functions   & 34 &  21  \\ 
-        SolcVerify & List of unrproved tests  &  18,5 &  10  \\
-        Mythril & List of functions,Warnings  & --  &  221  \\ 
-        Slither& Warnings & --  &  3,5  \\ 
-    \bottomrule
+    \caption{Manticore results}
+        \label{tab:ManticoreTable}
+        \begin{tabular}{ccl}
+        \toprule
+            Attacks & Line of Code for Specifications & Time of Execution (in seconds)\\
+            \midrule
+            Aku & 6 & 235  \\ 
+            Cover & 5 & 245\\ 
+            BZX  & 4 & 228\\ 
+            Spartan & 3 & 239 \\ 
+            Uranium  & 3 & 250\\ 
+            XSURGE & -- & 208\\ 
+            BurgerSwap  &  -- & 205 \\ 
+            DirtyDogs & -- & 203 \\
+        \bottomrule
     \end{tabular}
 \end{table*}
+\end{center}
 
-\begin{table*}
+\paragraph{SmarTest} SmarTest is built on top of VeriSmart tool, so it can be seen like a plug in of these one. Indeed, we run SmarTest as an option of VeriSmart, 
+as the Github guide explains (\cite{SmarTestGitHub}). The tool is built with OCalm, a program language, so we used for the installation "opam", which is a source-based package manager for it.
+An important dependency is Z3, its satisfiability modulo theories (SMT) solver. Solc, the compiler for solidity, is required.
+
+Since it has no the dector for reentrancy, as the table \autoref{tab:SmarTestTable} shows, the attacks involving it were discarded. We adopted just the "assertion" running mode, for obtating valuable results. 
+We fixed a running time threshold of 320 seconds.
+
+\begin{center}
+    \begin{table*}
+        \caption{SmarTest results}
+            \label{tab:SmarTestTable}
+            \begin{tabular}{ccl}
+            \toprule
+                Attacks & Line of Code for Specifications & Time of Execution\\
+                \midrule
+                Aku & 3 & 320 \\ 
+                Cover & 2 & 310\\ 
+                BZX  & 4 & 320 \\ 
+                Spartan & 2 & 320\\ 
+                Uranium  & 4 & 320 \\ 
+                XSURGE &  -- & -- \\  
+                BurgerSwap &  -- & --\\ 
+                DirtyDogs &  -- & -- \\
+            \bottomrule
+            \end{tabular}
+        \end{table*}
+\end{center}
+
+
+\paragraph{Celestial}
+
+\begin{center}
+    \begin{table*}
+        \caption{Celestial results}
+            \label{tab:CelestialTable}
+                \begin{tabular}{ccl}
+                \toprule
+                    Attacks & Line of Code for Specifications & Time of Execution\\
+                    \midrule
+                    Aku & 22 & 4\\ 
+                    Cover & --  & -- \\ 
+                    BZX & 15 & 3\\ 
+                    Spartan & 29 &  5\\ 
+                    Uranium & 18 &  5\\ 
+                    XSURGE &  -- & -- \\  
+                    BurgerSwap &  -- & --\\ 
+                    DirtyDogs &  -- & -- \\
+                \bottomrule
+                \end{tabular}
+    \end{table*}
+        
+\end{center}
+\paragraph{Echidna}
+
+\begin{center}
+    \begin{table*}    
+        \caption{Echidna results}
+        \label{tab:EchidnaTable}
+        \begin{tabular}{ccl}
+        \toprule
+            Attacks & Line of Code for Specifications & Time of Execution\\
+            \midrule
+            Aku & 7 & 22 \\ 
+            Cover & 5 & 7 \\ 
+            BZX & 3 & 33  \\ 
+            Spartan & 3 & 17   \\ 
+            Uranium & 3 & 24 \\ 
+            XSURGE & -- & -- \\  
+            BurgerSwap &  -- & --\\ 
+            DirtyDogs &  -- & -- \\
+        \bottomrule
+        \end{tabular}
+    \end{table*}
+\end{center}
+
+\paragraph{Certora}
+
+\begin{center}
+    \begin{table*}
+        \caption{Certora results; the time is provided by the sas application}
+            \label{tab:CertoraTable}
+            \begin{tabular}{ccl}
+            \toprule
+                Attacks & Line of Code for Specifications & Time of Execution\\
+                \midrule
+                Aku & 52 & 14 \\ 
+                Cover & 31 & 21 \\ 
+                BZX & 25  & 18 \\ 
+                Spartan & 20  & 25\\ 
+                Uranium & 42 & 27  \\ 
+                XSURGE &  -- & -- \\  
+                BurgerSwap &  -- & --\\ 
+                DirtyDogs &  -- & -- \\
+            \bottomrule
+            \end{tabular}
+    \end{table*}
+\end{center}
+
+\paragraph{SolcVerify}
+
+\begin{center}
+    \begin{table*}
+        \caption{SolcVerify results}
+                \label{tab:SolcVerifyTable}
+                \begin{tabular}{ccl}
+                \toprule
+                    Attacks & Line of Code for Specifications & Time of Execution (seconds)\\
+                    \midrule
+                    Aku & 9 & 4 \\ 
+                    Cover & 13  & 5 \\ 
+                    BZX & 17  & 9  \\ 
+                    Spartan & 25 &  17 \\ 
+                    Uranium  &  23 & 9 \\ 
+                    XSURGE & 20 & 10 \\  
+                    BurgerSwap & 11 & 10  \\ 
+                    DirtyDogs &  30 &  14\\
+                \bottomrule
+        \end{tabular}
+    \end{table*}
     
-    \caption{Analyses Outocomes:    
-    \checkmark: Found vulenrablity, \xmark: False Positive, FN: False Negative, --: Discarded }
-    \label{tab:Attacks}
-    \begin{tabular}{ccccccccc}
-    \toprule
-     Tools  & Aku & Cover & BZX & Spartan & Uranium & XSURGE &  BurgerSwap & DirtyDogs\\
-      \midrule
-      Manticore & \xmark & \xmark & \checkmark & \checkmark & \xmark & \checkmark & \checkmark & \checkmark\\
-      SmartTest & \checkmark &   \xmark & \checkmark  & \xmark &\checkmark  & -- & -- & --  \\
-      Celestial & \checkmark & -- & \checkmark & \checkmark & \checkmark & -- & -- & --  \\
-      Echidna  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & -- & -- & -- \\
-      Certora & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & -- & -- & -- \\ 
-      SolcVerify & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark  & \checkmark \\
-      Slither & FN &\xmark  &\xmark & \xmark & \xmark & \checkmark & \checkmark & \checkmark \\ 
-      Mythril  & FN & FN & \xmark &\xmark & \xmark & \checkmark & \checkmark & \checkmark\\
-    \bottomrule
-    \end{tabular}
-\end{table*}
+\end{center}
+\paragraph{Mythril}
+
+\paragraph{Slither}
 
 
 
-\begin{table*}
-    \caption{User Expirience}
-    \label{tab:UX}
-    \begin{tabular}{ccl}
-    \toprule
-        Tools  &  User Expirience \\
-        \midrule
-        Manticore & Possibility to run in 2 modes, properties check and scanner  \\
-        SmartTest &  \\
-        Celestial & Articulated specification language, running in 2 steps, required multiple dependences \\
-        Echidna & Possibility to run in multple modes, but not scanner \\
-        Certora & SAS (nothing needed to be installed) \\ 
-        SolcVerify & Intuitive specification language made by annotations \\
-        Mythril  & Easy installationGood documentation and active community \\ 
-        Slither & Easy installation \\   
-    \bottomrule
-    \end{tabular}
-\end{table*}
-
-\begin{table*}
-    \caption{Certora results; the time is provided by the sas application}
-        \label{tab:CertoraTable}
-        \begin{tabular}{ccl}
-        \toprule
-            Attacks & Line of Code for Specifications & Time of Execution\\
-            \midrule
-            Aku & 52 & 14 \\ 
-            Cover & 31 & 21 \\ 
-            BZX & 25  & 18 \\ 
-            Spartan & 20  & 25\\ 
-            Uranium & 42 & 27  \\ 
-            XSURGE &  -- & -- \\  
-            BurgerSwap &  -- & --\\ 
-            DirtyDogs &  -- & -- \\
-        \bottomrule
-        \end{tabular}
-    \end{table*}
-\begin{table*}
-
-\caption{SolcVerify results}
-        \label{tab:SolcVerifyTable}
-        \begin{tabular}{ccl}
-        \toprule
-            Attacks & Line of Code for Specifications & Time of Execution (seconds)\\
-            \midrule
-            Aku & 9 & 4 \\ 
-            Cover & 13  & 5 \\ 
-            BZX & 17  & 9  \\ 
-            Spartan & 25 &  17 \\ 
-            Uranium  &  23 & 9 \\ 
-            XSURGE & 20 & 10 \\  
-            BurgerSwap & 11 & 10  \\ 
-            DirtyDogs &  30 &  14\\
-        \bottomrule
-        \end{tabular}
-\end{table*}
-
-\begin{table*}
-\caption{Celestial results}
-    \label{tab:CelestialTable}
-        \begin{tabular}{ccl}
-        \toprule
-            Attacks & Line of Code for Specifications & Time of Execution\\
-            \midrule
-            Aku & 22 & 4\\ 
-            Cover & --  & -- \\ 
-            BZX & 15 & 3\\ 
-            Spartan & 29 &  5\\ 
-            Uranium & 18 &  5\\ 
-            XSURGE &  -- & -- \\  
-            BurgerSwap &  -- & --\\ 
-            DirtyDogs &  -- & -- \\
-        \bottomrule
-        \end{tabular}
-    \end{table*}
-
-\begin{table*}    
-    \caption{Echidna results}
-    \label{tab:EchidnaTable}
-    \begin{tabular}{ccl}
-    \toprule
-        Attacks & Line of Code for Specifications & Time of Execution\\
-        \midrule
-        Aku & 7 & 22 \\ 
-        Cover & 5 & 7 \\ 
-        BZX & 3 & 33  \\ 
-        Spartan & 3 & 17   \\ 
-        Uranium & 3 & 24 \\ 
-        XSURGE & -- & -- \\  
-        BurgerSwap &  -- & --\\ 
-        DirtyDogs &  -- & -- \\
-    \bottomrule
-    \end{tabular}
-\end{table*}
-
-\begin{table*}
-\caption{Manticore results}
-    \label{tab:ManticoreTable}
-    \begin{tabular}{ccl}
-    \toprule
-        Attacks & Line of Code for Specifications & Time of Execution (in seconds)\\
-        \midrule
-        Aku & 6 & 235  \\ 
-        Cover & 5 & 245\\ 
-        BZX  & 4 & 228\\ 
-        Spartan & 3 & 239 \\ 
-        Uranium  & 3 & 250\\ 
-        XSURGE & -- & 208\\ 
-        BurgerSwap  &  -- & 205 \\ 
-        DirtyDogs & -- & 203 \\
-    \bottomrule
-    \end{tabular}
-\end{table*}
-
-\begin{table*}
-\caption{SmartTest results}
-    \label{tab:SmartTestTable}
-    \begin{tabular}{ccl}
-    \toprule
-        Attacks & Line of Code for Specifications & Time of Execution\\
-        \midrule
-        Aku & 3 & 320 \\ 
-        Cover & 2 & 310\\ 
-        BZX  & 4& 320 \\ 
-        Spartan &2 & 320\\ 
-        Uranium  &4 & 320 \\ 
-        XSURGE &  -- & -- \\  
-        BurgerSwap &  -- & --\\ 
-        DirtyDogs &  -- & -- \\
-    \bottomrule
-    \end{tabular}
-\end{table*}
-
-
-\section{Outcomes of the Analyses}
+\section{Comparison of Analyses}
 %% presenting the outcomes of single analyses, so description of the result 
 %% this subsection contains objective data, in the next one I add even my point of view
-In this section we list all the tool and we present their single 
+
+The first step was the collection of all the data from the analyses with the vulnerable smart contracts as objective. 
+In this part, we provide a technical comperison of the usage and result of the tools. 
+This section is struction in paragraphes, which deal with a specific aspecs.
+
+\paragraph{Installation} \autoref{tab:Installation} collects the info about the installation detalais per each tool. 
+We tested the tools in a linux eniveronoment, specifically Ubuntu 20.04, indeed we do not assure the proper functioning on other OSs.
+
+The running mode involves the way a tool can be run, we classify a tool with multiple running mode if its grammar effectivly change between different modes. For example echidna, it can be run in 
+test mode and in assertion one, in the first case it requires functions with boolean formulas, in the second case the solidity keyword "assertion" in the code.
+
+The external dependences embedde the exteranal elements, so we do not count the amount of libraries of the same language. All the tools require Solc, the solidity compiler. 
+The tools which gave us problem with the external dependences are Celestial and SolcVerify. The first one needs F* for running and we found many difficulties for its installation and for selecting its right version, 
+based on the tool and the system environment. On the other hand, the second one involves the usage of Boogie, an intermediate verification language, which requires .NET, (\cite{NET}), 
+which is an open source, cross-platform for building many kinds of applications mantained by Microsoft. 
+Its intallation took days for configure the compatible version with the local system and the required by the tool.
+
+Since Certora operates in Service as a Service (SaaS) mode, it is the most compatible tool, it requires to be connect to internet.
+
+\begin{center}
+    \begin{table*}
+        \caption{Installation}
+        \label{tab:Installation}
+        \begin{tabular}{ccccc}
+        \toprule
+            Tools  &  Running modes & Extenral Dependences & OS \\
+            \midrule
+            Manticore & 2 & 2 & Linux, OS X\\
+            SmartTest & 2 & 3 & Linux, OS X, Windows \\
+            Celestial & 1 & 3 & Linux, OS X\\
+            Echidna & 2 & 2 & Linux, OS X, Windows\\
+            Certora & 1 & -- & -- \\ 
+            SolcVerify & 1 & 4  &  Linux, OS X \\
+            Mythril  & 1 & 2  &  Linux, OS X \\ 
+            Slither & 1 & 2 & Linux, OS X, Windows \\   
+        \bottomrule
+        \end{tabular}
+    \end{table*}
+    \end{center}
+
+\paragraph{Outcomes} \autoref{tab:Results} has as rows the tools and as columns the real-world exploits. 
+It shows which tool was able to scan the specified vulnerability involved in the attacks.  The caption states the symbol we have used for the classification:
+\begin{itemize}
+    \item \checkmark states that the vulnerability was scanned;
+    \item \xmark means the tool was no able to detect it;
+    \item -- stands for "discarded", tha attack was not considered for architectural reason of the tool.
+\end{itemize}
 
 
-\paragraph{Manticore} 
-\paragraph{SmartTest}
-\paragraph{Celestial}
-\paragraph{Echidna}
-\paragraph{Certora}
-\paragraph{SolcVerify}
-\paragraph{Mythril}
-\paragraph{Slither}
+We can state that the tools with specifications could not detect reentrancy in most of the cases. We classify that case as discarded. 
+SolcVerify is the only one which could provide a result in all cases, moreover, it was the only tool which could detect correctly all the vulnerabilities we provided.
+
+Celestial could not analyse BZX exploit, 
+because it involved the keywords "storage" and "memory", which cannot be scanned by the tool. 
+
+The tools without specifications gave warning in most cases, which can be used as a hint for scanning the vulnerabilities. 
+
+Slither could not detect the exploits involving the logic of the program, moreover, it gives multiple warnings, which the developer took into count. 
+An example is BZX, which involves the estimation time comparison based on timestamp, but for the tool, a comperison timestamp based is always classified as dangerous.
+
+\begin{center}
+    \begin{table*}   
+        \caption{Analyses Outocomes per Attack:    
+        \checkmark: Found vulenrablity, \xmark: Not found vulnerability, --: Discarded }
+        \label{tab:Results}
+        \begin{tabular}{ccccccccc}
+        \toprule
+        Tools  & Aku & Cover & BZX & Spartan & Uranium & XSURGE &  BurgerSwap & DirtyDogs\\
+        \midrule
+        Manticore & \xmark & \xmark & \checkmark & \checkmark & \xmark & \checkmark & \checkmark & \checkmark\\
+        SmartTest & \checkmark &   \xmark & \checkmark  & \xmark &\checkmark  & -- & -- & --  \\
+        Celestial & \checkmark & -- & \checkmark & \checkmark & \checkmark & -- & -- & --  \\
+        Echidna  & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & -- & -- & -- \\
+        Certora & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & -- & -- & -- \\ 
+        SolcVerify & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark & \checkmark  & \checkmark \\
+        Slither & \xmark &\xmark  &\xmark & \xmark & \xmark & \checkmark & \checkmark & \checkmark \\ 
+        Mythril  & \xmark & \xmark & \xmark &\xmark & \xmark & \checkmark & \checkmark & \checkmark\\
+        \bottomrule
+        \end{tabular}
+    \end{table*}
+\end{center}
+
+\begin{center}
+    \begin{table*}
+        \footnotesize
+        \caption{Analyses Outcomes: 
+        LoF: List of functions, LoU: List of unproved tests, W: Warnings}
+        \label{tab:Outcomes}
+        \begin{tabular}{ccccc}
+        \toprule
+        Tools  & Constructive output &  Avg lines of code for test & Avg time (in seconds) \\
+        \midrule
+            Manticore & LoF, W  & 4  &  239,5 \\
+            SmartTest & LoF, W & 2,5 &  318  \\
+            Celestial & LoU & 21  &  4  \\
+            Echidna & LoF  & 4  & 20,5 \\
+            Certora & LoF   & 34 &  21  \\ 
+            SolcVerify & LoU  &  18,5 &  10  \\
+            Mythril & LoF, W  & --  &  221  \\ 
+            Slither& W & --  &  3,5  \\ 
+        \bottomrule
+        \end{tabular}
+    \end{table*}
+\end{center}
+\paragraph{Exploits with no reentrancy}
+
+\paragraph{Tools behavior} 
+
+
+
+
+
+
 
 \section{Weaknesses and Strenghts}
 %% What I wrote in the table 
@@ -222,12 +308,15 @@ We present the
     \toprule
         Tools  &  Weaknesses \& Drawbacks \\
         \midrule
-        Manticore & Reentrancy is not dectected by properties property based execution, very slow \\
+        Manticore & Reentrancy is not dectected by properties property 
+        based execution, very slow \\
         SmartTest & Reentrancy is not dectected, the analyses are slow \\
-        Celestial & External calls are not considered, keywords storage and memory are not recognized  \\
+        Celestial & External calls are not considered, keywords storage and 
+        memory are not recognized  \\
         Echidna &  Reentrancy is not dectected, no assetion mode for solidity 8\\
         Certora & Reentrancy is not dectected, not open-sources \\ 
-        SolcVerify & It just gives warning, it does not provide a list of transaction for breaking the given property\\
+        SolcVerify & It just gives warning, it does not provide a list of 
+        transaction for breaking the given property\\
         Mythril & Just flat contracts are allowed \\ 
         Slither & Scan is based on the grammar, great amount of false negative \\ 
     \bottomrule
@@ -253,15 +342,17 @@ We present the
         \end{tabular}
     \end{table*}
 
-\section{Tools with Specifications Strategies}
+\chapter{Discussion}
+\label{ch:Discussionn}
+In this chapter we discuss the obtained result and we give our personal point of view. 
+
+\section{Tools with Specifications}
 %% General Overview of the strategies 
 %% Comperison within the strategies 
 %% Personal ideas on their usage, how was the language and so on 
 The considered tools cover three main strategies for security analysis: fuzzing, symbolic execution and formal verification. 
 
-
-
-The following parametes deal with comparison within this subgroup we want to stess for having a deepen view of the comparison.
+The following paragraphes deal with comparison within this subgroup we want to stess for having a deepen view of the comparison and a last sub chapter for a general overview.
 
 \paragraph{Formal verification} 
 Formal verification is a very powerful security approach, intending to prove or unproved the given specification. 
@@ -284,6 +375,10 @@ Its specification language is described by its developers' group as "rule-based"
 The rule is composed of some function calls and it concludes with an assertion or more. The user is allowed to test a specific case, using "require" and the possibility to set up a proper environment. 
 The preconditions, in this case, are expressed using the Solidity keyword "require" in the rule.
 
+One of its strengths is the possibility to define the specifications we want to prove, without necessarily defining all the specifics for the rest of the functions.
+On the other hand,  with Celestial and SolcVerify, we provided the specifications for all the functions for letting the tools work properly. 
+Those could not prove the given properties, without the specifications for all the code.
+
 \paragraph{Different stategies, similar grammar}
 We considered two tools with similar grammar but implemented different analysis approaches: Manticore and Echidna. 
 In both of the cases, we provided functions containing a boolean formula, which the tools try to break. From the results, 
@@ -295,18 +390,22 @@ functions for breaking the rule. From our results, it is clear Echidna could obt
 
 
 
+\section{Customized and Non-specific Analyses} 
+The objectives of our analyses were smart contracts involved in real-world exploits. The attackers exploited a specific bug or lack of security in the logic of programs. 
 
-\section{Customized and Non-specific Analyses}
-%% Stressing the important of the specification for a real world case
-%% If used in the right context, they are effective 
-The objectives of our analyses were smart contracts involved in real-world exploits. The attackers exploited a specific bug or lack of security in the logic of programs. The specifications allowed the user to express the requirements of the program. These provide a customized analysis, its accuracy is demanded by the developer as well. Our work involved smart contracts with well-known vulnerabilities, but the definition of the properties is an indispensable and complex step.
+The specifications allowed the user to express the requirements of the program. These provide a customized analysis and 
+its accuracy is demanded by the developer as well. 
+Our work involved smart contracts with well-known vulnerabilities, but the definition of the properties is an indispensable and complex step.
 The tools without specification implement vulnerabilities detectors, which are stated in their paper. They have well-defined limitations, but strengths as well. These detect preconfigured vulnerabilities, so a warning can be run even if we expect that indeed the number of false negatives can be relevant.
 An example is Slither, which for every comparison of block time stamp give a warning. These warnings 
 
 Our results stress the impossibility of the tools without specification for the detection of specific vulnerabilities, but they could correctly detect the reentrancy cases. 
 On the other hand, the ones with specifications had problems in the reentrancy detection. The limitations of some of these involve the external calls. 
-SolcVerify was the only tool which could provide the possibility of reentrancy detection. Echidna, as Certora, developers specified the tools  can detect the reentrancy, in the case an attack is provided, 
+SolcVerify was the only tool which could provide the possibility of reentrancy detection. Echidna, as Certora, developers teams specified the tools  can detect the reentrancy, in the case an attack is provided, 
 but we think this approach can be useful for checking a possible attack rather than detection of vulnerabilities.
 
-Manticore could bridge this gap by adopting two different running modes.
+Manticore could bridge this gap by adopting two different running modes, so the user, knowing the limitation of each way of analyses, can combine those for obtaining a valuable result.
 
+
+\section{Combination of Tools}
+%% Use tools in combination
