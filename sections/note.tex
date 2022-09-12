@@ -1,0 +1,222 @@
+\chapter{Outcome for individual tools}
+\label{ch:Running}
+
+This chapter is moved in the next one, I keep now bc it contains the notes
+
+Fomal specifications, outcomes, time of running, no comparison, single description, outliers (performe very well or very baddly), 
+difficulties in the installation and running 
+
+
+Detalais regarding what I did for running the test, so for each tool I describe the setting for each scripts.
+\subsection{SmarTest}
+In some cases it takes to long so I added a timer of 320 with the setting 
+no reentrancy by definition 
+set up in exploit mode + assertion mode 
+About Aku it gives half of the result, it states that all the user has to be refunded, but the
+
+\subsection{Slither}
+AKU: it detects the presence of arbitrary call but it doesn't detect that can get stucked 
+Correct detection of all the reentrancy 
+Cover: warning about the comparison based on blocktimestamp 
+
+it has no capability for guess the other vulenrabilities 
+
+\subsection{Mythril}
+
+AkU: nada 
+Correct detection of all the reentrancy 
+Cover: warning about the comparison based on blocktimestamp 
+
+\subsection{SolcVerify}
+Notes:
+\begin{itemize}
+    \item inheritance allowed 
+    \item it worked well with the codes (Solidity Version 7)
+    \item the analysed files are still in solidity 
+    \item grammar language very intuitive 
+    \item it allwos even not flat contract 
+\end{itemize}
+It works better than Celestial 
+
+\subsection{Celestial}
+Notes:
+\begin{itemize}
+    \item no inheritance
+    \item no struct and no array as parameter in function 
+    \item total different language 
+    \item more grammar for the language 
+    \item A lot of grammar 
+    \item no address(this), it gives error in fstar
+    \item problem with internal functions , fstar could not find the identifier (BZX) 
+    \item not so clear which property is violeted  
+    \item no loop, neither invariant neither written
+\end{itemize}
+
+Uranium: false positive
+
+Spartan: it works good 
+
+bZX: about properties it worked properly, problem with internal functions 
+
+BurgerSwap \& DirtyDogs \& SurgeProcol: no reentrancty bc Calling external contracts are avoided.
+Contract Local Reasoning: Calling external contracts
+can lead to reentrant behavior where the external contract
+calls back into the caller, which is often difficult to reason
+about. CELESTIAL disallows such behaviors by checking for
+external callback freedom (ECF) [28], [42] which states that
+every contract execution that contains a reentrant callback is
+equivalent to some behavior with no reentrancy. When this
+property holds, it is sufficient to reason about non-reentrant
+
+Aku: it didn't work with the loop so rewrite the contract, but it worked 
+
+Cover Protocol: celestial doesn't recognize memory and storage keyword
+
+\subsection {Manticore}
+
+BurgerSwap \& DirtyDogs \& SurgeProcol: no reentrancy, bc it gives always a fake positive
+You can test the Reentrancy just with the tool without specification, runninng Manticore as Scanner 
+
+Spartan: worked well
+Uranium: fake positive
+
+Aku: Worked well , it sayes that the rule about claimProject is broken just if everybid is 1 
+
+Cover: doesn't work 
+\subsection {Echidna}
+Spartan: it worked correctly and it gave even the transaction oreder, tested with assertions and with test Function
+
+Aku: worked well , it found the correct sequence of transaction for block the contract 
+
+Uranium: it worked prorly, it gave the list of actions to do 
+
+Cover Protocol: worked good
+
+
+BZX: verified with the assertion but it woked proeprly
+
+
+
+\subsection{Manticore}
+
+\subsection{Certora}
+The time of execution is given by the application
+\subsection{Tool without Specifiction}
+Mytrhil and Slither 
+Slither super fast 
+Mythril in case i twas too slow we put a timer of 240 seconds
+A timer was add in python modifying the main caller file 
+
+\chapter {cOse}
+\subsection{Tools without specifications}
+\label{ToolsWithouSpecifications}
+\begin{table*}
+  \caption{Tools without Specifications}
+  \label{tab:Toolsee}
+  \begin{tabular}{cc}
+  \toprule
+    Tools Without Specification\\
+    \midrule
+    Slither \\
+    Mythril \\
+    SmarTest \\
+    Oyente  \\
+    \toprule
+    Tools With Specification\\
+    \midrule
+    Echidna \\
+    Manticore  \\
+    SolcVerify\\
+    \bottomrule
+ \end{tabular}
+\end{table*}
+
+\section{XSURGE on BSC Chain}   
+\label{sec:Exploits:XSURGE}
+The \citet{XSurgeWeb}'s whitepaper provides a presentation of the ecosystem.
+It is described as a great DeFi investing idea based on proprietary pricing algorithms embedded in the Surge Token Variants' contracts.
+Surge Token Variants each have their own Market Maker, allowing them to trade continuously and outlast both 
+centralised and decentralised exchanges. 
+The strategy is to reward long-term holding by increasing a
+holder's claim of the backing asset. Each Surge Token utilizes a built-in contract exchange system that renounces the need for
+a traditional liquidity pool. Both assets are stored within the contract itself, 
+rather than a liquidity pool pair of the backing asset to the
+token using a traditional market maker method for exchange and price calculation.
+
+\subsection{The explpoit}
+One of the Surge Token is SurgeBNB, the one which is my focus of analysis.
+\citet{XSurgeBNB} explains in deep how the attack to this contract occured. 
+The team claimed that the attacker had stolen \$5 million in SurgeBNB through a backdoor vulnerability.
+XSURGE stated that a potential security vulnerability in the SurgeBNB contract was discovered on August 16th.
+
+The attack is mabe by 4 main steps:
+\begin{enumerate}
+    \item the attacker borrow  10,000BNB through flash loans.
+    \item Use all the BNB to buy SURGE. According to the current price, 
+    the attacker can buy 1,896,594,328,449,690 SURGE
+    \item He calls the "sell" function, for selling the obtained SURGE.
+    \item The sale function alters the data after the transfer, and the transfer code has a reentrance vulnerability.
+    When the attack contract acquires BNB, the period before the SURGE contract's state changes 
+    (\refname{lst:SellSURGE}), the attack contract can use the reentrance 
+    vulnerability to purchase SURGE again.
+\end{enumerate}
+
+\begin{lstlisting} [language={Solidity},caption={Sell function of Surge (SURGE) token.}, label={lst:SellSURGE}]
+    function sell(uint256 tokenAmount) public nonReentrant returns (bool) {
+        ...
+        //The reentrancy 
+        (bool successful,) = payable(seller).call{value: amountBNB, gas: 40000}(""); 
+        if (successful) {
+            // subtract full amount from sender
+            _balances[seller] = _balances[seller].sub(tokenAmount, 'sender does not have this amount to sell');
+            // if successful, remove tokens from supply
+            _totalSupply = _totalSupply.sub(tokenAmount);
+        } else {
+            revert();
+        }
+        
+        return true;
+    }
+\end{lstlisting}
+
+
+The bnb Amount of the contract stays intact, and the total amount of SURGE tokens \texttt{totalSupply}  
+has not been updated, because the attack contract spends all of the BNB balance to acquire SURGE
+ each time (still remains the quantity before the sell).
+As a result, the price of token falls, allowing the attacker to purchase additional SURGE. 
+
+Repeating three times of Round 2 and Round 3 , the attacker accumulates a large amount of SURGE through reentry, and then sells all the SURGE to make a profit.
+
+At the end of this transaction, the attack contract sold 1,864,120,345,279,610,000 SURGE, 
+obtained 10327 BNB, and finally the profitable 297 BNB was sent to the attacker's address.
+
+The following are the modifications suggested by the Beosin technical team for this attack:
+\begin{itemize}
+    \item any transfer operation should be place after the state changes to avoid reentry assaults.
+    \item Instead of using "call. value," use transfer or send to transfer. 
+\end{itemize}
+
+\subsection{Properties}
+
+This exploit represents a typical case of reentrancy. 
+
+The attacker's strategy involves the function sell, which contains the bug, and then the function purchase. 
+After calling the first one and triggering the reentrancy, the malicious fallback implemented by the attacker uses the amount of money for buying more XSURGE tokens. 
+At the end of the selling process, the total supply should decrease the amount sold by the user.
+But since the attacker called the purchase, the variable is not updated as it was supposed to be. 
+Buying the same amount of sold tokens, the value would not change.
+
+We define the property as a postcondition,refered to the function sell(...), which states the variable \_totalSupply is decreased of the amount sold by the user, then tokenAmount.
+
+\begin{equation}
+    \begin{split}
+        \_totalSupply <=old\_value\_of(\_totalSupply)
+    \end{split}
+\end{equation}
+
+The properties can be even expressed like a an invariant, stating that the sum of the single balances cannot exceedes the variable \_totalSupply.
+\begin{equation}
+    \begin{split}
+        sum_of_uint(_balances) <= _totalSupply
+    \end{split}
+\end{equation}

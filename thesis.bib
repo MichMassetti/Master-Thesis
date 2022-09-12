@@ -43,7 +43,7 @@ url = {https://doi.org/10.1145/3395363.3404366},
 doi = {10.1145/3395363.3404366},
 abstract = {Ethereum smart contracts---autonomous programs that run on a blockchain---often control transactions of financial and intellectual property. Because of the critical role they play, smart contracts need complete, comprehensive, and effective test generation. This paper introduces an open-source smart contract fuzzer called Echidna that makes it easy to automatically generate tests to detect violations in assertions and custom properties. Echidna is easy to install and does not require a complex configuration or deployment of contracts to a local blockchain. It offers responsive feedback, captures many property violations, and its default settings are calibrated based on experimental data. To date, Echidna has been used in more than 10 large paid security audits, and feedback from those audits has driven the features and user experience of Echidna, both in terms of practical usability (e.g., smart contract frameworks like Truffle and Embark) and test generation strategies. Echidna aims to be good at finding real bugs in smart contracts, with minimal user effort and maximal speed.},
 booktitle = {Proceedings of the 29th ACM SIGSOFT International Symposium on Software Testing and Analysis},
-pages = {557–560},
+pages = {557-560},
 numpages = {4},
 keywords = {fuzzing, smart contracts, test generation},
 location = {Virtual Event, USA},
@@ -350,4 +350,180 @@ year = {2021}
   author={Microft},
   title={DotNet Documentation},
   year = {2020}
+}
+@misc{CoinGeko,
+  url={https://www.coingecko.com/},
+  author= {CoinGeko},
+  title={CoinGeko Web Site},
+  year={2020}
+}
+@InProceedings{Survey1,
+author={Tang, Xiangyan and Zhou, Ke and Cheng, Jieren and Li, Hui
+and Yuan, Yuming},
+editor={Sun, Xingming
+and Zhang, Xiaorui
+and Xia, Zhihua
+and Bertino, Elisa},
+title={The Vulnerabilities in Smart Contracts: A Survey},
+booktitle={Advances in Artificial Intelligence and Security},
+year={2021},
+publisher={Springer International Publishing},
+address={Cham},
+pages={177--190},
+abstract={Blockchain has attracted widespread attention since its inception and one of the special technologies is smart contracts. Smart contracts are programs on blockchain that act as trusted intermediary between the users and are widely used in variety of industry (e.g., IoT, supply chain management). Smart contracts can store or manipulate valuable assets which may cause huge economic losses. Unlike traditional computer programs, the code of a smart contract cannot be modified after it is deployed on the blockchain. Hence, the security analysis and vulnerability detection of the smart contract must be performed before its deployment. In this survey, we considered 15 security vulnerabilities in smart contracts and introduced the vulnerable areas and the causes of vulnerabilities. According to the methods used, we introduced the existing smart contract analysis methods and vulnerability detection tools from three aspects of static analysis, dynamic analysis and formal verification. Finally, by considering the analysis tools and security vulnerabilities, we found that a new attack cannot be detected by existing detection tools if the vulnerability without pre-defined. We recommend using machine learning methods to analyze smart contracts in combination with traditional program vulnerabilities, and find vulnerabilities that have not yet been discovered in smart contracts. In addition, many detection tools require too much resources or are too complex, so it is necessary to introduce new detection methods.},
+isbn={978-3-030-78621-2}
+}
+@INPROCEEDINGS{Survey2,
+
+  author={di Angelo, Monika and Salzer, Gernot},
+
+  booktitle={2019 IEEE International Conference on Decentralized Applications and Infrastructures (DAPPCON)}, 
+
+  title={A Survey of Tools for Analyzing Ethereum Smart Contracts}, 
+
+  year={2019},
+
+  volume={},
+
+  number={},
+
+  pages={69-78},
+
+  doi={10.1109/DAPPCON.2019.00018}
+}
+@misc{Survey3,
+  doi = {10.48550/ARXIV.2008.02712},
+  
+  url = {https://arxiv.org/abs/2008.02712},
+  
+  author = {Tolmach, Palina and Li, Yi and Lin, Shang-Wei and Liu, Yang and Li, Zengxiang},
+  
+  keywords = {Software Engineering (cs.SE), FOS: Computer and information sciences, FOS: Computer and information sciences},
+  
+  title = {A Survey of Smart Contract Formal Specification and Verification},
+  
+  publisher = {arXiv},
+  
+  year = {2020},
+  
+  copyright = {arXiv.org perpetual, non-exclusive license}
+}
+@ARTICLE{Survey4,  
+author={Sayeed, Sarwar and Marco-Gisbert, Hector and Caira, Tom},  
+journal={IEEE Access},   
+title={Smart Contract: Attacks and Protections},   
+year={2020},  
+volume={8},  
+pages={24416-24427},  
+doi={10.1109/ACCESS.2020.2970495}
+}
+
+@phdthesis{thesis, 
+ title={Systematic Review of Ethereum Smart Contract Security Vulnerabilities, Analysis Methods and Tools}, 
+ school={Technische Universität Wien}, 
+ author={Heidelind, Rameder}, 
+ year={2021}, 
+ pages={155}
+}
+
+@misc{OWASPFuzz,
+  title={Fuzzing},
+  url= {https://owasp.org/www-community/Fuzzing},
+  author={OWASP},
+  publisher={https://owasp.org/www-community}
+} 
+@incollection{FormalVerificationDef,
+title = {Chapter 2 - Basic formal verification algorithms},
+editor = {Erik Seligman and Tom Schubert and M V Achutha Kiran Kumar},
+booktitle = {Formal Verification},
+publisher = {Morgan Kaufmann},
+address = {Boston},
+pages = {23-47},
+year = {2015},
+isbn = {978-0-12-800727-3},
+doi = {https://doi.org/10.1016/B978-0-12-800727-3.00002-2},
+url = {https://www.sciencedirect.com/science/article/pii/B9780128007273000022},
+author = {Erik Seligman and Tom Schubert and M V Achutha Kiran Kumar},
+keywords = {Boolean logic, truth table, Binary Decision Diagram (BDD), Satisfiability (SAT), model checking, Boolean Constraint Propagation (BCP)},
+abstract = {In Chapter 2 we describe some of the basic algorithms used to develop practical formal verification tools. We start by reviewing basics of formal logic representations, showing how clever exploitation of symmetry can vastly simplify seemingly complex logic. Building on this, we discuss some concepts of verification and of Boolean algebra. We then introduce BDDs, an important data structure which was responsible for enabling the first generation of industrial-strength model checking tools. After this, we discuss the Satisfiability (SAT) problem, a core challenge of FV which was briefly introduced in the previous chapter. In addition, we provide a brief discussion of model checking concepts and some advanced SAT algorithms. By the end of this chapter, the reader should have a general sense of how FV tools work, so this knowledge can inform their usage in the real design and validation processes we discuss in the rest of the book.}
+}
+@article{SymbolicExecution,
+  author    = {Baldoni, Roberto and Coppa, Emilio and D'Elia, Daniele Cono and Demetrescu, Camil and Finocchi, Irene},
+  title     = {A Survey of Symbolic Execution Techniques},
+  journal   = {ACM Comput. Surv.},
+  volume    = {51},
+  number = {3},
+  articleno = {50},
+  publisher = {ACM},
+  address = {New York, NY, USA},
+  year = {2018}
+}
+@misc{DeFiDef,
+  title={Decentralised finance: a new unregulated non-bank system?},
+  url= {https://www.ecb.europa.eu/pub/financial-stability/macroprudential-bulletin/focus/2022/html/ecb.mpbu202207_focus1.en.html},
+  author={Alexandra Born},
+  publisher={European Central Bank}
+} 
+@misc{AMMDef,
+  title={What Is an Automated Market Maker (AMM)?},
+  url= {https://academy.binance.com/en/articles/what-is-an-automated-market-maker-amm},
+  author={Binance Academy},
+  publisher={Binance},
+  year={2020}
+} 
+@misc{NFTValue,
+  author       = {Dan Milmo},
+  howpublished = {The Guardian online},
+  title        = {NFTs market hits 22billions dollars as craze turns digital images into assets},
+  year         = {2021},
+  url          = {https://www.theguardian.com/technology/2021/dec/16/nfts-market-hits-22bn-as-craze-turns-digital-images-into-assets?CMP=Share_iOSApp_Other}
+}
+@misc{NFTDef,
+  author       = {Rakesh Sharma},
+  howpublished = {Investopedia},
+  title        = {Non-Fungible Token (NFT): What It Means and How It Works},
+  year         = {2022},
+  url          = {https://www.investopedia.com/non-fungible-tokens-nft-5115211},
+}
+@misc{LiquidityDef,
+  author       = {Binance Academy},
+  howpublished = {https://academy.binance.com},
+  title        = {Liquidity Explained},
+  year         = {2022},
+  url          = {https://academy.binance.com/en/articles/liquidity-explained},
+}
+@misc{SmartContractDef,
+  author       = {Nick Szabo},
+  title        = {Smart Contracts},
+  year         = {1994},
+  url          = {https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html},
+}
+@ARTICLE{BlockChain1,  
+author={Tschorsch, Florian and Scheuermann, Björn},  
+journal={IEEE Communications Surveys and Tutorials},   
+title={Bitcoin and Beyond: A Technical Survey on Decentralized Digital Currencies},   
+year={2016},  
+volume={18},  
+number={3}, 
+pages={2084-2123},  
+doi={10.1109/COMST.2016.2535718}
+}
+@misc{EthDocs,
+  author       = {Ethereum Foundation},
+  url          = {https://ethereum.org/en/developers/docs/},
+  title        = {Ethereum development documentation},
+  year         = {2022}
+}
+@Inbook{DLT,
+author="Sunyaev, Ali",
+title="Distributed Ledger Technology",
+bookTitle="Internet Computing: Principles of Distributed Systems and Emerging Internet-Based Technologies",
+year="2020",
+publisher="Springer International Publishing",
+address="Cham",
+pages="265--299",
+abstract="Distributed Ledger Technology (DLT) is one of the most promising innovations in the field of information technologies with the potential to change organization and collaboration in the economy, society, and industry. This chapter introduces the technical background and use cases of distributed ledger technology. It presents the major innovations originating from distributed ledger technology since the introduction of the blockchain concept. Furthermore, cryptocurrencies' historical background as a driver of fully decentralized distributed ledgers is outlined from their origins in the 1990s until the blockchain concept's introduction in 2009. DLT's technical principles are introduced to provide a sound understanding. Subsequently, the functioning of distributed ledger technology is illustrated by means of the Bitcoin blockchain example, which was the first fully decentralized cryptocurrency to not require a trusted authority (i.e., banks). Thereafter, smart contracts and the idea of decentralized applications are explained. Selected use cases for distributed ledger technology's application are subsequently discussed. This chapter concludes with a discussion of the prevailing challenges in the field of distributed ledger technology.",
+isbn="978-3-030-34957-8",
+doi="10.1007/978-3-030-34957-8_9",
+url="https://doi.org/10.1007/978-3-030-34957-8_9"
 }

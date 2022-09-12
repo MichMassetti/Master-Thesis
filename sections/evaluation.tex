@@ -16,18 +16,23 @@
 
 \chapter{Evaluation}
 \label{ch:Evaluation}
-We collected the outcomes of the analyses of each tool. 
-In this chapter, we give a general overview of what we obtained, firstly,
-describing the result per tool, then comparing all of those.
+This chapter covers the outcomes of the tools, basically, what we obtained from our experiments. 
+
+Firstly, we describe the individual outcomes per tool, providing details about the running of those, problem that we faced off during the installation and usage. 
+Then, we compare the tools based on these aspects, making subgroups due to their speifications.
 
 
 
-\section{Outcomes per Tool}
+%-----> TIPS: -practical experience about running, modifies of the  code, problem with solidity version 
+\section{Individual Outcomes per Tool}
 
------> TIPS: -practical experience about running, modifies of the  code, problem with solidity version 
-
-This section encompasses the result for each tool. 
 We describe the eventual problems during the installation and running phase, moreover, we show per each tool the outcomes of each analysis having as objective a specific attack. 
+Per each tool, a table expresses the number of written lines of code considering the specifications, we did not count the ones which were copied from the target smart contracts. 
+The second field deals with the execution time of the tool and the last one specifies if the vulnerability was effectively detected.
+
+The code of the exploits was modified to keep the vulnerable aspects, reproducing their logic, but the irrelevant parts were discarded.
+
+We kept the same simplified version of the smart contracts for all the tools.
 
 \paragraph{Manticore} The provided guide on Github (\cite{ManticoreGitHub}) gives a detailed guide for Manticore installation. 
 Since it is written in python, we used a virtual environment and we counted around nine libraries for dependences. The installation involved basically one command, since it was managed by "pip", python packet manager.
@@ -42,16 +47,16 @@ The table \autoref*{tab:ManticoreTable} shows the outcames of the analyses per a
         \label{tab:ManticoreTable}
         \begin{tabular}{cccc}
         \toprule
-            Attacks & Line of Code for Specifications & Time of Execution (in seconds) & Foud or Not Foud \\
+            Attacks & Lines of Code & Execution Time (seconds) & Foud, Not Foud\\
             \midrule
-            Aku & 6 & 235  &  \\ 
-            Cover & 5 & 245 & \\ 
-            BZX  & 4 & 228 & \\ 
-            Spartan & 3 & 239 & \\ 
-            Uranium  & 3 & 250& \\ 
-            XSURGE & -- & 208 & \\ 
-            BurgerSwap  &  -- & 205 &\\ 
-            DirtyDogs & -- & 203 &  \\
+            Aku & 6 & 235  & Not Found \\ 
+            Cover & 5 & 245 & Not Found \\ 
+            BZX  & 4 & 228 & Found \\ 
+            Spartan & 3 & 239 & Found \\ 
+            Uranium  & 3 & 250 & Not Found \\ 
+            XSURGE & -- & 208 & Found \\ 
+            BurgerSwap  &  -- & 205 & Found\\ 
+            DirtyDogs & -- & 203 & Found \\
         \bottomrule
     \end{tabular}
 \end{table*}
@@ -68,42 +73,47 @@ We fixed a running time threshold of 320 seconds.
     \begin{table*}
         \caption{SmarTest results}
             \label{tab:SmarTestTable}
-            \begin{tabular}{ccl}
+            \begin{tabular}{cccl}
             \toprule
-                Attacks & Line of Code for Specifications & Time of Execution\\
+                Attacks & Lines of Code & Execution Time (seconds) & Foud, Not Foud\\
                 \midrule
-                Aku & 3 & 320 \\ 
-                Cover & 2 & 310\\ 
-                BZX  & 4 & 320 \\ 
-                Spartan & 2 & 320\\ 
-                Uranium  & 4 & 320 \\ 
-                XSURGE &  -- & -- \\  
-                BurgerSwap &  -- & --\\ 
-                DirtyDogs &  -- & -- \\
+                Aku & 3 & 320 & Found \\ 
+                Cover & 2 & 310& Not Found\\ 
+                BZX  & 4 & 320 & Found\\ 
+                Spartan & 2 & 320& Not Found\\ 
+                Uranium  & 4 & 320 & Found \\ 
+                XSURGE &  -- & -- & Not Found \\  
+                BurgerSwap &  -- & -- & Not Found\\ 
+                DirtyDogs &  -- & -- & Not Found \\
             \bottomrule
             \end{tabular}
         \end{table*}
 \end{center}
 
 
-\paragraph{Celestial}
+\paragraph{Celestial} 
+Celestial is a tool which encompasses two main steps: the translation of the target smart contract in F* and then the running of the formal verification engine. 
+This is the tool that required the most amount of time for installation and usage. 
+It did not cover reentrancy attacks, so those exploits were discarded, moreover, it did not cover the keywords "storage" and "memory", 
+so the "Cover Protocol" exploit was discarded as well. 
+During the running, we used multiple versions of F* and in some cases (as with the "Uranium" exploit) the conversion was not correct so we adjusted the F* code to let it work. 
 
 \begin{center}
     \begin{table*}
         \caption{Celestial results}
             \label{tab:CelestialTable}
-                \begin{tabular}{ccl}
+                \begin{tabular}{cccl}
                 \toprule
-                    Attacks & Line of Code for Specifications & Time of Execution\\
+                    Attacks & Lines of Code & Execution Time (seconds) & Foud, Not Foud\\
                     \midrule
-                    Aku & 22 & 4\\ 
-                    Cover & --  & -- \\ 
-                    BZX & 15 & 3\\ 
-                    Spartan & 29 &  5\\ 
-                    Uranium & 18 &  5\\ 
-                    XSURGE &  -- & -- \\  
-                    BurgerSwap &  -- & --\\ 
-                    DirtyDogs &  -- & -- \\
+                    Aku & 22 & 4 & Found\\ 
+                    Cover & --  & -- & Not Found \\ 
+                    BZX & 15 & 3 & Found\\ 
+                    Spartan & 29 &  5 & Found \\ 
+                    Uranium & 18 &  5 & Found \\ 
+                    XSURGE &  -- & -- & Not Found \\  
+                    BurgerSwap &  -- & -- & Not Found\\ 
+                    DirtyDogs &  -- & -- & Not Found \\
                 \bottomrule
                 \end{tabular}
     \end{table*}
@@ -115,18 +125,18 @@ We fixed a running time threshold of 320 seconds.
     \begin{table*}    
         \caption{Echidna results}
         \label{tab:EchidnaTable}
-        \begin{tabular}{ccl}
+        \begin{tabular}{cccl}
         \toprule
-            Attacks & Line of Code for Specifications & Time of Execution\\
+            Attacks & Lines of Code & Execution Time (seconds) & Foud, Not Foud\\
             \midrule
-            Aku & 7 & 22 \\ 
-            Cover & 5 & 7 \\ 
-            BZX & 3 & 33  \\ 
-            Spartan & 3 & 17   \\ 
-            Uranium & 3 & 24 \\ 
-            XSURGE & -- & -- \\  
-            BurgerSwap &  -- & --\\ 
-            DirtyDogs &  -- & -- \\
+            Aku & 7 & 22 & Found\\ 
+            Cover & 5 & 7 & Found\\ 
+            BZX & 3 & 33 & Found \\ 
+            Spartan & 3 & 17 & Found  \\ 
+            Uranium & 3 & 24 & Found \\ 
+            XSURGE & -- & -- & Found \\  
+            BurgerSwap &  -- & -- & Found \\ 
+            DirtyDogs &  -- & -- & Found \\
         \bottomrule
         \end{tabular}
     \end{table*}
@@ -138,18 +148,18 @@ We fixed a running time threshold of 320 seconds.
     \begin{table*}
         \caption{Certora results; the time is provided by the sas application}
             \label{tab:CertoraTable}
-            \begin{tabular}{ccl}
+            \begin{tabular}{cccl}
             \toprule
-                Attacks & Line of Code for Specifications & Time of Execution\\
+                Attacks & Lines of Code & Execution Time (seconds) & Foud, Not Foud\\
                 \midrule
-                Aku & 52 & 14 \\ 
-                Cover & 31 & 21 \\ 
-                BZX & 25  & 18 \\ 
-                Spartan & 20  & 25\\ 
-                Uranium & 42 & 27  \\ 
-                XSURGE &  -- & -- \\  
-                BurgerSwap &  -- & --\\ 
-                DirtyDogs &  -- & -- \\
+                Aku & 52 & 14 & Found \\ 
+                Cover & 31 & 21 & Found\\ 
+                BZX & 25  & 18 & Found\\ 
+                Spartan & 20  & 25 & Found\\ 
+                Uranium & 42 & 27  & Found\\ 
+                XSURGE &  -- & -- & Found\\  
+                BurgerSwap &  -- & --& Found\\ 
+                DirtyDogs &  -- & -- & Found\\
             \bottomrule
             \end{tabular}
     \end{table*}
@@ -161,18 +171,18 @@ We fixed a running time threshold of 320 seconds.
     \begin{table*}
         \caption{SolcVerify results}
                 \label{tab:SolcVerifyTable}
-                \begin{tabular}{ccl}
+                \begin{tabular}{cccl}
                 \toprule
-                    Attacks & Line of Code for Specifications & Time of Execution (seconds)\\
+                    Attacks & Lines of Code & Execution Time (seconds) & Foud, Not Foud (seconds)\\
                     \midrule
-                    Aku & 9 & 4 \\ 
-                    Cover & 13  & 5 \\ 
-                    BZX & 17  & 9  \\ 
-                    Spartan & 25 &  17 \\ 
-                    Uranium  &  23 & 9 \\ 
-                    XSURGE & 20 & 10 \\  
-                    BurgerSwap & 11 & 10  \\ 
-                    DirtyDogs &  30 &  14\\
+                    Aku & 9 & 4 & Found \\ 
+                    Cover & 13  & 5 & Found \\ 
+                    BZX & 17  & 9  & Found \\ 
+                    Spartan & 25 &  17 & Found \\ 
+                    Uranium  &  23 & 9 & Found \\ 
+                    XSURGE & 20 & 10 & Found \\  
+                    BurgerSwap & 11 & 10  & Found \\ 
+                    DirtyDogs &  30 &  14& Found \\
                 \bottomrule
         \end{tabular}
     \end{table*}
@@ -184,7 +194,7 @@ We fixed a running time threshold of 320 seconds.
 
 
 
-\section{Comparison of Analyses}
+\section{General Comparison}
 %% presenting the outcomes of single analyses, so description of the result 
 %% this subsection contains objective data, in the next one I add even my point of view
 
@@ -291,6 +301,7 @@ An example is BZX, which involves the estimation time comparison based on timest
         \end{tabular}
     \end{table*}
 \end{center}
+
 \paragraph{Exploits with no reentrancy}
 
 \paragraph{Tools behavior} 
@@ -349,8 +360,9 @@ We present the
 
 \chapter{Discussion}
 \label{ch:Discussionn}
-In this chapter we discuss the obtained result and we give our personal point of view. 
 
+This chapter deals with the discussion of the obtained results. 
+We provide a comparison between the tools about their behaviour, including our point of view on user experience. 
 \section{Tools with Specifications}
 %% General Overview of the strategies 
 %% Comperison within the strategies 
@@ -412,5 +424,23 @@ but we think this approach can be useful for checking a possible attack rather t
 Manticore could bridge this gap by adopting two different running modes, so the user, knowing the limitation of each way of analyses, can combine those for obtaining a valuable result.
 
 
-\section{Combination of Tools}
+\section{Effective Analysis}
 %% Use tools in combination
+In our work, we took into consideration the selected tools individually. 
+
+We run those per time focusing on the results of each one, and providing a comparison between those.
+
+During an audit or a security report, a tester runs multiple of those for discovering vulnerabilities and bugs. 
+A better way to fulfil this goal is using a combination of those. 
+The tools without specification have, in our experience, an easier installation and usage. 
+Those can detect well know vulnerabilities and cover a predefined set of those. 
+Some of the tools with specifications we dealt with had some limitations regarding the external calls. For covering this limitation, 
+a combination of tools would be a solution. 
+As an example, we consider a tool without specification, Slither, and one with, Echidna. 
+This combination has an effective result in terms of the speed of the analyses and amount of vulnerabilities covered. Slither has the role of detecting basic issues and reentrancy, on the other hand, Echidna can be used for the detection of a vulnerable implementation of the logic of the program. Since the grammar of this is similar to Manticore, an efficient idea would be to implement the test using a tool, which implements a different logic for scanning. 
+Formal verification resulted powerful for scanning possible problems, but Solc-Verify and Celestial need to write down the specification for all the contracts for obtaining a consistent result. Certora, which is not open source, has the strength of having implemented libraries which are mostly used in real-world cases (as OpenZeppelin ones). A facilitating aspect of this tool is the possibility to write down the specifications on just the properties we want to check and the possibility to code those in terms of function. It allows for the definition of specific preconditions, adding conditions to the environment. 
+
+We suggest a combination of Echidna and Certora for covering the part of bugs in the logic and possible attacks, 
+plus Slither for verifying the absence of possible reentrancy. 
+We selected this combination based on the facility we had during the write down of the specifications and installation of those.
+

@@ -22,11 +22,11 @@
 
 Blockchain represents one of the most popular trends in finance and computer science, 
 during the last few years the number of investments has been growing exponentially. 
-According \href{https://www.coingecko.com/}{CoinGeko}, the crypto market's value is standing around \$2 trillion.
+According \citet{CoinGeko}, the crypto market's value is standing around \$2 trillion.
 
 Bitcoin can be considered the “father” of this technology. \citet{Bitcoin} depicted that in his paper, and in the early 2009,
 it was effectively launched and the cryptocurrency Bitcoin was introduced. 
-\href{https://www.coingecko.com/}{CoinGeko} states the value of Bitcoin around \$38,553.70 and its market capitalization more than  \$700 billions.
+\citet{CoinGeko} states the value of Bitcoin around \$38,553.70 and its market capitalization more than  \$700 billions.
 
 Many blockchain systems have been born with new capabilities, 
 which have allowed them to fit many different use cases. The first, which allowed developers to 
@@ -73,8 +73,59 @@ For answering the research question, we will give an answer to sub questions suc
 
 \section{Research Approach}
 \label{sec:Introduction:ResearchApproach}
-Simil exposè
+
+\begin{table*}
+  \caption{Gantt Chart Tasks}
+      \label{tab:GanttChartTasks}
+      \begin{tabular}{cc}
+      \toprule
+          Nunber & Name\\
+          \midrule
+          T1 & Research of real-world exploits and vulnerabilities\\
+          T2 & Tools selection\\
+          T3 & Installation and usage of tools \\
+          T4 & Implementation of smart contracts\\
+          T5 & Planning of the evaluation\\
+          T6 & Testing smart contracts with tools\\
+          T7 & Comparison of tools and properties \\
+          T8 & Writing the thesis \\
+      \bottomrule
+      \end{tabular}
+  \end{table*}
+
+\begin{ganttchart}{1}{24}
+  \gantttitle{Weekly Gantt Chart}{24} \\
+  \gantttitlelist{1,...,24}{1} \\
+  \ganttbar{T1}{1}{3} \\
+  \ganttlinkedbar{T2}{2}{4} \\
+  \ganttlinkedbar{T3}{4}{7} \\
+  \ganttlinkedbar{T4}{6}{9} \\
+  \ganttlinkedbar{T5}{9}{11} \\
+  \ganttlinkedbar{T6}{12}{18} \\
+  \ganttlinkedbar{T7}{18}{21} \\
+  \ganttlinkedbar{T8}{8}{24} \\
+\end{ganttchart}
 
 \section{Releted Works}
 \label{sec:Introduction:ReletedWorks}
-Simil exposè
+Nowadays multiple surveys and research work addressing smart contracts analysis have been published. 
+The ones, we are interested in, deal with the review of vulnerabilities, description and comparison of tools and definition of new techniques for scanning those. 
+
+The selection of tools was anticipated by research work. 
+We picked those starting from surveys and papers, 
+regarding comparison of multiple of tools, such as \citet{Survey1}, \citet{Survey2}, \citet{Survey3}, \citet{Survey4}, \citet{thesis}. 
+These give a general overview and provide a comparison based on different aspects: type of installation, running mode or type of analysis. 
+A taxonomy is provided as well. 
+For having a deeper knowledge of every single tool, we considered their papers and documentation.
+
+In this thesis, we involved automated tools (\citet{Slither}, \citet {Mythril}) and the ones which provide the possibility to run custom analysis.
+The first ones have as targets vulnerabilities such as reentrancy, overflow/underflow, and gas exceptions; but they do not provide functional correctness guarantees. 
+On the other hand, the second group try to solve these issues by providing more possibilities for modelling the analyses. 
+We involved tools adopting formal verification (\citet{CertoraDocumentation}, \citet{SolcVerify}, \citet{CelestialPaper}) and fuzzing (\citet{Echidna}). 
+
+The cited works provide a comparison based on well-known benchmarks, defined vulnerabilities or just on the specifications.
+This work provides a comparison between the considered tools as well, 
+but we tried to move a step forward.
+Rather than considering defined vulnerabilities, we consider real-world exploits, which have happened in the last couple of years.
+
+The considered tools are installed and run on real-world attacks; these are chosen based on their effectiveness and the damage, in terms of drawn liquidity.

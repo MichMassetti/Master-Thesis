@@ -19,6 +19,179 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{LiquidityDef}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=78fcbd93a890c6cfcbe89d0340520f8e}{%
+           family={Academy},
+           familyi={A\bibinitperiod},
+           given={Binance},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \strng{fullhash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \strng{bibnamehash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \strng{authorbibnamehash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \strng{authornamehash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \strng{authorfullhash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \field{extraname}{1}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{https://academy.binance.com}
+      \field{title}{Liquidity Explained}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://academy.binance.com/en/articles/liquidity-explained
+      \endverb
+      \verb{url}
+      \verb https://academy.binance.com/en/articles/liquidity-explained
+      \endverb
+    \endentry
+    \entry{AMMDef}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=78fcbd93a890c6cfcbe89d0340520f8e}{%
+           family={Academy},
+           familyi={A\bibinitperiod},
+           given={Binance},
+           giveni={B\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Binance}%
+      }
+      \strng{namehash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \strng{fullhash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \strng{bibnamehash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \strng{authorbibnamehash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \strng{authornamehash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \strng{authorfullhash}{78fcbd93a890c6cfcbe89d0340520f8e}
+      \field{extraname}{2}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{What Is an Automated Market Maker (AMM)?}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://academy.binance.com/en/articles/what-is-an-automated-market-maker-amm
+      \endverb
+      \verb{url}
+      \verb https://academy.binance.com/en/articles/what-is-an-automated-market-maker-amm
+      \endverb
+    \endentry
+    \entry{Survey2}{inproceedings}{}
+      \name{author}{2}{}{%
+        {{hash=f425e962d2e586b8c0fb9b5420b3012c}{%
+           family={Angelo},
+           familyi={A\bibinitperiod},
+           given={Monika},
+           giveni={M\bibinitperiod},
+           prefix={di},
+           prefixi={d\bibinitperiod}}}%
+        {{hash=cfc01e72a53130f0b40d1ef5887c64f0}{%
+           family={Salzer},
+           familyi={S\bibinitperiod},
+           given={Gernot},
+           giveni={G\bibinitperiod}}}%
+      }
+      \strng{namehash}{e20caad851cf65615f98ee2b06e12a08}
+      \strng{fullhash}{e20caad851cf65615f98ee2b06e12a08}
+      \strng{bibnamehash}{e20caad851cf65615f98ee2b06e12a08}
+      \strng{authorbibnamehash}{e20caad851cf65615f98ee2b06e12a08}
+      \strng{authornamehash}{e20caad851cf65615f98ee2b06e12a08}
+      \strng{authorfullhash}{e20caad851cf65615f98ee2b06e12a08}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{2019 IEEE International Conference on Decentralized Applications and Infrastructures (DAPPCON)}
+      \field{title}{A Survey of Tools for Analyzing Ethereum Smart Contracts}
+      \field{year}{2019}
+      \field{pages}{69\bibrangedash 78}
+      \range{pages}{10}
+      \verb{doi}
+      \verb 10.1109/DAPPCON.2019.00018
+      \endverb
+    \endentry
+    \entry{SymbolicExecution}{article}{}
+      \name{author}{5}{}{%
+        {{hash=22a28bd4c4375f650b7bc5ca7e1def0b}{%
+           family={Baldoni},
+           familyi={B\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+        {{hash=838313855b1318a89487737723f117a9}{%
+           family={Coppa},
+           familyi={C\bibinitperiod},
+           given={Emilio},
+           giveni={E\bibinitperiod}}}%
+        {{hash=15733f28f5b2f56920a80612e2344d89}{%
+           family={D'Elia},
+           familyi={D\bibinitperiod},
+           given={Daniele\bibnamedelima Cono},
+           giveni={D\bibinitperiod\bibinitdelim C\bibinitperiod}}}%
+        {{hash=0d818aa3e968cd8759e8d31211dc6382}{%
+           family={Demetrescu},
+           familyi={D\bibinitperiod},
+           given={Camil},
+           giveni={C\bibinitperiod}}}%
+        {{hash=988d2602b6318807e4481ff5c673bbd5}{%
+           family={Finocchi},
+           familyi={F\bibinitperiod},
+           given={Irene},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {New York, NY, USA}%
+      }
+      \list{publisher}{1}{%
+        {ACM}%
+      }
+      \strng{namehash}{e61bf9b5a1d08d8f9562b57211fe1ff7}
+      \strng{fullhash}{5ef0b297c6acf997e66cabfade4fc840}
+      \strng{bibnamehash}{e61bf9b5a1d08d8f9562b57211fe1ff7}
+      \strng{authorbibnamehash}{e61bf9b5a1d08d8f9562b57211fe1ff7}
+      \strng{authornamehash}{e61bf9b5a1d08d8f9562b57211fe1ff7}
+      \strng{authorfullhash}{5ef0b297c6acf997e66cabfade4fc840}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{ACM Comput. Surv.}
+      \field{number}{3}
+      \field{title}{A Survey of Symbolic Execution Techniques}
+      \field{volume}{51}
+      \field{year}{2018}
+    \endentry
+    \entry{DeFiDef}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=76a14fab3882703056cb311bee438f98}{%
+           family={Born},
+           familyi={B\bibinitperiod},
+           given={Alexandra},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {European Central Bank}%
+      }
+      \strng{namehash}{76a14fab3882703056cb311bee438f98}
+      \strng{fullhash}{76a14fab3882703056cb311bee438f98}
+      \strng{bibnamehash}{76a14fab3882703056cb311bee438f98}
+      \strng{authorbibnamehash}{76a14fab3882703056cb311bee438f98}
+      \strng{authornamehash}{76a14fab3882703056cb311bee438f98}
+      \strng{authorfullhash}{76a14fab3882703056cb311bee438f98}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Decentralised finance: a new unregulated non-bank system?}
+      \verb{urlraw}
+      \verb https://www.ecb.europa.eu/pub/financial-stability/macroprudential-bulletin/focus/2022/html/ecb.mpbu202207_focus1.en.html
+      \endverb
+      \verb{url}
+      \verb https://www.ecb.europa.eu/pub/financial-stability/macroprudential-bulletin/focus/2022/html/ecb.mpbu202207_focus1.en.html
+      \endverb
+    \endentry
     \entry{Ethereum}{misc}{}
       \name{author}{1}{}{%
         {{hash=850981945102d0f671b6762173c8988a}{%
@@ -84,6 +257,85 @@
       \endverb
       \verb{url}
       \verb https://docs.certora.com/en/latest/index.html
+      \endverb
+    \endentry
+    \entry{CoinGeko}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=caae5361ab83bd1e681df594c85accf7}{%
+           family={CoinGeko},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{caae5361ab83bd1e681df594c85accf7}
+      \strng{fullhash}{caae5361ab83bd1e681df594c85accf7}
+      \strng{bibnamehash}{caae5361ab83bd1e681df594c85accf7}
+      \strng{authorbibnamehash}{caae5361ab83bd1e681df594c85accf7}
+      \strng{authornamehash}{caae5361ab83bd1e681df594c85accf7}
+      \strng{authorfullhash}{caae5361ab83bd1e681df594c85accf7}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{CoinGeko Web Site}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.coingecko.com/
+      \endverb
+      \verb{url}
+      \verb https://www.coingecko.com/
+      \endverb
+    \endentry
+    \entry{CelestialPaper}{report}{}
+      \name{author}{5}{}{%
+        {{hash=273b634d1b7aeb3cba54717401e1f8af}{%
+           family={Dharanikota},
+           familyi={D\bibinitperiod},
+           given={Samvid},
+           giveni={S\bibinitperiod}}}%
+        {{hash=8570d35caa819d1859bb4e0ac7ba0bf1}{%
+           family={Mukherjee},
+           familyi={M\bibinitperiod},
+           given={Suvam},
+           giveni={S\bibinitperiod}}}%
+        {{hash=9d7d249c1effbfa9adf9c11bd435005d}{%
+           family={Bhardwaj},
+           familyi={B\bibinitperiod},
+           given={Chandrika},
+           giveni={C\bibinitperiod}}}%
+        {{hash=8d49ae7f95c4bbd006065b253724d1e2}{%
+           family={Rastogi},
+           familyi={R\bibinitperiod},
+           given={Aseem},
+           giveni={A\bibinitperiod}}}%
+        {{hash=19cc21879ace6ed5c1aa22d68a36116a}{%
+           family={Lal},
+           familyi={L\bibinitperiod},
+           given={Akash},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Microsoft}%
+      }
+      \strng{namehash}{5fd7b428b7e01077ad191c62a86a77af}
+      \strng{fullhash}{a2f570f1c098c42bfff9a56e16ec2cc1}
+      \strng{bibnamehash}{5fd7b428b7e01077ad191c62a86a77af}
+      \strng{authorbibnamehash}{5fd7b428b7e01077ad191c62a86a77af}
+      \strng{authornamehash}{5fd7b428b7e01077ad191c62a86a77af}
+      \strng{authorfullhash}{a2f570f1c098c42bfff9a56e16ec2cc1}
+      \field{sortinit}{D}
+      \field{sortinithash}{6f385f66841fb5e82009dc833c761848}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{We present Celestial, a framework for formally verifying smart contracts written in the Solidity language for the Ethereum blockchain.  Celestial allows programmers to write expressive functional specifications for their contracts. It translates the contracts and the specifications to F* to formally verify, against an F* model of the blockchain semantics, that the contracts meet their specifications. Once the verification succeeds, Celestial performs an erasure of the specifications to generate Solidity code for execution on the Ethereum blockchain. We use Celestial to verify several real-world smart contracts from different application domains such as tokens, digital wallets, and governance. Our experience shows that Celestial is a valuable tool for writing high-assurance smart contracts.}
+      \field{month}{12}
+      \field{number}{MSR-TR-2020-43}
+      \field{title}{Celestial: A Smart Contracts Verification Framework}
+      \field{type}{techreport}
+      \field{year}{2020}
+      \verb{urlraw}
+      \verb https://www.microsoft.com/en-us/research/publication/celestial-a-smart-contracts-verification-framework/
+      \endverb
+      \verb{url}
+      \verb https://www.microsoft.com/en-us/research/publication/celestial-a-smart-contracts-verification-framework/
       \endverb
     \endentry
     \entry{Slither}{inproceedings}{}
@@ -159,6 +411,33 @@
       \endverb
       \verb{url}
       \verb https://uraniumfinance.medium.com/uranium-post-mortem-v2-compensations-aac4b0706d7d
+      \endverb
+    \endentry
+    \entry{EthDocs}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=b8a91f4b79257e293f63378b4030938e}{%
+           family={Foundation},
+           familyi={F\bibinitperiod},
+           given={Ethereum},
+           giveni={E\bibinitperiod}}}%
+      }
+      \strng{namehash}{b8a91f4b79257e293f63378b4030938e}
+      \strng{fullhash}{b8a91f4b79257e293f63378b4030938e}
+      \strng{bibnamehash}{b8a91f4b79257e293f63378b4030938e}
+      \strng{authorbibnamehash}{b8a91f4b79257e293f63378b4030938e}
+      \strng{authornamehash}{b8a91f4b79257e293f63378b4030938e}
+      \strng{authorfullhash}{b8a91f4b79257e293f63378b4030938e}
+      \field{sortinit}{F}
+      \field{sortinithash}{2638baaa20439f1b5a8f80c6c08a13b4}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Ethereum development documentation}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://ethereum.org/en/developers/docs/
+      \endverb
+      \verb{url}
+      \verb https://ethereum.org/en/developers/docs/
       \endverb
     \endentry
     \entry{Echidna}{inproceedings}{}
@@ -360,6 +639,33 @@
       \verb https://bitcoinist.com/nft-project-aku-dreams-loses-34-million-to-smart-contract-flaw/
       \endverb
     \endentry
+    \entry{thesis}{thesis}{}
+      \name{author}{1}{}{%
+        {{hash=a874fa72cb10474315d30277a18840c1}{%
+           family={Heidelind},
+           familyi={H\bibinitperiod},
+           given={Rameder},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{institution}{1}{%
+        {Technische Universität Wien}%
+      }
+      \strng{namehash}{a874fa72cb10474315d30277a18840c1}
+      \strng{fullhash}{a874fa72cb10474315d30277a18840c1}
+      \strng{bibnamehash}{a874fa72cb10474315d30277a18840c1}
+      \strng{authorbibnamehash}{a874fa72cb10474315d30277a18840c1}
+      \strng{authornamehash}{a874fa72cb10474315d30277a18840c1}
+      \strng{authorfullhash}{a874fa72cb10474315d30277a18840c1}
+      \field{sortinit}{H}
+      \field{sortinithash}{23a3aa7c24e56cfa16945d55545109b5}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Systematic Review of Ethereum Smart Contract Security Vulnerabilities, Analysis Methods and Tools}
+      \field{type}{phdthesis}
+      \field{year}{2021}
+      \field{pages}{155}
+      \range{pages}{1}
+    \endentry
     \entry{FlashCoin}{misc}{}
       \name{author}{1}{}{%
         {{hash=19b2e28a19f3237b06f2debd9642ca9f}{%
@@ -443,6 +749,34 @@
       \endverb
       \verb{url}
       \verb https://docs.microsoft.com/en-us/dotnet/core/introduction
+      \endverb
+    \endentry
+    \entry{NFTValue}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=32706184b1d06d51ae7d5d48482832e2}{%
+           family={Milmo},
+           familyi={M\bibinitperiod},
+           given={Dan},
+           giveni={D\bibinitperiod}}}%
+      }
+      \strng{namehash}{32706184b1d06d51ae7d5d48482832e2}
+      \strng{fullhash}{32706184b1d06d51ae7d5d48482832e2}
+      \strng{bibnamehash}{32706184b1d06d51ae7d5d48482832e2}
+      \strng{authorbibnamehash}{32706184b1d06d51ae7d5d48482832e2}
+      \strng{authornamehash}{32706184b1d06d51ae7d5d48482832e2}
+      \strng{authorfullhash}{32706184b1d06d51ae7d5d48482832e2}
+      \field{sortinit}{M}
+      \field{sortinithash}{4625c616857f13d17ce56f7d4f97d451}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{The Guardian online}
+      \field{title}{NFTs market hits 22billions dollars as craze turns digital images into assets}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://www.theguardian.com/technology/2021/dec/16/nfts-market-hits-22bn-as-craze-turns-digital-images-into-assets?CMP=Share_iOSApp_Other
+      \endverb
+      \verb{url}
+      \verb https://www.theguardian.com/technology/2021/dec/16/nfts-market-hits-22bn-as-craze-turns-digital-images-into-assets?CMP=Share_iOSApp_Other
       \endverb
     \endentry
     \entry{ManticorePaper}{misc}{}
@@ -645,6 +979,33 @@
       \verb https://bitcoin.org/bitcoin.pdf
       \endverb
     \endentry
+    \entry{OWASPFuzz}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=24b95a7fdad5a850196cd87546dcc70b}{%
+           family={OWASP},
+           familyi={O\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {https://owasp.org/www-community}%
+      }
+      \strng{namehash}{24b95a7fdad5a850196cd87546dcc70b}
+      \strng{fullhash}{24b95a7fdad5a850196cd87546dcc70b}
+      \strng{bibnamehash}{24b95a7fdad5a850196cd87546dcc70b}
+      \strng{authorbibnamehash}{24b95a7fdad5a850196cd87546dcc70b}
+      \strng{authornamehash}{24b95a7fdad5a850196cd87546dcc70b}
+      \strng{authorfullhash}{24b95a7fdad5a850196cd87546dcc70b}
+      \field{sortinit}{O}
+      \field{sortinithash}{2cd7140a07aea5341f9e2771efe90aae}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Fuzzing}
+      \verb{urlraw}
+      \verb https://owasp.org/www-community/Fuzzing
+      \endverb
+      \verb{url}
+      \verb https://owasp.org/www-community/Fuzzing
+      \endverb
+    \endentry
     \entry{CoverProtocolPostMortem}{misc}{}
       \name{author}{1}{}{%
         {{hash=c16a18e438a049ef1777f1471273a6ce}{%
@@ -704,6 +1065,116 @@
       \verb{url}
       \verb https://defiprime.com/cover-protocol
       \endverb
+    \endentry
+    \entry{Survey4}{article}{}
+      \name{author}{3}{}{%
+        {{hash=09a1fb82079f43d166e0db8620d384c6}{%
+           family={Sayeed},
+           familyi={S\bibinitperiod},
+           given={Sarwar},
+           giveni={S\bibinitperiod}}}%
+        {{hash=b3d6939da41c4632201ede6e2ebeea1c}{%
+           family={Marco-Gisbert},
+           familyi={M\bibinithyphendelim G\bibinitperiod},
+           given={Hector},
+           giveni={H\bibinitperiod}}}%
+        {{hash=3e218144b1c5d74aea12cfe89f088668}{%
+           family={Caira},
+           familyi={C\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{428310516199aa8e333b105073c5dcd8}
+      \strng{fullhash}{428310516199aa8e333b105073c5dcd8}
+      \strng{bibnamehash}{428310516199aa8e333b105073c5dcd8}
+      \strng{authorbibnamehash}{428310516199aa8e333b105073c5dcd8}
+      \strng{authornamehash}{428310516199aa8e333b105073c5dcd8}
+      \strng{authorfullhash}{428310516199aa8e333b105073c5dcd8}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Access}
+      \field{title}{Smart Contract: Attacks and Protections}
+      \field{volume}{8}
+      \field{year}{2020}
+      \field{pages}{24416\bibrangedash 24427}
+      \range{pages}{12}
+      \verb{doi}
+      \verb 10.1109/ACCESS.2020.2970495
+      \endverb
+    \endentry
+    \entry{FormalVerificationDef}{incollection}{}
+      \name{author}{3}{}{%
+        {{hash=9faef4ea8429d7b73e63839b21187441}{%
+           family={Seligman},
+           familyi={S\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod}}}%
+        {{hash=e038fd9d688fda0590cd577497e7daa7}{%
+           family={Schubert},
+           familyi={S\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+        {{hash=a10d4d69b4b5bc0c21ab06cd1fc08bb2}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={M\bibnamedelima V\bibnamedelimb Achutha\bibnamedelima Kiran},
+           giveni={M\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \name{editor}{3}{}{%
+        {{hash=9faef4ea8429d7b73e63839b21187441}{%
+           family={Seligman},
+           familyi={S\bibinitperiod},
+           given={Erik},
+           giveni={E\bibinitperiod}}}%
+        {{hash=e038fd9d688fda0590cd577497e7daa7}{%
+           family={Schubert},
+           familyi={S\bibinitperiod},
+           given={Tom},
+           giveni={T\bibinitperiod}}}%
+        {{hash=a10d4d69b4b5bc0c21ab06cd1fc08bb2}{%
+           family={Kumar},
+           familyi={K\bibinitperiod},
+           given={M\bibnamedelima V\bibnamedelimb Achutha\bibnamedelima Kiran},
+           giveni={M\bibinitperiod\bibinitdelim V\bibinitperiod\bibinitdelim A\bibinitperiod\bibinitdelim K\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Boston}%
+      }
+      \list{publisher}{1}{%
+        {Morgan Kaufmann}%
+      }
+      \strng{namehash}{631f045f951b01c46ab32d1c2632a7fe}
+      \strng{fullhash}{631f045f951b01c46ab32d1c2632a7fe}
+      \strng{bibnamehash}{631f045f951b01c46ab32d1c2632a7fe}
+      \strng{authorbibnamehash}{631f045f951b01c46ab32d1c2632a7fe}
+      \strng{authornamehash}{631f045f951b01c46ab32d1c2632a7fe}
+      \strng{authorfullhash}{631f045f951b01c46ab32d1c2632a7fe}
+      \strng{editorbibnamehash}{631f045f951b01c46ab32d1c2632a7fe}
+      \strng{editornamehash}{631f045f951b01c46ab32d1c2632a7fe}
+      \strng{editorfullhash}{631f045f951b01c46ab32d1c2632a7fe}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{In Chapter 2 we describe some of the basic algorithms used to develop practical formal verification tools. We start by reviewing basics of formal logic representations, showing how clever exploitation of symmetry can vastly simplify seemingly complex logic. Building on this, we discuss some concepts of verification and of Boolean algebra. We then introduce BDDs, an important data structure which was responsible for enabling the first generation of industrial-strength model checking tools. After this, we discuss the Satisfiability (SAT) problem, a core challenge of FV which was briefly introduced in the previous chapter. In addition, we provide a brief discussion of model checking concepts and some advanced SAT algorithms. By the end of this chapter, the reader should have a general sense of how FV tools work, so this knowledge can inform their usage in the real design and validation processes we discuss in the rest of the book.}
+      \field{booktitle}{Formal Verification}
+      \field{isbn}{978-0-12-800727-3}
+      \field{title}{Chapter 2 - Basic formal verification algorithms}
+      \field{year}{2015}
+      \field{pages}{23\bibrangedash 47}
+      \range{pages}{25}
+      \verb{doi}
+      \verb https://doi.org/10.1016/B978-0-12-800727-3.00002-2
+      \endverb
+      \verb{urlraw}
+      \verb https://www.sciencedirect.com/science/article/pii/B9780128007273000022
+      \endverb
+      \verb{url}
+      \verb https://www.sciencedirect.com/science/article/pii/B9780128007273000022
+      \endverb
+      \keyw{Boolean logic,truth table,Binary Decision Diagram (BDD),Satisfiability (SAT),model checking,Boolean Constraint Propagation (BCP)}
     \endentry
     \entry{SlitherGitHub}{misc}{}
       \list{publisher}{1}{%
@@ -874,6 +1345,151 @@
       \endverb
       \keyw{Programming Languages (cs.PL),Cryptography and Security (cs.CR),FOS: Computer and information sciences,FOS: Computer and information sciences}
     \endentry
+    \entry{DLT}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=0aace507a7fdfb4a9fb1cef030e81151}{%
+           family={Sunyaev},
+           familyi={S\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \strng{fullhash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \strng{bibnamehash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \strng{authorbibnamehash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \strng{authornamehash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \strng{authorfullhash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Distributed Ledger Technology (DLT) is one of the most promising innovations in the field of information technologies with the potential to change organization and collaboration in the economy, society, and industry. This chapter introduces the technical background and use cases of distributed ledger technology. It presents the major innovations originating from distributed ledger technology since the introduction of the blockchain concept. Furthermore, cryptocurrencies' historical background as a driver of fully decentralized distributed ledgers is outlined from their origins in the 1990s until the blockchain concept's introduction in 2009. DLT's technical principles are introduced to provide a sound understanding. Subsequently, the functioning of distributed ledger technology is illustrated by means of the Bitcoin blockchain example, which was the first fully decentralized cryptocurrency to not require a trusted authority (i.e., banks). Thereafter, smart contracts and the idea of decentralized applications are explained. Selected use cases for distributed ledger technology's application are subsequently discussed. This chapter concludes with a discussion of the prevailing challenges in the field of distributed ledger technology.}
+      \field{booktitle}{Internet Computing: Principles of Distributed Systems and Emerging Internet-Based Technologies}
+      \field{isbn}{978-3-030-34957-8}
+      \field{title}{Distributed Ledger Technology}
+      \field{year}{2020}
+      \field{pages}{265\bibrangedash 299}
+      \range{pages}{35}
+      \verb{doi}
+      \verb 10.1007/978-3-030-34957-8_9
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-030-34957-8_9
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-030-34957-8_9
+      \endverb
+    \endentry
+    \entry{SmartContractDef}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=7a8fa37f931a316fe587067d55ea90fb}{%
+           family={Szabo},
+           familyi={S\bibinitperiod},
+           given={Nick},
+           giveni={N\bibinitperiod}}}%
+      }
+      \strng{namehash}{7a8fa37f931a316fe587067d55ea90fb}
+      \strng{fullhash}{7a8fa37f931a316fe587067d55ea90fb}
+      \strng{bibnamehash}{7a8fa37f931a316fe587067d55ea90fb}
+      \strng{authorbibnamehash}{7a8fa37f931a316fe587067d55ea90fb}
+      \strng{authornamehash}{7a8fa37f931a316fe587067d55ea90fb}
+      \strng{authorfullhash}{7a8fa37f931a316fe587067d55ea90fb}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Smart Contracts}
+      \field{year}{1994}
+      \verb{urlraw}
+      \verb https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html
+      \endverb
+      \verb{url}
+      \verb https://www.fon.hum.uva.nl/rob/Courses/InformationInSpeech/CDROM/Literature/LOTwinterschool2006/szabo.best.vwh.net/smart.contracts.html
+      \endverb
+    \endentry
+    \entry{Survey1}{inproceedings}{}
+      \name{author}{5}{}{%
+        {{hash=62896b8da67460a62a297300768b7c73}{%
+           family={Tang},
+           familyi={T\bibinitperiod},
+           given={Xiangyan},
+           giveni={X\bibinitperiod}}}%
+        {{hash=915fdad0e5bddd7be0499bfa49eaf797}{%
+           family={Zhou},
+           familyi={Z\bibinitperiod},
+           given={Ke},
+           giveni={K\bibinitperiod}}}%
+        {{hash=2f8f00c421a4e3000daeaf9ced8e5152}{%
+           family={Cheng},
+           familyi={C\bibinitperiod},
+           given={Jieren},
+           giveni={J\bibinitperiod}}}%
+        {{hash=9b1528d0b6c9bc88bfd8c569f290bcec}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Hui},
+           giveni={H\bibinitperiod}}}%
+        {{hash=1f5fae8132edd6e20492db250dab115b}{%
+           family={Yuan},
+           familyi={Y\bibinitperiod},
+           given={Yuming},
+           giveni={Y\bibinitperiod}}}%
+      }
+      \name{editor}{4}{}{%
+        {{hash=996c4669e90e55a3dde368108fb3a81f}{%
+           family={Sun},
+           familyi={S\bibinitperiod},
+           given={Xingming},
+           giveni={X\bibinitperiod}}}%
+        {{hash=2de27d5f9f33712df2862197178d44ba}{%
+           family={Zhang},
+           familyi={Z\bibinitperiod},
+           given={Xiaorui},
+           giveni={X\bibinitperiod}}}%
+        {{hash=adf2c7f917e305835e945ac5ae60b6a7}{%
+           family={Xia},
+           familyi={X\bibinitperiod},
+           given={Zhihua},
+           giveni={Z\bibinitperiod}}}%
+        {{hash=37b226e9d651bb9194fd7bb1cf3813cc}{%
+           family={Bertino},
+           familyi={B\bibinitperiod},
+           given={Elisa},
+           giveni={E\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{6946cbb9d54e6ccc7ad3c89977ef85f1}
+      \strng{fullhash}{5b692490d84b6c84595e232e515a4869}
+      \strng{bibnamehash}{6946cbb9d54e6ccc7ad3c89977ef85f1}
+      \strng{authorbibnamehash}{6946cbb9d54e6ccc7ad3c89977ef85f1}
+      \strng{authornamehash}{6946cbb9d54e6ccc7ad3c89977ef85f1}
+      \strng{authorfullhash}{5b692490d84b6c84595e232e515a4869}
+      \strng{editorbibnamehash}{6cc5ac294ce0ae317b38915b425dd643}
+      \strng{editornamehash}{6cc5ac294ce0ae317b38915b425dd643}
+      \strng{editorfullhash}{3b53be884b9c39ab5a6cf76a01b8ce33}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Blockchain has attracted widespread attention since its inception and one of the special technologies is smart contracts. Smart contracts are programs on blockchain that act as trusted intermediary between the users and are widely used in variety of industry (e.g., IoT, supply chain management). Smart contracts can store or manipulate valuable assets which may cause huge economic losses. Unlike traditional computer programs, the code of a smart contract cannot be modified after it is deployed on the blockchain. Hence, the security analysis and vulnerability detection of the smart contract must be performed before its deployment. In this survey, we considered 15 security vulnerabilities in smart contracts and introduced the vulnerable areas and the causes of vulnerabilities. According to the methods used, we introduced the existing smart contract analysis methods and vulnerability detection tools from three aspects of static analysis, dynamic analysis and formal verification. Finally, by considering the analysis tools and security vulnerabilities, we found that a new attack cannot be detected by existing detection tools if the vulnerability without pre-defined. We recommend using machine learning methods to analyze smart contracts in combination with traditional program vulnerabilities, and find vulnerabilities that have not yet been discovered in smart contracts. In addition, many detection tools require too much resources or are too complex, so it is necessary to introduce new detection methods.}
+      \field{booktitle}{Advances in Artificial Intelligence and Security}
+      \field{isbn}{978-3-030-78621-2}
+      \field{title}{The Vulnerabilities in Smart Contracts: A Survey}
+      \field{year}{2021}
+      \field{pages}{177\bibrangedash 190}
+      \range{pages}{14}
+    \endentry
     \entry{UraniumTech}{misc}{}
       \name{author}{1}{}{%
         {{hash=55dd7b96129603888aeb3c5fbe2cebe2}{%
@@ -902,6 +1518,94 @@
       \endverb
       \verb{url}
       \verb https://medium.com/shentu-foundation/uranium-finance-exploit-analysis-d135055d6a6a
+      \endverb
+    \endentry
+    \entry{Survey3}{misc}{}
+      \name{author}{5}{}{%
+        {{hash=116d29628cc8f35531370b24c7f8611c}{%
+           family={Tolmach},
+           familyi={T\bibinitperiod},
+           given={Palina},
+           giveni={P\bibinitperiod}}}%
+        {{hash=cf1f0547c288eff0857572dcc12516bb}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Yi},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=e42b78e99230c885b23c13313f2e45a8}{%
+           family={Lin},
+           familyi={L\bibinitperiod},
+           given={Shang-Wei},
+           giveni={S\bibinithyphendelim W\bibinitperiod}}}%
+        {{hash=621013bf54d3546375ad71f17f020b5b}{%
+           family={Liu},
+           familyi={L\bibinitperiod},
+           given={Yang},
+           giveni={Y\bibinitperiod}}}%
+        {{hash=d8d162fa09dc20fd5ad30526eed99709}{%
+           family={Li},
+           familyi={L\bibinitperiod},
+           given={Zengxiang},
+           giveni={Z\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {arXiv}%
+      }
+      \strng{namehash}{49306dfb3aa74739ee1027e7d805ab4e}
+      \strng{fullhash}{f5ce3d7374bd4e1b54fb9b4f816d124a}
+      \strng{bibnamehash}{49306dfb3aa74739ee1027e7d805ab4e}
+      \strng{authorbibnamehash}{49306dfb3aa74739ee1027e7d805ab4e}
+      \strng{authornamehash}{49306dfb3aa74739ee1027e7d805ab4e}
+      \strng{authorfullhash}{f5ce3d7374bd4e1b54fb9b4f816d124a}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{A Survey of Smart Contract Formal Specification and Verification}
+      \field{year}{2020}
+      \verb{doi}
+      \verb 10.48550/ARXIV.2008.02712
+      \endverb
+      \verb{urlraw}
+      \verb https://arxiv.org/abs/2008.02712
+      \endverb
+      \verb{url}
+      \verb https://arxiv.org/abs/2008.02712
+      \endverb
+      \keyw{Software Engineering (cs.SE),FOS: Computer and information sciences,FOS: Computer and information sciences}
+    \endentry
+    \entry{BlockChain1}{article}{}
+      \name{author}{2}{}{%
+        {{hash=fbd922a6d865ddfc3e2b420bd945a4c8}{%
+           family={Tschorsch},
+           familyi={T\bibinitperiod},
+           given={Florian},
+           giveni={F\bibinitperiod}}}%
+        {{hash=fbad8839c4fbcad80ef0899179d8f13b}{%
+           family={Scheuermann},
+           familyi={S\bibinitperiod},
+           given={Björn},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{ac5a8b4258376311917128aefcdf45f6}
+      \strng{fullhash}{ac5a8b4258376311917128aefcdf45f6}
+      \strng{bibnamehash}{ac5a8b4258376311917128aefcdf45f6}
+      \strng{authorbibnamehash}{ac5a8b4258376311917128aefcdf45f6}
+      \strng{authornamehash}{ac5a8b4258376311917128aefcdf45f6}
+      \strng{authorfullhash}{ac5a8b4258376311917128aefcdf45f6}
+      \field{sortinit}{T}
+      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{IEEE Communications Surveys and Tutorials}
+      \field{number}{3}
+      \field{title}{Bitcoin and Beyond: A Technical Survey on Decentralized Digital Currencies}
+      \field{volume}{18}
+      \field{year}{2016}
+      \field{pages}{2084\bibrangedash 2123}
+      \range{pages}{40}
+      \verb{doi}
+      \verb 10.1109/COMST.2016.2535718
       \endverb
     \endentry
     \entry{FlashCloud}{misc}{}
