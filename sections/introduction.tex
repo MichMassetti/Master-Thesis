@@ -48,63 +48,43 @@ its security and accordingly, many analysis tools were developed.
 These incorporate various strategies for performing the analyses, concerning the technical aspects of smart contracts, 
 so these would work differently according to the object of the analysis. 
 
-The topic that will be addressed in this thesis work is the analysis of smart contract security properties with the usage of tools. 
-It involves the understanding of smart contracts properties and the comparison between different tools, 
+The topic that will be addressed in this thesis work is the comparison of security analysis tools for smart contracts, based on real-world exploits, so attacks that have happend during the recent years. 
+It involves the understanding of smart contracts properties and the usage of different tools, 
 providing insight regarding their behaviours in different contexts.
 
+This thesis does not involve well-known benchmarks, with already studied vulnerabilities, 
+but the tests are smart contracts involved in attacks. 
+Our literature research faced off wide documentation of comparison of tools based on benchmarks and studied vulenrablities, 
+but this work's ambition is to verify the effectiveness of the tools in real cases.
 
 \section{Research Goals}
 \label{sec:Introduction:ResearchGoals}
-\paragraph{Research Question:} 
-How do state-of-the-art analysis tools for Ethereum/Solidity perform (on different classes of properties/bugs)?
+The main goal of this thesis can be summerized with the following research question:
 
-This thesis focuses on a dozen analytic tools, which we choose based on the type of analysis, trying to have a range of different typologies. 
-We will test them on vulnerable smart contracts and figure out which properties are violated during real-world exploits. 
-Furthermore, we are going to compare the tools, based on their performance, in particular, the criteria for the evaluation can cover the completeness of the analysis, the amount of found vulnerabilities and the number of false positive and negative. 
-The execution time is crucial too, we want to understand how long it takes for finding a vulnerability. The time for the configuration and the report interpretability are parameters for defining how much a tool is user friendly. 
+\emph{How do state-of-the-art analysis tools for Ethereum/Solidity perform on real-world exploits?}
 
-For answering the research question, we will give an answer to sub questions such as: 
+This thesis involeves eight security analysis tools, which are chosen based on a literature research and on the type of analysis, trying to have a range of different typologies.
+Their analysis targets are smart contracts, involved in attacks, which have occured in the last two years (since 2020). 
+One of the goals is the definition of the violated properties of those, understanding how they are computed by the attackers.
+
+Furthermore, the comparison of the tools is based on a range of factors, these are some of the parameters used for providing a comparison and an evaluation of the tools.
 \begin{itemize}
+  \item the performance;
+  \item the completeness of the analysis;
+  \item the facility of usage, involving the amount of code to be provided;
+  \item the amount of found vulnerabilities;
+  \item the report interpretability;  
+  \item the time for the configuration;
+\end{itemize}  
+
+The research question deals with different topics, which can be expressed with the following sub questions: 
+\begin{enumerate}
   \item How does a tool perform the analysis? 
-  \item Which properties are relevant for smart contract security?
-  \item Which ones have been violated in real-world exploits? 
-  \item Which tools detect which class of vulnerabilities? 
-\end{itemize}
+  \item Which properties have been violated in the real-world exploits? How did the attackers compute those exploits?
+  \item Which vulnerabilities are the tools able to detect? 
+  \item In which context a tool perform better?
+\end{enumerate}
 
-\section{Research Approach}
-\label{sec:Introduction:ResearchApproach}
-
-\begin{table*}
-  \caption{Gantt Chart Tasks}
-      \label{tab:GanttChartTasks}
-      \begin{tabular}{cc}
-      \toprule
-          Nunber & Name\\
-          \midrule
-          T1 & Research of real-world exploits and vulnerabilities\\
-          T2 & Tools selection\\
-          T3 & Installation and usage of tools \\
-          T4 & Implementation of smart contracts\\
-          T5 & Planning of the evaluation\\
-          T6 & Testing smart contracts with tools\\
-          T7 & Comparison of tools and properties \\
-          T8 & Writing the thesis \\
-      \bottomrule
-      \end{tabular}
-  \end{table*}
-
-\begin{ganttchart}{1}{24}
-  \gantttitle{Weekly Gantt Chart}{24} \\
-  \gantttitlelist{1,...,24}{1} \\
-  \ganttbar{T1}{1}{3} \\
-  \ganttlinkedbar{T2}{2}{4} \\
-  \ganttlinkedbar{T3}{4}{7} \\
-  \ganttlinkedbar{T4}{6}{9} \\
-  \ganttlinkedbar{T5}{9}{11} \\
-  \ganttlinkedbar{T6}{12}{18} \\
-  \ganttlinkedbar{T7}{18}{21} \\
-  \ganttlinkedbar{T8}{8}{24} \\
-\end{ganttchart}
 
 \section{Releted Works}
 \label{sec:Introduction:ReletedWorks}

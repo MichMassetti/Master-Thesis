@@ -220,3 +220,52 @@ The properties can be even expressed like a an invariant, stating that the sum o
         sum_of_uint(_balances) <= _totalSupply
     \end{split}
 \end{equation}
+
+
+\section{Weaknesses and Strenghts}
+%% What I wrote in the table 
+%% I talk even about the installation and the running phase
+
+We present the 
+\begin{table*}
+    \caption{Weaknesses \& Drawbacks}
+    \label{tab:Weaknesses}
+    \begin{tabular}{cc}
+    \toprule
+        Tools  &  Weaknesses \& Drawbacks \\
+        \midrule
+        Manticore & Reentrancy is not dectected by properties property 
+        based execution, very slow \\
+        SmartTest & Reentrancy is not dectected, the analyses are slow \\
+        Celestial & External calls are not considered, keywords storage and 
+        memory are not recognized  \\
+        Echidna &  Reentrancy is not dectected, no assetion mode for solidity 8\\
+        Certora & Reentrancy is not dectected, not open-sources \\ 
+        SolcVerify & It just gives warning, it does not provide a list of 
+        transaction for breaking the given property\\
+        Mythril & Just flat contracts are allowed \\ 
+        Slither & Scan is based on the grammar, great amount of false negative \\ 
+    \bottomrule
+    \end{tabular}
+\end{table*}
+
+\begin{center}
+\begin{table*}
+    \caption{Strenghts}
+        \label{tab:Strenghts}
+        \begin{tabular}{cl}
+        \toprule
+            Tools  &  Strenghts \\
+            \midrule
+            Manticore & One of the mode cover the properties breaking and the scanner one covers the reentrancy\\
+            SmartTest & It allows to set the specific vulenrability to look for  \\
+            Celestial & Possibility to use different version of F*  \\
+            Echidna &  Possibility to run in multiple modes with different grammar (tests or assertions breaking)\\
+            Certora & Implements the library of Openzeppelin, SAS no installation needed \\ 
+            SolcVerify & Intuitive specification language based on Annotations, it detects reentrancy\\
+            Mythril & It deos not need specification, but still provide list of functions for breaking detected vulnerability  \\ 
+            Slither & Easiest installation, fastest tool that we used \\ 
+        \bottomrule
+        \end{tabular}
+    \end{table*}
+\end{center}

@@ -246,6 +246,7 @@
       \strng{authorbibnamehash}{5e0de3d91d58578577795f205b919a95}
       \strng{authornamehash}{5e0de3d91d58578577795f205b919a95}
       \strng{authorfullhash}{5e0de3d91d58578577795f205b919a95}
+      \field{extraname}{1}
       \field{sortinit}{C}
       \field{sortinithash}{4d103a86280481745c9c897c925753c0}
       \field{labelnamesource}{author}
@@ -257,6 +258,32 @@
       \endverb
       \verb{url}
       \verb https://docs.certora.com/en/latest/index.html
+      \endverb
+    \endentry
+    \entry{CertoraGitHub}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=5e0de3d91d58578577795f205b919a95}{%
+           family={Certora},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{5e0de3d91d58578577795f205b919a95}
+      \strng{fullhash}{5e0de3d91d58578577795f205b919a95}
+      \strng{bibnamehash}{5e0de3d91d58578577795f205b919a95}
+      \strng{authorbibnamehash}{5e0de3d91d58578577795f205b919a95}
+      \strng{authornamehash}{5e0de3d91d58578577795f205b919a95}
+      \strng{authorfullhash}{5e0de3d91d58578577795f205b919a95}
+      \field{extraname}{2}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Certora Tutorials}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://github.com/Certora/Tutorials
+      \endverb
+      \verb{url}
+      \verb https://github.com/Certora/Tutorials
       \endverb
     \endentry
     \entry{CoinGeko}{misc}{}
@@ -1344,47 +1371,6 @@
       \verb https://arxiv.org/abs/1908.11227
       \endverb
       \keyw{Programming Languages (cs.PL),Cryptography and Security (cs.CR),FOS: Computer and information sciences,FOS: Computer and information sciences}
-    \endentry
-    \entry{DLT}{inbook}{}
-      \name{author}{1}{}{%
-        {{hash=0aace507a7fdfb4a9fb1cef030e81151}{%
-           family={Sunyaev},
-           familyi={S\bibinitperiod},
-           given={Ali},
-           giveni={A\bibinitperiod}}}%
-      }
-      \list{location}{1}{%
-        {Cham}%
-      }
-      \list{publisher}{1}{%
-        {Springer International Publishing}%
-      }
-      \strng{namehash}{0aace507a7fdfb4a9fb1cef030e81151}
-      \strng{fullhash}{0aace507a7fdfb4a9fb1cef030e81151}
-      \strng{bibnamehash}{0aace507a7fdfb4a9fb1cef030e81151}
-      \strng{authorbibnamehash}{0aace507a7fdfb4a9fb1cef030e81151}
-      \strng{authornamehash}{0aace507a7fdfb4a9fb1cef030e81151}
-      \strng{authorfullhash}{0aace507a7fdfb4a9fb1cef030e81151}
-      \field{sortinit}{S}
-      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{abstract}{Distributed Ledger Technology (DLT) is one of the most promising innovations in the field of information technologies with the potential to change organization and collaboration in the economy, society, and industry. This chapter introduces the technical background and use cases of distributed ledger technology. It presents the major innovations originating from distributed ledger technology since the introduction of the blockchain concept. Furthermore, cryptocurrencies' historical background as a driver of fully decentralized distributed ledgers is outlined from their origins in the 1990s until the blockchain concept's introduction in 2009. DLT's technical principles are introduced to provide a sound understanding. Subsequently, the functioning of distributed ledger technology is illustrated by means of the Bitcoin blockchain example, which was the first fully decentralized cryptocurrency to not require a trusted authority (i.e., banks). Thereafter, smart contracts and the idea of decentralized applications are explained. Selected use cases for distributed ledger technology's application are subsequently discussed. This chapter concludes with a discussion of the prevailing challenges in the field of distributed ledger technology.}
-      \field{booktitle}{Internet Computing: Principles of Distributed Systems and Emerging Internet-Based Technologies}
-      \field{isbn}{978-3-030-34957-8}
-      \field{title}{Distributed Ledger Technology}
-      \field{year}{2020}
-      \field{pages}{265\bibrangedash 299}
-      \range{pages}{35}
-      \verb{doi}
-      \verb 10.1007/978-3-030-34957-8_9
-      \endverb
-      \verb{urlraw}
-      \verb https://doi.org/10.1007/978-3-030-34957-8_9
-      \endverb
-      \verb{url}
-      \verb https://doi.org/10.1007/978-3-030-34957-8_9
-      \endverb
     \endentry
     \entry{SmartContractDef}{misc}{}
       \name{author}{1}{}{%
