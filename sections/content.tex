@@ -38,36 +38,38 @@
 }
 
 \lstset{style=mystyle}
-\chapter{Preliminary Knowledge}
+\chapter{Preliminaries}
 \label{ch:Backgroud}
 
 The following sections are addressed to provide an introduction to the topics involved in our work: Ethereum, smart contracts and security techniques.
 These are necessary for understanding specific security vulnerabilities and the results obtained from our experiment.
-We recommend the reading of this chapter for those who are not keen on these topics, otherwise, the reader can directly jump at \autoref{ch:Exploits}.
+We recommend reading this chapter for those who are not experts on these topics, otherwise, the reader can directly jump at \autoref{ch:Exploits}.
 
 \section{Blockchain}
 \label{sec:Backgroud:Bitcoin}
-This has the role of an umbrella term to encompass multi-party 
+Blockchain technology is a specific subset of the broader distributed ledger technology (DLT) universe that uses a 
+particular data structure consisting of a chain of hash-linked blocks of data.
+
+DLT has the role of an umbrella term to encompass multi-party 
 systems that operate in an environment with no central authority, despite parties who may be 
 unreliable or malicious. 
+A distributed ledger is described, by \citet{DLT}, as a type of distributed database that assumes the preseence of nodes with malicious intentions. 
+A distributed leger comprises a ladeger's multiple replications in which data can only be appended or read. 
+The ledger, by definition, store the records of transaction, which are final definitve and immutable. 
+A transaction is the smallest unit of a work process, which is one or more sequences of actions required to produce an outcome that complies with governing rules (\cite{Ledger}).
 
-Blockchain technology is a specific subset of the broader DLT universe that uses a 
-particular data structure consisting of a chain of hash-linked blocks of data.
-It contains a complete history of all data transfers and transactions that have ever taken place since it was first created.
-In other terms, it keeps a collection of records called blocks that are constantly expanding.
-One of the characteristics is the possibility to generate a digital currency. 
-A cryptocurrency can be defined as a  medium of exchange secured by the ledger.
-A medium of exchange is anything widely accepted as payment for goods and services, and a ledger is a data store that keeps track of transactions. 
-Most blockchains implement a cryptocurrency by design, called "native token". 
-For example, BTC is the native token of Bitcoin, ETH is the one of Ethereum, AVAX for Avalanche and so on.
+Blockchain contains a complete history of all data transfers and transactions that have ever taken place since it was first created.
+In other terms, it keeps a collection of records called blocks. 
+Any updates or validations on the network reflect in all copies simultaneously. 
+This guarantees the fidelity and security of data records and generates trust in the system, without the need for a centralized trusted third party.
+Blockchain networks rely on consensus algorithms to reach agreement among various distributed peers.
+
 \begin{figure}
     \centering
     \includegraphics[width=15cm]{logos/SimplifiedBlockChain.png}
     \caption{Simplified blockchain (image from \cite{BlockChain1}).}
     \label{fig:simpleBlockChain}
 \end{figure}
-
-
 
 The term "blockchain" is formed by "block", which refers to state and data being stored in consecutive groups, and "chain", 
 which describes how each block contains a cryptographic reference to its parent. 
@@ -80,11 +82,17 @@ which describes how each block contains a cryptographic reference to its parent.
 
 Blocks are collections of transactions that have the hash of the block before them in the chain.
 Because hashes are cryptographically formed from the block data, this connects blocks.
-Because any alteration to any historical block would render all subsequent hashes incorrect and cause everyone using the blockchain to become aware of it, this prevents fraud. 
-These concepts are shown, in a simplified version, by \autoref{fig:simpleBlockChain}. Each block contains a list of transactions and keeps the reference to the previous one.
+Because any alteration to any historical block would render all subsequent hashes incorrect and cause 
+everyone using the blockchain to become aware of it, this prevents fraud. 
+These concepts are shown, in a simplified version, by \autoref{fig:simpleBlockChain}. 
+Each block contains a list of transactions and keeps the reference to the previous one.
 
-Transactions (\autoref{fig:transactionsBlockChain}) are cryptographically signed instructions from accounts, which are entities, having the possibility to get a balance and interact with the system. 
-Accounts can be user-controlled or deployed as smart contracts.
+Transactions (\autoref{fig:transactionsBlockChain}) are cryptographically signed instructions from accounts, 
+which are entities, having the possibility to get a balance of native token and interact with the blockchain. 
+Accounts can be user-controlled or deployed as smart contracts. 
+An account, when it is enrolled in the system, receive a couple of keys: private and public one. 
+An asymmetric algorithm is implemented.
+A user is identified by the public key and can make a transaction by signing it with the private key.
 
 \begin{figure}
     \centering
@@ -103,16 +111,17 @@ The entities, the computers, taking part in the network, are called "nodes".
 Each of those must agree upon each new block and the chain as a whole. 
 Nodes guarantee that everyone using the blockchain has access to the same data.
 
-A consensus mechanism is required for blockchains to implement this distributed agreement. 
-It is fundamental for creating agreement within the network and defines 
-which node is the blocks are published in the network.
+A consensus mechanism (\cite{Consensus}) is required for blockchains to implement this distributed agreement. 
+It is a process in computer science used to achieve agreement on a single data value among distributed processes or systems. 
+A consensus algorithm secures the network and prevents unauthorized users from validating bad transactions. 
+The mechanism also enables agreement on the network even when no single node is in charge.
+Proof of work (PoW) and proof of stake (PoS) are the two mostly used ones.
 
 Following the survey of \citet{BlockChain1}, we can depict four main characteristics of this technology:
 \begin{itemize}
     \item decentralization, due to the absence of third party control;
     \item persistency, because of the impossibility to delete or modify any transactions once they are stored in the ledger;
-    \item anonimity, regarding the cryptographic aspects, such as the asymmetric key 
-    and the hashing of blockchain data;
+    \item anonymity, regarding the cryptographic aspects, a user is identified just by the asymmetric keys, public and private ones;    
     \item auditability, that means that each pear can verify by itself the validity of block verification.
 \end{itemize}
 
@@ -128,9 +137,13 @@ without being an actual party itself.
 Blockchains are the first platform that allow the actual realization of
 Smart Contracts without a trusted third party. 
 
-The main limitation of those deals with their their inability to send HTTP requests, which is defined by desing. 
+The main limitation of those deals with their their inability to interact with the "external world", 
+only the accounts can alterate the state of the systsem. 
+Since they have to be deterministic so that all nodes arrive at the same result for each computation. 
 Basically, those cannot get information about "real-world" events on their own. 
-The main reason of that involves that relying on external information could undermine consensus, which is vital for security and decentralisation. 
+The main reason of that involves that relying on external information could undermine consensus, 
+because external calls return different things at different times. 
+For example a smart contract is not allowed to send HTTP requests or interact with any APIs.
 
 More limitations are introduced based on the blockchain, for example Bitcoin does not allow an arbitrary behaviour and the size of those is reduced, 
 considering other systems, as Ethereum, which gives much more freedom of operability.
@@ -138,9 +151,9 @@ considering other systems, as Ethereum, which gives much more freedom of operabi
 \section{Ethereum}
 \label{sec:Backgroud:Ethereum}
 
-Ethereum is a blockchain that was developed by \citet{Ethereum}, presented in the 2014. 
-A single, canonical computer (known as the Ethereum Virtual Machine, or EVM) exists in the Ethereum universe, and everyone on the Ethereum network agrees on its current state.
-Every Ethereum node, or participant in the network, maintains a copy of this computer's state. 
+Ethereum is a blockchain that was developed by \citet{Ethereum}, presented in the 2014.  
+In the Ethereum universe, a single, canonical computer called "Ethereum Virtual Machine"  (EVM) represents the abstraction of the ledger, and everyone on the Ethereum network agrees on its current state.
+Every node, or participant in the network, maintains a copy of this computer's state. 
 \autoref{fig:evm} illustrates a schematic representation of the EVM, underlying the common aspects with a computer, as the stack, memory, the storace, the EVM code (the smart contracts) and so on.
 
 
@@ -153,7 +166,6 @@ Every Ethereum node, or participant in the network, maintains a copy of this com
 
 The blockchain, which is saved and approved by all nodes, keeps track of all transactions and the current state of the EVM. 
 Once a transaction is confirmed as genuine and put to the blockchain, cryptographic methods ensure that it cannot be changed later.
-The same procedures guarantee that every transaction is signed and carried out with the necessary "permissions." 
 
 Its consensus mechanism is defined as "proof of work" (PoW). 
 It provides the rules for defining the node, which gets the responsability, and consequent rewards, of collecting the 
@@ -161,26 +173,52 @@ transaction, generating a block and broadcast it.
 Those nodes are called "miners", due to the mining, which is the process of creating a block of transactions to be added to the Ethereum blockchain. 
 
 The nonce for a block must be discovered by miners through a rigorous process of trial and error under the proof-of-work protocol.
-A block can only be added to the chain if it has a valid nonce. 
-A miner who is frantically trying to make a block will continually run a dataset which can only be obtained by downloading and executing the entire chain—through a mathematical function.
-According to the block difficulty, the dataset is used to build a mixHash below a target nonce.
+A block can only be added to the chain if its nonce is correctly verified by the other peers. 
+The miners take part in this sort of race and the one who succedes to find the nonce, verified by the other peers, has the right to publish the block and get the rewards. 
 
-In other words, the miners take part in this sort of race and the one who succedes to find the nonce, has the right to publish the block and get the rewards. 
-Once generated, this is incredibly easy for other miners and clients to verify. 
-
-The rewards involve the native token of the Ethereum: ether (ETH). 
+The rewards are paid in the native token of the Ethereum: ether (ETH). 
 
 \subsection{Ethereum Smart Contracts: Solidity}
 \citet{EthDocs} describes its technology as a "Smart Contract Platform".
 Those are described as programs that run on the Ethereum blockchain. 
-Their codes and data are stored on the Ethereum blockchain, reachable at a specific address.
+Their EVM-bytecode and data are stored on the Ethereum blockchain, reachable at a specific address.
 Since they are Ethereum account, they have a balance and can be the target of transactions. 
 
 A smart contract can be created by anyone and released across the network.
 Technically, deploying a smart contract counts as a transaction, so the deployment has a cost, called "gas fees".
 Gas prices for contract deployment, however, are significantly higher. 
 
-Those can be written in multple program languages defined by the Ethereum Foundation, which states that Solidity is the mostly used and mantained.
+Smart contracts represent self-autonomous and self-verifying agents stored in the blockchain. 
+They are composed of fields and functions (\cite{SmartContracts}). 
+After their deployment in the blockchain, they have their unique address which the users/clients can use to interact with.
+An "external account" is controlled by public-private keys used by humans, on the other hand, a "contract account" is referred to those.
+\autoref{fig:evmRunning} gives an overview of the process of smart contracts running. 
+The code that is stored in the blockchain after deployment is a low-level stack-based bytecode
+(EVM bytecode) representative of the high-level programming language (e.g. Solidity) in which the smart contracts are initially written. 
+
+Smart contracts' behaviour is completely predictable and its code can be inspected by every
+node in the network because the bytecode is publicly available from the blockchain.
+\citet{EthDocs} explains that EVM executes as a stack machine, a virtual machine in which the primary interaction is moving 
+short-lived temporary values to and from a push down stack (\cite{stack}).
+Compiled smart contract bytecode executes as a number of EVM opcodes, 
+which perform standard stack operations like XOR, AND, ADD, SUB, etc. 
+
+During execution, the EVM maintains a transient memory (as a word-addressed byte array), which does not persist between transactions. 
+All the changes are applied to the system when the transaction is published, if it reverts, all the changes are lost.
+
+
+
+\begin{figure}
+    \centering
+    \includegraphics[width=13cm]{logos/EVMSCRunning.png}
+    \caption{Diagram of EVM runnnig smart contracts (image from \cite{EthDocs})}
+    \label{fig:evmRunning}
+\end{figure}
+
+
+\citet{EthDocs} states that Solidity is the most used and mantained high level program language for smart contracts.
+It is similar to the JavaScript programming language which after deploying is compiled into EVM bytecode. 
+
 Its main features can be summarized as follow: 
 \begin{itemize}
     \item object-oriented, high-level language for implementing smart contracts;
@@ -239,8 +277,6 @@ Liquidity is positively estimated when the asset's price is not easily affected 
 
 A liquidity pool can be seen as a big pile of funds that traders can trade against. 
 In return for providing liquidity to the protocol, LPs earn fees from the trades that happen in their pool.
-For example, considering a token named MiTHC and ETH, a pool is generated associating an amount of MiTHC with an amount of ETH. 
-If the pool is generated by 1000 MiTHC and 1 ETH, at that moment MiTHC value is 0.001 ETH.
 
 \paragraph{NFT} Non-fungible tokens (NFTs) are cryptographic assets on a blockchain with unique identification codes and metadata that distinguish them from each other.
 Unlike cryptocurrencies, they cannot be traded or exchanged at equivalency. 
@@ -256,8 +292,11 @@ In most cases, the code is published, otherwise, the bytecode is always availabl
 This aspect of the blockchain represents a drawback in sort of security because establishing security by layers scheme is impossible.
 The developers cannot configure any sort of VPN (Virtual Private Network), Firewall or IDS (intrusion detection system). 
 The attackers can directly access and interact with the smart contracts, consequently, the discovery of vulnerabilities turns into a challenge.
-To fulfil this goal, multiple techniques have been adopted.
 
+Smart contracts cannot be changed after deployment. 
+For this reason, discovering security issues is an even more severe challenge, and it is an argument for static analysis/formal methods that can be done before deployment.
+
+To fulfil this goal, multiple techniques have been adopted.
 
 \paragraph{Fuzzing} \citet{OWASPFuzz} gives us an overview of this Black Box software testing technique. 
 The goal is to find bugs, using random/semi-random data injection in an automated way. 
@@ -293,22 +332,22 @@ However, symbolic execution can avoid giving false warnings; any error found by 
 and a test case can illustrate that error.
 
 
-\chapter{Real world Exploits}
+\chapter{Exploits}
 \label{ch:Exploits}
 \begin{center}
 
 \begin{table*}
-    \caption{Real World Exploits}
+    \caption{Exploits}
         \label{tab:RealWorldExploits}
         \begin{tabular}{cc}
         \toprule
-            Real world exploits & Detail\\
+            Exploits & Detail\\
             \midrule
             Aku & Funds stuck in the contract\\
             Cover & Wrong update of data\\
             BZX & Wrong implementation of token\\
             Spartan &  Bad estimation of rewards in a pool\\
-            Uranium & Vulenrable depost withdraw process in a pool\\
+            Uranium & Vulnerable deposit withdraw process in a pool\\
             XSURGE &  Reentrancy in a token \\
             BurgerSwap &  Reentrancy in an AMM \\
             DirtyDogs &  Reentrancy in NFTs market \\
@@ -319,59 +358,67 @@ and a test case can illustrate that error.
 
 In this part of thesis, we introduce the objectives of the analyses: the real world exploits. 
 
-\autoref{tab:RealWorldExploits} illustrates the attacks involve in our work, providing a brief description of those. 
+\autoref{tab:RealWorldExploits} illustrates the attacks selected for this work, providing a brief description of those. 
 
-This thesis involves real-world exploits that have been occurred two years ago, so 2020. 
-Our choice tries to cover different aspects and the trend of the attacks. 
+This thesis involves real-world exploits over the last two years since 2020. 
+Our choice is based on the typology of the attack, how it was computed, and the target of those. 
 Our work involves the security of smart contracts, written in solidity. 
 For having a wider overview of the topic, 
 we decided not just to provide smart contracts deployed on the Ethereum chain, 
 but even the ones deployed on other chains, specifically Avalanche and Binance Smart Chain. 
 Those are still EVM-compatible blockchains. 
 
-The picked attacks deal with significant projects, involving a great number of investments. 
+The attacks have as target DeFi protocols. 
+These involve the usage of smart contracts for the implementation of financial products, involving the management and distribution of valuable assets.
+Because of the impossibility of security by layer, the implementation of a financial system with smart contracts turns into a challenge. 
+
+The selected exploits deal with projects, involving a great number of investments. 
 The targets of attacks are not just autonomous money makers (AMM), but they can involve the implementation of a token or NFTs.
+\citet{NFTValue} estimates the value of NFT market around \$100 billion.
+Nowadays, the word NFT is one of the most researched ones on Google and the other search engine.
+NFT's marketplaces manage the transaction behind these valuable markets. 
+
+The selection of those involves not just the consequent damage of the exploit, but the target and the vulnerability.
 
 This chapter contains a subsection per each exploits. The general structure of those involves the following three main points:
 \begin{enumerate}
     \item the explanation of the protocol;
     \item the exploit;
-    \item the properties involved in the attack.
+    \item the security properties of the smart contracts.
 \end{enumerate}
 The first part gives a general overview of the smart contract, 
 defining its goals and main characteristics. 
 After that, we present the exploit, illustrating the vulnerable part of the source code and the adopted strategies 
 by the attackers.
-In conclusion, the depicted properties are involved in drawing the specification of the tools.
-
-
+In conclusion, their properties are depicted. 
+These are elaborated per each tool for defining the specifications. 
+Per each tool, the specifications are written in terms of specifications, needed for the analysis.
 
 \section{\$34 Million stacks NFT Project Aku Dreams Smart Contract}
 \label{sec:Exploits:AkuDreams}
-\citet{NFTValue} estimates the value of NFT market around \$100 billion.
-Nowadays, the word NFT is one of the most researched ones on Google and the other search engine.
-NFT's marketplaces manage the transaction behind these valuable markets. 
-They are made by a frontend part, but even by a backend one which relies on the blockchain. 
-
+Akutars is an Ethereum-based NFT project developed by Aku Dreams. 
 \citet{Aku} reports Akutarts locked up \$34 million due to the faulty code of the smart contract.
-The launch contained 15,000  NFTs and was based on the Dutch auction. This strategy involves a descending price auction where an item begins at a set maximum price. 
+The launch contained 15,000  NFTs and was based on the Dutch auction. 
+This strategy involves a descending price auction where an item begins at a set maximum price. 
 The price is gradually lowered over a fixed time until a bid is placed that guarantees the bidder to purchase the item at the current price. 
-Anyone who paid the higher amount would get a refund.
-Unfortunately, the launch was corrupted, since the errors in the codes made the project open to exploits. 
-An attacker could block the withdrawals and refunds while attempting to highlight the vulnerabilities within the project.
+The smart contract had the role to keep the bids, paying in ETH, and then refunding the users who could not succeed in the auction.
+
+An attacker blocked refunds of all the bidders who could not get the NFTs. 
+
 
 \subsection{The exploit}
 \label{sec:AkuDreams:AkutarsExploit}
 
-The first part of the exploit involved the function processRefunds \autoref{lst:AkuDreamsProcessRefunds}.
+The first part of the exploit involved the function \texttt{processRefunds} \autoref{lst:AkuDreamsProcessRefunds}.
 
-This has the aim to refund the bid of the user who took part in the auction. 
+This has the aim to refund the bid of the user who took part in the auction and did not get the NFTs. 
 
-The problem relies on the for loop in line 11. 
-It loops on all over the users, who need to be refunded, estimating the number of tokens to send. 
+The for loop is the vulnerable part of the code.
+It loops on all over the users to be refunded, estimating the number of tokens to send. 
 Then, the amount is sent with the function call, which returns a boolean, based on the correct execution of the operation.
 
-The problem relies on the "require" in the loop. If one of the accounts could not receive the refund, the function would always revert.
+The \texttt{require} statement represents the vulnerability. 
+If one of the accounts could not receive the refund, the function would always revert.
 Since looping all over the users is a sequential operation, if the transaction just reverted when it reaches an item, it would never reach all the following items. 
 
 Therefore, a malicious user just implemented a smart contract which took part in the auction and reverted any time it received tokens.
@@ -394,14 +441,14 @@ Therefore, a malicious user just implemented a smart contract which took part in
       refundProgress = _refundProgress;
     }
 \end{lstlisting}
-The second part of the exploit is characterized by a bug in the logic, which could not allow the developer team to withdraw the project funds. 
-
-The function claimProjectFunds (\autoref{lst:AkuDreamsClaim}), is callable only by the owner of the contract due to the modifier onlyOwner, 
+ 
+This project contains another bug, which could not allow the developer team to withdraw the project funds.  
+The function \texttt{claimProjectFunds} (\autoref{lst:AkuDreamsClaim}) is callable only by the owner of the contract due to the modifier onlyOwner, 
 refunds the developers just when all the users are considered refunded. 
 
-The boolean condition, contained in the "require" in the first line of the function, is the heart of the problem. 
-The "require" compares the variable refundProgress, which takes track of the refund progress, 
-and totalBids.
+The statement of \texttt{require} deals with varibles which are badly estimated
+It compares the variable \texttt{refundProgress}, which takes track of the refund progress, 
+and \texttt{totalBids}.
 \begin{lstlisting} [language={Solidity},caption={Function for claiming the funds for the developers.}, label={lst:AkuDreamsClaim}]
     function claimProjectFunds() external onlyOwner {
         require(refundProgress >= totalBids, "Refunds not yet processed");
@@ -410,10 +457,12 @@ and totalBids.
         require(sent, "Failed to withdraw");        
     }
 \end{lstlisting}
+The function \texttt{\_bid}, called by a user for placing an arbitrary amount of bids, increases the variable \texttt{totalBids} based on the amount of placed bids.
 
-The variable totalBids is increased every time a bid is placed, regardless of the user who computed it, shown in \autoref{lst:AkuDreamsBid} .
-The user can call the function \_bid, for placing a bid, with an arbitrary amount of bids, but the variable refundProgress is increased every time a user is refunded. 
-Consequently, if a user bought more than one bid, the amount of refounded users would never be greater or equal to the number of placed bids.
+\autoref{lst:AkuDreamsBid} shows this process. 
+The variable \texttt{refundProgress} is increased every time a user is refunded. 
+Consequently, if a user bought more than one bid, the number of refunded users would never be greater or equal to the number of placed bids.
+
 \begin{lstlisting} [language={Solidity},caption={Function for users'bid}, label={lst:AkuDreamsBid}]
     function _bid(uint8 amount, uint256 value) internal {
         ...
@@ -442,28 +491,30 @@ Consequently, if a user bought more than one bid, the amount of refounded users 
 \subsection{Properties}
 The smart contract involves 2 main problems: the refunding of the users who placed the bids and the claim of the developers' rewards.
 
-The first property deals with the function processRefunds. 
+The first property deals with the function \texttt{processRefunds}. 
 It reverts every time because a malicious wallet, which cannot receive 
-any tokens triggering the "require". 
-We verify if the contract can always refund all the users.
-The property involves the sum of refunded wallets may be equal to the number of the counter which loops on the map containing the data. 
-It is a postcondition, so it is proven that all the users are refunded if the function does not revert, which means that the function does not 
-consider the case of error.
+any tokens triggering the \texttt{require}. 
+The propety involves the estimation of the refunding users.
+This can be expressed as the sum of refunded wallets equal to the counter of loops on the map containing all the users. 
+This is expressed by the following postcondition:
 
-The other property regards the function claimProjectFunds. 
-In the beginning, some requirements have to be fulfilled before the owner can obtain the rewards.
-Our focus is on the comparison between the counter of the refunded users and the total amount of bids.
-In this case, we use proof by contradiction. We check if the processRefunds variable is always less than the totalBids. 
-The property should be proofed if we consider that at least one user placed more than one bid.
-
-Property 1 postcondition refered to function processRefunds():
 \begin{equation}
-      \_refundProgress<=\_bidInd
+      \_refundProgress==\_counter_of_loops
 \end{equation}
 
-Property 2 precondition referred claimProjectFunds() : 
+If the property always succedes, that means the function reverts every time in case of an error, without considering an error in sending the transaction.
+
+
+The other property regards the function \texttt{claimProjectFunds}. 
+Our focus is on the comparison between the counter of the refunded users and the total amount of bids.
+The property is the comparison between the \texttt{processRefunds} and \texttt{totalBids}. 
+The aim is to check if it feasible that the number of refund users is less than number of placed bids. 
+The opposite of the boolean statement of the \texttt{require} of the function. 
+If the property is always realised, that means that there is no feasibility to execute the function. 
+
+The precondition is : 
 \begin{equation}
-    refundProgress >= totalBids
+    refundProgress < totalBids
 \end{equation}
 
 %Bug in the code, storage and memory solidity kew word 
@@ -471,12 +522,11 @@ Property 2 precondition referred claimProjectFunds() :
 \label{sec:Exploits:CoverProtocol}
 In December 2020, an exploit was abused on Cover Protocol's shield 
 mining contract. 
-The article shows the attackers could steal from project around \$ 4 million. 
-The target of the attack was the smart contract "Blacksmith.sol", available on GitHub \url{https://github.com/CoverProtocol/cover-token-mining/blob/main/contracts/Blacksmith.sol}, its bug had the result to mint more rewards to the miner. 
+The article shows the attackers stole from the project around \$ 4 million. 
+Its bug had the result to mint more rewards to the miner. 
 
-\citet{CoverProtocol} interviewed the co-founder of the Cover Protocol. In his article, he answers some questions about his project, regarding its functionality and road map. 
-It was an active protocol on the Ethereum blockchain; the developer deployed version 2,  because of the attack. 
-Cover Protocol is a peer-to-peer coverage marketplace that utilizes ERC-20 fungible tokens to allow permissionless and non-KYC coverage. 
+\citet{CoverProtocol} interview gives an overview of the project. 
+It is deployed on the Ethereum blockchain and is a peer-to-peer coverage marketplace that utilizes ERC-20 fungible tokens to allow permissionless and non-KYC coverage. 
 It can be described as a coverage provider.
 The attack affected the rewards contract, consequently, the token's one even.  
 The exploit can be classified under the name of "infinite mint".
@@ -532,11 +582,9 @@ As that variable is much smaller than the actual pool.accRewardsPerToken, the co
 The heart of the problem is the wrong management of the keywords storage and memory. 
 
 The consequence of this error is a miscalculation of the reward of the miner.
-The property relies on how it is computed. It is not estimated considering the correct parameters of the pool. 
+It is not estimated considering the correct parameters of the pool. 
 
-
-
-We compare the miner.rewardWriteoff with its recompute mathematical value with the updated parameters, 
+The property is a posticondition of the function \texttt{deposit}. It compares the variable \texttt{miner.rewardWriteoff} with its recomputed value with the updated parameters, 
 right after the execution of the function. 
 \begin{equation}
     \begin{split}
@@ -544,7 +592,7 @@ right after the execution of the function.
     \end{split}
 \end{equation}
 
-The post-condition involves the estimation of the reward inside the function deposit.
+The variable is not computed with the updated value of the pool: the reason for the exploits.
 
 \section{DeFi platform bZX: \$8M hack from one misplaced line of code}
 \label{sec:Exploits:bZX}
@@ -554,27 +602,28 @@ Anyone can use bZx to create apps that allow lenders, borrowers, and traders to 
 decentralised finance protocol.
 
 Protocols can be developed by bZx. 
-It is a powerful DeFi platform for tokenized lending and margin trading. 
+It is a DeFi platform for tokenized lending and margin trading. 
 iTokens (margin loans) represent the earn holders' interest on borrowed funds allowing margin positions to be composable.
 
-Unfortunately, it suffered a couple of attacks in February 2020.
+It suffered a couple of attacks in February 2020.
 The developers explained the attackers could drain different currencies,219,199.66 LINK, 4,502.70 Ether (ETH), 1,756,351.27 Tether (USDT), 
 1,412,048.48 USD Coin (USDC) and 667,988.62 Dai (DAI): a total of \$8 million in value. 
 
 \subsection{The exploit}
 
-The object of the attack was the contract named LoanTokenLogicStandard.
-It implements the logic behind the protocol.
-Every ERC20 token has a transferFrom() function, which has the aim to transfer the tokens.
+The object of the attack was the contract which implements the logic behind the protocol.
+Every ERC20 token has a \texttt{transferFrom} function, which has the aim to transfer the tokens.
 Calling this function allowed the attacker to create and transfer an iToken to hitself: his balance could be artificially increased.
 The duplicated tokens were then redeemed for their underlying collateral, 
 with the hackers now “owning” a much higher percentage of the pool, so the attacker could withdraw the tokens.
 
 \autoref{lst:internalTransferFrom} shows the vulnerable function. 
-The attacker called the function with the same amount of \_from and \_to. 
-Since both addresses refer to the same one, line 27 decreases the balance of the address, but then line 31 increases the same balance. 
-The problem relies on the estimating of the amount: it is the sum of the sent token and 
-a variable, which stored the value of the balance before the transaction.
+The attacker called that with the same address for \texttt{\_from} and \texttt{\_to} parameters. 
+
+The estimation of the balance is wrongly computed. Additional variables are used for computed those. 
+Firstly, the balnce of the sender is computed. 
+The balance of the receiver is computed as the sent amount and its value stored at the beginning in the additional variable. 
+Therefore, if the addresses are the same, the balance increases since it is computed as the sum of the sent amount and its previous value.
 
 \begin{lstlisting} [language={Solidity},caption={Vulnerable function in LoanTokenLogicStandard contract.}, label={lst:internalTransferFrom}]
     ... 
@@ -601,7 +650,7 @@ a variable, which stored the value of the balance before the transaction.
 
 The developers corrected the bug in few days. 
 It was enough switching some lines of code, in order to avoid the operations of sum and subtraction operate on the same balance. 
-The code \autoref{lst:CorrectinternalTransferFrom} presents some differences. The operations regarding the receiver's balance are computed, then those which deal with the sender's one (16-20).
+The code \autoref{lst:CorrectinternalTransferFrom} presents some differences. The operations regarding the receiver's balance are computed, then those which deal with the sender's one.
 \begin{lstlisting} [language={Solidity},caption={Corrected bug in LoanTokenLogicStandard contract.}, label={lst:CorrectinternalTransferFrom}]
     function _internalTransferFrom(address _from, address _to, uint256 _value, uint256 _allowanceAmount)
         internal
@@ -623,21 +672,16 @@ The code \autoref{lst:CorrectinternalTransferFrom} presents some differences. Th
 \end{lstlisting}
 
 \subsection{Properties}
-The function internalTransfer is the one which contains the bug abused by the attackers. 
-We define 2 properties for defining the correct execution of the function. Both of those are broken by 
-the wrong implemntation of the function.
+The function \texttt{internalTransfer} is the one which contains the bug abused by the attackers. 
 
-The first one is a post-condition. It involves the correct estimation of the balance of the addresses involved in the operation, the parameters from and to.
-The balance of the sender should decrease and the one of the receiver should increase.
+The preperty is a postcondition. 
+It states the correct estimation of the balances of the addresses involved in the operation.
+The balance of the sender should decrease of the sent amount and the one of the receiver should increase of the sent amount.
 \begin{equation}
     \begin{split}
         old\_value\_of(balances[\_from])>=balances[\_from] \\
         \&\&old\_value\_of(balances[\_to])<=balances[\_to]
     \end{split}
-\end{equation}
-The other one is an invariant. It states the total sum of balances should be less than the variable total supply. 
-\begin{equation}
-    sum_of_uint(balances) <= totalSupply
 \end{equation}
 
 
@@ -647,27 +691,28 @@ Spartan Protocol is a DeFi protocol for synthetic assets running on BinanceSmart
 It inherits many capabilities of UniswapV2 protocol, adapting the code for new use cases and implementing different strategies. 
 The fee mechanism is modified to incentivize liquidity providers when liquidity is scarce. Consequently, users trading larger 
 volumes are charged more fees. Similar to UniswapV2, pairs WBNB and SPARTA tokens are open for users to add/remove liquidity. 
-For clarifying this, let's consider the following example. Bob can send (WBNB+SPARTA) into the WBNB-SPARTA pool and get Liquidity Pool (LP) tokens back, 
-redeemable for the underlying assets.
 
 This protocol was the target of an exploit at the end of May 2021.
 The presence of a bug inside the code, plus the amplification due to a flash loan, allowed the attacker to drain the liquidity.
 
-The articles \citetitle{FlashCoin} and \citetitle{FlashCloud} give a defintion flash loan.
-
-\paragraph{Flash loan} A flash loan is a relatively new type of uncollateralized lending that has become popular across
+The articles \citet{FlashCoin} and \citet{FlashCloud} give a defintion flash loan:
+\begin{definition}
+A flashloan is a relatively new type of uncollateralized lending that has become popular across
 several decentralized finance (DeFi) protocols based on the Ethereum network. 
 When it has been issued, the smart contract certifies that the borrower pays back the loan before the transaction ends. 
 If this condition is not fulfilled, the transaction reverts, consequently, the amount of the loan is given back. 
+  \end{definition}
+
+
+The role of the flash loan is to amplify the effectivenss of the attack.
 
 \subsection{The exploit}
 \label{sec:Spartan:Exploit}
-The exploit involved 2 contracts of protocol: Utils.sol and poolFactory.sol.
-The latter implements the strategy for the management of the liquidity in the pool and the former provides support functions. 
+The exploit gas as target the bad implemetation of the strategy for the management of the liquidity in the pool.
 The mistake of the developers was not to consider the updated value of underlying assets. 
-Those are stored into the variables (baseAmount, tokenAmount) and estimated with iBEP20(token).balanceOf(pool) and iBEP20(base).totalSupply().
+Those are stored into the variables \texttt{baseAmount} and \texttt{tokenAmount} and estimated with \texttt{iBEP20(token).balanceOf(pool)} and \texttt{iBEP20(base).totalSupply()}.
 
-The bug in code lies in the calcLiquidityShare() function, called in RemoveLiquidity(). 
+The bug in code lies in the \texttt{calcLiquidityShare} function, called in \texttt{RemoveLiquidity}. 
 \begin{lstlisting} [language=Solidity, caption={calcLiquidityShare function}, label={lst:calcLiquidityShare}]
 
     function calcLiquidityShare(uint units, address token, address pool, address member) public view returns (uint share){
@@ -684,8 +729,8 @@ It should get the balance of the underlying asset in the pool (\autoref{lst:calc
 The amount that which should be transferred out is calculated based on the total LP tokens supplied
 and the number of LP tokens to burn (units).
 The function does not consider who transfers assets into the pool. The value of underlying assets can be manipulated and increased by an exploit. 
-The real values are different from the ones contained in the variable (baseAmount, tokenAmount).
-The removeLiquidity() calls calcLiquidityShare on TOKEN and BASE(\autoref{lst:SpartanRLM}). 
+The real values are different from the ones contained in the variables \texttt{baseAmount} and \texttt{tokenAmount}.
+The \texttt{removeLiquidity} function calls \texttt{calcLiquidityShare} one on TOKEN and BASE(\autoref{lst:SpartanRLM}). 
 It fails to synchronize the balances of the underlying assets and the variables which store the amount of the assets.
 
 \begin{lstlisting} [language=Solidity, caption={Function for Removing Liquidity}, label={lst:SpartanRLM}]
@@ -698,8 +743,8 @@ It fails to synchronize the balances of the underlying assets and the variables 
         return (outputBase, outputToken);
     }
 \end{lstlisting}
-As a consequence, the \_decrementPoolBalance(), updates the  wrong value of the variables storing the assets. 
-It does not get the update-to-date balances of BASE and TOKEN. Instead, it only decrements the reserved amounts (baseAmount, tokenAmount).
+As a consequence, the \texttt{\_decrementPoolBalance}, updates the  wrong value of the variables storing the assets. 
+It does not get the update-to-date balances of BASE and TOKEN. Instead, it only decrements the reserved amounts.
 The attacker followed these steps for draining the liquidity:
 \begin{enumerate}
     \item Add liquidity and get LP tokens back.
@@ -741,22 +786,11 @@ the amount to drain.
 The issue correlated to the logic of the program involves the removing liquidity process. 
 The attacker could amplify the number of tokens to remove.
 
-The function calcLiquidityShare is an internal function which estimates the total of underlying assets to send to the user. 
-It miscalculates the value because it considers the balance of the account, which can be simply modified by transferring tokens into the pool.
-A proposed solution implies a function, synch, which synchronises the variables baseAmount and tokenAmount, which keep track of the underlying assets in the contract. 
-Function synch should be called in the buggy function.
+The function \texttt{calcLiquidityShare} is an internal function which estimates the total of underlying assets to send to the user. 
+It is called by the \texttt{removeLiquidityForMember}; it fails to synchronize the balance of the underlying assets into the reserved assets.
 
-This one is encompassed in the definition of the property. 
-It is called the end of the process of removing the liquidity for a member. 
-The postcondition specifies that the function synch should not update the two variables.  
-
-\begin{equation}
-    \begin{split}
-        no modifies baseAmount, tokenAmount
-    \end{split}
-\end{equation}
-
-Another way for checking the property would be checkig if the estimated returned value of the function calcLiquidityShare(...) uses the correct parameters.
+The property is a postcondition of the function \texttt{calcLiquidityShare}. 
+It checks that the underlying assets variables correctly keep track of the current value.
 
 \begin{equation}
     \begin{split}
@@ -779,27 +813,23 @@ the exploiter refund the team of \$1M in ETH.
 \subsection{The exploit}
 \label{sec:Uranium:Exploit}
 
-
-The article written by \citeauthor{UraniumTech}, gets more in deep into the technical details involved in this exploit.
-The target of it was the contract \href{https://bscscan.com/address/0xd5aac41d315c1d382dcf1c39d4ed9b37c224edf2#code}{MasterUranium}, specifically the part regarding the rewarding of the user.
+\citet{UraniumTech} gets more in deep into the technical details involved in this exploit.
+Its target was the part of the protocol regarding the rewarding of the user.
 The list of transactions involving the malicious wallet shows the attacker could draw a huge amount of rewards 
 by calling 3 functions multiple times:
 \begin{enumerate}
-    \item deposit(\_pid, \_amount); 
-    \item emergencyWithdraw(\_pid); 
-    \item withdraw(\_pid, \_amount).
+    \item \texttt{deposit(\_pid, \_amount)}; 
+    \item \texttt{emergencyWithdraw(\_pid)}; 
+    \item \texttt{withdraw(\_pid, \_amount)}.
 \end{enumerate}
 
 
 \paragraph{Deposit} The two most relevant variables to the exploit are user.amountWithBonus and user.rewardDebt, for the attack purpose, they need to be greater than 0.
-Therefor this function is called with  with the \_amount input argument larger than “0”. 
+Therefor this function is called with  with the texttt{\_amount} input argument larger than “0”. 
 
-The user.amountWithBonus increases by adding  
-the \_bonusAmount. 
-The user.rewardDebt is calculated by the end of the function, with
-user.rewardDebt = 
-user.amountWithBonus.mul(pool.accRadsPerShare).div(1e12).
-When the function returns, the  both variables are greater than 0.
+The \texttt{user.amountWithBonus} increases by adding  
+the texttt{\_bonusAmount}. 
+The \texttt{user.rewardDebt} is calculated by the end of the function, \autoref{lst:UraniumDeposit}.
 
 \begin{lstlisting} [language=Solidity, caption={Deposit Function}, label={lst:UraniumDeposit}]
     function deposit(uint256 _pid, uint256 _amount) external validatePool(_pid) {
@@ -836,8 +866,8 @@ When the function returns, the  both variables are greater than 0.
 
 \subparagraph{EmergencyWithdraw} 
 The next step is the withdrawal of the funds. 
-This function has the purpose of getting the deposited token back and setting user.amount equal to and user.rewardDebt equal to 0.
-The fundamental variable user.amountWithBonus is still larger than 0. It is exploited during the last step.
+This function, \autoref{lst:UraniumEMW} has the purpose of getting the deposited token back and setting \texttt{user.amount} and \texttt{user.rewardDebt} equal to 0.
+The fundamental variable \texttt{user.amountWithBonus} is still larger than 0. This is fundamental for the realization of the exploit.
 
 \begin{lstlisting} [language=Solidity, caption={Deposit Function}, label={lst:UraniumEMW}]
     // Withdraw without caring about rewards. BonusAmount is not updated
@@ -852,10 +882,10 @@ The fundamental variable user.amountWithBonus is still larger than 0. It is expl
     
 \end{lstlisting} 
 
-\subparagraph{Withdraw} In the last step, the attacker call this function with \_amount equal to 0.
-LThe pending variable is estimeted, but the user.rewardDebt is equal to 0.
-Since both pool.accRadsPerShare and user.amountWithBonus are positve number, the result is larger than 0 as well.
-Since the amount is 0, the code cannot adjust the user.amountWithBonus variable to indicate the user claims the reward.
+\subparagraph{Withdraw} In the last step, the attacker call this function with \texttt{\_amount} equal to 0.
+The pending variable is estimeted, but the \texttt{user.rewardDebt} is equal to 0.
+Since both \texttt{pool.accRadsPerShare} and \texttt{user.amountWithBonus} are positve number, the result is larger than 0 as well.
+Since the amount is 0, the code cannot adjust the \texttt{user.amountWithBonus} variable to indicate the user claims the reward.
 
 \begin{lstlisting} [language=Solidity, caption={Deposit Function}, label={lst:UraniumW}]
     function withdraw(uint256 _pid, uint256 _amount) external validatePool(_pid) {
@@ -882,23 +912,23 @@ Since the amount is 0, the code cannot adjust the user.amountWithBonus variable 
 
 \end{lstlisting} 
 
-The user.amountWithBonus increases every time the attacker starts from the step 1. 
+The \texttt{user.amountWithBonus} increases every time the attacker starts from the step 1. 
 This enables the attacker to drains more and more tokens in the process. 
-Checking the transcation on \href{https://bscscan.com/txs?a=0x36ad9ee78bfb730955993d2aa77ecccf95e3313e&p=3}{BSCscan}, it is shown how many times the attacker 
-replicated this methodology. 
 
 \subsection{Properties}
-The logic of the smart contract vulnerability is contained in the procedure of estimation of users' rewards.
+The estimation of users'rewards the vulnerability of the smart contract.
 
-The malicious sequence of functions involves the call of deposit, emergencyWithdraw and withdraw.
+The malicious sequence of functions involves the call of \texttt{deposit}, \texttt{emergencyWithdraw} and \texttt{withdraw}.
 Therefore, the attacker could get back the same amount of deposited tokens, but with a higher amount bonus for the reward. 
-The parameter amountWithBonus of user struct, which keeps track of the amount and the bonus, just increases even if the user receives the reward and it is withdrawing. 
+The parameter \texttt{amountWithBonus} of the user struct, which keeps track of the amount and the bonus, just increases even if the user receives the reward and it is withdrawing. 
 
-For the detection of the vulnerability, we specify the property as a postcondition of the function withdraw. 
+The property is a post condition of the function \texttt{withdraw}. 
+In the case the user is getting reawards, so the estimation of the paramter \texttt{pending} is greater than 0, the value of the parameter that keeps track of the bonus has to decrease.
+
 \begin{equation}
     \begin{split}
-        userInfo[msg.sender].bonus-userInfo[msg.sender].rewardDebt ->  
-        \\userInfo[msg.sender].bonus < old_value_of(userInfo[msg.sender].bonus)
+        if (pending>0)
+        \\ user.amountWithBonus < old\_value\_of(user.amountWithBonus)
     \end{split}
 \end{equation}
 
@@ -928,7 +958,7 @@ The attack is mabe by 4 main steps:
     \item He calls the "sell" function, for selling the obtained SURGE.
     \item The sale function alters the data after the transfer, and the transfer code has a reentrance vulnerability.
     When the attack contract acquires BNB, the period before the SURGE contract's state changes 
-    (\refname{lst:SellSURGE}), the attack contract can use the reentrance 
+    (\autoref{lst:SellSURGE}), the attack contract can use the reentrance 
     vulnerability to purchase SURGE again.
 \end{enumerate}
 
@@ -951,9 +981,8 @@ The attack is mabe by 4 main steps:
 \end{lstlisting}
 
 
-The bnb Amount of the contract stays intact, and the total amount of SURGE tokens \texttt{totalSupply}  
-has not been updated, because the attack contract spends all of the BNB balance to acquire SURGE
- each time (still remains the quantity before the sell).
+The bnb amount of the contract stays intact, and the total amount of SURGE tokens \texttt{totalSupply}  
+has not been updated, because the attack contract spends all of the BNB balance to acquire SURGE each time (still remains the quantity before the sell).
 As a result, the price of token falls, allowing the attacker to purchase additional SURGE. 
 
 Repeating three times of Round 2 and Round 3 , the attacker accumulates a large amount of SURGE through reentry, and then sells all the SURGE to make a profit.
@@ -964,7 +993,7 @@ obtained 10327 BNB, and finally the profitable 297 BNB was sent to the attacker'
 The following are the modifications suggested by the Beosin technical team for this attack:
 \begin{itemize}
     \item any transfer operation should be place after the state changes to avoid reentry assaults.
-    \item Instead of using "call. value," use transfer or send to transfer. 
+    \item Instead of using \texttt{call} use \texttt{transfer} or \texttt{send}. 
 \end{itemize}
 
 \subsection{Properties}
@@ -977,18 +1006,18 @@ At the end of the selling process, the total supply should decrease the amount s
 But since the attacker called the purchase, the variable is not updated as it was supposed to be. 
 Buying the same amount of sold tokens, the value would not change.
 
-We define the property as a postcondition,refered to the function sell(...), which states the variable \_totalSupply is decreased of the amount sold by the user, then tokenAmount.
+We define the property as a postcondition,refered to the function \texttt{sell}, which states the variable \texttt{\_totalSupply} is decreased of the amount sold by the user, then \texttt{tokenAmount}.
 
 \begin{equation}
     \begin{split}
-        \_totalSupply <=old\_value\_of(\_totalSupply)
+        \_totalSupply + amount ==old\_value\_of(\_totalSupply) 
     \end{split}
 \end{equation}
 
-The properties can be even expressed like a an invariant, stating that the sum of the single balances cannot exceedes the variable \_totalSupply.
+The property can be even expressed like a an invariant, stating that the sum of the single balances cannot exceedes the variable \_totalSupply.
 \begin{equation}
     \begin{split}
-        sum_of_uint(_balances) <= _totalSupply
+        sum\_of\_uint(\_balances) <= \_totalSupply
     \end{split}
 \end{equation}
 
@@ -1052,9 +1081,9 @@ The issue is the interaction with the sender's address (step 3) happens before t
 \end{lstlisting}
 
 Folowing the execution of the code, the bug is found in the safeTransferETH function, contained in TransferHelper library. 
-The expression to.call{value:value}(new bytes(0)) is actually a call to the sender of the message, which can be an arbitrary smart contract. 
+The expression \texttt{to.call{value:value}(new bytes(0))} is actually a call to the sender of the message, which can be an arbitrary smart contract. 
 The malicious contract can implemnt a fallback function. By the time it receives the ether, the fallback function is 
-triggered and withdrawFromBSC is run again, but without updating executeMap[\_paybackId]. 
+triggered and \texttt{withdrawFromBSC} is run again, but without updating \texttt{executeMap[\_paybackId]}. 
 Since it is not set to true, the code repeat the same sequence of operation. 
 Repeating this process within the same transaction, the attacker will drain the vulnerable contract's WETH holdings and credit.
 
@@ -1065,7 +1094,7 @@ The smart contracts adopt an access control strategy at the beginning of the fun
 The attacker forked MetaMask, a crypto-wallet, for allowing a smart contract to 
 access the vulnerable function. However, it is out of our interest and we focus on the vulnerability in the code.
 
-The vulnerable function is safeTransferETH, resonsable of sending ETH to the user. This is called by the one which manages 
+The vulnerable function is \texttt{safeTransferETH}, resonsable of sending ETH to the user. This is called by the one which manages 
 the withdrawal of funds from the contract by the user. The malicous contract, 
 thanks a fallback, can call multiple times the same function and withdrawing more money than it could.
 
@@ -1092,18 +1121,18 @@ The protocol should keep track of the ticket for minting the correct number of N
 \subsection{The exploit}
 \label{sec:DirtyDogs:Exploit}
 DirtyDogs NFT contract has a typical example of reentrancy.
-The attacker exploited the function claimDogs(), shown in \autoref{lst:DirtyDogs}.
+The attacker exploited the function \texttt{claimDogs}, shown in \autoref{lst:DirtyDogs}.
 Firstly, the malicious wallet bought a ticket for having the right of receiving an NFT, calling the function claimDogs().
 It loops on the number of tickets the sender has, and it calls the function \_safeMint for creating the NFTs and sending them to 
 the caller.
 
-The bug involves the update of the variable totalClaimed[\_msgSender()] at the end of the loop. It is the one which 
+The bug involves the update of the variable \texttt{totalClaimed[\_msgSender()]} at the end of the loop. It is the one which 
 keeps track of the number of tickets owned by the caller.
 
 The malicious smart contract implemented a 
 callback function: the main trigger for reentrancy attacks. 
 Within the same transaction, it gets the opportunity to execute the same code multiple times. 
-When the smart contract receives an NFT, the fallback function is triggered and the claimDogs() function is called again. 
+When the smart contract receives an NFT, the fallback function is triggered and the \texttt{claimDogs} function is called again. 
 As result, the attacker could call again the function for mintining, but without updating the variable which counts the number of tickets per address.
 The exploit produced 45 NFTs because the fallback has the risk of reverting, 
 there is a limit of times to be called.
@@ -1159,7 +1188,7 @@ The following post-condition is referred to as the vulnerable function claimDogs
 
 \begin{equation}
     \begin{split}
-        sum_of_uint(totalClaimed) <= effclaimed
+        sum\_of\_uint(totalClaimed) <= effclaimed
     \end{split}
 \end{equation}
 
@@ -1203,15 +1232,19 @@ In our taxonomy, the meaning of "multiple mode running" implies the tools which 
 
 The choice of these eight analysis tools is based on our literature research, which encompasses surveys and comparisons of those. 
 Another discriminant aspect of the choice is the maintenance of the tools. 
-We decided to discard the ones which have not been updated for more than two years. 
-We decided to consider just open-source tools because their architecture descriptions and documentation are available. We made an exception in Certora, which is not open source. 
-It has the premium version and the free one, we adopted the second one and the free provided documentation online. 
+the ones which have not been updated for more than two years were discarded 
+Open-source tools are considered because their architecture descriptions and documentation are available. 
 
-The objectives of the analyses are smart contracts involved in real-world exploits, in most cases, the attackers forced a bug involving the logic of the software itself, 
-more than a vulnerability regarding its grammar of it. For this reason, we mostly picked tools which could even have custom specifications.
-\section{Tools with multiple mood running}
-This section has the aim to describe the tools classified as "with multiple moods running". 
-Even other tools have more moods running, but this categorization involves the tools which could take part in the other two subgroups: 
+This thesis involves justt a tool which is not open-source, Certora. 
+The aim is to have an experience of a mantained tool by a private company and not by the community, but still adopting the free version and the online documentation.
+
+The objectives of the analyses are smart contracts involved in real-world exploits. 
+The attackers mostly forced a bug involving the logic of the software itself.
+For this reason, we mostly picked tools which could even have custom analysis.
+
+\section{Tools with multiple mode running}
+This section has the aim to describe the tools classified as "with multiple modes running". 
+Even other tools have more modes running, but this categorization involves the tools which could take part in the other two subgroups: 
 with and without specification.
 
 \subsection{SmarTest}
@@ -1238,7 +1271,9 @@ SmarTest is build on top of that, adding its own functionalities:
 \end{itemize}
 The installation of VeriSmart is necessary for running the tool. After that, VeriSmart can be used in SmarTest mode.
 
-The report \autoref{lst:SmarTestReport} shows an example of output of SmarTest, which provides the sequence of funtions for exploiting the found bug.
+The report \autoref{lst:SmarTestReport} shows an example of output of SmarTest, which provides the sequence of funtions for exploiting the found bug. 
+It states in which line the Vulnerability is, then it provides a list of transacion which could force the it. 
+
 \begin{lstlisting} [caption={SmarTest Example Report.}, label={lst:SmarTestReport}]
     [5] [IO] line 39, (balance[_to] + _value) : disproven, 14.528264s
     1: Example
@@ -1257,11 +1292,14 @@ The report \autoref{lst:SmarTestReport} shows an example of output of SmarTest, 
         msg.value: 0}
 \end{lstlisting}
 
-The detection of  the following six types of security-critical vulnerabilities are supported by the tool: integer over/underflow, 
-assertion violation, division-by-zero, 
-ERC20 standard violation, Ether-leaking vulnerability (e.g., 
-unauthorized access to transfer), and suicidal vulnerability 
-(e.g., unauthorized access to selfdestruct).
+The tool implements modules for the detection of the following vulnerabilities: 
+\begin{itemize}
+    \item integer over/underflow,
+    \item assertion violation,
+    \item division-by-zero, ERC20 standard violation,
+    \item Ether-leaking vulnerability (e.g. unauthorized access to transfer),
+    \item suicidal vulnerability (e.g., unauthorized access to selfdestruct).
+\end{itemize}
 In the paper, the authors  focus on just those, without considering vulnerabilities that require analysis of
 the interaction of multiple contracts to demonstrate the flaws 
 (e.g., reentrancy).
@@ -1272,14 +1310,20 @@ the interaction of multiple contracts to demonstrate the flaws
 symbolic execution framework called Manticore for analyzing
 binaries and Ethereum smart contracts.
 
-The adaptable architecture of Manticore enables it to accommodate both common and uncommon execution contexts, 
-and its API enables users to customize their analysis. 
+The definition of dynamic symbolic execution is:
+\begin{definition}
+    Dynamic symbolic execution mixes concrete and symbolic execution benefiting from the efficiency and decidability of concrete execution and the need to use concrete 
+values when interacting with the program environment and from the stronger guarantees of symbolic execution.
+\end{definition}
+
+
+The adaptable architecture of Manticore enables it to run custom analsysis, 
+and its API increase the customization of those. 
 
 The keyword of this tool is dynamic symbolic execution, which is the implemented analysis technique. 
-It examines a state space with a high level of semantic awareness.
-Dynamic symbolic execution identifies a collection of path predicates, and constraints on the program's input, 
+It identifies a collection of path predicates, and constraints on the program's input, 
 for paths that the analysis has investigated.
-These are employed to produce the programme inputs necessary for the corresponding paths to be followed. 
+These are employed to produce the inputs necessary for the corresponding paths to be followed. 
 
 \autoref{fig:manticore_architecture} provides an overview of Manticore's architecture. The primary
 components are the Core Engine and Native and Ethereum
@@ -1294,7 +1338,7 @@ and API.
 
 Manticore's adaptability comes from the Core Engine.
 It implements a generic platform-independent symbolic execution engine with few underlying execution model presumptions. 
-Despite the differences between  EVM and traditional execution,
+Despite the differences between  EVM and no EVM execution,
 Ethereum support did not require substantial architectural
 changes to Manticore, since the Core Engine is completely
 decoupled from all execution platform details.
@@ -1307,6 +1351,21 @@ cause the symbolic execution of one transaction. This allows the tool to explore
 An infinite number of interconnected contracts can be executed in Manticore's emulated environment.
 It can monitor the condition of not just a single contract but the entire Ethereum "world," which consists of many interconnected contracts. 
 
+The specifications are written in terms of functions. These do not have any parameters and return a boolean statement. 
+The tool in the report states which function could not pass the test, which means that the function returned false. 
+It indicates even the list of transactions for making the function return false, so "breaking" the specified property.
+
+On the other hand, it can run without specfications. It implements plugins, which can be enable or disable, for detecting vulnerabilities. 
+It can detect the following ones:
+\begin{itemize}
+    \item integer overflow/underflow,
+    \item reentrancy,
+    \item unused retturend value (which is not a proper vulnerability, but the tool warns the user of this case),
+    \item suicidal contracts,
+    \item detect delegatecall (the tools warns the user of this case),
+    \item race condition.
+\end{itemize}
+
 \section{Tools with Specifications}
 \label{sec:Tools:Specification}
 This section deals with the description of tools with specifications, so the ones which need the source file even additional information. 
@@ -1315,7 +1374,7 @@ providing the specifications.
 
 \subsection{Certora Prover}
 \label{sec:Specification:Certora}
-Certora Prover is one of the most well-known and used tools for formal verification of Solidity smart contracts. 
+Certora Prover is a tool for formal verification of Solidity smart contracts. 
 Any computer programme that may be compiled using EVM can undergo Certora Prover verifications. 
 
 Since the tool is not open source, we draw the information regarding the tool from the \citetitle{CertoraDocumentation}
@@ -1324,18 +1383,22 @@ It is provided as Software as a Service, a cloud technique, so it is not possibl
 website, providing the tool as SaaS (service as a Service), 
 otherwise, a command-line interface can be downloaded, which interacts with the server by remote. 
 
-The user for the verification has to provide the Solidity file and the specification one, which contains the logic formulas for verification conditions; these are proven by an SMT (satisfiability modulo theories) solver. 
-The result is the proof of the rule, otherwise, if the rule is disproved, the solver also provides a concrete test case demonstrating the violation. 
+The user for the verification has to provide the Solidity file and the specification one, which contains the logic formulas for verification conditions.
+These are proven by an SMT (satisfiability modulo theories) solver. 
+The solver also provides a concrete test case demonstrating the violation of the specifications that are unproved.
 
 A user can state the specifications as invariants otherwise as functions, called rules.
 The invariants contain just a boolean formula.
 On the other hand, the rules contain the properties to be proved and these are written like functions. 
-For coding these, a similar language to Solidity is used. 
-Multiple "require" definitions can be stated at the beginning, for expressing a condition to be realised before the running of it. Functions from the smart contract can be called.
-A requirement is that each rule has to conclude with assert, containing a boolean condition. 
+Those are written using the Certora language, which has a similar grammar to Solidity, for example the types of the variables are the same, but with more functionalities for writing down the specifications. 
+The specification file allows the call the function of the target smart contracts-
+Multiple \texttt{require} definitions can be stated at the beginning, for expressing a condition to be realised before the running of it.  
+A requirement is that each rule has to conclude with \texttt{assert}, containing a boolean condition. 
+The user can specify an enviroment variable, \texttt{env} defining the possible preconditions.
 
-\autoref{lst:CertoraCode} covers an example of the specification of the function transferFrom() of a smart contract which implements a token. 
+\autoref{lst:CertoraCode} covers an example of the specification of the function \texttt{transferFrom} of a smart contract which implements a token. 
 The function cares about the transfer of tokens from one accout to the other one. This rule checks that the balances of the users are updated correctly. 
+The enviroment of the enviroment specifies that the \texttt{msg.value}, so the amount of native token sent in the transaction, is 0.
 \begin{lstlisting} [language=Solidity, caption={Certora example specifications}, label={lst:CertoraCode}]
 
 rule transferFromCorrect(address from, address to, uint256 amount) {
@@ -1377,9 +1440,9 @@ It gives programmers the ability to create functional requirements for their con
 The input file is labelled as ".cel", it is the solidity file, with the added specification expressed in notes. 
 When the grammar is checked, the contract and the specifications are translated in F* for having the verified verdict. 
 
-\autoref*{lst:CelestialCode} shows an example of input file. The invariants are expressed in a sort of function. 
-At the beginning of a function, the specification can be expressed, regarding precondition, postcondition and so on. 
-One of these can involve the keyword modifies, which specifies the variable that can be modified in the function, or tx\_reverts, 
+\autoref*{lst:CelestialCode} shows an example of input file. The invariants are expressed as boolean condition. 
+At the beginning of a function, the specifications can be expressed, regarding precondition and postcondition. 
+The keyword \texttt{modifies}, placed as well at the beginning of the functions, specifies the variable that can be modified in the function, or \texttt{tx\_reverts}, 
 which states the possible condition that a function can revert. 
 The Solidity implementation of the function is kept.
 \begin{lstlisting} [language=Solidity, caption={Celestial example specifications}, label={lst:CelestialCode}]
@@ -1402,10 +1465,9 @@ The Solidity implementation of the function is kept.
 \end{lstlisting}
 
 F* is a fully dependent type system proof helper and programs verification. 
-The authors gave the same reasons for involving F* for the formal proof in a blockchain context.
-First, it offers SMT-based automation, which is sufficient for the completely automated verification of real-world smart contracts. 
-Second, F* enables the developers to work in a customised state and exception effect mimicking the blockchain semantics since it supports user-defined effects. 
-Finally, even though we only use its first-order subset with quantifiers and arithmetic, F* permits expressive higher-order specifications.
+The authors state that F* offers SMT-based automation, which is sufficient for the completely automated verification of real-world smart contracts. 
+Moreover, it enables the developers to work in a customised state and exception effect mimicking the blockchain semantics since it supports user-defined effects. 
+Finally, even though its first-order subset with quantifiers and arithmetic is used by the tool, it permits expressive higher-order specifications.
 
 The celestial process involves 2 steps: the translation of the specification and the verification of F* start. 
 The first one involves a python script, on the other hand, the second one entails the installation of F* engine. 
@@ -1426,15 +1488,13 @@ Reasoning about reentrant actions is frequently counterintuitive.
 Celestial forbids these actions, this property is called "external callback freedom" (ECF). It states that every callback execution 
 in a contract is equivalent to some activity without reentrancy.
 So Celestial assumes that there is no callback during the external call.
-Programmers can use the tool to create and support the specifications of their contracts without making any assumptions about the behaviour of external contracts. 
 
 \subsection{Echidna}
 \label{sec:Specification:Echidna}
 Echidna is an open-source smart contract fuzzer, developed by \citet{Echidna}, which makes it easy to automatically generate tests to detect violations in
 assertions and custom properties.
 Rather than relying on a fixed set of pre-defined bug oracles to detect vulnerabilities
-during fuzzing campaigns, Echidna supports three types of proper-
-ties: 
+during fuzzing campaigns, Echidna supports three types of testing: 
 \begin{itemize}
     \item user-defined properties (for property-based testing);
     \item assertion checking;
@@ -1496,8 +1556,7 @@ It accepts a collection of Solidity contracts, including specification annotatio
 the Boogie verifier and SMT solvers to discharge verification conditions. 
 
 As \citet{SolcVerify_2} explain, Solc-verify translates the annotated contracts to the Boogie Intermediate Verification
-Language (IVL). The key idea of the translation is to encode state variables as global heaps
-and functions as procedures. The tool relies on the Boogie verifier to perform modular
+Language (IVL). The tool relies on the Boogie verifier to perform modular
 verification by discharging verification conditions to SMT solvers. The verification conditions
 encode the function body while assuming the preconditions, and then check if postconditions
 hold. In this process, function calls are replaced by their specification and loops by their

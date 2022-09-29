@@ -19,6 +19,36 @@
 
 \refsection{0}
   \datalist[entry]{nty/global//global/global}
+    \entry{Ledger}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=918ce490a495a4063df15090b74eee0e}{%
+           family={22739:2020},
+           familyi={2\bibinitperiod},
+           given={ISO},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Online Browsing Platform (OBP)}%
+      }
+      \strng{namehash}{918ce490a495a4063df15090b74eee0e}
+      \strng{fullhash}{918ce490a495a4063df15090b74eee0e}
+      \strng{bibnamehash}{918ce490a495a4063df15090b74eee0e}
+      \strng{authorbibnamehash}{918ce490a495a4063df15090b74eee0e}
+      \strng{authornamehash}{918ce490a495a4063df15090b74eee0e}
+      \strng{authorfullhash}{918ce490a495a4063df15090b74eee0e}
+      \field{sortinit}{2}
+      \field{sortinithash}{8b555b3791beccb63322c22f3320aa9a}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Blockchain and distributed ledger technologies — Vocabulary}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb https://www.iso.org/standard/73771.html
+      \endverb
+      \verb{url}
+      \verb https://www.iso.org/standard/73771.html
+      \endverb
+    \endentry
     \entry{LiquidityDef}{misc}{}
       \name{author}{1}{}{%
         {{hash=78fcbd93a890c6cfcbe89d0340520f8e}{%
@@ -113,6 +143,36 @@
       \verb 10.1109/DAPPCON.2019.00018
       \endverb
     \endentry
+    \entry{Consensus}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=7bbef90440b39193b04feafd21ea6a10}{%
+           family={Awati},
+           familyi={A\bibinitperiod},
+           given={Rahul},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Whatls.com}%
+      }
+      \strng{namehash}{7bbef90440b39193b04feafd21ea6a10}
+      \strng{fullhash}{7bbef90440b39193b04feafd21ea6a10}
+      \strng{bibnamehash}{7bbef90440b39193b04feafd21ea6a10}
+      \strng{authorbibnamehash}{7bbef90440b39193b04feafd21ea6a10}
+      \strng{authornamehash}{7bbef90440b39193b04feafd21ea6a10}
+      \strng{authorfullhash}{7bbef90440b39193b04feafd21ea6a10}
+      \field{sortinit}{A}
+      \field{sortinithash}{2f401846e2029bad6b3ecc16d50031e2}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Consensus Algorithm}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.techtarget.com/whatis/definition/consensus-algorithm
+      \endverb
+      \verb{url}
+      \verb https://www.techtarget.com/whatis/definition/consensus-algorithm
+      \endverb
+    \endentry
     \entry{SymbolicExecution}{article}{}
       \name{author}{5}{}{%
         {{hash=22a28bd4c4375f650b7bc5ca7e1def0b}{%
@@ -162,6 +222,86 @@
       \field{title}{A Survey of Symbolic Execution Techniques}
       \field{volume}{51}
       \field{year}{2018}
+    \endentry
+    \entry{SmartContracts}{article}{}
+      \name{author}{4}{}{%
+        {{hash=2d02e0086a3b5333f3f804c853b6ae0a}{%
+           family={Bartoletti},
+           familyi={B\bibinitperiod},
+           given={Massimo},
+           giveni={M\bibinitperiod}}}%
+        {{hash=7c56ddb23b4ce7f83f5228389b0e7a48}{%
+           family={Carta},
+           familyi={C\bibinitperiod},
+           given={Salvatore},
+           giveni={S\bibinitperiod}}}%
+        {{hash=3a9c286e4b151732b5a8a9076e784d41}{%
+           family={Cimoli},
+           familyi={C\bibinitperiod},
+           given={Tiziana},
+           giveni={T\bibinitperiod}}}%
+        {{hash=fe245541b36ba349bab6dca9f857f149}{%
+           family={Saia},
+           familyi={S\bibinitperiod},
+           given={Roberto},
+           giveni={R\bibinitperiod}}}%
+      }
+      \strng{namehash}{45a4917c9fed9f1b63d3a4b99e1cec4b}
+      \strng{fullhash}{7fef38cc8d03122ae9b2e29b941d78e8}
+      \strng{bibnamehash}{45a4917c9fed9f1b63d3a4b99e1cec4b}
+      \strng{authorbibnamehash}{45a4917c9fed9f1b63d3a4b99e1cec4b}
+      \strng{authornamehash}{45a4917c9fed9f1b63d3a4b99e1cec4b}
+      \strng{authorfullhash}{7fef38cc8d03122ae9b2e29b941d78e8}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{eprinttype}{arXiv}
+      \field{journaltitle}{CoRR}
+      \field{title}{Dissecting Ponzi schemes on Ethereum: identification, analysis, and impact}
+      \field{volume}{abs/1703.03779}
+      \field{year}{2017}
+      \verb{eprint}
+      \verb 1703.03779
+      \endverb
+      \verb{urlraw}
+      \verb http://arxiv.org/abs/1703.03779
+      \endverb
+      \verb{url}
+      \verb http://arxiv.org/abs/1703.03779
+      \endverb
+    \endentry
+    \entry{statista}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=489e47f90b4a4423b062a48ea9fc10e2}{%
+           family={Best},
+           familyi={B\bibinitperiod},
+           given={Raynor},
+           giveni={R\bibinitperiod},
+           prefix={de},
+           prefixi={d\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {statista}%
+      }
+      \strng{namehash}{489e47f90b4a4423b062a48ea9fc10e2}
+      \strng{fullhash}{489e47f90b4a4423b062a48ea9fc10e2}
+      \strng{bibnamehash}{489e47f90b4a4423b062a48ea9fc10e2}
+      \strng{authorbibnamehash}{489e47f90b4a4423b062a48ea9fc10e2}
+      \strng{authornamehash}{489e47f90b4a4423b062a48ea9fc10e2}
+      \strng{authorfullhash}{489e47f90b4a4423b062a48ea9fc10e2}
+      \field{sortinit}{B}
+      \field{sortinithash}{d7095fff47cda75ca2589920aae98399}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Overall cryptocurrency market capitalization per week from July 2010 to September 2022}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.coingecko.com/
+      \endverb
+      \verb{url}
+      \verb https://www.coingecko.com/
+      \endverb
     \endentry
     \entry{DeFiDef}{misc}{}
       \name{author}{1}{}{%
@@ -230,6 +370,34 @@
       \field{note}{Accessed: 2022-04-20}
       \field{title}{bZx Documentation}
       \field{year}{2020}
+    \endentry
+    \entry{UraniumTech}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=7f0ece908f97ab93464dc6c8df989d1f}{%
+           family={Certik},
+           familyi={C\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Shentu Foundation}%
+      }
+      \strng{namehash}{7f0ece908f97ab93464dc6c8df989d1f}
+      \strng{fullhash}{7f0ece908f97ab93464dc6c8df989d1f}
+      \strng{bibnamehash}{7f0ece908f97ab93464dc6c8df989d1f}
+      \strng{authorbibnamehash}{7f0ece908f97ab93464dc6c8df989d1f}
+      \strng{authornamehash}{7f0ece908f97ab93464dc6c8df989d1f}
+      \strng{authorfullhash}{7f0ece908f97ab93464dc6c8df989d1f}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Uranium Finance Exploit Analysis}
+      \field{year}{2021}
+      \verb{urlraw}
+      \verb https://medium.com/shentu-foundation/uranium-finance-exploit-analysis-d135055d6a6a
+      \endverb
+      \verb{url}
+      \verb https://medium.com/shentu-foundation/uranium-finance-exploit-analysis-d135055d6a6a
+      \endverb
     \endentry
     \entry{CertoraDocumentation}{misc}{}
       \name{author}{1}{}{%
@@ -303,7 +471,32 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{title}{CoinGeko Web Site}
-      \field{year}{2020}
+      \field{year}{2022}
+      \verb{urlraw}
+      \verb https://www.coingecko.com/
+      \endverb
+      \verb{url}
+      \verb https://www.coingecko.com/
+      \endverb
+    \endentry
+    \entry{BcUseCases}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=2f316834ef425d3b01fffcdb556d9dce}{%
+           family={Consensys},
+           familyi={C\bibinitperiod}}}%
+      }
+      \strng{namehash}{2f316834ef425d3b01fffcdb556d9dce}
+      \strng{fullhash}{2f316834ef425d3b01fffcdb556d9dce}
+      \strng{bibnamehash}{2f316834ef425d3b01fffcdb556d9dce}
+      \strng{authorbibnamehash}{2f316834ef425d3b01fffcdb556d9dce}
+      \strng{authornamehash}{2f316834ef425d3b01fffcdb556d9dce}
+      \strng{authorfullhash}{2f316834ef425d3b01fffcdb556d9dce}
+      \field{sortinit}{C}
+      \field{sortinithash}{4d103a86280481745c9c897c925753c0}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Blockchain Use Cases and Applications by Industry}
+      \field{year}{2021}
       \verb{urlraw}
       \verb https://www.coingecko.com/
       \endverb
@@ -1372,6 +1565,47 @@
       \endverb
       \keyw{Programming Languages (cs.PL),Cryptography and Security (cs.CR),FOS: Computer and information sciences,FOS: Computer and information sciences}
     \endentry
+    \entry{DLT}{inbook}{}
+      \name{author}{1}{}{%
+        {{hash=0aace507a7fdfb4a9fb1cef030e81151}{%
+           family={Sunyaev},
+           familyi={S\bibinitperiod},
+           given={Ali},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{location}{1}{%
+        {Cham}%
+      }
+      \list{publisher}{1}{%
+        {Springer International Publishing}%
+      }
+      \strng{namehash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \strng{fullhash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \strng{bibnamehash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \strng{authorbibnamehash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \strng{authornamehash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \strng{authorfullhash}{0aace507a7fdfb4a9fb1cef030e81151}
+      \field{sortinit}{S}
+      \field{sortinithash}{b164b07b29984b41daf1e85279fbc5ab}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{abstract}{Distributed Ledger Technology (DLT) is one of the most promising innovations in the field of information technologies with the potential to change organization and collaboration in the economy, society, and industry. This chapter introduces the technical background and use cases of distributed ledger technology. It presents the major innovations originating from distributed ledger technology since the introduction of the blockchain concept. Furthermore, cryptocurrencies' historical background as a driver of fully decentralized distributed ledgers is outlined from their origins in the 1990s until the blockchain concept's introduction in 2009. DLT's technical principles are introduced to provide a sound understanding. Subsequently, the functioning of distributed ledger technology is illustrated by means of the Bitcoin blockchain example, which was the first fully decentralized cryptocurrency to not require a trusted authority (i.e., banks). Thereafter, smart contracts and the idea of decentralized applications are explained. Selected use cases for distributed ledger technology's application are subsequently discussed. This chapter concludes with a discussion of the prevailing challenges in the field of distributed ledger technology.}
+      \field{booktitle}{Internet Computing: Principles of Distributed Systems and Emerging Internet-Based Technologies}
+      \field{isbn}{978-3-030-34957-8}
+      \field{title}{Distributed Ledger Technology}
+      \field{year}{2020}
+      \field{pages}{265\bibrangedash 299}
+      \range{pages}{35}
+      \verb{doi}
+      \verb 10.1007/978-3-030-34957-8_9
+      \endverb
+      \verb{urlraw}
+      \verb https://doi.org/10.1007/978-3-030-34957-8_9
+      \endverb
+      \verb{url}
+      \verb https://doi.org/10.1007/978-3-030-34957-8_9
+      \endverb
+    \endentry
     \entry{SmartContractDef}{misc}{}
       \name{author}{1}{}{%
         {{hash=7a8fa37f931a316fe587067d55ea90fb}{%
@@ -1475,36 +1709,6 @@
       \field{year}{2021}
       \field{pages}{177\bibrangedash 190}
       \range{pages}{14}
-    \endentry
-    \entry{UraniumTech}{misc}{}
-      \name{author}{1}{}{%
-        {{hash=55dd7b96129603888aeb3c5fbe2cebe2}{%
-           family={team},
-           familyi={t\bibinitperiod},
-           given={Certik},
-           giveni={C\bibinitperiod}}}%
-      }
-      \list{publisher}{1}{%
-        {Shentu Foundation}%
-      }
-      \strng{namehash}{55dd7b96129603888aeb3c5fbe2cebe2}
-      \strng{fullhash}{55dd7b96129603888aeb3c5fbe2cebe2}
-      \strng{bibnamehash}{55dd7b96129603888aeb3c5fbe2cebe2}
-      \strng{authorbibnamehash}{55dd7b96129603888aeb3c5fbe2cebe2}
-      \strng{authornamehash}{55dd7b96129603888aeb3c5fbe2cebe2}
-      \strng{authorfullhash}{55dd7b96129603888aeb3c5fbe2cebe2}
-      \field{sortinit}{t}
-      \field{sortinithash}{9af77f0292593c26bde9a56e688eaee9}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{title}{Uranium Finance Exploit Analysis}
-      \field{year}{2021}
-      \verb{urlraw}
-      \verb https://medium.com/shentu-foundation/uranium-finance-exploit-analysis-d135055d6a6a
-      \endverb
-      \verb{url}
-      \verb https://medium.com/shentu-foundation/uranium-finance-exploit-analysis-d135055d6a6a
-      \endverb
     \endentry
     \entry{Survey3}{misc}{}
       \name{author}{5}{}{%
@@ -1625,6 +1829,27 @@
       \verb{url}
       \verb https://10clouds.com/blog/defi/understanding-flash-loans-in-defi/
       \endverb
+    \endentry
+    \entry{stack}{misc}{}
+      \name{author}{1}{}{%
+        {{hash=9c677286866aad38f8e9b660f5411814}{%
+           family={Wikipedia},
+           familyi={W\bibinitperiod}}}%
+      }
+      \strng{namehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{fullhash}{9c677286866aad38f8e9b660f5411814}
+      \strng{bibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorbibnamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authornamehash}{9c677286866aad38f8e9b660f5411814}
+      \strng{authorfullhash}{9c677286866aad38f8e9b660f5411814}
+      \field{sortinit}{W}
+      \field{sortinithash}{4315d78024d0cea9b57a0c6f0e35ed0d}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{howpublished}{\url{http://en.wikipedia.org/w/index.php?title=Stack\%20machine&oldid=1107632072}}
+      \field{note}{[Online; accessed 29-September-2022]}
+      \field{title}{{Stack machine} --- {W}ikipedia{,} The Free Encyclopedia}
+      \field{year}{2022}
     \endentry
     \entry{XSurgeWeb}{misc}{}
       \field{sortinit}{x}
