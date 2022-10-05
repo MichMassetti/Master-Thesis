@@ -43,9 +43,6 @@ contract BecTokenSimplified {
         balances[msg.sender] = totalSupply; // Give the creator all initial tokens
     }
 
-    function sum() public{
-         
-    }
     function transferFrom (address _from, address _to, uint _value) public {
         uint256 pre = balances[_from].add(balances[_to]);
         uint256 _balancesFrom = balances[_from];
@@ -59,8 +56,6 @@ contract BecTokenSimplified {
         uint256 post = balances[_from].add(balances[_to]);
 
         assert(pre==post);
-
-
 
     }
 }

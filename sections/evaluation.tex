@@ -14,18 +14,45 @@
 %%
 %% Version 1.0, 2021-07-03
 
-\chapter{Results presentation and Evaluation}
+\chapter{Results and Evaluation}
 \label{ch:Evaluation}
 This chapter presents the results of the analyses. It is addressed to show the obtained data from the tests.
 
-The first part deals with the individual outcomes per tool, providing details about the running phase and installation one.
+It deals with the individual outcomes per tool, providing details about the running phase and installation.
 Eventual problems, during those phases, are described per each tool.
 
-Then, a general comperison gives an high level view of the obtained results.
-This section aims to define which tool had a better behaviour in term of operability, speed and correctness of the analysis. 
+Then, a general comparison gives a high-level view of the obtained results.
+This section aims to define which tool had better behaviour in terms of operability, speed and correctness of the analysis. 
 
 
+\section {Experimental Setup}
+The analysis tools were installed and used on a laptop using Ubuntu 20 as the operating system.
+The first step for launching the analysis was the selection of smart contracts. 
+Their vulnerable sections were considered and the safe parts were discarded, while preserving the foundamental logic. 
+The changes applied to the smart contracts have the aim to simplify those and make the analysis faster since the tools have less amount of code to scan. 
 
+The smart contracts were adopted to be tested by all the tools. 
+The aim was to obtain results from tools having the same targets.
+
+In Solidity the standard for implementing the token is ERC20. 
+Every token inherits the standard interface IERC20.
+Their implementation was substituted with arrays, which store the information of the balance of each user.
+
+All smart contracts were adopted to be compiled with Solidity version 7.
+Echidna, Celestial and SmarTest had problems with version 8. 
+The eighth version solves the problem regarding algebraic issues: 
+transactions automatically revert in case of any problem during an algebraic operation. 
+In our case, all the smart contracts implemented the "SafeMath", which provides the same functionality check during algebraic operations.
+
+In the case of BZX exploit (\autoref{sec:Exploits:bZX}), which is a vulnerable token,  
+the vulnerable function \texttt{transferFrom} is not changed and Array called \texttt{balances} stores the information of the users balances.
+
+The Uranium exploit (\autoref{sec:Exploits:Uranium}) simplified version involves the three main functions of the attacks 
+\texttt{deposit}, \texttt{withdraw} and \texttt{emergencyWtihdraw}. 
+The struct of the user, which stores the amount of tokens and the reawrds, is not modified.
+In this case, the rewards are not sent to any user, but an array stores the amount of the rewards per each users. 
+
+Cover procol exploit(\autore)
 
 \section{Individual Outcomes per Tool}
 
