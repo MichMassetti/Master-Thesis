@@ -22,56 +22,71 @@ It deals with the individual outcomes per tool, providing details about the runn
 Eventual problems, during those phases, are described per each tool.
 
 Then, a general comparison gives a high-level view of the obtained results.
-This section aims to define which tool had better behaviour in terms of operability, speed and correctness of the analysis. 
-
+This section aims to define which tool had better behavior in terms of operability, speed and correctness of the analysis. 
 
 \section {Experimental Setup}
 The analysis tools were installed and used on a laptop using Ubuntu 20 as the operating system.
-The first step for launching the analysis was the selection of smart contracts. 
-Their vulnerable sections were considered and the safe parts were discarded, while preserving the foundamental logic. 
-The changes applied to the smart contracts have the aim to simplify those and make the analysis faster since the tools have less amount of code to scan. 
+The first step for launching the analysis was the selection of smart contracts.
+Their vulnerable sections were considered and the safe parts were discarded, while preserving the foundamental logic.
+The changes applied to the smart contracts have the aim to simplify those and make the analysis faster since the tools have less amount of code to scan.
 
-The smart contracts were adopted to be tested by all the tools. 
+The smart contracts were adopted to be tested by all the tools.
 The aim was to obtain results from tools having the same targets.
 
-In Solidity the standard for implementing the token is ERC20. 
+In Solidity the standard for implementing the token is ERC20.
 Every token inherits the standard interface IERC20.
-Their implementation was substituted with arrays, which store the information of the balance of each user.
+Their implementations are substituted with arrays, which store the information of the balance of each user.
 
-All smart contracts were adopted to be compiled with Solidity version 7.
-Echidna, Celestial and SmarTest had problems with version 8. 
-The eighth version solves the problem regarding algebraic issues: 
-transactions automatically revert in case of any problem during an algebraic operation. 
+All smart contracts are adapted to be compiled with Solidity version 7.
+Echidna, Celestial and SmarTest had problems with version 8.
+The eighth version solves the problem regarding algebraic issues:
+transactions automatically revert in case of any problem during an algebraic operation.
 In our case, all the smart contracts implemented the "SafeMath", which provides the same functionality check during algebraic operations.
 
-In the case of BZX exploit (\autoref{sec:Exploits:bZX}), which is a vulnerable token,  
-the vulnerable function \texttt{transferFrom} is not changed and Array called \texttt{balances} stores the information of the users balances.
 
-The Uranium exploit (\autoref{sec:Exploits:Uranium}) simplified version involves the three main functions of the attacks 
-\texttt{deposit}, \texttt{withdraw} and \texttt{emergencyWtihdraw}. 
-The struct of the user, which stores the amount of tokens and the reawrds, is not modified.
-In this case, the rewards are not sent to any user, but an array stores the amount of the rewards per each users. 
+The constructors can implement different initialization based on the requirements of the tools.
+Following, some examples on how smart contracts are adapted for running the tests.
 
-Cover procol exploit(\autore)
+The auction of the Aku protocol (\autoref{sec:Exploits:AkuDreams}) functionalities are reduced.
+The user can only buy bids and call the function for processing the refunds.
+Moreover, the owner can call the function \texttt{claimProjectFunds} for claim the funds of the project.
+
+Bzx exploit (\autoref*{sec:Exploits:bZX}) involves a vulnerability in the implementation of the ERC20 standard token interface.
+The functions regarding the transfer of tokens and the estimation of the balance are not changed,
+but the other functionalities, such as mint and burn are not considered.
+
+In the Cover protocol exploit(\autoref{sec:CoverProtocol:Exploit}), the base struct of the pool and its vulnerable function \texttt{deposit} are kept.
+Other functionalities are discarded.
+
+Spartan Protocol (\autoref*{sec:Exploits:Spartan}) is written over one smart contract; imports are avoided.
+The balances of the underlying assets are not estimated, calling the function \texttt{balanceOf} of their smart contracts.
+The balances of the users are stored in an array.
+The variables \texttt{tokenAmount} and \texttt{baseAmount} have the same roles.
+
+The Uranium exploit (\autoref{sec:Exploits:Uranium}) simplified version involves the three main functions of the attacks
+\texttt{deposit}, \texttt{withdraw} and \texttt{emergencyWtihdraw}.
+The struct of the user, which stores the number of tokens and the rewards, is not modified.
+In this case, the rewards are not sent to any user, but an array stores the amount of the rewards per user.
+
+
+Considering an example of reentrancy, DirtyDogs smart contract(\autoref{sec:CoverProtocol:Exploit}) inherits the same version of the ERC777 NFT standard.
+It keeps the vulnerability, but the potentiality of the contract is reduced to the \texttt{ClaimDogs} function.
+The constructor initializes the array which stores the number of tickets per user.
 
 \section{Individual Outcomes per Tool}
-
-This section deals with the eventual problems during the installation and running phase , 
-moreover, the tools outcomes having as objective a specific attack are collected. 
-Per each tool, a table has three parameters; the first one is the number of written lines of code considering the specifications. 
-The part of the code which were copied from the target smart contracts were discarded during the counting. 
+This section deals with the eventual problems during the installation and running phase.
+Moreover, the tools outcomes having as objective a specific attack are collected.
+Per each tool, a table has three parameters; the first one is the number of written lines of code considering the specifications.
+The part of the code which were copied from the target smart contracts were discarded during the counting.
 The second field deals with the execution time of the tool and the last one specifies if the vulnerability was effectively detected.
 
-The code of the exploits was modified to keep the vulnerable aspects, reproducing their logic, but the irrelevant parts were discarded.
+Per each tool with specifications, some examples of specifications are provided.
 
-We kept the same simplified version of the smart contracts for all the tools.
+\subsection*{Manticore} The provided guide on Github (\cite{ManticoreGitHub}) gives a detailed guide for Manticore installation.
+Since it is written in python, we used a virtual environment and we counted around nine libraries for dependences.
+The installation involved basically one command, since it was managed by "pip", a python packet manager.
 
-\paragraph{Manticore} The provided guide on Github (\cite{ManticoreGitHub}) gives a detailed guide for Manticore installation. 
-Since it is written in python, we used a virtual environment and we counted around nine libraries for dependences. 
-The installation involved basically one command, since it was managed by "pip", python packet manager.
-We adopted its default running mode for the attacks involving reentrancy and "Manticore-verifier" running mode for the others. 
-
-The table \autoref*{tab:ManticoreTable} shows the outcames of the analyses per attack; the symbol "--" means that in that case we did not use the 
+The table \autoref*{tab:ManticoreTable} shows the outcomes of the analyses per attack; the symbol "--" means that in that case we did not use the
 "Manticore-verifier" running mode, but the default one, which it does not need a specification file.
 
 \begin{center}
@@ -95,13 +110,28 @@ The table \autoref*{tab:ManticoreTable} shows the outcames of the analyses per a
 \end{table*}
 \end{center}
 
-\paragraph{SmarTest} SmarTest is built on top of VeriSmart tool, so it can be seen like a plug in of these one. Indeed, we run SmarTest as an option of VeriSmart, 
+Its default running mode activates the automatic modules for the detection of reentrancy. So its mode without specifications was used for attacks involving external calls.
+"Manticore-verifier" running mode, the one with specifications, was adopted for the other exploits. 
+
+\autoref*{lst:ManticoreTest} is an exmple of "Manticore-verifier". 
+The objective of the analysis is Cover Protocol (\autoref*{sec:Exploits:CoverProtocol}). 
+Since the tool does not allow the any functionality for taking the old value of a variable for the test, an array of support is introduced \texttt{minersRewardEff}. 
+It stores the rewards per user estimated at the end of the function when the pool is updated.
+
+\begin{lstlisting} [language=Solidity, caption={Manticore Specifications}, label={lst:ManticoreTest}]
+    
+    function crytic_test_check()public view returns (bool){
+        return minersReward[msg.sender]== minersRewardEff[msg.sender];
+
+    }
+\end{lstlisting} 
+
+\subsection*{SmarTest} SmarTest is built on top of VeriSmart tool, so it can be seen like a plug in of these one. Indeed, we run SmarTest as an option of VeriSmart, 
 as the Github guide explains (\cite{SmarTestGitHub}). The tool is built with OCalm, a program language, so we used for the installation "opam", which is a source-based package manager for it.
 An important dependency is Z3, its satisfiability modulo theories (SMT) solver. Solc, the compiler for solidity, is required.
 
-Since it has no the dector for reentrancy, as the table \autoref{tab:SmarTestTable} shows, the attacks involving it were discarded. 
-We adopted just the "assertion" running mode, for obtating valuable results. 
-We fixed a running time threshold of 320 seconds.
+Since it has no the dector for reentrancy, the table \autoref{tab:SmarTestTable} shows the attacks involving external call were not scanned. 
+A running time threshold of 320 seconds was set, because the machine, which ran the test, after that threshold gave bugs or stopped automatically.
 
 \begin{center}
     \begin{table*}
@@ -124,15 +154,27 @@ We fixed a running time threshold of 320 seconds.
         \end{table*}
 \end{center}
 
+The tool can be run with specifications using \texttt{assert} function.
+In a running code, if the boolean statement is false, the transaction reverts.
+The property to be checked is written down in the \texttt{assert}, as \autoref*{lst:SmarTestTest} shows.
+The target is the function \texttt{removeLiquidityForMember} of Spart protocol (\autoref*{sec:Exploits:Spartan}).
+The postcondition is expressed at the end of the function.
 
-\paragraph{Celestial} 
-Celestial is a tool which encompasses two main steps: the translation of the target smart contract in F* and then the running of the formal verification engine. 
-This is the tool that required the most amount of time for installation and usage. 
-It did not cover reentrancy attacks, so those exploits were discarded, moreover, it did not cover the keywords "storage" and "memory", 
+\begin{lstlisting} [language=Solidity, caption={SmarTest Specifications}, label={lst:SmarTestTest}]
+    function removeLiquidityForMember() public returns (uint256 outputBase, uint256 outputToken) {
+    ...    
+    assert(tokenAmount==balanceToken[address(this)]);
+    assert(baseAmount==balanceBase[address(this)]);
+
+    }
+\end{lstlisting} 
+
+\subsection*{Celestial} 
+Celestial is a tool which encompasses two main steps: the translation of the target smart contract in F* and then the running of the formal verification engine.
+This is the tool that required the most amount of time for installation and usage.
+It did not cover reentrancy attacks, so those exploits were discarded; moreover, it did not cover the keywords "storage" and "memory",
 so the "Cover Protocol" exploit was discarded as well. \autoref{tab:CelestialTable} shows the tool could detect the other four vulnerabilities.
-During the running, we used multiple versions of F* and in some cases (as with the "Uranium" exploit) the conversion was not correct so we adjusted the F* code to let it work. 
-
-
+During the running, we used multiple versions of F* and in some cases (as with the "Uranium" exploit) the conversion was not correct, so we adjusted the F* code to let it work. 
 \begin{center}
     \begin{table*}
         \caption{Celestial results}
@@ -154,12 +196,25 @@ During the running, we used multiple versions of F* and in some cases (as with t
     \end{table*}
         
 \end{center}
-\paragraph{Echidna} Echidna is a fuzzer for smart contracts. The tool did have any problem during the installation and worked fluentily. 
-It allows to write the properties in form of function or as statement of "assertion". Both solution were applied depeing on the case.
-For "BZX" and "Spartan" exploits assertion mode was, the other one for the other cases. 
-\autoref{tab:EchidnaTable} states that the tool could detect all the vulnerabilities, 
-but the ones involving external calls, since it discards those.
 
+\autoref{lst:CelestialTest} presents an example of specification file. 
+It is an extract of the celestial file of the BZX protocol (\autoref*{sec:Exploits:bZX}). 
+The content of the function is the same and the postcondition is expressed at the beginning of the target function.
+The specificatons are written as modifiers of the function.  
+
+\begin{lstlisting} [language=Solidity, caption={Celestial Specifications}, label={lst:CelestialTest}]
+
+    function transferPrivate(address _from, address _to, uint _value)
+        public
+        post checkTransfer(balances[_from],new(balances)[_from],balances[_to],new(balances)[_to],_value)
+    {
+        ...
+    }
+\end{lstlisting} 
+\subsection*{Echidna} Echidna is a fuzzer for smart contracts. The tool did have any problems during the installation and worked fluently.
+It allows to write the properties in the form of a function or as a statement of "assertion". Both solution were applied depending on the case.
+\autoref{tab:EchidnaTable} states that the tool could detect all the vulnerabilities,
+but the ones involving external calls, since it discards those.
 
 \begin{center}
     \begin{table*}    
@@ -182,7 +237,40 @@ but the ones involving external calls, since it discards those.
     \end{table*}
 \end{center}
 
-\paragraph{Certora} Since Certora is not an open source tool, the provided documentation is limited. 
+\autoref{lst:EchidnaTest} shows the specification file of the exploit Uranium (\autoref*{sec:Exploits:Uranium}).
+Since it is a fuzzer, it generates random semi-random inputs and uses real values, not symbolic ones.
+For this reason, it needs an initialization.
+This tool does not allow to use of annotations as "old\_value\_of", so the properties are changed to obtain the same result.
+The constructor contains real values, fixed arbitrarily.
+The function that expresses the specification checks the impossibility of obtaining a high bonus with that deposited amount.
+The bonus depends even on the time of staking; consequently, the value in the faction is too high to be achieved in a few transactions.
+The specification is triggered when the reward, the \texttt{radsbalance}, are higher is higher than 55 and the amount of token, \texttt{depositAccount},
+is higher than the original value of 100.
+
+\begin{lstlisting} [language=Solidity, caption={Manticore Specifications}, label={lst:EchidnaTest}]
+    constructor()public {
+        ai=0;
+        radsTot=10000;
+        radsbalance[echidna_caller]=0;
+        userInfo[echidna_caller].amountWithBonus=0;
+        userInfo[echidna_caller].bonus=0;
+        depositAccount[echidna_caller]=100;
+        
+        // staking pool
+        poolInfo=PoolInfo({
+            lpSupply: 0,
+            accRadsPerShare: 0
+            });
+
+    }
+    ...
+   
+    function crytic_test_check()public view returns (bool){
+        return radsbalance[echidna_caller]<=55 || depositAccount[echidna_caller]<100 ;
+    }
+\end{lstlisting} 
+
+\subsection*{Certora} Since Certora is not an open source tool, the provided documentation is limited. 
 Their GitHub (\cite{CertoraGitHub}) has a repository dedicated to tutorials for understanding how to write down the properties. 
 \autoref{tab:CertoraTable} states that the tool could detect all the vulnerabilities, 
 but the ones involving external calls, since it discards those.
@@ -208,11 +296,28 @@ but the ones involving external calls, since it discards those.
     \end{table*}
 \end{center}
 
-\paragraph{SolcVerify} SolcVerify deals with formal verification for smart contracts. 
-Its annotation language does not require a great amount of lines of codes. 
-For working properly, as Celestial, all the involved functions requires specifications. 
-Installation problems occured during the right configuration .NET and the selection of the right version of the external dependences.
-Moreover, the tool had issues for finding the correct path of those in the system.
+As an example of a specification file of Certora, \autoref{lst:CertoraTest} presents the function \texttt{CheckUnderlyingAssets}, called rule, which was not proved by the tool during the analysis of Spart Protocol (\autoref{sec:Exploits:Spartan}).
+As the attack, the output presents a possible solution the sending of funds to the underlying assets to modify the estimation of the number of tokens. 
+Certora requires that a variable environment is declared and passed to the function. 
+The user can set the amount of native tokens to send and the address of the sender.
+
+\begin{lstlisting} [language=Solidity, caption={Manticore Specifications}, label={lst:CertoraTest}]
+    rule CheckUnderlyingAssets(address account) {
+        env e;
+        //e.msg_sender = 
+        //e.msg_value = 
+        removeLiquidityForMember(e);
+    
+        assert balanceBaseOfThis() <= getBaseAmount();
+    
+    }
+\end{lstlisting} 
+
+\subsection*{SolcVerify} SolcVerify deals with formal verification for smart contracts.
+Its annotation language does not require a great amount of lines of code.
+For working properly, as Celestial, all the involved functions require specifications.
+Installation problems occurred during the right configuration .NET and the selection of the right version of the external dependences.
+Moreover, the tool had issues for finding the correct path for those in the system.
 
 \autoref{tab:SolcVerifyTable} shows the tool could detect all the vulnerabilities.
 
@@ -238,7 +343,38 @@ Moreover, the tool had issues for finding the correct path of those in the syste
     
 \end{center}
 
-\paragraph{Slither and Mythril} Slither and Mythil did have any problem during the installation phase and run properly per each attack. 
+An example of the specifications of SolcVerify is presented by \autoref{lst:SolcVerifyTest}.
+The target is DirtyDogs (\autoref{sec:Exploits:DirtyDogs}).
+Its program language expresses specifications with annotations, written on top of each function.
+Each function requires specifications for the correct tool's behavior.
+The annotation \texttt{\_\_verifier\_sum\_uint} makes the sum of the elements contained in the specified mapping.
+
+\begin{lstlisting} [language=Solidity, caption={SolcVerify Specifications}, label={lst:SolcVerifyTest}]
+    /// @notice invariant totalClaimednum == effclaimed
+    /// @notice invariant __verifier_sum_uint(totalClaimed) <= effclaimed
+    contract DirtyDogs is ERC721{
+        uint256 totalClaimednum=0;
+        uint256 effclaimed=0;
+        mapping (address=>uint256)totalClaimed;
+
+        function claimDogs() public {
+            uint256 numbersOfTickets = 5 ;
+            ///@notice postcondition i==numbersOfTickets
+            ///@notice postcondition __verifier_old_uint(effclaimed)==effclaimed+numbersOfTickets
+            for(uint256 i = 0; i < numbersOfTickets; i++) {
+                uint256 mintIndex = totalSupply_();
+                effclaimed++;
+                _safeMint(msg.sender, mintIndex);
+                //msg.sender.call{ value: 0 }("");
+            }
+            totalClaimednum=totalClaimednum+(numbersOfTickets);
+            totalClaimed[msg.sender] = numbersOfTickets+(totalClaimed[msg.sender]);
+        }
+    }
+
+\end{lstlisting} 
+
+\subsection*{Slither and Mythril} Slither and Mythil did have any problem during the installation phase and run properly per each attack. 
 They could detect all the reentrancy issues, but none of the others.
 
 \section{General Comparison}
