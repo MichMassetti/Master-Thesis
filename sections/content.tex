@@ -139,10 +139,10 @@ Smart Contracts without a trusted third party.
 
 The main limitation of those deals with their their inability to interact with the "external world", 
 only the accounts can alterate the state of the systsem. 
-Since they have to be deterministic so that all nodes arrive at the same result for each computation. 
+They have to be deterministic so that all nodes arrive at the same result for each computation. 
 Basically, those cannot get information about "real-world" events on their own. 
-The main reason of that involves that relying on external information could undermine consensus, 
-because external calls return different things at different times. 
+The reason is relying on external information could undermine consensus, 
+because external calls return different things at different times, they are not deterministic.
 For example a smart contract is not allowed to send HTTP requests or interact with any APIs.
 
 More limitations are introduced based on the blockchain, for example Bitcoin does not allow an arbitrary behaviour and the size of those is reduced, 
@@ -944,7 +944,7 @@ a traditional liquidity pool. Both assets are stored within the contract itself,
 rather than a liquidity pool pair of the backing asset to the
 token using a traditional market maker method for exchange and price calculation.
 
-\subsection{The explpoit}
+\subsection{The exploit}
 One of the Surge Token is SurgeBNB, the one which is my focus of analysis.
 \citet{XSurgeBNB} explains in deep how the attack to this contract occured. 
 The team claimed that the attacker had stolen \$5 million in SurgeBNB through a backdoor vulnerability.
@@ -1226,7 +1226,8 @@ We draw it, classifying the tools based on their running mode. \autoref{tab:Tool
     \item tools with specifictation;
     \item tools with multiple running mode.
 \end{itemize}
-The first one covers the ones which can be run with the source code (or bytecodes) of the smart contract without any additional data. Their strategies can detect a predefined group of vulnerabilities. 
+The first one covers the ones which can be run with the source code (or bytecodes) of the smart contract without any additional data. 
+They can detect a predefined group of vulnerabilities. 
 On the other hand, the second group involves the ones which require the user provides specifications for running. The specification can involve a rule to be broken or a property which can be proved or unproved. 
 In our taxonomy, the meaning of "multiple mode running" implies the tools which can be run with and without provided specifications. 
 
@@ -1476,7 +1477,6 @@ The output covers the response of the verification and a generated solidity file
 \paragraph{Limitations} 
 The authors explained their tool implementation focused on the Solidity constructs used in their case studies, therefore it does not cover some Solidity cases. 
 
-Delegatecall, embedded assembly
 It does not take into account syntactic elements like inheritance, abstract contracts, tuple types, delegatecall and  embedded assembly
 
 Most of these only offer syntactic sugar, which CELESTIAL's future iterations should find simple to support.
@@ -1606,7 +1606,7 @@ The currently available annotations are listed below.
 \label{sec:Tools:WithoutSpecification}
 We introduce the second main category of our taxonomy: tools without Specifications.
 
-These do not need any specifications and they based their analyses on preselected strategies. They can be considered "plug \& play", 
+These do not need any specifications and they based their analyses on configured detectors. They can be considered "plug \& play", 
 indeed they work with code (or even bytecode) of the smart contracts, without the developer should code anything for letting them run. 
 Most of the tools that we found during the literary research propose just a warning, depicting the vulnerable lines of code and classifying 
 the vulnerability following their taxonomy or open-source ones.

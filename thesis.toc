@@ -40,7 +40,7 @@
 \contentsline {subparagraph}{\nonumberline Withdraw}{26}{subparagraph*.25}%
 \contentsline {subsection}{\numberline {3.5.2}Properties}{26}{subsection.3.5.2}%
 \contentsline {section}{\numberline {3.6}XSURGE on BSC Chain}{27}{section.3.6}%
-\contentsline {subsection}{\numberline {3.6.1}The explpoit}{27}{subsection.3.6.1}%
+\contentsline {subsection}{\numberline {3.6.1}The exploit}{27}{subsection.3.6.1}%
 \contentsline {subsection}{\numberline {3.6.2}Properties}{28}{subsection.3.6.2}%
 \contentsline {section}{\numberline {3.7}Reentering the Reentrancy Bug: Disclosing BurgerSwap's Vulnerability}{28}{section.3.7}%
 \contentsline {subparagraph}{\nonumberline Brige}{29}{subparagraph*.27}%
@@ -72,11 +72,10 @@
 \contentsline {section}{\numberline {6.1}Threats in real-world exploits}{57}{section.6.1}%
 \contentsline {section}{\numberline {6.2}Tools with Specifications}{57}{section.6.2}%
 \contentsline {section}{\numberline {6.3}Customized and Non-specific Analyses}{59}{section.6.3}%
-\contentsline {section}{\numberline {6.4}Effective Analysis}{59}{section.6.4}%
-\contentsline {chapter}{\numberline {7}Conclusion}{61}{chapter.7}%
-\contentsline {subsection}{\numberline {7.0.1}Critical reﬂection}{61}{subsection.7.0.1}%
-\contentsline {subsection}{\numberline {7.0.2}Outlooks}{61}{subsection.7.0.2}%
-\contentsline {chapter}{\nonumberline Bibliography}{63}{chapter*.37}%
-\contentsline {chapter}{\numberline {A}Appendix}{67}{appendix.A}%
-\contentsline {section}{\numberline {A.1}First Appendix Section}{67}{section.A.1}%
+\contentsline {section}{\numberline {6.4}Effective Analysis}{60}{section.6.4}%
+\contentsline {chapter}{\numberline {7}Conclusion}{63}{chapter.7}%
+\contentsline {section}{\numberline {7.1}Outlooks}{63}{section.7.1}%
+\contentsline {chapter}{\nonumberline Bibliography}{65}{chapter*.37}%
+\contentsline {chapter}{\numberline {A}Appendix}{69}{appendix.A}%
+\contentsline {section}{\numberline {A.1}First Appendix Section}{69}{section.A.1}%
 \providecommand \tocbasic@end@toc@file {}\tocbasic@end@toc@file 

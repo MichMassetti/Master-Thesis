@@ -15,31 +15,35 @@
 %% Version 1.0, 2021-07-03
 
 \Abstract
-A blockchain is essentially a digital ledger of transactions that is duplicated and distributed across the entire network of computer systems on the blockchain.
-Ethereum is considered a "smart contracts platform" which allows the development of smart contract applications.
-Those are self-verifying programs running on top of the blockchain.
+A blockchain is essentially a digital ledger of transactions that is duplicated and distributed across the entire network of computer systems on the blockchain.  It can be considered as a database, storing information electronically in digital format. Blockchains can implement cryptocurrency systems, because of their ability to maintain a secure and decentralized record of transactions. This technology guarantees fidelity and 
+security of a record of data and generates trust without the need for a trusted third party.
 
-Smart contracts are public, distributed and immutable, consequently, developers cannot design security by layer.
-The code must be examined for any potential weaknesses because they could lead to significant financial losses and harm public trust. 
-The regulation of this field is not strict and smart contracts could hold millions of dollars.
+Smart contracts are programs which are self-verifying programs running on top of the blockchain.
+Those are public, distributed and immutable, consequently, developers cannot design security by layers, such as a Firewall or a virtual private network.
+The code must be examined for any potential weaknesses before the deployment because everybody can interact with the program without the opportunity to change any possible bugs after the deployment.
+The regulation of this field is not strict, and smart contracts could hold millions of dollars.
 For these reasons, malicious users computed a great number of attacks, adopting different strategies
-
 To guarantee security, numerous tools have been created, and a large amount of data about vulnerabilities and detection techniques is continually being produced.
 The security analysis tools implement the computer science security techniques, adapted for the blockchain context, such as fuzzing and symbolic execution.
+Ethereum is a blockchain considered a "smart contract platform" because it was one of the first blockchains allowing their development. Nowadays, many blockchains copied part of the infrastructure of Ethereum and those are called "EVM-compatible". 
 
 This thesis is addressed to deepen the field of security in smart contract programming, written in Solidity: 
 the most used and maintained programming language in this field.
-This work presents a collection of tools and real-world exploits 
 
 This work presents a collection of attacks and a collection of tools, selected after a literature research phase. 
-Those are used for scanning real-world exploits that have occurred during the last two years (since 2020).
-The aim is to provide a comparison between those based on real cases. 
+The vulnerable code of smart contracts is explained.  The tools are described based on their documentation and the personal experience during the installation on running during this thesis.
+The analysis has as targets smart contracts involved in real-world exploits that have occurred during the last two years (since 2020). 
+An outcome of the thesis is a comparison of tools based on real-world exploits.
 The comparison involves parameters such as the time of the installation requirements, the time of execution, the configuration of settings and the amount of discovered vulnerabilities.
 Furthermore, the tools are grouped based on their different characteristics, their typology, and even on their running mode. 
-
 
 \chapter* {Acknowledgements}
 I would like to express my gratitude to my supervisors Jonas Schiff, Prof. Bernhard Beckert and Prof. Valentina Gatteschi
 for the oppurtunity to carry out this thesis and the support they provided to my.
-I had written this thesis during my Erasmus in Karlsruhe, I would like to dedicate it to my friends who I met during this amazing experience:
-Nico, oMaria, Michela, Anita, Luigi, Danny, Orhan, the portugues, las Sepias, los Chavales, las Perras.
+
+This thesis represents the end of my master and consequently the end of my studies. 
+I am so happy that I have shared this path with my friends Filippo, Dario and Samu, my compurer engineers team, and Silvia, my sicilian sister, who have always supported me and shared with me the happy and sad times. 
+
+I had written this thesis during my Erasmus in Karlsruhe, so I would like to dedicate it to my friends who I met during this amazing experience:
+
+Michela, Anita, Nico,  Danny the Primitivo, Orhan the Club Mate, Mareike, oMaria, Luigi, Zulema, Carlos el Desaparecido, Jorge el Toro, Alvaro el pato, Nacho la Sepia, Albertino, Nacho, Rou, Tiago, Mario, Vidi, and all the others.

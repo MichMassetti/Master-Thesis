@@ -247,7 +247,7 @@ The bonus depends even on the time of staking; consequently, the value in the fa
 The specification is triggered when the reward, the \texttt{radsbalance}, are higher is higher than 55 and the amount of token, \texttt{depositAccount},
 is higher than the original value of 100.
 
-\begin{lstlisting} [language=Solidity, caption={Manticore Specifications}, label={lst:EchidnaTest}]
+\begin{lstlisting} [language=Solidity, caption={Echidna Specifications}, label={lst:EchidnaTest}]
     constructor()public {
         ai=0;
         radsTot=10000;
@@ -296,12 +296,12 @@ but the ones involving external calls, since it discards those.
     \end{table*}
 \end{center}
 
-As an example of a specification file of Certora, \autoref{lst:CertoraTest} presents the function \texttt{CheckUnderlyingAssets}, called rule, which was not proved by the tool during the analysis of Spart Protocol (\autoref{sec:Exploits:Spartan}).
+As an example of a specification file of Certora, \autoref{lst:CertoraTest} presents the function \texttt{CheckUnderlyingAssets}, called rule, which was not proven by the tool during the analysis of Spart Protocol (\autoref{sec:Exploits:Spartan}).
 As the attack, the output presents a possible solution the sending of funds to the underlying assets to modify the estimation of the number of tokens. 
 Certora requires that a variable environment is declared and passed to the function. 
 The user can set the amount of native tokens to send and the address of the sender.
 
-\begin{lstlisting} [language=Solidity, caption={Manticore Specifications}, label={lst:CertoraTest}]
+\begin{lstlisting} [language=Solidity, caption={Echidna Specifications}, label={lst:CertoraTest}]
     rule CheckUnderlyingAssets(address account) {
         env e;
         //e.msg_sender = 
@@ -386,23 +386,22 @@ In this part, we provide a technical comperison of the tools.
 
 
 \subsection{Installation} 
-\autoref{tab:Installation} collects the info about the installation detalais per each tool. 
+\autoref{tab:Installation} collects the info about the installation details per each tool. 
 
-The running mode involves the way a tool can be run, a tool is classified as "multiple running mode", if its grammar effectivly changes between different modes. For example echidna, it can be run in 
-test mode and in assertion one, in the first case it requires functions with boolean formulas, in the second case the solidity keyword "assertion" in the code.
+The running mode involves the way a tool can be run; a tool is classified as "multiple running mode", if its grammar effectively changes between different modes. For example, echidna, it can be run in
+test mode and in assertion one, in the first case it requires functions with boolean formulas; in the second case the solidity keyword "assertion" in the code.
 
-The external dependences encompass the exteranal elements, so we do not count the amount of libraries of the same language. 
-All the tools require Solc, the solidity compiler. 
-Most of the tools did not have any problem during the installation phase. Celestial and SolcVerify installations had issues.  
+The external dependences encompass the external elements, so we do not count the amount of libraries of the same language.
+All the tools require Solc, the solidity compiler.
+Most of the tools did not have any problems during the installation phase. Celestial and SolcVerify installations had issues.  
 The first one needs F* for running and the selection of its right version is
-based on the tool and the system environment, consequently, it turned like a challenge. 
-On the other hand, the second one involves the usage of Boogie, an intermediate verification language, which requires .NET, (\cite{NET}), 
-an open source, cross-platform for building many kinds of applications mantained by Microsoft. 
-The configuration of the correct version of .NET and the other external dependences was based on the computer enviroment and the tool. 
+based on the tool and the system environment; consequently, it turned out like a challenge.
+On the other hand, the second one involves the usage of Boogie, an intermediate verification language, which requires .NET, (\cite{NET}),
+an open source, cross-platform for building many kinds of applications maintained by Microsoft.
+The configuration of the correct version of .NET and the other external dependences were based on the computer environment and the tool.
 
-Certora operates in Service as a Service (SaaS) mode, so it can be classified as the most compatible tool, but it requires to be connect to internet.
-SmartTest can be run in two modes, but it was not necessary, since the running mode without specifications could not provide any consistent results.
-
+Since Certora operates in Service as a Service (SaaS) mode, it can be considered as the most compatible tool, but the machine requires cannot run offline.
+SmartTest could be run in two modes, but it was not necessary, since the running mode without specifications could not provide any consistent results.
 
 \begin{center}
     \begin{table*}
@@ -426,7 +425,7 @@ SmartTest can be run in two modes, but it was not necessary, since the running m
 \end{center}
 
 \subsection{Outcomes} 
-In this subsection, the outocomes of the tools are compared. 
+In this subsection, the outcomes of the tools are compared. 
 \autoref{tab:Results} has the name of tools as rows and the real-world exploits as columns.
 It shows which tool was able to scan the specified vulnerability involved in the attacks. 
 The caption states the symbols used for the evaluation:
@@ -436,20 +435,18 @@ The caption states the symbols used for the evaluation:
     \item -- stands for "discarded", tha attack was not considered for architectural reason of the tool.
 \end{itemize}
 
+We can state that the tools with specifications could not detect reentrancy in most of the cases.
+SolcVerify is the only one which could provide a result in all cases; moreover, it was the only tool which could detect correctly all the vulnerabilities we provided.
 
-We can state that the tools with specifications could not detect reentrancy in most of the cases. 
-SolcVerify is the only one which could provide a result in all cases, moreover, it was the only tool which could detect correctly all the vulnerabilities we provided.
+Celestial is the tool with more discarded cases.
+The tools without specification could not detect any of the attacks, but the ones involving external calls.
 
-Celestial is the tool with more discarded cases. 
-The tools without specification could not detect any of the attacks, but the ones involving external calls.  
-
-The tools without specifications gave warning in most cases, which can be used as a hint for scanning the vulnerabilities. 
-Echidna and Certora had a similar behaviour, they could not detect the attacks regarding reentrancy.
-
+The tools without specifications gave warnings in most cases, which could be used as a hint for scanning the vulnerabilities.
+Echidna and Certora had similar behavior; they could not detect the attacks regarding reentrancy.
 
 \begin{center}
     \begin{table*}   
-        \caption{Analyses Outocomes per Attack:    
+        \caption{Analyses Outcomes per Attack:    
         \checkmark: Found vulenrablity, \xmark: Not found vulnerability, --: Discarded }
         \label{tab:Results}
         \begin{tabular}{ccccccccc}
@@ -469,27 +466,27 @@ Echidna and Certora had a similar behaviour, they could not detect the attacks r
     \end{table*}
 \end{center}
 
-\autoref{tab:Outcomes} provides high level detailes about the analyses per tool. 
+\autoref{tab:Outcomes} provides high level details about the analyses per tool. 
 "Constructive output" is referred to the type of output of the tool. 
 We have three types:
 \begin{enumerate}
     \item list of functions: the sequence of operations to execute for forcing the vulnerability is expressed;
-    \item list of unproved tests: the output provides only the name of the failed test;
+    \item list of unproven tests: the output provides only the name of the failed test;
     \item warnings: the tool displays just warnings.
 \end{enumerate}
 
-SolcVerify and Celestial, within the tools allowing custom analyses, are the only ones which do not provide any additional information. 
-Manticore and Mythril display, when it is possible, the list of functions, but in the case of reentrancy just a warnings of possible risk. 
+SolcVerify and Celestial, within the tools allowing custom analyses, are the only ones which do not provide any additional information.
+Manticore and Mythril display, when it is possible, the list of functions, but in the case of reentrancy just a warnings of possible risk.
 
-Reagading the speed of the tools, Celestial tets times are assumed with zero delay between the generation of the F* code and the running of the F* module. 
+Regarding the speed of the tools, Celestial test times are assumed with zero delay between the generation of the F* code and the running of the F* module.
 The time spent for running by command line the two different operations could be avoided by automating the process.
-The slowest tools are the ones involving symbolic execution. Mythtil needs a similar amount of time as Manticore and SmartTest, even if it does not allow custom analyses. 
-Slither is fastest one, but specifications are not provided per test and no additional information are displayed about the scanned vulnerability.
+The slowest tools are the ones involving symbolic execution. Mythtil needs a similar amount of time as Manticore and SmartTest, even if it does not allow custom analyses.
+Slither is the fastest one, but specifications are not provided per test and no additional information is displayed about the scanned vulnerability.
 \begin{center}
     \begin{table*}
         \footnotesize
         \caption{Analyses Outcomes: 
-        LoF: List of functions, LoU: List of unproved tests, W: Warnings}
+        LoF: List of functions, LoU: List of unproven tests, W: Warnings}
         \label{tab:Outcomes}
         \begin{tabular}{ccccc}
         \toprule
@@ -508,35 +505,35 @@ Slither is fastest one, but specifications are not provided per test and no addi
     \end{table*}
 \end{center}
 
-Within the tools with specifications, another parameter for the comparison is the number of lines of codes required for defining the specifications. 
-The ones which required the least number of lines are the ones which allowed those definitions by using "assertion", so SmartTest and Echidna. 
-However this approach does not have consistent results, Echidna worked better using the other mode. 
+Within the tools with specifications, another parameter for comparison is the number of lines of code required for defining the specifications.
+The ones which required the least number of lines were the ones which allowed those definitions by using "assertion" or functions returning a boolean statement: SmartTest, Echidna and Manticore.
+Howeve, this approach does not have consistent results. Echidna worked better using the other mode.
 
-Echidna and Manticore have similar results since they adopt the same grammar for expressing the specifications. 
+Echidna and Manticore have similar results since they adopt the same grammar for expressing the specifications.
 Those are written in the form of a function which returns a boolean value.
 
-Certora had the most amount of lines. A reason for that is its elasticity for defining specifications in terms of functions. 
-SolcVerify, with the formal verification tools, had the best behaviour in this case, because of its annotation language. 
-Considering the spefication files entirely, Celestial had the longer ones, because the specifications are written on the code.
+Certora had the most amount of lines. A reason for that is its elasticity for defining specifications in terms of functions.
+SolcVerify, with the formal verification tools, had the best behavior in this case, because of its annotation language.
+Considering the specification files entirely, Celestial had the longer ones, because the specifications are written in the code.
 
 \chapter{Discussion}
 \label{ch:Discussion}
 
 The aim of this chapter is to interpret and explain the obtained results. 
 It provides insights on the found threats, having an high level overview. 
-Same approach about the tools, which are grouped based on their startegies, for focusing their approach and understaning their behavior based on the exploits.
+Same approach about the tools, which are grouped based on their typology, for focusing their approach and understaning their behavior based on the exploits.
 
 \section{Threats in real-world exploits}
 
 The approach for the choice of the attacks covers their effectiveness in terms of created damage. 
 It is estimated based on the stolen amount of money and the possibility to recover the lack of security. 
 The targets of those are liquidity pools, automated market makers or NFTs markets. 
-The decentralised finance investments are driven by the community, therefore, different trends can explode. 
+Crypto investments are driven by the community, therefore, new solutions would drive the markets.
 Consequently, the attackers adapt their target based on that.
 
 A class of attacks involves external calls, particularly reentrancy issues. 
 One of the most cited attacks of this type is the DAO attack that happened in 2016. 
-Since that, developers should verify problems regarding external calls, but still, nowadays those could happen. 
+Since that, developers should verify problems regarding external calls, but still, nowadays those are still feasible. 
 
 The other exploit deal with problems regarding the sending of possible compensation to users. 
 "Uranium", "Spartan" and "Cover" exploits are based on the manipulation of the estimation of rewards. 
@@ -556,7 +553,7 @@ Possible attacks can involve the distribution of possible rewards or the process
 
 \section{Tools with Specifications}
 The tools with specifications allow the users to customize the analysis. 
-In this section, those are grouped based on their startegies. 
+In this section, those are grouped based on their typology. 
 
 The considered tools cover the following security approach:
 \begin{enumerate}
@@ -565,16 +562,17 @@ The considered tools cover the following security approach:
     \item formal verification. 
 \end{enumerate} 
 
-\autoref{tab:Strategies} depicts the outcomes of the analysis, grouping the tools based on their strategies. 
-This approach acilitate the comprehension of the behavior of the tecniques in this field.
+\autoref{tab:Strategies} depicts the outcomes of the analysis, grouping the tools based on their typologies. 
+The first column is the typology of the tool; the second one is the percentage of detected attacks by the tools of that category. 
+The last column has the same role as the previous one, but the considered attacks for estimating the percentage are the ones not involving malicious external calls.
 
 \begin{center}
     \begin{table*}
-        \caption{Outcomes based on strategies}
+        \caption{Outcomes based on the typology}
                 \label{tab:Strategies}
                 \begin{tabular}{cccl}
                 \toprule
-                    Strategy & Execution Time (seconds) & Found percentage & No reentrancy\\
+                    Typology & Execution Time (seconds) & All attacks & No reentrancy\\
                     \midrule
                     Fuzzing & 20,60 & 63\% & 100\% \\ 
                     Formal Verification  & 11,67 & 70\% & 93\% \\ 
@@ -585,29 +583,33 @@ This approach acilitate the comprehension of the behavior of the tecniques in th
     
 \end{center}
 
-Formal verification is a very powerful security approach, intending to prove or unproved the given specification. 
+
+Formal verification is a very powerful security approach, intending to prove or unproven the given specification. 
 This perfectly fits with our research goals.
 We involved three different tools, in implementing this approach, for our purpose. 
 
-Certora is the only one which provides a complete list of functions for breaking the rules, rather than just a warning. 
-On the other hand, SolcVerify could detect the vulnerabilities involving external call functions, indeed reentrancy. A powerful aspect of this tool is its possibility to express 
+Certora is the only one, within them, which provides a complete list of functions for breaking the rules, rather than just a list of unproven tests. 
+On the other hand, SolcVerify could detect vulnerabilities involving external call functions, indeed reentrancy. A powerful aspect of this tool is its possibility to express 
 loop invariants, the other ones do not allow it.
 Considering the grammar for expressing the specifications, SolcVerify is the one which needs the least amount of lines of code, indeed it involves a notification language.
 
 Certora is the only tool which is not open-source, for our purpose we adopted its free version.
 Its specification language is described by its developers' group as "rule-based". 
-It differs from the other two tools under this aspect, because this way gives more elasticity to the user and defines more specific cases.
-The rule is composed of some function calls and it concludes with an assertion or more. The user is allowed to test a specific case, 
+It differs from the other two tools in this aspect, because the rules are written in a similar way to a function in solidity, consequently, it is more user friendly, and defines more specific cases.
+The rule is composed of some function calls and it concludes with an assertion or more, which contains the bool statement of the properties. 
+The user is allowed to test a specific case, 
 using "require" and the possibility to set up a proper environment. 
+A powerful aspect is the possibility to express the assert of the rule in terms of boolean statements and quantifiers as well.
 
 Celestial and SolcVerify needed specifications for all the functions for working properly. 
 
 Echidna is the fuzzer and it had similar results to the formal verification tools. 
 It had a bit worse performance in terms of speed and amount of detection. If the exploits with external calls are discarded, this tool could detect all of those. 
-It provides the list of functions for forcing the exploit. Since it is based on random inputs, we had cases that run at different times, and the inputs of the function change per time. 
+It provides the list of functions for forcing the exploit. Since it is based on random inputs, different runnings provided different function inputs.
 
 Symbolic execution is the approach which required the most amount of time. Manticore had a better approach than SmartTest because it allow the detection of malicious external calls. 
-The tools had a fixed time out for not wasting time, in some cases it expired. 
+Symbolic execution tools try to explore all possible solutions, consequently, they would not have any upper limit of time for exploring all possible cases. 
+In some cases, a timeout is fixed by the tools themselves.
 
 In terms of effectiveness and speed, formal verification had the best results.
 A strength of the fuzzer and the symbolic execution tools is their outcomes, which display even how the attack is computed. It could help the developer for fixing the bug.
@@ -621,7 +623,7 @@ The other two approaches are more effective in the case of custom analysis based
 
 
 \section{Customized and Non-specific Analyses} 
-The attackers exploited a specific bug or lack of security in the logic of programs. For scanning those, the involved tools adopted different strategies, allowing custom analysis. 
+The attackers exploited a specific bug or lack of security in the logic of programs. For scanning those, the involved tools adopted different typologies, allowing custom analysis. 
 
 The specifications allowed the user to express the requirements of the program. The accuracy of the analysis depends on the definition of the specifications. 
 Their correctness is fundamental for the effectiveness of the results. 
@@ -632,7 +634,7 @@ The users should consider this aspect during the analysis.
 
 Tools of this group, as our results demonstrate, do not have the capability of scanning vulnerabilities involving the logic of the programs. 
 However, those obtained consistent results regarding the reentrancy cases. 
-An example is Slither, which for every comparison of block time stamp gives a warning. However, developers intentionally consider this case and develop it considering the risks. 
+An example is Slither, which for every comparison of block time stamps gives a warning. However, developers intentionally consider this case and develop it considering the risks. 
 
 On the other hand, the ones with specifications mostly discarded the malicious external calls. 
 SolcVerify was the only tool which could provide the possibility of reentrancy detection. Echidna, as Certora, developers teams specified the tools detect external calls, but only if the code of the attack is provided as well.
@@ -640,7 +642,7 @@ However, this approach might be effective for checking a possible attack, so the
 
 Manticore could bridge this gap by adopting two different running modes, so the user, knowing the limitation of each way of analysis, can combine those for obtaining a valuable result.
 
-The strengths of this group of tools without specifications involve their speed, Slither was the fastest tool, installation and plug and play approach. 
+The strengths of this group of tools without specifications involve their speed, Slither was the fastest tool, installation and plug-and-play approach. 
 Those just require the solidity file of the smart contracts. A user can use those for checking possible reentrancy risks and as the first step of the analysis.
 
 \section{Effective Analysis}
@@ -651,7 +653,7 @@ We run those per time focusing on the results of each one, and providing a compa
 During an audit or a security report, a tester runs multiple of those for discovering vulnerabilities and bugs. 
 A better way to fulfil this goal is using a combination of those. 
 The tools without specification have, in our experience, an easier installation and usage, 
-due to a reduced amount of external dependences and writing down specification is not required.
+due to a reduced amount of external dependencies and writing down specifications is not required.
 Those can detect well know vulnerabilities and cover a predefined set of those. 
 
 Some of the tools with specifications we dealt with had some limitations regarding the external calls: just SolcVerify covered this set of vulnerabilities. 
@@ -664,18 +666,23 @@ Since the grammar of this is similar to Manticore, an efficient solution would b
 
 Formal verification resulted powerful for scanning possible problems, but SolcVerify and Celestial require to 
 write down the specification for all the contracts for obtaining a consistent result. 
-Certora has the strength of having implemented libraries which are mostly used in real-world cases (as OpenZeppelin ones,Aeve protocol). 
+Certora has the strength of having implemented libraries which are mostly used in real-world cases (such as OpenZeppelin ones). 
 A facilitating aspect of this tool is the possibility to write down the specifications on just the properties we want to check and 
 the possibility to code those in terms of function. It allows for the definition of specific preconditions, adding conditions to the environment. 
-Another strenght of this tool is the possibility of using it as SaaS, consequently, the computational effort is demanded to another computer.
+A strength of this tool is the possibility of using it as SaaS, consequently, the computational effort is demanded from another computer and the installation phase is avoided.
 
-SolcVerify is the tool which obtained the best results in term of discovering vulnerabilities. One of the drawback we found is the è
+SolcVerify is the tool which obtained the best results in terms of discovering vulnerabilities. 
 
 A possible effective combination can include Echidna and Certora for covering the part of bugs in the logic and possible attacks, 
-plus Slither for verifying the absence of possible reentrancy. 
+plus Slither for verifying the absence of possible reentrancy.  
 
-In term of effectivenss of discovering vulnerabilities, SolcVerify had the best behaviour, 
-but it had issues during the installation phase and writing down the specification per each function increases depending the size of the smart contract.
-The presented combination is based on the facility during the writing the specifications and installation.
-
+In terms of the effectiveness of discovering vulnerabilities, SolcVerify had the best behaviour, 
+but it had issues during the installation phase and writing down the specification per each function increases depending on the size of the smart contract. 
+Another drawback is its output, which provides just the list of proven or unproven tests. 
+If the specifications are not written correctly, or the tool cannot handle the computation, it states that the tests are not proven, without stating that a problem occurred. 
+Consequently, the developer cannot understand if the tool gave a negative result because of a bad implementation or because of the test.
+On the other hand, Echidna and Certora specify the list of functions for breaking the specifications. 
+Consequently, the outcomes state what is exactly the vulnerability and how to attack it. 
+If the developer provides the attacker contract as well, the tools can even state if the attack is effective.
+The presented combination is based even on the facility during the writing of the specifications and installation.
 
